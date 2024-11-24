@@ -14,6 +14,7 @@ function App() {
   const [count, setCount] = useState(0)
 
   return (
+    <>
     <Router future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
       <div>
         <Header />
@@ -25,6 +26,8 @@ function App() {
         </Routes>
       </div>
     </Router>
+    <div>Hello World</div>
+    </>
   );
 }
 
