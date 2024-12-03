@@ -36,7 +36,7 @@ const CountdownItem = ({ unit, text }) => {
             <div className="relative w-full overflow-hidden text-center">
                 <span
                     ref={ref}
-                    className="block text-6xl font-bold text-white"
+                    className="block text-7xl font-bold text-white"
                 >
                     {time.toString().padStart(2, "0")}
                 </span>
@@ -46,7 +46,7 @@ const CountdownItem = ({ unit, text }) => {
 };
 
 const Colon = () => (
-    <span className="text-6xl font-bold text-white">:</span>
+    <span className="text-7xl font-bold text-white">:</span>
 );
 
 export default Countdown;
@@ -71,9 +71,12 @@ const useTimer = (unit) => {
         } else {
             return Math.floor((distance % MINUTE) / SECOND);
         }
-    }
+    };
 
-    const [time, setTime] = useState(getNewTime());
+    const [time, setTime] = useState(() => {
+        timeRef.current = getNewTime();
+        return timeRef.current;
+    });
 
     useEffect(() => {
         intervalRef.current = setInterval(handleCountdown, 1000);
@@ -82,7 +85,7 @@ const useTimer = (unit) => {
     }, []);
 
     const handleCountdown = async () => {
-        let newTime = getNewTime();
+        const newTime = getNewTime();
 
         if (newTime !== timeRef.current) {
             // Exit animation
@@ -106,3 +109,60 @@ const useTimer = (unit) => {
 
     return { ref, time };
 };
+
+
+// const useTimer = (unit) => {
+//     const [ref, animate] = useAnimate();
+
+//     const intervalRef = useRef(null);
+//     const timeRef = useRef(0);
+//     const isInitialRender = useRef(true);
+
+//     const getNewTime = () => {
+//         const end = new Date(COUNTDOWN_FROM);
+//         const now = new Date();
+//         const distance = Math.max(0, end - now);
+
+//         if (unit === "Day") {
+//             return Math.floor(distance / DAY);
+//         } else if (unit === "Hour") {
+//             return Math.floor((distance % DAY) / HOUR);
+//         } else if (unit === "Minute") {
+//             return Math.floor((distance % HOUR) / MINUTE);
+//         } else {
+//             return Math.floor((distance % MINUTE) / SECOND);
+//         }
+//     };
+
+//     const [time, setTime] = useState(getNewTime());
+
+//     useEffect(() => {
+//         intervalRef.current = setInterval(handleCountdown, 1000);
+
+//         return () => clearInterval(intervalRef.current || undefined);
+//     }, []);
+
+//     const handleCountdown = async () => {
+//         const newTime = getNewTime();
+
+//         if (newTime !== timeRef.current) {
+//             await animate(
+//                 ref.current,
+//                 { y: ["0%", "-50%"], opacity: [1, 0] },
+//                 { duration: 0.35 }
+//             );
+
+//             timeRef.current = newTime;
+//             setTime(newTime);
+
+//             await animate(
+//                 ref.current,
+//                 { y: ["50%", "0%"], opacity: [0, 1] },
+//                 { duration: 0.35 }
+//             );
+//         }
+//     };
+
+//     return { ref, time };
+// };
+
