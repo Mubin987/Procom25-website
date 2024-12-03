@@ -1,8 +1,11 @@
 import React from 'react'
+import Countdown from '../components/Countdown'
 
 const Home = () => {
   return (
-    <div>Home</div>
+    <div>
+      <Countdown />
+    </div>
   )
 }
 
