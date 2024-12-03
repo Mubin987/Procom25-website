@@ -1,10 +1,10 @@
 import React from 'react'
-import Countdown from '../components/Countdown'
+import Hero from '../components/Home/Hero'
 
 const Home = () => {
   return (
     <div>
-      <Countdown />
+      <Hero/>
     </div>
   )
 }
