@@ -4,47 +4,28 @@ import Countdown from "./Countdown";
 const Hero = () => {
     return (
         <div className='flex'>
-            <div className='w-[35%]'>
-                <img src="/Procom-Logo.png" alt="" className='opacity-40 w-[440px] ' />
+            <div className='basis-[25%]'>
+                <img src="/Procom-Logo.png" alt="" className='opacity-40 h-screen' />
             </div>
-            <div className='flex flex-col justify-center'>
-                <p style={{...styles.commonStyle,  ...styles.presents}} className=''>FAST-NUCES PRESENTS,</p>
-                <h1 style={{...styles.commonStyle, ...styles.headingProcom}} className=''>PROCOM'25</h1>
-                <div className="flex flex-col items-end my-8">
-                    <p className='font-bold text-[23px] my-2 tracking-wider'>READY TO COMPETE?</p>
-                    <Link to="/register"><button className="px-12 py-2 text-[20px] tracking-wider border-2 border-[#23A7F4] text-[#23A7F4] font-bold rounded-lg hover:bg-[#23A7F4] hover:text-black transition duration-300">
-                        REGISTER NOW</button>
-                    </Link>
+            <div className='basis-[75%] flex flex-col justify-center'>
+                <div className='flex items-center justify-center  basis-[75%] p-4'>
+                    <div>
+                        <h1 className='text-4xl font-bold text-left [text-underline-position:from-font] [text-decoration-skip-ink:none] bg-gradient-to-r from-[#23A7F4] to-[#0D32C5] text-transparent bg-clip-text'>FAST-NUCES PRESENTS,</h1>
+                        <h1 className=' text-[9rem] font-bold leading-[120px] text-left [text-underline-position:from-font] [text-decoration-skip-ink:none] bg-gradient-to-r from-[#0D32C5] to-[#23A7F4] text-transparent bg-clip-text'>PROCOM'25</h1>
+                        <div className='flex w-full flex-col items-end mt-5'>
+                            <p className=' text-[20px] font-extrabold leading-[25.2px] tracking-[0.07em] text-left [text-underline-position:from-font] [text-decoration-skip-ink:none]'>READY TO COMPETE?</p>
+                            <Link to="/register">
+                                <button className='border-[2px] border-[solid] border-[#22A3F2] text-[#22A3F2] hover:rounded duration-200 rounded-[10px] py-1 px-10 mt-1 text-[18px] font-bold leading-[24.31px] text-left [text-underline-position:from-font] [text-decoration-skip-ink:none]'>REGISTER NOW</button>
+                            </Link>
+                        </div>
+                    </div>
                 </div>
-                <div className='flex-2 relative'>
+                <div className='w-full  flex justify-end basis-[25%]'>
                     <Countdown />
                 </div>
             </div>
         </div>
     )
-}
-
-const styles = {
-    commonStyle: {
-        background: "linear-gradient(270deg, #0D32C5 0%, #23A7F4 100%)",
-        backgroundClip: "text",
-        WebkitBackgroundClip: "text",
-        webkitTextFillColor: "transparent",
-        fontStyle: "normal",
-        fontWeight: 700,
-        lineHeight: "normal"
-    },
-    headingProcom: {
-        background: "linear-gradient(270deg, #0D32C5 0%, #23A7F4 100%)",
-        fontSize: "168px",
-        lineHeight: 0.9,
-        marginLeft: "-7px"
-    },
-    presents: {
-        background: "linear-gradient(270deg, #23A7F4 0%, #0D32C5 100%)",
-        fontSize: "55px",
-        marginBottom: "-8px"
-    }
 }
 
 export default Hero

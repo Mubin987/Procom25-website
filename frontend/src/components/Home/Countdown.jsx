@@ -11,7 +11,7 @@ const DAY = HOUR * 24;
 
 const Countdown = () => {
     return (
-        <div className="fixed bottom-6 right-4">
+        <div className="">
             <div className="flex gap-2 items-end">
                 <CountdownItem unit="Day" text="days" />
                 <Colon />
