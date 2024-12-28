@@ -7,9 +7,8 @@ export default {
   theme: {
     extend: {
       colors: {
-        themeBg: "#161616",
-        themeWhite: "rgba(255, 255, 255, 0.82)", // White with 82% opacity
-        themeBlue: "#0E3BC8",
+        themeBlue: "#1F95ED",
+        themeDBlue: "#0E3AC8",
       },
     },
   },

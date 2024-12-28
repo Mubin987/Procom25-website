@@ -1,28 +1,26 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import Countdown from "./Countdown";
+import ProcomSVG from './ProcomSVG';
 const Hero = () => {
     return (
-        <div className='flex'>
-            <div className='basis-[25%]'>
-                <img src="/Procom-Logo.png" alt="" className='opacity-40 h-screen' />
-            </div>
-            <div className='basis-[75%] flex flex-col justify-center'>
-                <div className='flex items-center justify-center  basis-[75%] p-4'>
-                    <div>
-                        <h1 className='text-4xl font-extrabold text-left [text-underline-position:from-font] [text-decoration-skip-ink:none] bg-gradient-to-r from-[#0D32C5] to-[#23A7F4]  text-transparent bg-clip-text'>FAST-NUCES PRESENTS,</h1>
-                        <h1 className=' text-[10rem] font-extrabold leading-[140px] text-left [text-underline-position:from-font] [text-decoration-skip-ink:none] bg-gradient-to-r from-[#23A7F4] to-[#0D32C5] text-transparent bg-clip-text'>PROCOM'25</h1>
-                        <div className='flex w-full flex-col items-end mt-5'>
-                            <p className=' text-[20px] font-extrabold leading-[25.2px] tracking-[0.07em] text-left [text-underline-position:from-font] [text-decoration-skip-ink:none]'>READY TO COMPETE?</p>
-                            <Link to="/register">
-                                <button className='border-[2px] border-[solid] border-[#22A3F2] text-[#22A3F2] hover:rounded duration-200 rounded-[10px] py-1 px-10 mt-1 text-[18px] font-bold leading-[24.31px] text-left [text-underline-position:from-font] [text-decoration-skip-ink:none]'>REGISTER NOW</button>
-                            </Link>
-                        </div>
+        <div className='h-screen w-full flex flex-col justify-center items-center'>
+            <ProcomSVG />
+            <div className='w-full p-10 px-20 flex justify-end items-end h-3/4'>
+                <div className='bg-[linear-gradient(270deg,#0D32C5_0%,#1768DB_37.9%,#1E8AE9_78.9%,#23A7F4_100%)] bg-clip-text text-transparent font-bold'>
+                    <h1 className='text-4xl'>FAST-NUCES PRESENTS,</h1>
+                    <h1 className='text-[9rem] leading-[1]'>PROCOM'25</h1>
+                    <p className='text-themeDBlue text-end text-sm tracking-widest'>READY TO COMPETE?</p>
+                    <div className='flex justify-end'>
+                        <Link to="/register" className=''>
+                            <button className='text-lg bg-[linear-gradient(90deg,_#218EF1_0%,_#1865DD_50%,_#0E3AC8_100%)] [box-shadow:6px_4px_11.7px_0px_#00000040] font-bold text-white px-6 py-1 rounded-full'>Register Now</button>
+                        </Link>
                     </div>
                 </div>
-                <div className='w-full  flex justify-end basis-[25%]'>
-                    <Countdown />
-                </div>
+            </div>
+            <div className='w-full h-1/4 flex flex-col gap-2 justify-end items-center p-5'>
+                <Countdown />
+                <h1 className='tracking-[0.1em] text-xl'>WE MAKE <span className='text-[#4E95EA] text-4xl'>IT</span> HAPPEN</h1>
             </div>
         </div>
     )
