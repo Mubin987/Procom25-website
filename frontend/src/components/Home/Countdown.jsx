@@ -2,7 +2,7 @@ import { useAnimate } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
 // NOTE: Change this date to whatever date you want to countdown to :)
-const COUNTDOWN_FROM = "2024-12-5";
+const COUNTDOWN_FROM = "2024-12-30";
 
 const SECOND = 1000;
 const MINUTE = SECOND * 60;
@@ -84,21 +84,27 @@ const useTimer = (unit) => {
 
         if (newTime !== timeRef.current) {
             // Exit animation
-            await animate(
-                ref.current,
-                { y: ["0%", "-50%"], opacity: [1, 0] },
-                { duration: 0.35 }
-            );
+            // await animate(
+            //     ref.current,
+            //     {
+            //         y: ["0%", "-50%"],
+            //         opacity: [1, 0.5]
+            //     },
+            //     { duration: 0.35 }
+            // );
 
             timeRef.current = newTime;
             setTime(newTime);
 
             // Enter animation
-            await animate(
-                ref.current,
-                { y: ["50%", "0%"], opacity: [0, 1] },
-                { duration: 0.35 }
-            );
+            // await animate(
+            //     ref.current,
+            //     {
+            //         y: ["50%", "0%"],
+            //         opacity: [0.5, 1]
+            //     },
+            //     { duration: 0.35 }
+            // );
         }
     };
 
