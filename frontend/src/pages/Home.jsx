@@ -1,16 +1,12 @@
 import React from 'react'
 import Hero from '../components/Home/Hero'
-import Carousel from '../components/Home/carousel/Carousel'
+import Feature from '../components/Home/Feature'
 
 const Home = () => {
   return (
     <div>
       <Hero/>
-      <Carousel slides={[
-        "https://picsum.photos/800/400",
-        "https://picsum.photos/800/401",
-        "https://picsum.photos/800/402",
-      ]} />
+      <Feature />
     </div>
   )
 }

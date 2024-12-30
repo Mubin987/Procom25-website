@@ -88,8 +88,8 @@ const Carousel = (props) => {
     } = usePrevNextButtons(emblaApi)
 
     return (
-        <div className="flex justify-center w-[100%]">
-            <div className="flex items-center w-[60%]">
+        <div className="flex justify-center w-[100%] mt-10">
+            <div className="flex items-center w-[55%]">
                 <PrevButton onClick={onPrevButtonClick} disabled={prevBtnDisabled} />
                 <div className="embla w-[70%]">
                     <div className="flex-1 embla__viewport" ref={emblaRef}>
