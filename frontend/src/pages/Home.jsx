@@ -6,11 +6,12 @@ const Home = () => {
   return (
     <div>
       <Hero/>
-      <Carousel slides={[
+      {/* <Carousel slides={[
         "https://picsum.photos/800/400",
         "https://picsum.photos/800/401",
         "https://picsum.photos/800/402",
-      ]} />
+      ]} /> */}
+      
     </div>
   )
 }
