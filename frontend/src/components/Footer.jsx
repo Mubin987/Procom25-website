@@ -4,7 +4,7 @@ import { FaInstagram, FaLinkedinIn, FaFacebookF } from "react-icons/fa";
 
 const Footer = () => {
     return (
-        <footer className='text-sm py-6 bg-[#161616] w-full text-white flex flex-col justify-between'>
+        <footer className='text-sm py-6 bg-[#161616] w-full text-white flex flex-col justify-between mt-auto'>
             <div className='px-8 pt-4'>
                 <img src="/procom25logo.png" alt="PROCOM'25"
                     className=''
