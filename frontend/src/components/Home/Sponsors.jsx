@@ -79,9 +79,10 @@ const ReviewCard = ({
 
 const Sponsors = () => {
     return (
-        <section className='w-full flex flex-col items-center justify-center gap-6 my-5 p-4'>
+        <section className='w-full flex flex-col items-center justify-center gap-6 my-5 p-4 overflow-hidden'>
             <Heading1 text='OUR SPONSORS' />
-            <div>
+            {/* <div className='bg-[linear-gradient(90deg,_#1F95ED_0%,_#2169D4_100%)]'> */}
+            <div className=''>
                 <Marquee pauseOnHover className="[--duration:20s]">
                     {firstRow.map((review) => (
                         <ReviewCard key={review.username} {...review} />

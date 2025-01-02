@@ -19,7 +19,7 @@ const Card = ({ heading, text, image, link }) => (
 const Competitions = () => {
     return (
         <section className='w-full flex flex-col items-center justify-center gap-2 my-5 p-4'>
-            <h1 className='font-extrabold bg-clip-text text-transparent bg-[linear-gradient(90deg,_#434242_25.4%,_#2C2C2C_78.4%,_#161616_100%)] text-4xl sm:text-5xl py-2 text-center'>EXPLORE <span className='font-bold bg-clip-text text-transparent bg-[linear-gradient(180deg,_#199DDF_0%,_#145BD5_100%)] text-4xl sm:text-6xl'>PROCOM'S </span> DYNAMIC COMPETITIONS – <br /> CHOOSE YOUR ARENA</h1>
+            <h1 className='font-extrabold w-4/5 bg-clip-text text-transparent bg-[linear-gradient(90deg,_#434242_25.4%,_#2C2C2C_78.4%,_#161616_100%)] text-4xl sm:text-5xl py-2 text-center'>EXPLORE <span className='font-bold bg-clip-text text-transparent bg-[linear-gradient(180deg,_#199DDF_0%,_#145BD5_100%)] text-4xl sm:text-6xl'>PROCOM'S </span> DYNAMIC COMPETITIONS – CHOOSE YOUR ARENA</h1>
             <div className='flex flex-col gap-4 my-2'>
                 {[
                     {
