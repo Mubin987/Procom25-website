@@ -7,6 +7,9 @@ export default {
   ],
   theme: {
   	extend: {
+		backgroundImage: {
+        	'gradient-text': 'linear-gradient(270deg, #0D32C5 0%, #1768DB 37.9%, #1E8AE9 78.9%, #23A7F4 100%)',
+      	},
   		colors: {
   			themeBlue: '#1F95ED',
   			themeDBlue: '#0E3AC8',
