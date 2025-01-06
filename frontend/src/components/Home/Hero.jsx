@@ -4,7 +4,7 @@ import Countdown from "./Countdown";
 import ProcomSVG from './ProcomSVG';
 import '../../index.css'
 
-const Hero = () => {
+const Hero = ({pageType}) => {
     return (
         <div className='h-screen w-full flex flex-col justify-center items-center'>
             <ProcomSVG className='responsive-svg' />
@@ -21,7 +21,7 @@ const Hero = () => {
                 </div>
             </div>
             <div className='w-full h-1/4 flex flex-col gap-2 justify-end items-center p-5'>
-                <Countdown />
+                <Countdown pageType={pageType}/>
                 <h1 className='tracking-[0.1em] text-xl'>WE MAKE <span className='text-[#4E95EA] text-4xl'>IT</span> HAPPEN</h1>
             </div>
         </div>

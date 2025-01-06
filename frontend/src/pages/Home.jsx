@@ -8,7 +8,7 @@ import Sponsors from '../components/Home/Sponsors'
 const Home = () => {
   return (
     <div>
-      <Hero/>
+      <Hero pageType={"Home"} />
       <Feature />
       <OurLegacy />
       <Competitions />

@@ -156,20 +156,14 @@ const CarouselPrevious = React.forwardRef(({ className, variant = "outline", siz
       ref={ref}
       variant={variant}
       size={size}
-      className={cn(
-        "absolute h-8 w-8 rounded-full",
-        orientation === "horizontal"
-          ? "-left-12 top-1/2 -translate-y-1/2"
-          : "-top-12 left-1/2 -translate-x-1/2 rotate-90",
-        className,
-        "md:-left-10", // Adjust position for medium screens and above
-        "lg:-left-8"   // Adjust position for large screens and above
-      )}
+      className={cn("absolute h-8 w-8 rounded-full", orientation === "horizontal"
+        ? "-left-12 top-1/2 -translate-y-1/2"
+        : "-top-12 left-1/2 -translate-x-1/2 rotate-90", className)}
       disabled={!canScrollPrev}
       onClick={scrollPrev}
       {...props}>
-      <ArrowLeft className="h-4 w-4" />
-      <span className="sr-only">Previous slide</span>
+      <ArrowLeft className="h-4 w-4 text-themeBlue" />
+      <span className="sr-only text-themeBlue">Previous slide</span>
     </Button>)
   );
 })
@@ -189,8 +183,8 @@ const CarouselNext = React.forwardRef(({ className, variant = "outline", size = 
       disabled={!canScrollNext}
       onClick={scrollNext}
       {...props}>
-      <ArrowRight className="h-4 w-4" />
-      <span className="sr-only">Next slide</span>
+      <ArrowRight className="h-4 w-4 text-themeBlue" />
+      <span className="sr-only text-themeBlue">Next slide</span>
     </Button>)
   );
 })

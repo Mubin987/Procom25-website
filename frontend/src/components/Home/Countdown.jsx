@@ -9,36 +9,54 @@ const MINUTE = SECOND * 60;
 const HOUR = MINUTE * 60;
 const DAY = HOUR * 24;
 
-const Countdown = () => {
+const Countdown = ({ pageType }) => {
     return (
-        <div className="flex gap-1 items-end justify-center bg-[linear-gradient(90deg,_#23B5F4_0%,_#2087F1_31.4%,_#1F6DEF_96.6%)] bg-clip-text text-transparent">
-            <CountdownItem unit="Day" text="days" />
+        <div className={`flex gap-1 ${pageType === "Home" ? "justify-center items-end" : "justify-start"} bg-[linear-gradient(90deg,_#23B5F4_0%,_#2087F1_31.4%,_#1F6DEF_96.6%)] bg-clip-text text-transparent`}>
+            <CountdownItem unit="Day" text="days" pageType={pageType} />
             <Colon />
-            <CountdownItem unit="Hour" text="hours" />
+            <CountdownItem unit="Hour" text="hours" pageType={pageType} />
             <Colon />
-            <CountdownItem unit="Minute" text="minutes" />
+            <CountdownItem unit="Minute" text="minutes" pageType={pageType} />
             <Colon />
-            <CountdownItem unit="Second" text="seconds" />
+            <CountdownItem unit="Second" text="seconds" pageType={pageType} />
         </div>
     );
 };
 
-const CountdownItem = ({ unit, text }) => {
+const CountdownItem = ({ unit, text, pageType }) => {
     const { ref, time } = useTimer(unit);
 
     return (
         <div className="flex flex-col items-center justify-center">
-            {/* Label */}
-            <span className="text-xs font-semibold text-themeDBlue opacity-65 leading-[17.07px] tracking-[0.15em]">
-                {text}
-            </span>
-            {/* Time */}
-            <span
-                ref={ref}
-                className="block text-5xl font-extrabold"
-            >
-                {time.toString().padStart(2, "0")}
-            </span>
+            {pageType === "Home" ? (
+                <>
+                    {/* Label */}
+                    <span className="text-xs font-semibold text-themeDBlue opacity-65 leading-[17.07px] tracking-[0.15em]">
+                        {text}
+                    </span>
+                    {/* Time */}
+                    <span
+                        ref={ref}
+                        className="block text-5xl font-extrabold"
+                    >
+                        {time.toString().padStart(2, "0")}
+                    </span>
+                </>
+            ) : (
+                <>
+                    {/* Time */}
+                    <span
+                        ref={ref}
+                        className="block text-5xl font-extrabold"
+                    >
+                        {time.toString().padStart(2, "0")}
+                    </span>
+                    {/* Label */}
+                    <span className="text-xs font-semibold text-themeDBlue opacity-65 leading-[17.07px] tracking-[0.15em]">
+                        {text}
+                    </span>
+                </>
+            )}
         </div>
     );
 };

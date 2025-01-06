@@ -1,3 +1,4 @@
+import Hero from '@/components/Register/Hero';
 import Competitions from '@/components/Register/Competitions';
 import Department from '@/components/Register/Department';
 import Note from '@/components/Register/Note';
@@ -20,8 +21,9 @@ const Register = () => {
   const [whatsapp, setWhatsapp] = useState(null);
   const [referenceCode, setReferenceCode] = useState(null);
   const navigate = useNavigate();
-  const formData = { teamName, setTeamName, name, setName, cnicNo, setCnicNo, 
-    emailAddress, setEmailAddress, whatsapp, setWhatsapp, referenceCode, setReferenceCode 
+  const formData = {
+    teamName, setTeamName, name, setName, cnicNo, setCnicNo,
+    emailAddress, setEmailAddress, whatsapp, setWhatsapp, referenceCode, setReferenceCode
   }
 
   const handleSubmit = (e) => {
@@ -33,22 +35,25 @@ const Register = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-blue-100 p-4 md:p-6 lg:p-8">
-      <form onSubmit={handleSubmit} className="mx-auto max-w-5xl relative mt-9">
-        <RegisterHeading heading={"start"} />
-        {/* Add the main vertical dotted line */}
-        <div className="absolute left-10 top-[34px] bottom-[32px] border-l-4 border-dashed border-themeBlue md:left-10" />
-        <div className='pl-4'>
-          <Department setDepartment={setDepartment} />
-          <Competitions setCompetitions={setCompetitions} />
-          <TeamInformation 
-            props={formData}
-          />
-          <Payment />
-          <Review />
-        </div>
-      </form>
-      <Note />
+    <div className='flex flex-col gap-12'>
+      <Hero />
+      <div className="min-h-screen p-4 md:p-6 lg:p-8">
+        <form onSubmit={handleSubmit} className="mx-auto max-w-5xl relative mt-9">
+          <RegisterHeading heading={"start"} />
+          {/* Add the main vertical dotted line */}
+          <div className="absolute left-10 top-[34px] bottom-[32px] border-l-4 border-dashed border-themeBlue md:left-10" />
+          <div className='pl-4'>
+            <Department setDepartment={setDepartment} />
+            <Competitions setCompetitions={setCompetitions} />
+            <TeamInformation
+              props={formData}
+            />
+            <Payment />
+            <Review />
+          </div>
+        </form>
+        <Note />
+      </div>
     </div>
   );
 }
