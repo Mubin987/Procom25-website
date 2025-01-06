@@ -1,8 +1,8 @@
 import React from "react";
 
-const ProcomSVG = () => (
+const ProcomSVG = ({ className }) => (
     <svg
-        className="absolute top-0 left-0 -z-10"
+        className={`absolute top-0 left-0 -z-10 ${className}`}
         width="421"
         height="730"
         viewBox="0 0 521 1062"

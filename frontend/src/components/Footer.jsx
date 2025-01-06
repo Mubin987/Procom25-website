@@ -7,8 +7,7 @@ const Footer = () => {
         <footer className='text-sm py-6 bg-[#161616] w-full text-white flex flex-col justify-between mt-auto'>
             <div className='px-8 pt-4'>
                 <img src="/procom25logo.png" alt="PROCOM'25"
-                    className=''
-                    width={200}
+                    className='w-full max-w-[200px]'
                 />
             </div>
             <div className='flex md:flex-row flex-col justify-between w-full'>

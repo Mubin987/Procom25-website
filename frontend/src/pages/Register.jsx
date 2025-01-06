@@ -7,6 +7,8 @@ import TeamInformation from '@/components/Register/Team-Information';
 import RegisterHeading from '@/components/ui/register-headings';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import '../index.css';
+
 
 const Register = () => {
   const [department, setDepartment] = useState("");

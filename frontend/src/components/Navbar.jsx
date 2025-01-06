@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
+import '../index.css'
 
 const Navbar = () => {
   const navLinks = [
@@ -13,9 +14,9 @@ const Navbar = () => {
   const location = useLocation();
 
   return (
-    <nav className="bg-transparent py-5 px-4 flex w-full absolute top-0 z-50">
+    <nav className="bg-transparent py-5 px-4 flex w-full absolute top-0 z-50 nav">
       <div className="w-full flex justify-end items-center">
-        <div>
+        <div className='nav-items'>
           {navLinks.map((link) => (
             <NavLink
               key={link.name}

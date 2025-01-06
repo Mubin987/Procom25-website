@@ -73,7 +73,246 @@
   }
   body {
     @apply bg-background text-foreground;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; 
   }
 
+  html, body, #root, .App {
+    overflow-x: hidden;
+  }
   
+  .heading-primary {
+    font-size: 2.5rem !important;
+  }
+  
+  .heading-secondary {
+    font-size: 0.75rem !important;
+  }
+
+  .responsive-svg {
+    width: 100%;
+    max-width: 600px;
+  }
+
+  @media (max-width: 768px) {
+    .responsive-svg {
+      max-width: 400px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .responsive-svg {
+      max-width: 300px;
+    }
+  }
+
+  @media (min-width: 250px) and (max-width: 400px) {
+    .text-lg {
+      font-size: 0.75rem !important;
+      line-height: 1rem !important;
+    }
+    .text-4xl {
+      font-size: 1.25rem !important;
+      line-height: 1.50rem !important;
+    }
+
+    .text-xl {
+      font-size: 0.75rem !important;
+      line-height: 1rem !important;
+    }
+    .nav {
+      flex-direction: column;
+      /* align-items: center; */
+    }
+    .nav img {
+      margin-bottom: 0.5rem;
+      order: 1;
+    }
+    .nav div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      order: 2;
+    }
+    .nav .nav-items {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      order: 2;
+      gap: 0rem; /* Reduced space */
+      margin: 0 !important;
+    }
+    .nav .nav-items a{
+      margin: 0.39rem !important;
+    }
+  }
+  
+  @media (min-width: 400px) and (max-width: 639px) {
+    .text-lg {
+      font-size: 0.75rem !important;
+      line-height: 1rem !important;
+    }
+    .text-4xl {
+      font-size: 1.25rem !important;
+      line-height: 1.50rem !important;
+    }
+
+    .text-xl {
+      font-size: 0.75rem !important;
+      line-height: 1rem !important;
+    }
+    body {
+      font-size: 0.75rem;
+    }
+    .header {
+      padding: 0.75rem;
+    }
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+      align-items: center;
+    }
+    .nav img {
+      margin-bottom: 0.5rem; /* Reduced space */
+      order: 1;
+    }
+    .nav div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      order: 2;
+    }
+    .nav .nav-items {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      order: 1;
+    }
+    .menu {
+      display: none;
+    }
+    .heading-primary {
+      font-size: 3rem !important;
+    }
+    .heading-secondary {
+      font-size: 1rem !important;
+    }
+    .nav .nav-items a{
+      margin: 0.85rem !important;
+    }
+  }
+
+  @media (min-width: 640px) and (max-width: 767px) {
+    body {
+      font-size: 1rem;
+    }
+    .header {
+      padding: 1rem;
+    }
+    .nav {
+      display: flex;
+      justify-content: space-between;
+    }
+    .menu {
+      display: none;
+    }
+    .heading-primary {
+      font-size: 5rem !important;
+    }
+    .heading-secondary {
+      font-size: 1.75rem !important;
+    }
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    body {
+      font-size: 1.125rem;
+    }
+    .header {
+      padding: 1.5rem;
+    }
+    .nav {
+      display: flex;
+      justify-content: space-between;
+    }
+    .menu {
+      display: none;
+    }
+    .heading-primary {
+      font-size: 6rem !important;
+    }
+    .heading-secondary {
+      font-size: 2rem !important;
+    }
+  }
+
+  @media (min-width: 1024px) and (max-width: 1279px) {
+    body {
+      font-size: 1.25rem; 
+    }
+    .header {
+      padding: 2rem;
+    }
+    .nav {
+      display: flex;
+      justify-content: space-between;
+    }
+    .menu {
+      display: none;
+    }
+    .heading-primary {
+      font-size: 7rem !important;
+    }
+    .heading-secondary {
+      font-size: 2.25rem !important;
+    }
+  }
+
+  @media (min-width: 1280px) and (max-width: 1535px) {
+    body {
+      font-size: 1.375rem;
+    }
+    .header {
+      padding: 2.5rem;
+    }
+    .nav {
+      display: flex;
+      justify-content: space-between;
+    }
+    .menu {
+      display: none;
+    }
+    .heading-primary {
+      font-size: 8rem !important;
+    }
+    .heading-secondary {
+      font-size: 2.5rem !important;
+    }
+  }
+
+  @media (min-width: 1536px) {
+    body {
+      font-size: 1.5rem;
+    }
+    .header {
+      padding: 3rem;
+    }
+    .nav {
+      display: flex;
+      justify-content: space-between;
+    }
+    .menu {
+      display: none;
+    }
+    .heading-primary {
+      font-size: 9rem !important;
+    }
+    .heading-secondary {
+      font-size: 2.75rem !important;
+    }
+  }
 }
+
+
