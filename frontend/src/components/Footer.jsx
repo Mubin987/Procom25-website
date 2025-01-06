@@ -67,7 +67,7 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
-            <div className='border-t-2 border-white'></div>
+            {/* <div className='border-t-2 border-white'></div> */}
             <div className='flex flex-col gap-4  sm:flex-row  px-8 pt-4 sm:justify-between items-center'>
                 <p className='text-[15px]'>
                     <span className='font-bold'>
