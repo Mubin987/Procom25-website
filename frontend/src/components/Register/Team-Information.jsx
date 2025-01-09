@@ -27,57 +27,57 @@ const TeamInformation = ({ props }) => {
                 <p className="text-xl max-w-[50%] italic mt-5 mb-2 ml-2 bg-[linear-gradient(270deg,#0D32C5_0%,#1768DB_37.9%,#1E8AE9_93.9%,#23A7F4_100%)] bg-clip-text text-transparent font-bold">
                     TEAM LEADER'S INFO:
                 </p>
-                <div className='flex w-[96%] mb-6'>
-                    <div className='w-full'>
+                <div className='responsive-margin flex flex-wrap w-[96%] mb-6'>
+                    <div className='w-full md:w-1/2'>
                         <input
                             type='text'
                             placeholder='NAME *'
                             required
                             value={props.name}
                             onChange={e => props.setName(e.target.value)}
-                            className='w-[90%] ml-3 py-3 pl-4 rounded-xl bg-white placeholder:font-bold placeholder-transparent placeholder:bg-gradient-text placeholder:bg-clip-text placeholder:italic drop-shadow-xl'
+                            className='responsive-btn-1 w-[90%] ml-3 py-3 pl-4 rounded-xl bg-white placeholder:font-bold placeholder-transparent placeholder:bg-gradient-text placeholder:bg-clip-text placeholder:italic drop-shadow-xl'
                         />
                     </div>
-                    <div className='w-full'>
+                    <div className='w-full md:w-1/2'>
                         <input
                             type='number'
                             placeholder='CNIC NO. *'
                             required
                             value={props.cnicNo}
                             onChange={e => props.setCnicNo(e.target.value)}
-                            className='w-[90%] ml-3 py-3 pl-4 rounded-xl bg-white placeholder:font-bold placeholder-transparent placeholder:bg-gradient-text placeholder:bg-clip-text placeholder:italic drop-shadow-xl'
+                            className='responsive-btn-1 w-[90%] ml-3 py-3 pl-4 rounded-xl bg-white placeholder:font-bold placeholder-transparent placeholder:bg-gradient-text placeholder:bg-clip-text placeholder:italic drop-shadow-xl'
                         />
                     </div>
                 </div>
-                <div className='flex w-[96%] mb-6'>
-                    <div className='w-full'>
+                <div className='responsive-margin flex flex-wrap w-[96%] mb-6'>
+                    <div className='w-full md:w-1/2'>
                         <input
                             type='email'
                             placeholder='EMAIL ADDRESS *'
                             required
                             value={props.emailAddress}
                             onChange={e => props.setEmailAddress(e.target.value)}
-                            className='w-[90%] ml-3 py-3 pl-4 rounded-xl bg-white placeholder:font-bold placeholder-transparent placeholder:bg-gradient-text placeholder:bg-clip-text placeholder:italic drop-shadow-xl'
+                            className='responsive-btn-1 w-[90%] ml-3 py-3 pl-4 rounded-xl bg-white placeholder:font-bold placeholder-transparent placeholder:bg-gradient-text placeholder:bg-clip-text placeholder:italic drop-shadow-xl'
                         />
                     </div>
-                    <div className='w-full'>
+                    <div className='w-full md:w-1/2'>
                         <input
                             type='number'
                             placeholder='WHATSAPP *'
                             required
                             value={props.whatsapp}
                             onChange={e => props.setWhatsapp(e.target.value)}
-                            className='w-[90%] ml-3 py-3 pl-4 rounded-xl bg-white placeholder:font-bold placeholder-transparent placeholder:bg-gradient-text placeholder:bg-clip-text placeholder:italic drop-shadow-xl'
+                            className='responsive-btn-1 w-[90%] ml-3 py-3 pl-4 rounded-xl bg-white placeholder:font-bold placeholder-transparent placeholder:bg-gradient-text placeholder:bg-clip-text placeholder:italic drop-shadow-xl'
                         />
                     </div>
                 </div>
-                <div className='w-full'>
+                <div className='w-full refer-btn'>
                     <input
                         type='text'
                         placeholder='REFERENCE CODE (IF ANY) *'
                         value={props.referenceCode}
                         onChange={e => props.setReferenceCode(e.target.value)}
-                        className='w-[92%] ml-3 py-3 pl-4 rounded-xl bg-white placeholder:font-bold placeholder-transparent placeholder:bg-gradient-text placeholder:bg-clip-text placeholder:italic drop-shadow-xl'
+                        className='responsive-btn-2 w-[91%] ml-3 py-3 pl-4 rounded-xl bg-white placeholder:font-bold placeholder-transparent placeholder:bg-gradient-text placeholder:bg-clip-text placeholder:italic drop-shadow-xl'
                     />
                 </div>
             </div>

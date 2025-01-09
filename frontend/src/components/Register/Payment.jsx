@@ -4,11 +4,11 @@ const Payment = () => {
     return (
         <div className="relative pl-10 mt-16">
             <RegisterHeading heading={"payment"} />
-            <div className='absolute left-4 top-7 md:left-6 flex w-[80%]'>
+            <div className='responsive-upload absolute left-4 top-7 md:left-6 flex w-[80%]'>
                 <div className="w-full border-t-4 border-dashed border-themeBlue mt-3 " />
-                <div className="flex flex-col items-center rounded-lg bg-white p-6 pt-3 ml-3 cursor-pointer drop-shadow-lg">
-                    <div className='w-60'>
-                        <label htmlFor="file-input" className="flex flex-col items-center cursor-pointer ">
+                <div className=" flex flex-col items-center rounded-lg bg-white p-6 pt-3 ml-3 cursor-pointer drop-shadow-lg">
+                    <div className='w-60 '>
+                        <label htmlFor="file-input" className=" flex flex-col items-center cursor-pointer ">
                             <span className="italic block text-center text-base bg-[linear-gradient(270deg,#0D32C5_0%,#1768DB_37.9%,#1E8AE9_93.9%,#23A7F4_100%)] bg-clip-text text-transparent font-bold">
                                 UPLOAD PAYMENT RECEIPT
                             </span>
