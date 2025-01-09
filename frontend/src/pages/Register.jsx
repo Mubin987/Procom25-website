@@ -39,9 +39,9 @@ const Register = () => {
       <Hero />
       <div className="min-h-screen p-4 md:p-6 lg:p-8">
         <form onSubmit={handleSubmit} className="mx-auto max-w-5xl relative mt-9">
-          <RegisterHeading heading={"start"} />
+          <RegisterHeading heading={"start"} textSize='text-[29px]'/>
           {/* Add the main vertical dotted line */}
-          <div className="absolute left-10 top-[34px] bottom-[32px] border-l-4 border-dashed border-themeBlue md:left-10" />
+          <div className="absolute left-10 top-[34px] bottom-[62px] sm:bottom-[40px] border-l-4 border-dashed border-themeBlue md:left-10" />
           <div className='pl-4'>
             <Department setDepartment={setDepartment} />
             <Competitions setCompetitions={setCompetitions} />

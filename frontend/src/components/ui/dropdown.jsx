@@ -14,7 +14,7 @@ const Dropdown = ({ items, defaultValue, setValue }) => {
     <div className={`relative w-[60%] ml-3`}>
       <button
         onClick={() => setIsOpen((prev) => !prev)}
-        className={`inline-flex justify-between w-full px-4 py-2 bg-gradient-text text-white font-bold ${
+        className={`inline-flex justify-between w-full px-4 py-2 text-[13px] sm:text-[22px] bg-gradient-text text-white font-bold ${
           isOpen ? "rounded-t-xl" : "rounded-xl"}`}
       >
         {selectedItem}
