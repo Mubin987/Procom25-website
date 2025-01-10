@@ -14,7 +14,7 @@ const Dropdown = ({ items, defaultValue, setValue }) => {
     <div className={`relative w-[60%] ml-3`}>
       <button
         onClick={() => setIsOpen((prev) => !prev)}
-        className={`inline-flex justify-between w-full px-4 py-2 text-[13px] sm:text-[22px] bg-gradient-text text-white font-bold ${
+        className={`inline-flex justify-between w-full px-4 py-2 text-[13px] sm:text-[22px] bg-[linear-gradient(90deg,_#1F95ED_0%,_#2169D4_100%)] text-white font-bold ${
           isOpen ? "rounded-t-xl" : "rounded-xl"}`}
       >
         {selectedItem}
@@ -35,7 +35,7 @@ const Dropdown = ({ items, defaultValue, setValue }) => {
 
       {isOpen && (
         <div
-          className="absolute w-full bg-gradient-text text-white font-bold rounded-b-xl z-10 "
+          className="absolute w-full bg-[linear-gradient(90deg,_#1F95ED_0%,_#2169D4_100%)] text-white font-bold rounded-b-xl z-10 "
           role="menu"
         >
             {items.map((item, index) => (
