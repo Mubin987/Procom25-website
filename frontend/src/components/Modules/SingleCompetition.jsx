@@ -42,23 +42,23 @@ const SingleCompetition = ({module}) => {
                 </div>
                 <div className='flex flex-col items-center w-full gap-4'>
                     <h1 className='bg-clip-text text-transparent bg-[linear-gradient(90deg,_#FFFFFF_25.4%,_#caeaf9_90%)] text-4xl font-bold tracking-widest uppercase mb-5'>Details</h1>
-                    <div className="flex gap-4 flex-col md:flex-row justify-between w-3/5">
+                    <div className="flex gap-4 flex-col md:flex-row justify-between w-10/12 sm:w-3/5">
                         <DetailBox isIcon={true} IconPath={()=>(<LucideDollarSign/>)} value="0000" title="Registration Fee" width="2/5"/>
                         <DetailBox isIcon={true} IconPath={()=>(<User2Icon/>)} value="0000" title="Max Members" width="2/5"/>
                     </div>
-                    <div className="rounded-[9rem] flex items-center w-[18rem] h-14 [box-shadow:6px_7px_20px_2px_#00000040] bg-white">
+                    <div className="rounded-[9rem] flex items-center w-[14rem] sm:w-[18rem] h-14 [box-shadow:6px_7px_20px_2px_#00000040] bg-white">
                         <div className="flex">
                             <div className="p-3 flex items-center justify-center w-14">
                                 <ArrowDownCircleIcon className="text-[#217ade]" size={40}/>
                             </div>
-                            <div className="flex flex-col py-3 px-6">
-                                <span className="text-[#217ade] text-l font-bold -mb-1">Download Details</span>
-                                <span className="text-[#217ade] text-center text-l -mt-1 font-bold">PDF</span>
+                            <div className="flex flex-col py-3 justify-center px-2 sm:px-6">
+                                <span className="text-[#217ade] text-sm sm:text-base font-bold -mb-1">Download Details</span>
+                                <span className="text-[#217ade] text-center text-sm sm:text-base -mt-1 font-bold">PDF</span>
                             </div>
                         </div>
                     </div>
                     <h1 className='bg-clip-text text-transparent bg-[linear-gradient(90deg,_#FFFFFF_25.4%,_#caeaf9_90%)] text-4xl font-bold tracking-widest uppercase mt-10 mb-2'>Prizes</h1>
-                    <div className="flex gap-4 flex-col md:flex-row justify-between w-3/5">
+                    <div className="flex gap-4 flex-col md:flex-row justify-between w-10/12 sm:w-3/5">
                         <div className='flex flex-col w-full md:w-2/5 justify-end'>
                             <div>
                             <img src={module.image} alt={module.name} height={400} width={400} className='w-[200px] object-cover rounded-r-3xl' />
