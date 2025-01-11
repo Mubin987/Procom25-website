@@ -1,8 +1,13 @@
+import Competitions from '@/components/Modules/Competitions'
+import Hero from '@/components/Register/Hero'
 import React from 'react'
 
 const Modules = () => {
   return (
-    <div>Modules</div>
+    <div>
+      <Hero />
+      <Competitions/>
+    </div>
   )
 }
 

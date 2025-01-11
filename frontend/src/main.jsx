@@ -4,6 +4,7 @@ import { createRoot } from 'react-dom/client'
 import { Home, Register, AboutUs, Modules, Sponsors } from "./pages"
 import './index.css'
 import App from './App.jsx'
+import ModulePage from "./pages/ModulePage";
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
       {
         path: "/sponsors",
         element: <Sponsors />,
+      },
+      {
+        path: "/modules/:moduleId",
+        element: <ModulePage />,
       }
     ],
   },
