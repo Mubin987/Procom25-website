@@ -4,7 +4,6 @@ const ProcomSVG = () => (
     <svg
         className="absolute sm:w-[421px] sm:h-[730px] w-[100vw] h-[180vw] sm:left-0 top-0 -left-20 -z-10"
         viewBox="0 0 521 1062"
-        style={{clipPath: 'polygon(0 0, 100% 0, 100% 100vh, 0 100vh)'}}
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
     >
