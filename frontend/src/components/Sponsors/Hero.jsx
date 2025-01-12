@@ -1,6 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
-import Countdown from "@/components/Home/Countdown";
 import ProcomSVG from '@/components/Home/ProcomSVG';
 import '../../index.css';
 const Hero = () => {

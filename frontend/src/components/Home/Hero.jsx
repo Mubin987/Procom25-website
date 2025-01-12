@@ -12,10 +12,10 @@ const Hero = ({ pageType }) => {
                     <h1 className="text-[17vw] sm:text-[6rem] md:text-[14vw] lg:text-[9rem] leading-[1]">PROCOM'25</h1>
                     <div className='w-full flex justify-end'>
                         <div className='flex flex-col justify-center items-center'>
-                            <p className="text-themeDBlue text-end text-xs sm:text-sm tracking-widest mt-2 mb-1 sm:mt-4 sm:mb-2">READY TO COMPETE?</p>
+                            <p className="text-themeDBlue text-end text-xs sm:text-sm tracking-widest mt-2 mb-1 sm:mt-4 sm:mb-2">{pageType === "Sponsors" ? "BECOME AN SPONSOR" : "READY TO COMPETE?"}</p>
                             <div className='flex justify-end'>
-                                <Link to="/register" className=''>
-                                    <button className='text-sm sm:text-lg bg-[linear-gradient(90deg,_#218EF1_0%,_#1865DD_50%,_#0E3AC8_100%)] [box-shadow:6px_4px_11.7px_0px_#00000040] font-bold text-white px-8 py-1.5 rounded-full'>Register Now</button>
+                                <Link to={pageType === "Sponsors" ? "/sponsors" : "/register"} className=''>
+                                    <button className='text-sm sm:text-lg bg-[linear-gradient(90deg,_#218EF1_0%,_#1865DD_50%,_#0E3AC8_100%)] [box-shadow:6px_4px_11.7px_0px_#00000040] font-bold text-white px-8 py-1.5 rounded-full'>{pageType === "Sponsors" ? "Sponsor Now" : "Register Now"}</button>
                                 </Link>
                             </div>
                         </div>

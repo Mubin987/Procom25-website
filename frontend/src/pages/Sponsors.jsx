@@ -1,4 +1,5 @@
-import Hero from '@/components/Sponsors/Hero';
+import Hero from '@/components/Home/Hero';
+// import Hero from '@/components/Sponsors/Hero';
 import SponsorMain from '@/components/Sponsors/SponsorMain';
 import React from 'react'
 
@@ -26,8 +27,8 @@ const sponsors = [
 
 const Sponsors = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-blue-100">
-      <Hero />
+    <div className="">
+      <Hero pageType={"Sponsors"} />
       <SponsorMain sponsors={sponsors} />
     </div>
   )

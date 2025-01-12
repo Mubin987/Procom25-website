@@ -10,7 +10,7 @@ const SponsorMain = ({ sponsors }) => {
     }, {});
 
     return (
-        <div className="container mx-auto px-4 py-16 w-full">
+        <div className="container mx-auto px-4 py-16 w-full my-20">
             {sponsorsByType["GOLD"] && (
                 <SponsorSection title="Gold Sponsors" sponsors={sponsorsByType["GOLD"]} />
             )}
