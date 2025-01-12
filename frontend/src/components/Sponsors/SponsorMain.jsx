@@ -12,13 +12,13 @@ const SponsorMain = ({ sponsors }) => {
     return (
         <div className="container mx-auto px-4 py-16 w-full my-20">
             {sponsorsByType["GOLD"] && (
-                <SponsorSection title="Gold Sponsors" sponsors={sponsorsByType["GOLD"]} />
+                <SponsorSection title="GOLD SPONSORS" sponsors={sponsorsByType["GOLD"]} />
             )}
             {sponsorsByType["SILVER"] && (
-                <SponsorSection title="Silver Sponsors" sponsors={sponsorsByType["SILVER"]} />
+                <SponsorSection title="SILVER SPONSORS" sponsors={sponsorsByType["SILVER"]} />
             )}
             {sponsorsByType["PARTNER"] && (
-                <SponsorSection title="Our Partners" sponsors={sponsorsByType["PARTNER"]} />
+                <SponsorSection title="OUR PARTNERS" sponsors={sponsorsByType["PARTNER"]} />
             )}
         </div>
     );
