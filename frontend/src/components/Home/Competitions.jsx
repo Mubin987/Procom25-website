@@ -2,15 +2,18 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 const Card = ({ heading, text, image, link }) => (
-    <div className='bg-[linear-gradient(90deg,_#1F95ED_0%,_#2169D4_100%)] flex gap-2 w-4/5 mx-auto justify-between rounded-3xl text-white p-6 [box-shadow:11px_15px_23px_0px_#00000040]'>
-        <div className='w flex flex-col gap-2'>
-            <h1 className='bg-clip-text text-transparent bg-[linear-gradient(90deg,_#FFFFFF_25.4%,_#A7E2FF_90%)] text-4xl font-bold'>{heading}</h1>
-            <p className='text-lg font-semibold'>{text}</p>
-            <Link className='[box-shadow:1px_2px_3px_0px_#00000040] bg-[linear-gradient(90deg,_#FFFFFF_14.9%,_#D0EFFF_65.4%,_#A7E2FF_100%)] rounded-full text-[#2169D4] font-medium px-3 py-1 w-fit'>
+    <div className='bg-[linear-gradient(90deg,_#1F95ED_0%,_#2169D4_100%)] flex gap-2 w-4/5 mx-auto justify-center sm:justify-between rounded-[32px] sm:rounded-3xl text-white p-6 [box-shadow:11px_15px_23px_0px_#00000040]'>
+        <div className='w flex flex-col gap-2 items-center sm:items-start'>
+            <div className='sm:hidden m-auto'>
+                <img src={image} alt={heading} height={400} width={400} className='w-[300px] object-cover rounded-r-3xl' />
+            </div>
+            <h1 className='bg-clip-text text-center sm:text-start text-transparent bg-[linear-gradient(90deg,_#FFFFFF_25.4%,_#A7E2FF_90%)] text-4xl font-bold'>{heading}</h1>
+            <p className='hidden sm:inline text-lg font-semibold'>{text}</p>
+            <Link className='[box-shadow:1px_2px_3px_0px_#00000040] bg-[linear-gradient(90deg,_#FFFFFF_14.9%,_#D0EFFF_65.4%,_#A7E2FF_100%)] justify-center rounded-full text-[#2169D4] font-bold px-6 py-1.5 w-fit mt-2 sm:mt-0'>
                 View Modules
             </Link>
         </div>
-        <div className='m-auto'>
+        <div className='hidden sm:flex m-auto'>
             <img src={image} alt={heading} height={400} width={400} className='w-[200px] object-cover rounded-r-3xl' />
         </div>
     </div>

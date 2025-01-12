@@ -50,7 +50,7 @@ const Navbar = () => {
             <NavLink
               key={link.name}
               to={link.path}
-              className={`${location.pathname === link.path
+              className={`${location.pathname === link.path || (link.path !== "/" && location.pathname.startsWith(link.path))
                 ? "underline decoration-4"
                 : "hover:text-themeBlue hover:underline hover:decoration-4"
                 } text-lg text-themeBlue font-semibold mx-4 md:mx-5 transition duration-200`}
@@ -92,10 +92,10 @@ const Navbar = () => {
               key={link.name}
               to={link.path}
               onClick={() => setIsOpen(false)}
-              className={({ isActive }) => `
-    text-3xl bg-[linear-gradient(90deg,_#FFFFFF_14.9%,_#D0EFFF_65.4%,_#A7E2FF_100%)] bg-clip-text text-transparent font-semibold mx-4 md:mx-5 transition duration-200 
-    ${isActive ? "underline underline-offset-4 decoration-[linear-gradient(90deg,_#FFFFFF_14.9%,_#D0EFFF_65.4%,_#A7E2FF_100%)] decoration-[3px]" : ""}
-    hover:underline hover:underline-offset-4 hover:decoration-[linear-gradient(90deg,_#FFFFFF_14.9%,_#D0EFFF_65.4%,_#A7E2FF_100%)] hover:decoration-[3px]
+              className={`
+    text-3xl bg-[linear-gradient(90deg,_#FFFFFF_14.9%,_#D0EFFF_65.4%,_#A7E2FF_100%)] bg-clip-text text-transparent font-semibold mb-3 mx-4 md:mx-5 transition duration-200 
+    ${location.pathname === link.path ? "underline underline-offset-[6px] decoration-[#FFFFFFC5] decoration-[3px]" : ""}
+    hover:underline hover:underline-offset-[6px] hover:decoration-[#FFFFFF6E] hover:decoration-[3px]
   `}
             >
               {link.name}
