@@ -6,7 +6,7 @@ const Modules = () => {
   return (
     <div>
       <Hero />
-      <Competitions/>
+      <Competitions />
     </div>
   )
 }

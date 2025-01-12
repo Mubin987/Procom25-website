@@ -12,7 +12,7 @@ const ModulePage = () => {
     }
     return (
         <>
-        <Hero/>
+        {/* <Hero/> */}
         <SingleCompetition module={module}/>
         </>
     )

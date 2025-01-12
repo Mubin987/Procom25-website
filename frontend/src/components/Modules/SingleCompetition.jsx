@@ -1,6 +1,7 @@
 import Heading1 from '@/components/Commons/Heading1';
 import { ArrowDownCircleIcon, LucideDollarSign, User2Icon } from "lucide-react"
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 const DetailBox = ({isIcon,IconPath, value, title, width}) => {
     return (
@@ -25,7 +26,7 @@ const DetailBox = ({isIcon,IconPath, value, title, width}) => {
 const SingleCompetition = ({module}) => {
 
     return (
-        <div className='w-full flex flex-col justify-center items-center gap-4 mb-20'>
+        <div className='w-full flex flex-col justify-center items-center gap-4 my-32'>
             <Heading1 text={module.category} className="tracking-wider"/>
             <div className='bg-[linear-gradient(90deg,_#1F95ED_0%,_#2169D4_100%)] flex flex-col gap-8 w-4/5 mx-auto rounded-[32px] sm:rounded-3xl text-white p-6 [box-shadow:11px_15px_23px_0px_#00000040]'>
                 <div className='flex gap-2 justify-center sm:justify-evenly'>
@@ -51,25 +52,25 @@ const SingleCompetition = ({module}) => {
                             <div className="p-3 flex items-center justify-center w-14">
                                 <ArrowDownCircleIcon className="text-[#217ade]" size={40}/>
                             </div>
-                            <div className="flex flex-col py-3 justify-center px-2 sm:px-6">
+                            <Link to={"https://www.drive.google.com"}  className="flex flex-col py-3 justify-center px-2 sm:px-6">
                                 <span className="text-[#217ade] text-sm sm:text-base font-bold -mb-1">Download Details</span>
                                 <span className="text-[#217ade] text-center text-sm sm:text-base -mt-1 font-bold">PDF</span>
-                            </div>
+                            </Link>
                         </div>
                     </div>
                     <h1 className='bg-clip-text text-transparent bg-[linear-gradient(90deg,_#FFFFFF_25.4%,_#caeaf9_90%)] text-4xl font-bold tracking-widest uppercase mt-10 mb-2'>Prizes</h1>
                     <div className="flex gap-4 flex-col md:flex-row justify-between w-10/12 sm:w-3/5">
-                        <div className='flex flex-col w-full md:w-2/5 justify-end'>
+                        <div className='flex flex-col w-full md:w-2/5 justify-end items-center'>
                             <div>
-                            <img src={module.image} alt={module.name} height={400} width={400} className='w-[200px] object-cover rounded-r-3xl' />
+                            <img src={"/WinnerTrophy.png"} alt={"Winner"} height={400} width={400} className='w-[200px] object-cover rounded-r-3xl' />
                             </div>
-                            <DetailBox isIcon={false} IconPath={module.image} value="0000" title="Winner" width="full"/>
+                            <DetailBox isIcon={false} IconPath={"/GoldBadge.png"} value="0000" title="Winner" width="full"/>
                         </div>
-                        <div className='flex flex-col w-full md:w-2/5 justify-end'>
+                        <div className='flex flex-col w-full md:w-2/5 justify-end items-center'>
                             <div>
-                            <img src={module.image} alt={module.name} height={400} width={400} className='w-[150px] object-cover rounded-r-3xl' />
+                                <img src={"/RunnersupTrophy.png"} alt={"Runnerup"} height={400} width={400} className='w-[150px] object-cover rounded-r-3xl' />
                             </div>
-                            <DetailBox isIcon={false} IconPath={module.image} value="0000" title="Runner Up" width="full"/>
+                            <DetailBox isIcon={false} IconPath={"/SilverBadge.png"} value="0000" title="Runner Up" width="full"/>
                         </div>
                     </div>
                 </div>

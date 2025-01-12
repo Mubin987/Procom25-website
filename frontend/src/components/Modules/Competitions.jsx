@@ -18,9 +18,9 @@ const Card = ({ heading, text, image, comps }) => {
             </div>
             <div className='flex flex-wrap w-full px-5 gap-4 justify-evenly items-center'>
                 {comps.map((comp, index) => (
-                    <Link to={comp.link} key={index} className='w-[120px] aspect-square cursor-pointer px-4 bg-[linear-gradient(90deg,_#FFFFFF_14.9%,_#D0EFFF_65.4%,_#A7E2FF_100%)] flex flex-col gap-2 justify-center items-center [box-shadow:11px_15px_23px_0px_#00000040] rounded-3xl'>
-                        <img src={comp.image} alt={comp.heading} height={200} width={200} className='w-[60px] object-cover' />
-                        <h1 className='font-bold text-themeBlue text-center text-sm'>{comp.heading}</h1>
+                    <Link to={comp.link} key={index} className='w-full sm:w-[120px] aspect-square cursor-pointer px-4 bg-[linear-gradient(90deg,_#FFFFFF_14.9%,_#D0EFFF_65.4%,_#A7E2FF_100%)] flex flex-col gap-2 justify-center items-center [box-shadow:11px_15px_23px_0px_#00000040] rounded-3xl'>
+                        <img src={comp.image} alt={comp.heading} height={200} width={200} className='w-2/3 sm:w-[60px] object-cover' />
+                        <h1 className='font-bold text-themeBlue text-center text-lg sm:text-sm'>{comp.heading}</h1>
                     </Link>
                 ))}
             </div>
@@ -219,7 +219,7 @@ const Competitions = () => {
     ];
 
     return (
-        <div className='my-10 flex flex-col gap-8'>
+        <div className='my-28 mt-32 flex flex-col gap-8'>
             {comps.map((comp, index) => (
                 <Card
                     key={index}
