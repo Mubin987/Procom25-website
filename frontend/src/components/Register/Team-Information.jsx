@@ -69,6 +69,9 @@ const TeamInformation = ({ props }) => {
                             }}
                             className='w-[90%] ml-3 py-3 pl-4 rounded-xl bg-[linear-gradient(90deg,_#FFFFFF_14.9%,_#DCF4FF_100%)] sm:py-2 sm:placeholder:text-xl placeholder:font-bold placeholder-transparent placeholder:bg-gradient-text placeholder:bg-clip-text placeholder:italic shadow-[0px_4px_4px_0px_#00000040]'
                         />
+                        {props.cnicError && (
+                            <p className="text-red-500 text-sm mt-1 ml-5">Please enter a valid cnic.</p>
+                        )}
                     </div>
                 </div>
                 <div className='responsive-margin flex flex-wrap w-[96%] sm:mb-6'>
