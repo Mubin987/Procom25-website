@@ -11,9 +11,17 @@ const TeamInformation = ({ props }) => {
                     placeholder='TEAM NAME *'
                     required
                     value={props.teamName}
-                    onChange={e => props.setTeamName(e.target.value)}
+                    onChange={e => {
+                        const teamName = e.target.value;
+                        props.setTeamName(teamName);
+                        if (teamName.length === 0) props.setTeamNameError(true);
+                        else props.setTeamNameError(false);
+                    }}
                     className='w-[74%] sm:w-[60%] ml-3 py-3 pl-4 rounded-xl bg-[linear-gradient(90deg,_#FFFFFF_14.9%,_#DCF4FF_100%)] sm:py-2 sm:placeholder:text-xl placeholder:font-bold placeholder-transparent placeholder:bg-gradient-text placeholder:bg-clip-text placeholder:italic shadow-[0px_4px_4px_0px_#00000040]'
                 />
+                {props.teamNameError && (
+                    <p className="absolute right-4 -bottom-7 font-bold italic text-base text-red-600">Please enter your team name.</p>
+                )}
             </div>
             <div className="absolute top-[38px] left-[-1%] flex h-7 w-7 items-center justify-center rounded-full bg-[linear-gradient(90deg,_#1F95ED_0%,_#2169D4_100%)] font-bold text-white text-xl z-10">
                 <span className="bg-[linear-gradient(90deg,_#FFFFFF_14.9%,_#D0EFFF_63.77%,_#A7E2FF_100%)] bg-clip-text text-transparent font-bold">3</span>
@@ -34,9 +42,17 @@ const TeamInformation = ({ props }) => {
                             placeholder='NAME *'
                             required
                             value={props.name}
-                            onChange={e => props.setName(e.target.value)}
+                            onChange={e => {
+                                const name = e.target.value;
+                                props.setName(name);
+                                if (name.length === 0) props.setNameError(true);
+                                else props.setNameError(false);
+                            }}
                             className='w-[90%] ml-3 sm:py-2 py-3 pl-4 rounded-xl bg-[linear-gradient(90deg,_#FFFFFF_14.9%,_#DCF4FF_100%)] sm:placeholder:text-xl placeholder:font-bold placeholder-transparent placeholder:bg-gradient-text placeholder:bg-clip-text placeholder:italic shadow-[0px_4px_4px_0px_#00000040]'
                         />
+                        {props.nameError && (
+                            <p className="text-red-500 text-sm mt-1 ml-5">Please enter your name.</p>
+                        )}
                     </div>
                     <div className='w-full md:w-1/2 mb-3 sm:mb-0'>
                         <input
@@ -47,11 +63,8 @@ const TeamInformation = ({ props }) => {
                             onChange={e => {
                                 const cnic = e.target.value;
                                 props.setCnicNo(cnic);
-                                if (cnic.length !== 13) {
-                                    props.setCnicError(true);
-                                } else {
-                                    props.setCnicError(false);
-                                }
+                                if (cnic.length !== 13) props.setCnicError(true);
+                                else props.setCnicError(false);
                             }}
                             className='w-[90%] ml-3 py-3 pl-4 rounded-xl bg-[linear-gradient(90deg,_#FFFFFF_14.9%,_#DCF4FF_100%)] sm:py-2 sm:placeholder:text-xl placeholder:font-bold placeholder-transparent placeholder:bg-gradient-text placeholder:bg-clip-text placeholder:italic shadow-[0px_4px_4px_0px_#00000040]'
                         />
@@ -72,14 +85,10 @@ const TeamInformation = ({ props }) => {
                                 props.setEmailAddress(email);
 
                                 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                                if (!emailRegex.test(email)) {
-                                    props.setEmailError(true);
-                                } else {
-                                    props.setEmailError(false);
-                                }
+                                if (!emailRegex.test(email)) props.setEmailError(true);
+                                else props.setEmailError(false);
                             }}
-                            className={`w-[90%] ml-3 py-3 pl-4 rounded-xl bg-[linear-gradient(90deg,_#FFFFFF_14.9%,_#DCF4FF_100%)] sm:py-2 sm:placeholder:text-xl placeholder:font-bold placeholder-transparent placeholder:bg-gradient-text placeholder:bg-clip-text placeholder:italic shadow-[0px_4px_4px_0px_#00000040] ${props.emailError ? 'border-red-500' : ''
-                                }`}
+                            className={`w-[90%] ml-3 py-3 pl-4 rounded-xl bg-[linear-gradient(90deg,_#FFFFFF_14.9%,_#DCF4FF_100%)] sm:py-2 sm:placeholder:text-xl placeholder:font-bold placeholder-transparent placeholder:bg-gradient-text placeholder:bg-clip-text placeholder:italic shadow-[0px_4px_4px_0px_#00000040] ${props.emailError ? 'border-red-500' : ''}`}
                         />
                         {props.emailError && (
                             <p className="text-red-500 text-sm mt-1 ml-5">Please enter a valid email address.</p>
@@ -94,11 +103,14 @@ const TeamInformation = ({ props }) => {
                             onChange={e => {
                                 const num = e.target.value;
                                 props.setWhatsapp(num);
-                                
-
+                                if (num.length === 0) props.setWhatsappError(true);
+                                else props.setWhatsappError(false);
                             }}
                             className='w-[90%] ml-3 py-3 pl-4 rounded-xl bg-[linear-gradient(90deg,_#FFFFFF_14.9%,_#DCF4FF_100%)] sm:py-2 sm:placeholder:text-xl placeholder:font-bold placeholder-transparent placeholder:bg-gradient-text placeholder:bg-clip-text placeholder:italic shadow-[0px_4px_4px_0px_#00000040]'
                         />
+                        {props.whatsappError && (
+                            <p className="text-red-500 text-sm mt-1 ml-5">Please enter a valid whatsapp number.</p>
+                        )}
                     </div>
                 </div>
                 <div className='w-full refer-btn'>

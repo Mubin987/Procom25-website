@@ -13,7 +13,7 @@ const Competitions = ({ setCompetitions, compError }) => {
                     'Competition 3',
                 ]} />
                 { compError &&
-                    <p className="absolute right-0 -bottom-7 font-bold italic text-red-600">You must select a competition!</p>
+                    <p className="absolute right-4 -bottom-7 font-bold italic text-base text-red-600">You must select a competition!</p>
                 }
             </div>
             <div className="absolute top-[48%] left-[-1%] flex h-7 w-7 items-center justify-center rounded-full bg-[linear-gradient(90deg,_#1F95ED_0%,_#2169D4_100%)] font-bold text-white text-xl z-10">
