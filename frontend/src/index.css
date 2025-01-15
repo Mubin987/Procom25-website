@@ -1,6 +1,61 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: 'lemonmilk';
+  src: url('/fonts/lemonmilk.woff2') format('woff2'),
+    url('/fonts/lemonmilk.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'lemonmilk';
+  src: url('/fonts/lemonmilk.woff2') format('woff2'),
+    url('/fonts/lemonmilk.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('/fonts/Montserrat-VariableFont_wght.woff2') format('woff2'),
+    url('/fonts/Montserrat-VariableFont_wght.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Outfit';
+  src: url('/fonts/Montserrat-VariableFont_wght.woff2') format('woff2'),
+    url('/fonts/Montserrat-VariableFont_wght.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Outfit';
+  src: url('/fonts/Montserrat-VariableFont_wght.woff2') format('woff2'),
+    url('/fonts/Montserrat-VariableFont_wght.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Outfit';
+  src: url('/fonts/Outfit-VariableFont_wght.woff2') format('woff2'),
+    url('/fonts/Outfit-VariableFont_wght.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -29,6 +84,7 @@
     --chart-5: 27 87% 67%;
     --radius: 0.5rem
   }
+
   .dark {
     --background: 240 10% 3.9%;
     --foreground: 0 0% 98%;
@@ -56,10 +112,11 @@
     --chart-5: 340 75% 55%
   }
 }
+
 @layer base {
   * {
     @apply border-border;
-    
+
     input[type="number"]::-webkit-outer-spin-button,
     input[type="number"]::-webkit-inner-spin-button {
       -webkit-appearance: none;
@@ -71,21 +128,25 @@
     }
 
   }
+
   body {
     @apply bg-background text-foreground;
     margin: 0;
     padding: 0;
-    overflow-x: hidden; 
-  }
-
-  html, body, #root, .App {
     overflow-x: hidden;
   }
-  
+
+  html,
+  body,
+  #root,
+  .App {
+    overflow-x: hidden;
+  }
+
   .heading-primary {
     font-size: 2.5rem !important;
   }
-  
+
   .heading-secondary {
     font-size: 0.75rem !important;
   }
@@ -112,6 +173,7 @@
       font-size: 0.75rem !important;
       line-height: 1rem !important;
     }
+
     .text-4xl {
       font-size: 1.25rem !important;
       line-height: 1.50rem !important;
@@ -121,71 +183,90 @@
       font-size: 0.75rem !important;
       line-height: 1rem !important;
     }
+
     .px-3 {
       padding-left: 0.2rem !important;
       padding-right: 0.5rem !important;
     }
-    .py-2{
+
+    .py-2 {
       padding-top: 0.1rem !important;
       padding-bottom: 0.1rem !important;
     }
-    .py-3{
+
+    .py-3 {
       margin-top: 0.15rem;
       padding-top: 0.4rem !important;
       padding-bottom: 0.5rem !important;
     }
+
     html {
       font-size: 0.645rem;
     }
+
     .refer-btn {
       width: 96% !important;
     }
+
     .responsive-btn-1 {
       width: 90% !important;
     }
+
     .responsive-btn-2 {
       width: 91% !important;
     }
-    .responsive-margin{
+
+    .responsive-margin {
       margin: 0 !important;
     }
+
     .responsive-margin div {
       margin-bottom: 15px !important;
     }
+
     .left-4 {
       left: 1.5rem !important;
     }
+
     .top-7 {
       top: 2.0rem !important;
     }
+
     .top-\[36\%\] {
       top: 18% !important;
     }
+
     .left-\[-1\%\] {
-        left: -3% !important;
+      left: -3% !important;
     }
-    .top-\[48\%\]{
+
+    .top-\[48\%\] {
       top: 33% !important;
     }
-    .top-\[38px\]{
+
+    .top-\[38px\] {
       top: 8% !important;
     }
-    .top-\[29px\]{
+
+    .top-\[29px\] {
       top: 23% !important;
     }
-    .top-\[33px\]{
+
+    .top-\[33px\] {
       top: 30% !important;
     }
+
     .payment-info {
       width: 100% !important;
     }
   }
-  
+
   @media (min-width: 400px) and (max-width: 639px) {
     .text-lg {
       font-size: 0.75rem !important;
       line-height: 1rem !important;
     }
+
     .text-4xl {
       font-size: 1.25rem !important;
       line-height: 1.50rem !important;
@@ -195,60 +276,78 @@
       font-size: 0.75rem !important;
       line-height: 1rem !important;
     }
-    .py-2{
+
+    .py-2 {
       padding-top: 0.2rem !important;
       padding-bottom: 0.2rem !important;
     }
-    .py-3{
+
+    .py-3 {
       margin-top: 0.2rem;
       padding-top: 0.4rem !important;
       padding-bottom: 0.5rem !important;
     }
+
     body {
       font-size: 0.75rem;
     }
+
     .header {
       padding: 0.75rem;
     }
+
     .refer-btn {
       width: 96% !important;
     }
+
     .responsive-btn-1 {
       width: 91% !important;
     }
+
     .responsive-btn-2 {
       width: 91% !important;
     }
-    .responsive-margin{
+
+    .responsive-margin {
       margin: 0 !important;
     }
+
     .responsive-margin div {
       margin-bottom: 15px !important;
     }
+
     .left-4 {
       left: 1.5rem !important;
     }
+
     .top-7 {
       top: 2rem !important;
     }
+
     .top-\[36\%\] {
       top: 14.5% !important;
     }
+
     .left-\[-1\%\] {
-        left: -3% !important;
+      left: -3% !important;
     }
-    .top-\[48\%\]{
+
+    .top-\[48\%\] {
       top: 28% !important;
     }
-    .top-\[38px\]{
+
+    .top-\[38px\] {
       top: 9% !important;
     }
-    .top-\[29px\]{
+
+    .top-\[29px\] {
       top: 22% !important;
     }
-    .top-\[33px\]{
+
+    .top-\[33px\] {
       top: 33% !important;
     }
+
     .payment-info {
       width: 100% !important;
     }
@@ -258,61 +357,80 @@
     body {
       font-size: 1rem;
     }
+
     .header {
       padding: 1rem;
     }
+
     .nav {
       display: flex;
       justify-content: space-between;
     }
+
     .menu {
       display: none;
     }
+
     .heading-primary {
       font-size: 5rem !important;
     }
+
     .heading-secondary {
       font-size: 1.75rem !important;
     }
+
     .refer-btn {
       width: 96% !important;
     }
+
     .responsive-btn-1 {
       width: 91% !important;
     }
+
     .responsive-btn-2 {
       width: 91% !important;
     }
-    .responsive-margin{
+
+    .responsive-margin {
       margin: 0 !important;
     }
+
     .responsive-margin div {
       margin-bottom: 15px !important;
     }
+
     .left-4 {
       left: 1.5rem !important;
     }
+
     .top-7 {
       top: 2rem !important;
     }
+
     .top-\[36\%\] {
       top: 25% !important;
     }
+
     .left-\[-1\%\] {
-        left: -2% !important;
+      left: -2% !important;
     }
-    .top-\[48\%\]{
+
+    .top-\[48\%\] {
       top: 41% !important;
     }
-    .top-\[38px\]{
+
+    .top-\[38px\] {
       top: 9.3% !important;
     }
-    .top-\[29px\]{
+
+    .top-\[29px\] {
       top: 24% !important;
     }
-    .top-\[33px\]{
+
+    .top-\[33px\] {
       top: 38% !important;
     }
+
     .payment-info {
       width: 100% !important;
     }
@@ -322,123 +440,160 @@
     body {
       font-size: 1.125rem;
     }
+
     .header {
       padding: 1.5rem;
     }
+
     .nav {
       display: flex;
       justify-content: space-between;
     }
+
     .menu {
       display: none;
     }
+
     .heading-primary {
       font-size: 6rem !important;
     }
+
     .heading-secondary {
       font-size: 2rem !important;
     }
+
     .payment-info {
       width: 100% !important;
     }
+
     .refer-btn {
       width: 96% !important;
     }
+
     .responsive-btn-1 {
       width: 91% !important;
     }
+
     .responsive-btn-2 {
       width: 95.5% !important;
     }
+
     .responsive-margin {
       margin: 0 !important;
     }
+
     .responsive-margin div {
       margin-bottom: 15px !important;
     }
+
     .left-4 {
       left: 1.5rem !important;
     }
+
     .top-7 {
       top: 1.8rem !important;
     }
+
     .top-\[36\%\] {
       top: 33% !important;
     }
+
     .left-\[-1\%\] {
       left: -2% !important;
     }
+
     .top-\[48\%\] {
       top: 46% !important;
     }
+
     .top-\[38px\] {
       top: 12% !important;
     }
+
     .top-\[29px\] {
       top: 22% !important;
     }
-    .top-\[33px\]{
+
+    .top-\[33px\] {
       top: 34% !important;
     }
   }
 
   @media (min-width: 1024px) and (max-width: 1279px) {
     body {
-      font-size: 1.25rem; 
+      font-size: 1.25rem;
     }
+
     .header {
       padding: 2rem;
     }
+
     .nav {
       display: flex;
       justify-content: space-between;
     }
+
     .menu {
       display: none;
     }
+
     .heading-primary {
       font-size: 7rem !important;
     }
+
     .heading-secondary {
       font-size: 2.25rem !important;
     }
+
     .refer-btn {
       width: 96% !important;
     }
+
     .responsive-btn-1 {
       width: 91% !important;
     }
+
     .responsive-btn-2 {
       width: 95.5% !important;
     }
+
     .responsive-margin {
       margin: 0 !important;
     }
+
     .responsive-margin div {
       margin-bottom: 15px !important;
     }
+
     .left-4 {
       left: 1.5rem !important;
     }
+
     .top-7 {
       top: 1.8rem !important;
     }
+
     .top-\[36\%\] {
       top: 35% !important;
     }
+
     .left-\[-1\%\] {
       left: -2% !important;
     }
+
     .top-\[48\%\] {
       top: 47% !important;
     }
+
     .top-\[38px\] {
       top: 12.5% !important;
     }
+
     .top-\[29px\] {
       top: 21% !important;
     }
-    .top-\[33px\]{
+
+    .top-\[33px\] {
       top: 34% !important;
     }
   }
@@ -447,59 +602,77 @@
     body {
       font-size: 1.375rem;
     }
+
     .header {
       padding: 2.5rem;
     }
+
     .nav {
       display: flex;
       justify-content: space-between;
     }
+
     .menu {
       display: none;
     }
+
     .heading-primary {
       font-size: 8rem !important;
     }
+
     .heading-secondary {
       font-size: 2.5rem !important;
     }
+
     .refer-btn {
       width: 96% !important;
     }
+
     .responsive-btn-1 {
       width: 91% !important;
     }
+
     .responsive-btn-2 {
       width: 95.5% !important;
     }
+
     .responsive-margin {
       margin: 0 !important;
     }
+
     .responsive-margin div {
       margin-bottom: 15px !important;
     }
+
     .left-4 {
       left: 1.5rem !important;
     }
+
     .top-7 {
       top: 2rem !important;
     }
+
     .top-\[36\%\] {
       top: 40% !important;
     }
+
     .left-\[-1\%\] {
       left: -2% !important;
     }
+
     .top-\[48\%\] {
       top: 41% !important;
     }
+
     .top-\[38px\] {
       top: 13.5% !important;
     }
+
     .top-\[29px\] {
       top: 23% !important;
     }
-    .top-\[33px\]{
+
+    .top-\[33px\] {
       top: 37% !important;
     }
   }
@@ -508,62 +681,78 @@
     body {
       font-size: 1.5rem;
     }
+
     .header {
       padding: 3rem;
     }
+
     .nav {
       display: flex;
       justify-content: space-between;
     }
+
     .menu {
       display: none;
     }
+
     .heading-primary {
       font-size: 9rem !important;
     }
+
     .heading-secondary {
       font-size: 2.75rem !important;
     }
+
     .refer-btn {
       width: 96% !important;
     }
+
     .responsive-btn-1 {
       width: 91% !important;
     }
+
     .responsive-btn-2 {
       width: 95.5% !important;
     }
+
     .responsive-margin {
       margin: 0 !important;
     }
+
     .responsive-margin div {
       margin-bottom: 15px !important;
     }
+
     .left-4 {
       left: 1.5rem !important;
     }
+
     .top-7 {
       top: 2rem !important;
     }
+
     .top-\[36\%\] {
       top: 40% !important;
     }
+
     .left-\[-1\%\] {
       left: -2% !important;
     }
+
     .top-\[48\%\] {
       top: 41% !important;
     }
+
     .top-\[38px\] {
       top: 13.5% !important;
     }
+
     .top-\[29px\] {
       top: 23% !important;
     }
-    .top-\[33px\]{
+
+    .top-\[33px\] {
       top: 37% !important;
     }
   }
 }
-
-

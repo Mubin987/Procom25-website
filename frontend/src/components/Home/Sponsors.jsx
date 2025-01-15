@@ -95,7 +95,7 @@ const Sponsors = () => {
                 </Marquee>
             </div>
             <Link to="/sponsors" className=''>
-                <button className='text-lg bg-[linear-gradient(90deg,_#218EF1_0%,_#1865DD_50%,_#0E3AC8_100%)] [box-shadow:6px_4px_11.7px_0px_#00000040] font-bold text-white px-6 py-1 rounded-full'>Become a Sponsor</button>
+                <button className='text-lg font-montserrate bg-[linear-gradient(90deg,_#218EF1_0%,_#1865DD_50%,_#0E3AC8_100%)] [box-shadow:6px_4px_11.7px_0px_#00000040] font-bold text-white px-6 py-1 rounded-full'>Become a Sponsor</button>
             </Link>
         </section>
     );

@@ -11,7 +11,9 @@ const DAY = HOUR * 24;
 
 const Countdown = ({ pageType }) => {
     return (
-        <div className={`flex gap-1 ${pageType === "Home" ? "justify-center items-end" : "justify-start"} bg-[linear-gradient(90deg,_#23B5F4_0%,_#2087F1_31.4%,_#1F6DEF_96.6%)] bg-clip-text text-transparent`}>
+        <div className={`flex gap-1 ${pageType === "Home" || pageType === "Sponsors" ? "justify-center items-end" : "justify-start"} bg-[linear-gradient(90deg,_#23B5F4_0%,_#2087F1_31.4%,_#1F6DEF_96.6%)] bg-clip-text text-transparent
+            font-bold font-outfit
+        `}>
             <CountdownItem unit="Day" text="days" pageType={pageType} />
             <Colon />
             <CountdownItem unit="Hour" text="hours" pageType={pageType} />
@@ -28,7 +30,7 @@ const CountdownItem = ({ unit, text, pageType }) => {
 
     return (
         <div className="flex flex-col items-center justify-center">
-            {pageType === "Home" ? (
+            {pageType === "Home" || pageType === "Sponsors" ? (
                 <>
                     {/* Label */}
                     <span className="text-xs font-semibold text-themeDBlue opacity-65 leading-[17.07px] tracking-[0.15em]">

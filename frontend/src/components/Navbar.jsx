@@ -12,12 +12,12 @@ const Navbar = () => {
   ];
 
   const [isOpen, setIsOpen] = useState(false);
-  const genericHamburgerLine = `h-[4px] w-12 my-[3px] rounded-full ${isOpen ? "bg-[linear-gradient(90deg,_#FFFFFF_14.9%,_#D0EFFF_65.4%,_#A7E2FF_100%)]" : "bg-themeBlue"} transition ease transform duration-300`;
+  const genericHamburgerLine = `h-[4px] w-12 my-[3px] rounded-full ${isOpen ? "bg-[linear-gradient(90deg,_#FFFFFF_14.9%,_#D0EFFF_65.4%,_#A7E2FF_100%)]" : "bg-themeBlue"} transition ease transform duration-300 z-50`;
 
   const location = useLocation();
 
   return (
-    <nav className="bg-transparent py-5 px-4 flex w-full absolute top-0 z-50 nav">
+    <nav className="bg-transparent py-5 px-4 flex w-full absolute top-0 z-50 nav font-outfit font-[600]">
       <div className="w-full flex justify-between sm:justify-end items-center">
         {/* Hamburger Menu */}
         <div className='{`block ${isOpen ? "fixed" : "relative"} sm:hidden z-50`} nav-items'>
@@ -27,7 +27,7 @@ const Navbar = () => {
           >
             <div
               className={`${genericHamburgerLine} ${isOpen
-                ? "rotate-45 translate-y-[8px]"
+                ? "rotate-45 translate-y-[12px]"
                 : ""
                 }`}
             />

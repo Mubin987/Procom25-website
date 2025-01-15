@@ -1,5 +1,5 @@
 import './App.css'
-import { Link, Outlet } from "react-router-dom";
+import { Outlet, ScrollRestoration } from "react-router-dom";
 import { Footer, Navbar } from './components';
 
 function App() {
@@ -7,6 +7,7 @@ function App() {
   return (
     <>
       <Navbar />
+      <ScrollRestoration />
       <Outlet />
       <Footer />
     </>

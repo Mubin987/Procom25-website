@@ -3,7 +3,7 @@ import RegisterHeading from "../ui/register-headings";
 
 const Competitions = ({ setCompetitions }) => {
     return (
-        <div className="relative pl-10 mt-20">
+        <div className="relative pl-10 mt-20 font-lemonmilk">
             <RegisterHeading heading={"competitions"} textSize='text-2xl' />
             <div className='absolute left-4 top-7 md:left-6 flex w-[90%] sm:w-[80%] items-center'>
                 <div className="w-full border-t-4 border-dashed border-themeBlue " />

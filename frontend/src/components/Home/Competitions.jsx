@@ -7,9 +7,9 @@ const Card = ({ heading, text, image, link }) => (
             <div className='sm:hidden m-auto'>
                 <img src={image} alt={heading} height={400} width={400} className='w-[300px] object-cover rounded-r-3xl' />
             </div>
-            <h1 className='bg-clip-text text-center sm:text-start text-transparent bg-[linear-gradient(90deg,_#FFFFFF_25.4%,_#A7E2FF_90%)] text-4xl font-bold'>{heading}</h1>
+            <h1 className='bg-clip-text text-center font-lemonmilk sm:text-start text-transparent bg-[linear-gradient(90deg,_#FFFFFF_25.4%,_#A7E2FF_90%)] text-4xl font-bold'>{heading}</h1>
             <p className='hidden sm:inline text-lg font-semibold'>{text}</p>
-            <Link className='[box-shadow:1px_2px_3px_0px_#00000040] bg-[linear-gradient(90deg,_#FFFFFF_14.9%,_#D0EFFF_65.4%,_#A7E2FF_100%)] justify-center rounded-full text-[#2169D4] font-bold px-6 py-1.5 w-fit mt-2 sm:mt-0'>
+            <Link className='[box-shadow:1px_2px_3px_0px_#00000040] font-montserrate bg-[linear-gradient(90deg,_#FFFFFF_14.9%,_#D0EFFF_65.4%,_#A7E2FF_100%)] justify-center rounded-full text-[#2169D4] font-bold px-6 py-1.5 w-fit mt-2 sm:mt-0'>
                 View Modules
             </Link>
         </div>
@@ -22,7 +22,7 @@ const Card = ({ heading, text, image, link }) => (
 const Competitions = () => {
     return (
         <section className='w-full flex flex-col items-center justify-center gap-2 my-5 p-4'>
-            <h1 className='font-extrabold w-4/5 bg-clip-text text-transparent bg-[linear-gradient(90deg,_#434242_25.4%,_#2C2C2C_78.4%,_#161616_100%)] text-4xl sm:text-5xl py-2 text-center'>EXPLORE <span className='font-bold bg-clip-text text-transparent bg-[linear-gradient(180deg,_#199DDF_0%,_#145BD5_100%)] text-4xl sm:text-6xl'>PROCOM'S </span> DYNAMIC COMPETITIONS – CHOOSE YOUR ARENA</h1>
+            <h1 className='font-extrabold font-lemonmilk w-4/5 bg-clip-text text-transparent bg-[linear-gradient(90deg,_#434242_25.4%,_#2C2C2C_78.4%,_#161616_100%)] text-4xl sm:text-5xl py-2 text-center'>EXPLORE <span className='font-bold bg-clip-text text-transparent bg-[linear-gradient(180deg,_#199DDF_0%,_#145BD5_100%)] text-4xl sm:text-6xl'>PROCOM'S </span> DYNAMIC COMPETITIONS – CHOOSE YOUR ARENA</h1>
             <div className='flex flex-col gap-4 my-2'>
                 {[
                     {

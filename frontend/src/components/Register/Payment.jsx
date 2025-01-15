@@ -2,7 +2,7 @@ import RegisterHeading from "../ui/register-headings";
 
 const Payment = () => {
     return (
-        <div className="relative pl-10 mt-16">
+        <div className="relative pl-10 mt-16 font-lemonmilk">
             <RegisterHeading heading={"payment"} textSize='text-2xl' />
             <div className='absolute left-4 top-7 md:left-6 flex w-[90%] sm:w-[80%]'>
                 <div className="w-full border-t-4 border-dashed border-themeBlue mt-3 " />
@@ -37,11 +37,11 @@ const Payment = () => {
                 <p className="text-[13px] sm:text-sm italic">
                     PLEASE PAY YOUR FEES IN THE FOLLOWING ACCOUNT!
                     <br />
-                    BANK NAME: <span className="font-medium text-black not-italic">NAYAPAY</span>
+                    BANK NAME: <span className="font-medium text-black opacity-70 not-italic">NAYAPAY</span>
                     <br />
-                    ACCOUNT TITLE: <span className="font-medium text-black not-italic">MUHAMMAD SHAHMIR RAZA</span>
+                    ACCOUNT TITLE: <span className="font-medium text-black opacity-70 not-italic">MUHAMMAD SHAHMIR RAZA</span>
                     <br />
-                    ACCOUNT NUMBER: <span className="font-medium text-black not-italic">03188409943</span>
+                    ACCOUNT NUMBER: <span className="font-medium text-black opacity-70 not-italic">03188409943</span>
                 </p>
             </div>
         </div>
