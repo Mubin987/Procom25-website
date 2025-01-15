@@ -13,25 +13,39 @@ import '../index.css';
 
 const Register = () => {
   const [department, setDepartment] = useState("");
+  const [departError, setDepartError] = useState(false);
   const [competitions, setCompetitions] = useState("");
+  const [compError, setCompError] = useState(false);
   const [teamName, setTeamName] = useState("");
   const [name, setName] = useState("");
   const [cnicNo, setCnicNo] = useState(null);
+  const [cnicError, setCnicError] = useState(false);
   const [emailAddress, setEmailAddress] = useState("");
+  const [emailError, setEmailError] = useState(false);
   const [whatsapp, setWhatsapp] = useState(null);
   const [referenceCode, setReferenceCode] = useState(null);
+  const [fileUrl, setFileUrl] = useState(null);
   const navigate = useNavigate();
   const formData = {
     teamName, setTeamName, name, setName, cnicNo, setCnicNo,
-    emailAddress, setEmailAddress, whatsapp, setWhatsapp, referenceCode, setReferenceCode
+    emailAddress, setEmailAddress, whatsapp, setWhatsapp, referenceCode, setReferenceCode,
+    emailError, setEmailError, cnicError, setCnicError
+  }
+
+  const catchError = () => {
+    if (department.length === 0) setDepartError(true);
+    if (competitions.length === 0) setCompError(true);
   }
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setDepartError(false);
+    setCompError(false);
+    catchError();
     // Implement the logic for post into database here when backend is done
-    const formData = { department, competitions, teamName, name, cnicNo, emailAddress, whatsapp, referenceCode }
-    console.log(formData);
-    navigate('/')
+    const updatedFormData = { department, competitions, teamName, name, cnicNo, emailAddress, whatsapp, referenceCode }
+    console.log(updatedFormData);
+    // navigate('/')
   };
 
   return (
@@ -43,8 +57,8 @@ const Register = () => {
           {/* Add the main vertical dotted line */}
           <div className="absolute left-10 top-[34px] bottom-[62px] sm:bottom-[20px] border-l-4 border-dashed border-themeBlue md:left-10" />
           <div className='pl-4'>
-            <Department setDepartment={setDepartment} />
-            <Competitions setCompetitions={setCompetitions} />
+            <Department setDepartment={setDepartment} departError={departError} />
+            <Competitions setCompetitions={setCompetitions} compError={compError} />
             <TeamInformation
               props={formData}
             />
