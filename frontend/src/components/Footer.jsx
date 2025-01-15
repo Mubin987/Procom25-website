@@ -70,7 +70,7 @@ const Footer = () => {
             {/* <div className='border-t-2 border-white'></div> */}
             <div className='flex flex-col gap-4  sm:flex-row  px-8 pt-4 sm:justify-between items-center'>
                 <p className='text-[15px]'>
-                    <span className='font-bold'>
+                    <span className='font-bold font-lemonmilk'>
                         Procom'25
                     </span> | All rights reserved</p>
                 <div className='flex gap-4 text-2xl justify-center items-center'>

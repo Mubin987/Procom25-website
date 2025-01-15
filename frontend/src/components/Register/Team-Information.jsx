@@ -2,7 +2,7 @@ import RegisterHeading from "../ui/register-headings";
 
 const TeamInformation = ({ props }) => {
     return (
-        <div className="relative pl-10 mt-24">
+        <div className="relative pl-10 mt-24 font-lemonmilk">
             <RegisterHeading heading={"team information"} textSize='text-2xl' />
             <div className='absolute left-4 top-7 md:left-6 flex w-[80%] items-center'>
                 <div className="w-full border-t-4 border-dashed border-themeBlue " />

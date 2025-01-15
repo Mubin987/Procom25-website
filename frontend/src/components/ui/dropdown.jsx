@@ -11,7 +11,7 @@ const Dropdown = ({ items, defaultValue, setValue }) => {
   };
 
   return (
-    <div className={`relative w-[60%] ml-3`}>
+    <div className={`relative w-[60%] ml-3 font-lemonmilk`}>
       <button
         onClick={() => setIsOpen((prev) => !prev)}
         className={`inline-flex justify-between w-full px-4 py-2 text-[13px] sm:text-[22px] bg-[linear-gradient(90deg,_#1F95ED_0%,_#2169D4_100%)] text-white font-bold ${
