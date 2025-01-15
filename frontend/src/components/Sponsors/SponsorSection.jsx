@@ -1,5 +1,5 @@
 const SponsorSection = ({ title, sponsors }) => (
-    <section className="mb-16">
+    <section className="mb-16 sponsor-section">
         <div className="flex items-center justify-center gap-4 mb-8">
             <div className="w-full border-t-4 border border-[#434242]" />
             {/* <Heading1 text={ title} /> */}
@@ -13,7 +13,7 @@ const SponsorSection = ({ title, sponsors }) => (
             {sponsors.map((sponsor, index) => (
                 <div
                     key={index}
-                    className="rounded-lg p-4 w-full h-28 flex items-center justify-center shadow-md bg-white"
+                    className="rounded-lg p-4 w-full h-28 flex items-center justify-center shadow-md bg-white "
                 >
                     <img
                         src={sponsor.logo}

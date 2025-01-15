@@ -1,4 +1,5 @@
 import RegisterHeading from "../ui/register-headings";
+import '../../index.css'
 
 const TeamInformation = ({ props }) => {
     return (
@@ -16,18 +17,18 @@ const TeamInformation = ({ props }) => {
                 />
             </div>
             <div className="absolute top-[38px] left-[-1%] flex h-7 w-7 items-center justify-center rounded-full bg-[linear-gradient(90deg,_#1F95ED_0%,_#2169D4_100%)] font-bold text-white text-xl z-10">
-                <span className="bg-[linear-gradient(90deg,_#FFFFFF_14.9%,_#D0EFFF_63.77%,_#A7E2FF_100%)] bg-clip-text text-transparent font-bold">3</span>
+            <span className="bg-[linear-gradient(90deg,_#FFFFFF_14.9%,_#D0EFFF_63.77%,_#A7E2FF_100%)] bg-clip-text text-transparent font-bold">3</span>
             </div>
             <div className="mt-5 sm:mt-7 bg-[linear-gradient(270deg,#0D32C5_0%,#1768DB_37.9%,#1E8AE9_93.9%,#23A7F4_100%)] bg-clip-text text-transparent font-bold">
                 <p className="text-[13px] sm:text-base max-w-[50%] italic">
                     ENTER YOUR TEAM'S ACCURATE INFORMATION!
                 </p>
             </div>
-            <div className='ml-5 max-w-[86%]'>
+            <div className=' ml-5 max-w-[86%]'>
                 <p className="text-xl max-w-[50%] italic mt-5 mb-2 ml-2 bg-[linear-gradient(270deg,#0D32C5_0%,#1768DB_37.9%,#1E8AE9_93.9%,#23A7F4_100%)] bg-clip-text text-transparent font-bold">
                     TEAM LEADER'S INFO:
                 </p>
-                <div className='flex flex-wrap w-[96%] sm:mb-6'>
+                <div className='responsive-margin flex flex-wrap w-[96%] sm:mb-6'>
                     <div className='w-full md:w-1/2 mb-3 sm:mb-0'>
                         <input
                             type='text'
@@ -44,46 +45,21 @@ const TeamInformation = ({ props }) => {
                             placeholder='CNIC NO. *'
                             required
                             value={props.cnicNo}
-                            onChange={e => {
-                                const cnic = e.target.value;
-                                props.setCnicNo(cnic);
-                                if (cnic.length !== 13) {
-                                    props.setCnicError(true);
-                                } else {
-                                    props.setCnicError(false);
-                                }
-                            }}
+                            onChange={e => props.setCnicNo(e.target.value)}
                             className='w-[90%] ml-3 py-3 pl-4 rounded-xl bg-[linear-gradient(90deg,_#FFFFFF_14.9%,_#DCF4FF_100%)] sm:py-2 sm:placeholder:text-xl placeholder:font-bold placeholder-transparent placeholder:bg-gradient-text placeholder:bg-clip-text placeholder:italic shadow-[0px_4px_4px_0px_#00000040]'
                         />
-                        {props.cnicError && (
-                            <p className="text-red-500 text-sm mt-1 ml-5">Please enter a valid cnic.</p>
-                        )}
                     </div>
                 </div>
-                <div className='flex flex-wrap w-[96%] sm:mb-6'>
+                <div className='responsive-margin flex flex-wrap w-[96%] sm:mb-6'>
                     <div className='w-full md:w-1/2 mb-3 sm:mb-0'>
                         <input
                             type='email'
                             placeholder='EMAIL ADDRESS *'
                             required
                             value={props.emailAddress}
-                            onChange={e => {
-                                const email = e.target.value;
-                                props.setEmailAddress(email);
-
-                                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                                if (!emailRegex.test(email)) {
-                                    props.setEmailError(true);
-                                } else {
-                                    props.setEmailError(false);
-                                }
-                            }}
-                            className={`w-[90%] ml-3 py-3 pl-4 rounded-xl bg-[linear-gradient(90deg,_#FFFFFF_14.9%,_#DCF4FF_100%)] sm:py-2 sm:placeholder:text-xl placeholder:font-bold placeholder-transparent placeholder:bg-gradient-text placeholder:bg-clip-text placeholder:italic shadow-[0px_4px_4px_0px_#00000040] ${props.emailError ? 'border-red-500' : ''
-                                }`}
+                            onChange={e => props.setEmailAddress(e.target.value)}
+                            className='w-[90%] ml-3 py-3 pl-4 rounded-xl bg-[linear-gradient(90deg,_#FFFFFF_14.9%,_#DCF4FF_100%)] sm:py-2 sm:placeholder:text-xl placeholder:font-bold placeholder-transparent placeholder:bg-gradient-text placeholder:bg-clip-text placeholder:italic shadow-[0px_4px_4px_0px_#00000040]'
                         />
-                        {props.emailError && (
-                            <p className="text-red-500 text-sm mt-1 ml-5">Please enter a valid email address.</p>
-                        )}
                     </div>
                     <div className='w-full md:w-1/2 mb-3 sm:mb-0'>
                         <input
@@ -91,17 +67,12 @@ const TeamInformation = ({ props }) => {
                             placeholder='WHATSAPP *'
                             required
                             value={props.whatsapp}
-                            onChange={e => {
-                                const num = e.target.value;
-                                props.setWhatsapp(num);
-                                
-
-                            }}
+                            onChange={e => props.setWhatsapp(e.target.value)}
                             className='w-[90%] ml-3 py-3 pl-4 rounded-xl bg-[linear-gradient(90deg,_#FFFFFF_14.9%,_#DCF4FF_100%)] sm:py-2 sm:placeholder:text-xl placeholder:font-bold placeholder-transparent placeholder:bg-gradient-text placeholder:bg-clip-text placeholder:italic shadow-[0px_4px_4px_0px_#00000040]'
                         />
                     </div>
                 </div>
-                <div className='w-full refer-btn'>
+                <div className='responsive-margin w-full refer-btn'>
                     <input
                         type='text'
                         placeholder='REFERENCE CODE (IF ANY) *'
