@@ -4,6 +4,7 @@ import { Outlet, ScrollRestoration } from "react-router-dom";
 import { Footer, Navbar } from './components';
 import { useLayoutEffect, useRef } from 'react';
 import gsap from 'gsap';
+import { Toaster } from './components/ui/toaster';
 
 function App() {
   const comp = useRef(null);
@@ -57,7 +58,8 @@ function App() {
         <Navbar />
         <ScrollRestoration />
         <Outlet />
-        <Footer />
+        <Toaster />
+      <Footer />
       </div>
     </div>
   );

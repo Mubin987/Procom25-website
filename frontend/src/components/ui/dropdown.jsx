@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 const Dropdown = ({ items, defaultValue, setValue }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState(defaultValue);
+  const dropdownRef = useRef(null);
 
   const handleItemClick = (item) => {
     setSelectedItem(item);
@@ -10,8 +11,21 @@ const Dropdown = ({ items, defaultValue, setValue }) => {
     setIsOpen(false);
   };
 
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsOpen(false);
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+  })
+
   return (
-    <div className={`relative w-[60%] ml-3 font-lemonmilk`}>
+    <div ref={dropdownRef} className={`relative w-[60%] ml-3 font-lemonmilk`}>
       <button
         onClick={() => setIsOpen((prev) => !prev)}
         className={`inline-flex justify-between w-full px-4 py-2 text-[13px] sm:text-[22px] bg-[linear-gradient(90deg,_#1F95ED_0%,_#2169D4_100%)] text-white font-bold ${

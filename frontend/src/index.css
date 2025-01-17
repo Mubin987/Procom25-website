@@ -205,7 +205,7 @@
     }
 
     .refer-btn {
-      width: 96% !important;
+      width: 91% !important;
     }
 
     .responsive-btn-1 {
@@ -259,6 +259,31 @@
     .payment-info {
       width: 100% !important;
     }
+
+    .sponsor-section {
+      padding: 0.5rem;
+      border-radius: 1rem;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .sponsor-section h2 {
+      font-size: 1.5rem;
+    }
+
+    .sponsor-section .grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+
+    .sponsor-section .grid div {
+      height: auto;
+    }
+
+    .sponsor-section .grid img {
+      width: 90%;
+      height: auto !important;
+      object-fit: cover;
+    }
   }
 
   @media (min-width: 400px) and (max-width: 639px) {
@@ -297,7 +322,7 @@
     }
 
     .refer-btn {
-      width: 96% !important;
+      width: 91% !important;
     }
 
     .responsive-btn-1 {
@@ -351,6 +376,31 @@
     .payment-info {
       width: 100% !important;
     }
+
+    .sponsor-section {
+      padding: 1.75rem;
+      border-radius: 1rem;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .sponsor-section h2 {
+      font-size: 1.75rem;
+    }
+
+    .sponsor-section .grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+
+    .sponsor-section .grid div {
+      height: auto;
+    }
+
+    .sponsor-section .grid img {
+      width: 90%;
+      height: auto !important;
+      object-fit: cover;
+    }
   }
 
   @media (min-width: 640px) and (max-width: 767px) {
@@ -380,7 +430,7 @@
     }
 
     .refer-btn {
-      width: 96% !important;
+      width: 91% !important;
     }
 
     .responsive-btn-1 {
@@ -433,6 +483,31 @@
 
     .payment-info {
       width: 100% !important;
+    }
+
+    .sponsor-section {
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .sponsor-section h2 {
+      font-size: 2.5rem;
+    }
+
+    .sponsor-section .grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+
+    .sponsor-section .grid div {
+      height: auto;
+    }
+
+    .sponsor-section .grid img {
+      width: 90%;
+      height: auto !important;
+      object-fit: cover;
     }
   }
 
@@ -517,6 +592,31 @@
     .top-\[33px\] {
       top: 34% !important;
     }
+
+    .sponsor-section {
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .sponsor-section h2 {
+      font-size: 3rem;
+    }
+
+    .sponsor-section .grid {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+    }
+
+    .sponsor-section .grid div {
+      height: auto;
+    }
+
+    .sponsor-section .grid img {
+      width: 95%;
+      height: auto !important;
+      object-fit: cover;
+    }
   }
 
   @media (min-width: 1024px) and (max-width: 1279px) {
@@ -595,6 +695,31 @@
 
     .top-\[33px\] {
       top: 34% !important;
+    }
+
+    .sponsor-section {
+      padding: 3.5rem;
+      border-radius: 1rem;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .sponsor-section h2 {
+      font-size: 3.5rem;
+    }
+
+    .sponsor-section .grid {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+    }
+
+    .sponsor-section .grid div {
+      height: auto;
+    }
+
+    .sponsor-section .grid img {
+      width: 95%;
+      height: auto !important;
+      object-fit: cover;
     }
   }
 
@@ -675,6 +800,31 @@
     .top-\[33px\] {
       top: 37% !important;
     }
+
+    .sponsor-section {
+      padding: 3.5rem;
+      border-radius: 1rem;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .sponsor-section h2 {
+      font-size: 3.5rem;
+    }
+
+    .sponsor-section .grid {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+    }
+
+    .sponsor-section .grid div {
+      height: auto;
+    }
+
+    .sponsor-section .grid img {
+      width: 95%;
+      height: auto !important;
+      object-fit: cover;
+    }
   }
 
   @media (min-width: 1536px) {
@@ -753,6 +903,31 @@
 
     .top-\[33px\] {
       top: 37% !important;
+    }
+
+    .sponsor-section {
+      padding: 3.5rem;
+      border-radius: 1rem;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .sponsor-section h2 {
+      font-size: 3.5rem;
+    }
+
+    .sponsor-section .grid {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+    }
+
+    .sponsor-section .grid div {
+      height: auto;
+    }
+
+    .sponsor-section .grid img {
+      width: 95%;
+      height: auto !important;
+      object-fit: cover;
     }
   }
 }
