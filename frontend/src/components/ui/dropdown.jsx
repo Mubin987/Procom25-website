@@ -1,13 +1,14 @@
 import React, { useEffect, useRef, useState } from "react";
 
-const Dropdown = ({ items, defaultValue, setValue }) => {
+const Dropdown = ({ items, defaultValue, setValue, setMembers }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState(defaultValue);
   const dropdownRef = useRef(null);
 
   const handleItemClick = (item) => {
-    setSelectedItem(item);
-    setValue(item);
+    setSelectedItem(item.name);
+    setValue(item.name);
+    setMembers(item.members)
     setIsOpen(false);
   };
 
@@ -25,10 +26,10 @@ const Dropdown = ({ items, defaultValue, setValue }) => {
   })
 
   return (
-    <div ref={dropdownRef} className={`relative w-[60%] ml-3 font-lemonmilk`}>
+    <div ref={dropdownRef} className={`relative w-[85%] sm:w-full md:w-[95%] lg:w-[70%] ml-3 font-lemonmilk`}>
       <button
         onClick={() => setIsOpen((prev) => !prev)}
-        className={`inline-flex justify-between w-full px-4 py-2 text-[13px] sm:text-[22px] bg-[linear-gradient(90deg,_#1F95ED_0%,_#2169D4_100%)] text-white font-bold ${
+        className={`inline-flex justify-between w-full px-4 py-2 text-[12px] sm:text-xl bg-[linear-gradient(90deg,_#1F95ED_0%,_#2169D4_100%)] text-white font-bold ${
           isOpen ? "rounded-t-xl" : "rounded-xl"}`}
       >
         {selectedItem}
@@ -56,10 +57,10 @@ const Dropdown = ({ items, defaultValue, setValue }) => {
               <button
                 key={index}
                 onClick={() => handleItemClick(item)}
-                className="block px-4 py-2 w-full text-left"
+                className="block px-4 py-2 w-full text-[12px] sm:text-xl text-left"
                 role="menuitem"
               >
-                {item}
+                {item.name}
               </button>
             ))}
         </div>

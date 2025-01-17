@@ -4,7 +4,7 @@ const Review = ({ confirmInfo, isErrorPresent }) => {
     return (
         <div className="relative pl-10 mt-28">
             <RegisterHeading heading={"review"} textSize='text-2xl' />
-            <div className='absolute left-4 top-7 md:left-6 flex w-[80%] items-center'>
+            <div className='absolute left-4 top-7 md:left-6 flex w-[80%] sm:w-[93%] md:w-[80%] items-center'>
                 <div className="w-full border-t-4 border-dashed border-themeBlue " />
                 <button onClick={(e) => {
                     e.preventDefault()
