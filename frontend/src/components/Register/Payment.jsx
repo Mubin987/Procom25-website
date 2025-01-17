@@ -16,7 +16,7 @@ const Payment = ({ fileUrl, setFileUrl, fileError, setFileError }) => {
   return (
     <div className="relative pl-10 mt-16 font-lemonmilk">
       <RegisterHeading heading={"payment"} textSize='text-2xl' />
-      <div className='absolute left-4 top-7 md:left-6 flex w-[90%] sm:w-[80%]'>
+      <div className='team-top absolute left-4 top-7 md:left-6 flex w-[90%] sm:w-[80%]'>
         <div className="w-full border-t-4 border-dashed border-themeBlue mt-3 " />
         <div className="flex flex-col items-center rounded-lg bg-[linear-gradient(90deg,_#FFFFFF_14.9%,_#DCF4FF_100%)] p-6 pt-3 ml-3 cursor-pointer drop-shadow-lg">
           <div className='lg:w-60'>
@@ -66,7 +66,7 @@ const Payment = ({ fileUrl, setFileUrl, fileError, setFileError }) => {
         <span className="bg-[linear-gradient(90deg,_#FFFFFF_14.9%,_#D0EFFF_63.77%,_#A7E2FF_100%)] bg-clip-text text-transparent font-bold">4</span>
       </div>
       <div className="mt-4 bg-[linear-gradient(180deg,_#199DDF_0%,_#145BD5_100%)] w-[50%] sm:w-full bg-clip-text text-transparent font-bold">
-        <p className="text-[13px] sm:text-sm italic">
+        <p className="max-w text-[13px] sm:text-sm italic">
           PLEASE PAY YOUR FEES IN THE FOLLOWING ACCOUNT!
           <br />
           BANK NAME: <span className="font-medium text-black opacity-70 not-italic">NAYAPAY</span>

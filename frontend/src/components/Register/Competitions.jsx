@@ -7,10 +7,10 @@ const Competitions = ({ setCompetitions, compError }) => {
             <RegisterHeading heading={"competitions"} textSize='text-2xl' />
             <div className='absolute left-4 top-7 md:left-6 flex w-[90%] sm:w-[80%] items-center'>
                 <div className="w-full border-t-4 border-dashed border-themeBlue " />
-                <Dropdown defaultValue="COMPETITIONS" setValue={setCompetitions} items={[
-                    'Competition 1',
-                    'Competition 2',
-                    'Competition 3',
+                <Dropdown defaultValue="CHOOSE COMPETITIONS" setValue={setCompetitions} items={[
+                    'Competition One',
+                    'Competition Two',
+                    'Competition Three',
                 ]} />
                 { compError &&
                     <p className="absolute right-4 -bottom-7 font-bold italic text-base text-red-600">You must select a competition!</p>
@@ -20,7 +20,7 @@ const Competitions = ({ setCompetitions, compError }) => {
             <span className="bg-[linear-gradient(90deg,_#FFFFFF_14.9%,_#D0EFFF_63.77%,_#A7E2FF_100%)] bg-clip-text text-transparent font-bold">2</span>
             </div>
             <div className="mt-5 sm:mt-7 bg-[linear-gradient(180deg,_#199DDF_0%,_#145BD5_100%)] bg-clip-text text-transparent font-bold">
-                <p className="text-[13px] sm:text-base max-w-[50%] italic">
+                <p className="text-[13px] sm:text-base max-w-[47%] italic">
                     SELECT THE COMPETITION YOU WISH TO PARTICIPATE IN!
                 </p>
             </div>

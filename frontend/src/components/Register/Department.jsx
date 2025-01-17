@@ -8,7 +8,7 @@ const Department = ({ setDepartment, departError }) => {
             <RegisterHeading heading={"department"} textSize='text-2xl' />
             <div className='absolute left-4 top-7 md:left-6 flex w-[90%] sm:w-[80%] items-center'>
                 <div className="w-full border-t-4 border-dashed border-themeBlue " />
-                <Dropdown defaultValue="DEPARTMENT" setValue={setDepartment} items={[
+                <Dropdown defaultValue="CHOOSE DEPARTMENT" setValue={setDepartment} items={[
                     'Computer Science',
                     'Electrical Engineering',
                     'Mechanical Engineering',
