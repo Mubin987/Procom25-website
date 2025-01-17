@@ -30,7 +30,7 @@ const TeamInformation = ({ props, members, setMembers, memberCount }) => {
             <span className="bg-[linear-gradient(90deg,_#FFFFFF_14.9%,_#D0EFFF_63.77%,_#A7E2FF_100%)] bg-clip-text text-transparent font-bold">3</span>
             </div>
             <div className="mt-5 sm:mt-7 bg-[linear-gradient(270deg,#0D32C5_0%,#1768DB_37.9%,#1E8AE9_93.9%,#23A7F4_100%)] bg-clip-text text-transparent font-bold">
-                <p className="text-[13px] sm:text-base max-w-[50%] italic">
+                <p className="text-[13px] sm:text-base max-w-[48%] italic">
                     ENTER YOUR TEAM'S ACCURATE INFORMATION!
                 </p>
             </div>

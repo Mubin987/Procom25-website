@@ -1,0 +1,100 @@
+[{
+  "_id": {
+    "$oid": "6789aa37d52035f02b6f49d3"
+  },
+  "title": "Competitive Programming",
+  "subtitle": "A thrilling contest where participants showcase their coding skills to solve complex algorithmic problems under time constraints. This competition will test your logical thinking, efficiency, and ability to work under pressure.",
+  "max_teams": 20,
+  "min_team_size": 1,
+  "max_team_size": 3,
+  "Department": "Computer Science",
+  "rulebook": {
+    "intro": "Introduction of the competition",
+    "round_details": "Round 1 of 3 mins",
+    "rules": "1. Rule 1, 2. Rule 2",
+    "disqualify_criteria": "Criteria for disqualification"
+  },
+  "registeredTeams": [],
+  "firstPrize": 500,
+  "secondPrize": 10
+},
+{
+  "_id": {
+    "$oid": "6789aa5ed52035f02b6f49d5"
+  },
+  "title": "Code Sprint",
+  "subtitle": "An adrenaline-pumping race against time, where coders tackle a series of programming challenges to emerge as the fastest problem-solver. Speed, accuracy, and precision are key!",
+  "max_teams": 20,
+  "min_team_size": 1,
+  "max_team_size": 2,
+  "Department": "Computer Science",
+  "rulebook": {
+    "intro": "Introduction of the competition",
+    "round_details": "Round 1 of 3 mins",
+    "rules": "1. Rule 1, 2. Rule 2",
+    "disqualify_criteria": "Criteria for disqualification"
+  },
+  "registeredTeams": [],
+  "firstPrize": 500,
+  "secondPrize": 10
+},
+{
+  "_id": {
+    "$oid": "6789aa7dd52035f02b6f49d7"
+  },
+  "title": "Data Odyssey",
+  "subtitle": "Dive deep into the world of databases! This competition challenges participants to design, query, and optimize databases while solving real-world data problems.",
+  "max_teams": 20,
+  "min_team_size": 1,
+  "max_team_size": 3,
+  "Department": "Computer Science",
+  "rulebook": {
+    "intro": "Introduction of the competition",
+    "round_details": "Round 1 of 3 mins",
+    "rules": "1. Rule 1, 2. Rule 2",
+    "disqualify_criteria": "Criteria for disqualification"
+  },
+  "registeredTeams": [],
+  "firstPrize": 500,
+  "secondPrize": 10
+},
+{
+  "_id": {
+    "$oid": "6789aa97d52035f02b6f49d9"
+  },
+  "title": "Interstellar Intelligence",
+  "subtitle": "Explore the depths of artificial intelligence and space technology in this unique competition. Participants will solve futuristic problems that require innovative AI solutions.",
+  "max_teams": 20,
+  "min_team_size": 1,
+  "max_team_size": 3,
+  "Department": "Computer Science",
+  "rulebook": {
+    "intro": "Introduction of the competition",
+    "round_details": "Round 1 of 3 mins",
+    "rules": "1. Rule 1, 2. Rule 2",
+    "disqualify_criteria": "Criteria for disqualification"
+  },
+  "registeredTeams": [],
+  "firstPrize": 500,
+  "secondPrize": 10
+},
+{
+  "_id": {
+    "$oid": "6789ae34d52035f02b6f49db"
+  },
+  "title": "Design Duel",
+  "subtitle": "Unleash your creativity in this design showdown! Participants will face off to create stunning visuals, innovative UI/UX solutions, or captivating graphics.",
+  "max_teams": 20,
+  "min_team_size": 1,
+  "max_team_size": 3,
+  "Department": "Computer Science",
+  "rulebook": {
+    "intro": "Introduction of the competition",
+    "round_details": "Round 1 of 3 mins",
+    "rules": "1. Rule 1, 2. Rule 2",
+    "disqualify_criteria": "Criteria for disqualification"
+  },
+  "registeredTeams": [],
+  "firstPrize": 500,
+  "secondPrize": 10
+}]

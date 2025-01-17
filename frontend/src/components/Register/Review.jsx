@@ -18,7 +18,7 @@ const Review = ({ confirmInfo, isErrorPresent }) => {
             <span className="bg-[linear-gradient(90deg,_#FFFFFF_14.9%,_#D0EFFF_63.77%,_#A7E2FF_100%)] bg-clip-text text-transparent font-bold">5</span>
             </div>
             <div className="mt-4 w-[50%] sm:w-full bg-[linear-gradient(180deg,_#199DDF_0%,_#145BD5_100%)] bg-clip-text text-transparent font-bold">
-                <p className="text-[13px] sm:text-sm italic">
+                <p className="max-w-[60%] text-[13px] sm:text-sm italic">
                     PLEASE REVIEW YOUR INFORMATION AND CLICK SUBMIT!
                 </p>
             </div>
