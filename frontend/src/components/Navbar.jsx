@@ -51,9 +51,9 @@ const Navbar = () => {
               key={link.name}
               to={link.path}
               className={`${location.pathname === link.path || (link.path !== "/" && location.pathname.startsWith(link.path))
-                ? "underline decoration-4"
-                : "hover:text-themeBlue hover:underline hover:decoration-4"
-                } text-lg text-themeBlue font-semibold mx-4 md:mx-5 transition duration-200`}
+                ? "font-semibold"
+                : ""
+                } text-lg text-themeBlue font-medium mx-4 md:mx-5 transition duration-200`}
             >
               {link.name}
             </NavLink>

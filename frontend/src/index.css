@@ -756,3 +756,22 @@
     }
   }
 }
+
+::-webkit-scrollbar {
+  width: .3rem;
+  height: .3rem;
+}
+
+::-webkit-scrollbar-track {
+  /* background: linear-gradient(90deg, #434242 25.4%, #2C2C2C 78.4%, #161616 100%); */
+  background: #AACFF3;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #FFF 50%, #AACFF3 100%);;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-corner {
+  background: #f4f4f4;
+}
