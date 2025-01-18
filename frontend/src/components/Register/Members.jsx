@@ -1,6 +1,6 @@
 const Members = ( props ) => {
     return (
-        <div className=' ml-5 md:max-w-full lg:max-w-[86%]'>
+        <div className=' md:max-w-full lg:max-w-[100%]'>
             <div className='responsive-margin flex flex-wrap w-[96%] md:w-full lg:w-[96%] sm:mb-6'>
                 <div className='w-full md:w-1/2 mb-3 sm:mb-0'>
                     <input
