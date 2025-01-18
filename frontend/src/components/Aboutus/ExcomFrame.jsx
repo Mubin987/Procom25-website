@@ -4,16 +4,18 @@ export const ExcomFrame = (props)=> {
 
 
 return(
-    <div style={{ textAlign: "center", border: "3px solid red" }}>
+    <div style={{ textAlign: "center"}}>
     <div
       style={{
+        // display: "flex",
         transform: "rotate(-90deg)",
-        width: "200px",
+        width: "60%",
         border: "1px solid #ccc",
-        borderRadius: "25px",
+        borderRadius: "15%",
         backgroundColor: "#fff",
         boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
-        margin: "0 60px",
+        margin: "auto",
+        background: "linear-gradient(180deg, #1F95ED 0%, #2169D4 100%)"
       }}
     >
       <div
@@ -32,7 +34,7 @@ return(
         src={props.img}
         alt="Hasnain Raza"
         style={{
-          height: "200px",
+          height: "100%",
           objectFit: "fill",
           rotate: "90deg",
         }}
@@ -40,16 +42,18 @@ return(
     </div>
     <p
       style={{
+        marginTop: "1",
         fontSize: "20px",
         color: "linear-gradient(90deg, #1F95ED 0%, #2169D4 100%)",
         fontWeight: "bold",
         fontStyle: "italic",
+
       }}
     >
       <span
         style={{
-          width: "231.43px",
-          height: "37.83px",
+          // width: "231.43px",
+          // height: "37.83px",
           gap: "0px",
           opacity: "0px",
           transform: "rotate(-0deg)",
@@ -70,6 +74,5 @@ return(
   </div>
 
 )
-
 
 }
