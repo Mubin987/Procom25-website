@@ -40,7 +40,7 @@ app.get("/competitions", (req, res)=>{
 
 
 app.post("/register", (req, res)=>{
-    const {_id, team} = req.body()
+    const {_id, team} = req.body
     db.collection('competition').findOne({"_id": ObjectId(_id)})
     .registeredTeams.insertOne(team)
     .then((result)=>{
