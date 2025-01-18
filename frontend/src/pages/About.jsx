@@ -1,4 +1,6 @@
 import React from "react";
+import { ExcomFrame } from "@/components/Aboutus/ExcomFrame";
+
 
 export const About_us = () => {
   return (
@@ -158,200 +160,10 @@ export const About_us = () => {
               marginTop: "20px",
             }}
           >
-            <div style={{ textAlign: "center" }}>
-              <div
-                style={{
-                  transform: "rotate(-90deg)",
-                  width: "200px",
-                  border: "1px solid #ccc",
-                  borderRadius: "25px",
-                  backgroundColor: "#fff",
-                  boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
-                  margin: "0 60px",
-                }}
-              >
-                <div
-                  style={{
-                    background: "linear-gradient(180deg, #1F95ED 0%, #2169D4 100%)",
-                    color: "#fff",
-                    textAlign: "center",
-                    padding: "10px 0",
-                    borderTopLeftRadius: "25px",
-                    borderTopRightRadius: "25px",
-                  }}
-                >
-                  PRESIDENT
-                </div>
-                <img
-                  src="https://res.cloudinary.com/dpjy0sbxe/image/upload/v1737135696/hasnain_raza.png"
-                  alt="Hasnain Raza"
-                  style={{
-                    height: "200px",
-                    objectFit: "fill",
-                    rotate: "90deg",
-                  }}
-                />
-              </div>
-              <p
-                style={{
-                  fontSize: "20px",
-                  color: "linear-gradient(90deg, #1F95ED 0%, #2169D4 100%)",
-                  fontWeight: "bold",
-                  fontStyle: "italic",
-                }}
-              >
-                <span
-                  style={{
-                    width: "231.43px",
-                    height: "37.83px",
-                    gap: "0px",
-                    opacity: "0px",
-                    transform: "rotate(-0deg)",
-                    fontFamily: "'LEMON MILK'",
-                    fontSize: "20px",
-                    fontStyle: "italic",
-                    fontWeight: 500,
-                    lineHeight: "27.01px",
-                    letterSpacing: "0.1em",
-                    textAlign: "center",
-                    textUnderlinePosition: "from-font",
-                    textDecorationSkipInk: "none",
-                  }}
-                >
-                  <b>HASNAIN RAZA</b>
-                </span>
-              </p>
-            </div>
+          <ExcomFrame name="MUHAMMAD MUJTABA" role="vice-president" img="https://res.cloudinary.com/dpjy0sbxe/image/upload/v1737143264/Muhammad_Mujtaba.png"/>
+          <ExcomFrame name="Hasnain Raza" role="president" img="https://res.cloudinary.com/dpjy0sbxe/image/upload/v1737135696/hasnain_raza.png"/>
+          <ExcomFrame name="Hussain Malik" role="vice-president"img="https://res.cloudinary.com/dpjy0sbxe/image/upload/v1737141256/hussain_malik.png" />
 
-            <div style={{ textAlign: "center" }}>
-              <div
-                style={{
-                  transform: "rotate(-90deg)",
-                  width: "200px",
-                  border: "1px solid #ccc",
-                  borderRadius: "25px",
-                  backgroundColor: "#fff",
-                  boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
-                  margin: "0 60px",
-                }}
-              >
-                <div
-                  style={{
-                    background: "linear-gradient(180deg, #1F95ED 0%, #2169D4 100%)",
-                    color: "#fff",
-                    textAlign: "center",
-                    padding: "10px 0",
-                    borderTopLeftRadius: "25px",
-                    borderTopRightRadius: "25px",
-                  }}
-                >
-                  VICE PRESIDENT
-                </div>
-                <img
-                  src="https://res.cloudinary.com/dpjy0sbxe/image/upload/v1737143264/Muhammad_Mujtaba.png"
-                  alt="MUHAMMAD MUJTABA"
-                  style={{
-                    height: "200px",
-                    objectFit: "fill",
-                    rotate: "90deg",
-                  }}
-                />
-              </div>
-              <p
-                style={{
-                  fontSize: "20px",
-                  color: "linear-gradient(90deg, #1F95ED 0%, #2169D4 100%)",
-                  fontWeight: "bold",
-                  fontStyle: "italic",
-                }}
-              >
-                <span
-                  style={{
-                    width: "231.43px",
-                    height: "37.83px",
-                    gap: "0px",
-                    opacity: "0px",
-                    transform: "rotate(-0deg)",
-                    fontFamily: "'LEMON MILK'",
-                    fontSize: "20px",
-                    fontStyle: "italic",
-                    fontWeight: 500,
-                    lineHeight: "27.01px",
-                    letterSpacing: "0.1em",
-                    textAlign: "center",
-                    textUnderlinePosition: "from-font",
-                    textDecorationSkipInk: "none",
-                  }}
-                >
-                  <b>MUHAMMAD MUJTABA</b>
-                </span>
-              </p>
-            </div>
-          
-            <div style={{ textAlign: "center" }}>
-              <div
-                style={{
-                  transform: "rotate(-90deg)",
-                  width: "200px",
-                  border: "1px solid #ccc",
-                  borderRadius: "25px",
-                  backgroundColor: "#fff",
-                  boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
-                  margin: "0 60px",
-                }}
-              >
-                <div
-                  style={{
-                    background: "linear-gradient(180deg, #1F95ED 0%, #2169D4 100%)",
-                    color: "#fff",
-                    textAlign: "center",
-                    padding: "10px 0",
-                    borderTopLeftRadius: "25px",
-                    borderTopRightRadius: "25px",
-                  }}
-                >
-                  VICE PRESIDENT
-                </div>
-                <img
-                  src="https://res.cloudinary.com/dpjy0sbxe/image/upload/v1737141256/hussain_malik.png" 
-                  alt="Vice President"
-                  style={{
-                    height: "200px",
-                    objectFit: "contain",
-                    rotate: "90deg",
-                  }}
-                />
-              </div>
-              <p
-                style={{
-                  fontSize: "20px",
-                  color: "linear-gradient(90deg, #1F95ED 0%, #2169D4 100%)",
-                  fontWeight: "bold",
-                  fontStyle: "italic",
-                }}
-              >
-                <span
-                  style={{
-                    width: "231.43px",
-                    height: "37.83px",
-                    gap: "0px",
-                    opacity: "0px",
-                    transform: "rotate(-0deg)",
-                    fontFamily: "'LEMON MILK'",
-                    fontSize: "20px",
-                    fontStyle: "italic",
-                    fontWeight: 500,
-                    lineHeight: "27.01px",
-                    letterSpacing: "0.1em",
-                    textAlign: "center",
-                    textUnderlinePosition: "from-font",
-                    textDecorationSkipInk: "none",
-                  }}
-                >
-                  <b>HUSSAIN MALIK</b>
-                </span>
-              </p>
-            </div>
           </div>
 
           <div
@@ -364,6 +176,9 @@ export const About_us = () => {
             }}
           >
             {[
+              // { title: "President", name: "Hasnain Raza", imgSrc:"https://res.cloudinary.com/dpjy0sbxe/image/upload/v1737135696/hasnain_raza.png" },
+              // { title: "vice prsident", name: "MUHAMMAD MUJTABA", imgSrc: "https://res.cloudinary.com/dpjy0sbxe/image/upload/v1737143264/Muhammad_Mujtaba.png" },
+              // { title: "vice president", name: "Hussain Malik", imgSrc: "https://res.cloudinary.com/dpjy0sbxe/image/upload/v1737141256/hussain_malik.png" },
               { title: "Chairperson", name: "MUHAMMAD ABDULLAH", imgSrc: "https://res.cloudinary.com/dpjy0sbxe/image/upload/v1737141877/Muhammad_Abdullah.png" },
               { title: "General Secretary", name: "Mehreen Saghar", imgSrc: "https://res.cloudinary.com/dpjy0sbxe/image/upload/v1737141890/Mehreen_Saghar.png" },
               { title: "Director Business", name: "Bakhtawar Azhar", imgSrc: "https://res.cloudinary.com/dpjy0sbxe/image/upload/v1737143278/Bakhtawar_Azhar.png" },
@@ -373,73 +188,7 @@ export const About_us = () => {
               { title: "Director Computing", name: "Mubin Farid", imgSrc: "https://res.cloudinary.com/dpjy0sbxe/image/upload/v1737143320/Mubin_Farid.png" },
               { title: "Director Marketing", name: "Sareem Farooqui", imgSrc: "https://res.cloudinary.com/dpjy0sbxe/image/upload/v1737143339/Sareem_Farooqui.png" },
             ].map((item, index) => (
-              <div key={index} style={{ textAlign: "center", width: "auto" }}>
-                <div
-                  style={{
-                    transform: "rotate(-90deg)",
-                    width: "200px",
-                    border: "1px solid #ccc",
-                    borderRadius: "25px",
-                    backgroundColor: "#fff",
-                    boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
-                    margin: "0 60px",
-                  }}
-                >
-                  <div
-                    style={{
-                      background: "linear-gradient(180deg, #1F95ED 0%, #2169D4 100%)",
-                      color: "#fff",
-                      textAlign: "center",
-                      padding: "10px 0",
-                      borderTopLeftRadius: "25px",
-                      borderTopRightRadius: "25px",
-                    }}
-                  >
-                    {item.title.toUpperCase()}
-                  </div>
-                  <img
-                    src={item.imgSrc}
-                    alt={item.name}
-                    style={{
-                      height: "200px",
-                      objectFit: "fill",
-                      rotate: "90deg",
-                    }}
-                  />
-                </div>
-                <p
-                  style={{
-                    fontSize: "20px",
-                    color: "linear-gradient(90deg, #1F95ED 0%, #2169D4 100%)",
-                    fontWeight: "bold",
-                    fontStyle: "italic",
-                  }}
-                >
-                  <span
-                    style={{
-                      width: "231.43px",
-                      height: "37.83px",
-                      top: "449.25px",
-                      left: "436.14px",
-                      gap: "0px",
-                      opacity: "0px",
-                      transform: "rotate(-0deg)",
-                      fontFamily: "'LEMON MILK'",
-                      fontSize: "20px",
-                      fontStyle: "italic",
-                      fontWeight: 700,
-                      lineHeight: "27.01px",
-                      letterSpacing: "0.1em",
-                      textAlign: "center",
-                      textUnderlinePosition: "from-font",
-                      textDecorationSkipInk: "none",
-                      textTransform: "uppercase",
-                    }}
-                  >
-                    {item.name}
-                  </span>
-                </p>
-              </div>
+              <ExcomFrame id={index} name={item.name} role={item.title} img={item.imgSrc} />
             ))}
           </div>
           
@@ -526,7 +275,7 @@ export const About_us = () => {
             ))}
           </div>
         </section>
-
+{/* ------------------------------------------------------------------------------------------------------------------------------------- */}
         {/* Core Team */}
         <section style={{ padding: "50px", textAlign: "center" }}>
           <h2 style={{ fontSize: "68px", fontWeight: "bold", marginBottom: "80px",
