@@ -4,7 +4,7 @@ import Countdown from "./Countdown";
 import ProcomSVG from './ProcomSVG';
 import locomotiveScroll from 'locomotive-scroll';
 
-const Hero = ({ pageType }) => {
+const Hero = ({ pageType, AboutusText }) => {
     const scrollRef = useRef(null);
 
     // useEffect(() => {

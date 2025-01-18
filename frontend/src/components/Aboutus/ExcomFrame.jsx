@@ -4,7 +4,7 @@ export const ExcomFrame = (props)=> {
 
 
 return(
-    <div style={{ textAlign: "center" }}>
+    <div style={{ textAlign: "center", border: "3px solid red" }}>
     <div
       style={{
         transform: "rotate(-90deg)",
