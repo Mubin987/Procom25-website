@@ -6,15 +6,19 @@ const Department = ({ setDepartment, departError }) => {
     return (
         <div className="relative pl-10 mb-5 mt-20 font-lemonmilk">
             <RegisterHeading heading={"department"} textSize='text-2xl' />
-            <div className='absolute left-4 top-7 md:left-6 flex w-[90%] sm:w-[80%] items-center'>
+            <div className='absolute left-4 top-7 md:left-6 flex w-[90%] sm:[95%] md:w-[96%] lg:w-[80%] items-center'>
                 <div className="w-full border-t-4 border-dashed border-themeBlue " />
-                <Dropdown defaultValue="DEPARTMENT" setValue={setDepartment} items={[
-                    'Computer Science',
-                    'Electrical Engineering',
-                    'Mechanical Engineering',
-                ]} />
+                <Dropdown 
+                    defaultValue="DEPARTMENT" 
+                    setValue={setDepartment} 
+                    items={[
+                        { name: 'Computer Science', members: null },
+                        { name: 'Electrical Engineering', members: null },
+                        { name: 'Mechanical Engineering', members: null },
+                    ]}     
+                />
                 { departError &&
-                    <p className="absolute right-4 -bottom-7 font-bold italic text-base text-red-600">You must select a department!</p>
+                    <p className="absolute right-0 -bottom-[60%] text-[75%] sm:right-0 md:right-8 sm:-bottom-7 font-bold italic sm:text-base text-red-600">You must select a department!</p>
                 }
             </div>
             <div className="absolute top-[36%] sm:top-[36%] left-[-1%] flex h-7 w-7 items-center justify-center rounded-full bg-[linear-gradient(90deg,_#1F95ED_0%,_#2169D4_100%)] font-bold text-xl z-10">
