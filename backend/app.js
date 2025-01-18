@@ -1,10 +1,12 @@
+const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
 const express = require("express");
 const {connectToDb, getDb} = require('./db');
 const { ObjectId } = require("mongodb");
 
 //init app & middleware
 const app = express()
-app.use(express.json())
+app.use(bodyParser.json())
 let db
 //db connection
 connectToDb((err)=>{
@@ -24,6 +26,9 @@ connectToDb((err)=>{
 
 // routes
 
+
+
+// get competitions from MongoDB
 app.get("/competitions", (req, res)=>{
     let competitions = []
 
@@ -39,17 +44,28 @@ app.get("/competitions", (req, res)=>{
 })
 
 
-app.post("/register", (req, res)=>{
-    const {_id, team} = req.body
-    db.collection('competition').findOne({"_id": ObjectId(_id)})
-    .registeredTeams.insertOne(team)
-    .then((result)=>{
-        res.status(201).json(result)
+
+
+// post team record in competition 
+
+// Define Mongoose Schema and Model
+// Define the member schema
+
+app.post("/register",(req, res)=>{
+    
+    const {_id, team} = req.body;
+
+    db.collection('competition').updateOne(
+        { _id: new ObjectId(_id) }, // Find the document by _id
+        { $push: { registeredTeams: team } } // Push the team into the registeredTeams array
+    )
+    .then(()=>{
+        res.status(201).json(req.body)
     })
     .catch(()=>{
-        res.status(500).json({error: "could no post the data"})
+        res.status(500).json({error: "could no register the team"})
     })
-
+    
 })
 
 

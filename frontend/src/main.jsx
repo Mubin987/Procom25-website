@@ -1,7 +1,10 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import { Home, Register, AboutUs, Modules, Sponsors } from "./pages"
+import { Home, Register, Modules, Sponsors } from "./pages"
+import {About_us} from "./pages/About"
+
+
 import './index.css'
 import App from './App.jsx'
 import ModulePage from "./pages/ModulePage";
@@ -21,7 +24,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/about-us",
-        element: <AboutUs />,
+        element: <About_us />,
       },
       {
         path: "/modules",
