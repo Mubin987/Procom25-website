@@ -1,6 +1,6 @@
 import React from "react";
 
-const Procom = () => {
+export const About_us = () => {
   return (
     <div style={{ minHeight: "100vh" }}>
       <div className='font-bold' style={{ fontFamily: "'LEMON MILK', Arial, sans-serif" }}>
@@ -640,5 +640,3 @@ const Procom = () => {
     </div>
   );
 };
-
-export default Procom;
