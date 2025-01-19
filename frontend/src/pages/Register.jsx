@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Hero from '@/components/Register/Hero';
 import Competitions from '@/components/Register/Competitions';
@@ -12,6 +12,7 @@ import ConfirmDialog from '@/components/Register/ConfirmDataDialog';
 import axios from 'axios'
 
 import '../index.css';
+import { toast } from '@/hooks/use-toast';
 
 const Register = () => {
   const [department, setDepartment] = useState('');
@@ -22,11 +23,11 @@ const Register = () => {
   const [teamNameError, setTeamNameError] = useState('');
   const [name, setName] = useState('');
   const [nameError, setNameError] = useState('');
-  const [cnicNo, setCnicNo] = useState(undefined);
+  const [cnicNo, setCnicNo] = useState('');
   const [cnicError, setCnicError] = useState(false);
   const [emailAddress, setEmailAddress] = useState('');
   const [emailError, setEmailError] = useState(false);
-  const [whatsapp, setWhatsapp] = useState(undefined);
+  const [whatsapp, setWhatsapp] = useState('');
   const [whatsappError, setWhatsappError] = useState('');
   const [referenceCode, setReferenceCode] = useState('');
   const [fileUrl, setFileUrl] = useState(null);
@@ -34,6 +35,12 @@ const Register = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isErrorPresent, setIsErrorPresent] = useState(false);
   const [memberCount, setMemberCount] = useState(1);
+  const [minMemberCount, setMinMemberCount] = useState(1);
+  const [fetchedCompetitions, setFetchedCompetitions] = useState(null);
+  const [competitionId, setCompetitionId] = useState("");
+  const [test, setTest] = useState("")
+  const [price, setPrice] = useState(0);
+  const minRef = useRef(null);
 
   const [members, setMembers] = useState(
     Array.from({ length: memberCount }, () => ({
@@ -41,6 +48,7 @@ const Register = () => {
       cnicNo: '',
       emailAddress: '',
       whatsapp: '',
+      optional: false,
       nameError: false,
       cnicError: false,
       emailError: false,
@@ -76,6 +84,7 @@ const Register = () => {
   };
 
   const catchError = () => {
+    // Check for errors in general fields
     if (department.length === 0) setDepartError(true);
     if (competitions.length === 0) setCompError(true);
     if (teamName.length === 0) setTeamNameError(true);
@@ -84,12 +93,58 @@ const Register = () => {
     if (emailAddress === '') setEmailError(true);
     if (cnicNo.length !== 15) setCnicError(true);
     if (fileUrl === null) setFileError(true);
+  
+    // Check for errors in each member
+    members.forEach((member, index) => {
+      console.log("OPTIOMAL:", member.optional)
+      if (member.name === '' && !member.optional) setMembers(prevMembers => {
+        const updatedMembers = [...prevMembers];
+        updatedMembers[index].nameError = true;
+        return updatedMembers;
+      });
+      if (member.cnicNo.length !== 15 && !member.optional) setMembers(prevMembers => {
+        const updatedMembers = [...prevMembers];
+        updatedMembers[index].cnicError = true;
+        return updatedMembers;
+      });
+      if (member.emailAddress === '' && !member.optional) setMembers(prevMembers => {
+        const updatedMembers = [...prevMembers];
+        updatedMembers[index].emailError = true;
+        return updatedMembers;
+      });
+      if (member.whatsapp === '' && !member.optional) setMembers(prevMembers => {
+        const updatedMembers = [...prevMembers];
+        updatedMembers[index].whatsappError = true;
+        return updatedMembers;
+      });
+    });
   };
 
   const confirmInfo = () => {
     setDepartError(false);
     setCompError(false);
+    setNameError(false);
+    setWhatsappError(false);
+    setEmailError(false);
+    setCnicError(false);
+    setTeamNameError(false);
+    setFileError(false);
+  
+    // Reset member errors
+    setMembers(prevMembers =>
+      prevMembers.map(member => ({
+        ...member,
+        nameError: false,
+        cnicError: false,
+        emailError: false,
+        whatsappError: false,
+      }))
+    );
+  
+    // Call catchError to check all fields
     catchError();
+  
+    // If any error exists, set the error flag and return
     if (
       departError ||
       compError ||
@@ -98,53 +153,162 @@ const Register = () => {
       teamNameError ||
       nameError ||
       whatsappError ||
-      fileError
+      fileError ||
+      members.some(member => member.nameError || member.cnicError || member.emailError || member.whatsappError)
     ) {
       setIsErrorPresent(true);
       return;
     }
+  
     setIsOpen(true);
   };
 
-  const handleSubmit = () => {
+  const fetchCompetitions = async () => {
+    axios.get("http://localhost:3000/competition")
+      .then((res) => {
+        setFetchedCompetitions(res.data)
+        console.log(fetchedCompetitions)
+      })
+  }
+
+  useEffect(() => {
+    fetchCompetitions();
+  }, [])
+
+  const checkErrors = (members) => {
+    let hasError = false;
+    const updatedMembers = members.map(member => {
+      const updatedMember = { ...member };
+      // Check name error
+      if (updatedMember.name.trim().length === 0) {
+        updatedMember.nameError = true;
+        hasError = true;
+      } else {
+        updatedMember.nameError = false;
+      }
+
+      // Check CNIC error
+      if (updatedMember.cnicNo.trim().length !== 15) {
+        updatedMember.cnicError = true;
+        hasError = true;
+      } else {
+        updatedMember.cnicError = false;
+      }
+
+      // Check email error
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(updatedMember.emailAddress)) {
+        updatedMember.emailError = true;
+        hasError = true;
+      } else {
+        updatedMember.emailError = false;
+      }
+
+      // Check WhatsApp error
+      if (updatedMember.whatsapp.trim().length !== 11) {
+        updatedMember.whatsappError = true;
+        hasError = true;
+      } else {
+        updatedMember.whatsappError = false;
+      }
+
+      return updatedMember;
+    });
+
+    setMembers(updatedMembers);
+
+    // If there's any error, return false
+    return hasError;
+  };
+
+  useEffect(() => {
+    console.log(minMemberCount)
+  }, [minMemberCount])
+
+  const handleSubmit = async () => {
     const filteredMembers = members.map((member) => ({
+      isLeader: false,
       name: member.name,
-      whatsapp: member.whatsapp,
-      emailAddress: member.emailAddress,
-      cnicNo: member.cnicNo.split('').filter((char) => char !== '-').join(''),
+      phone: member.whatsapp,
+      email: member.emailAddress,
+      cnic: member.cnicNo.split('').filter((char) => char !== '-').join(''),
     }));
   
-    const updatedFormData = {
-      department,
-      competitions,
-      teamName,
-      members: filteredMembers,
-      referenceCode,
-    };
-  
-    console.log(updatedFormData);
-
-    axios.post("http://localhost:3000/register", 
+    const totalMemberData = [
       {
-        "_id":"6789aa37d52035f02b6f49d3",
-        "team": {
-            "team_name": teamName,
-            "isApproved": false,      // this value will always be false
-            "member": [
-                {
-                "isLeader": true, 
-                "name": name, 
-                "phone": whatsapp, 
-                "email":emailAddress, 
-                "cnic": cnicNo
-                }
-            ]
-        }
-      }).then((res)=> console.log(res.status))
-
-    navigate('/');
-  };
+        isLeader: true,
+        name: name,
+        phone: whatsapp,
+        email: emailAddress,
+        cnic: cnicNo,
+      },
+      ...filteredMembers,
+    ];
   
+    // Ensure the payment image is provided
+    if (!file) {
+      setFileError(true);
+      toast({
+        variant: "destructive",
+        title: "You must upload a payment receipt",
+      });
+      return;
+    }
+  
+    // Validate all inputs
+    catchError();
+  
+    // If any error exists, return
+    if (
+      departError ||
+      compError ||
+      cnicError ||
+      emailError ||
+      teamNameError ||
+      nameError ||
+      whatsappError ||
+      fileError ||
+      members.some(
+        (member) =>
+          member.nameError || member.cnicError || member.emailError || member.whatsappError
+      )
+    ) {
+      setIsErrorPresent(true);
+      return;
+    }
+  
+    // Prepare form data for API submission
+    const formData = new FormData();
+    formData.append("teamName", teamName);
+    formData.append("competitionId", competitionId);
+    formData.append("file", file); // Append the image file
+    formData.append("members", JSON.stringify(totalMemberData));
+  
+    try {
+      const response = await axios.post("http://localhost:3000/register", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
+  
+      // Handle success
+      toast({
+        variant: "success",
+        title: "Registration successful!",
+      });
+  
+      // Redirect or perform any further actions
+      navigate("/success");
+    } catch (error) {
+      // Handle error
+      console.error(error);
+      toast({
+        variant: "destructive",
+        title: "Registration failed. Please try again.",
+      });
+    }
+  };
+
 
   return (
     <div className="flex flex-col gap-16">
@@ -155,14 +319,28 @@ const Register = () => {
           <div className="absolute left-10 top-[34px] bottom-[62px] sm:bottom-[20px] border-l-4 border-dashed border-themeBlue md:left-10" />
           <div className="pl-4">
             <Department setDepartment={setDepartment} departError={departError} />
-            <Competitions setCompetitions={setCompetitions} compError={compError} setMembers={setMemberCount} />
+            <Competitions 
+              minRef={minRef} 
+              department={department} 
+              setCompetitions={setCompetitions} 
+              compError={compError} 
+              setMinMember={setMinMemberCount} 
+              setPrice={setPrice} 
+              setMembers={setMemberCount} 
+              fetchedCompetitions={fetchedCompetitions} 
+              setCompetitionId={setCompetitionId}
+              setTest={setTest}
+            />
             <TeamInformation
               props={formData}
               memberCount={memberCount}
               members={members}
               setMembers={setMembers}
+              minMemberCount={minMemberCount}
+              checkErrors={checkErrors}
+              test={test}
             />
-            <Payment fileUrl={fileUrl} setFileUrl={setFileUrl} fileError={fileError} setFileError={setFileError} />
+            <Payment fileUrl={fileUrl} setFileUrl={setFileUrl} fileError={fileError} setFileError={setFileError} price={price} setFile={setFile} />
             <Review confirmInfo={confirmInfo} isErrorPresent={isErrorPresent} />
           </div>
         </form>

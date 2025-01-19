@@ -30,6 +30,32 @@ connectToDb((err)=>{
 
 
 // routes
+app.get("/competition/:id", (req, res) => {
+    const { id } = req.params; // Destructure id from the request params
+    
+    if (!id) {
+        return res.status(400).json({ error: "ID is required" });
+    }
+
+    try {
+        // Convert the id to ObjectId for MongoDB query
+        const objectId = new ObjectId(id);
+
+        // Query the MongoDB collection to find the competition by _id
+        db.collection('competitions').findOne({ _id: objectId })
+            .then((competition) => {
+                if (!competition) {
+                    return res.status(404).json({ error: "Competition not found" });
+                }
+                return res.status(200).json(competition); // Send the found competition as a response
+            })
+            .catch(() => {
+                res.status(500).json({ error: "Could not fetch the competition" });
+            });
+    } catch (err) {
+        res.status(400).json({ error: "Invalid ID format" });
+    }
+});
 
 
 

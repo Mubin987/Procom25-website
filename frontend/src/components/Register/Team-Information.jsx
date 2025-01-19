@@ -2,7 +2,8 @@ import RegisterHeading from "../ui/register-headings";
 import '../../index.css'
 import MembersList from "./MembersList";
 
-const TeamInformation = ({ props, members, setMembers, memberCount }) => {
+const TeamInformation = ({ props, members, setMembers, memberCount, minMembers, checkErrors, test }) => {
+    console.log("test",test)
     return (
         <div className="relative pl-10 mt-24 font-lemonmilk">
             <RegisterHeading heading={"team information"} textSize='text-2xl' />
@@ -11,7 +12,7 @@ const TeamInformation = ({ props, members, setMembers, memberCount }) => {
                 <input
                     type='text'
                     placeholder='TEAM NAME *'
-                    required
+                    
                     value={props.teamName}
                     onChange={e => {
                         let teamName = e.target.value;
@@ -127,7 +128,7 @@ const TeamInformation = ({ props, members, setMembers, memberCount }) => {
                         )}
                     </div>
                 </div>
-                <MembersList members={members} setMembers={setMembers} memberCount={memberCount} />
+                <MembersList members={members} setMembers={setMembers} memberCount={memberCount} checkErrors={checkErrors} test={test}/>
                 <div className='responsive-margin w-full refer-btn'>
                     <input
                         type='text'
