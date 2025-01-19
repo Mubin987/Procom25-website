@@ -8,6 +8,7 @@ const { ObjectId } = require("mongodb");
 const app = express()
 var cors = require('cors')
 
+
 app.use(bodyParser.json())
 app.use(cors()) // Use this after the variable declaration
 
@@ -36,7 +37,7 @@ connectToDb((err)=>{
 app.get("/competition", (req, res)=>{
     let competitions = []
 
-    db.collection('competition').find()
+    db.collection('competitions').find()
     .forEach((competition)=> competitions.push(competition))
     .then(()=>{
         res.status(200).json(competitions)
@@ -59,7 +60,7 @@ app.post("/register",(req, res)=>{
     
     const {_id, team} = req.body;
 
-    db.collection('competition').updateOne(
+    db.collection('competitions').updateOne(
         { _id: new ObjectId(_id) }, // Find the document by _id
         { $push: { registeredTeams: team } } // Push the team into the registeredTeams array
     )

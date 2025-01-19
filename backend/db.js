@@ -1,11 +1,11 @@
 const {MongoClient} = require('mongodb')
 
-
+const uri = "mongodb+srv://Mubin_Director:!mPqLmtT24.ECZb@procom25.omcmh.mongodb.net/?retryWrites=true&w=majority&appName=procom25";
 let dbConnection
 
 module.exports = {
     connectToDb: (cb)=> {
-        MongoClient.connect('mongodb://localhost:27017/Procom25_DB')
+        MongoClient.connect(uri)
             .then((client)=> {
                 dbConnection = client.db()
                 cb()
@@ -17,3 +17,4 @@ module.exports = {
     },
     getDb: ()=> dbConnection
 }
+
