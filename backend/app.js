@@ -48,7 +48,23 @@ app.get("/competition", (req, res)=>{
 
 })
 
+app.get("/competition/:id", (req, res)=>{
+    
+    if(ObjectId.isValid(req.params.id)){
+        db.collection('competitions').findOne({_id: new ObjectId(req.params.id)})
+        .then((c)=>{
+            res.status(200).json({oneRecord: c})
+        })
+        .catch(()=>{
+            res.status(500).json({error: "could no fetch the competition"})
+        })
 
+
+    }else{
+        res.status(500).json({error: "id is not valid"})
+
+}
+})
 
 
 // post team record in competition 
