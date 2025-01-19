@@ -1,13 +1,27 @@
 import './App.css'
 import './locomotive-scroll.css'
+import axios from 'axios';
 import { Outlet, ScrollRestoration } from "react-router-dom";
 import { Footer, Navbar } from './components';
-import { useLayoutEffect, useRef } from 'react';
+import { useState, useEffect, useLayoutEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { Toaster } from './components/ui/toaster';
 
 function App() {
   const comp = useRef(null);
+  // const [competitions, setCompetitions] = useState([])
+
+  // useEffect(()=>{
+  //   axios.get("http://localhost:3000/competition")
+  //   .then((res)=> {
+  //     setCompetitions(res.data)
+  //   })
+  // }, [])
+
+
+
+
+
 
   useLayoutEffect(() => {
     const body = document.body;

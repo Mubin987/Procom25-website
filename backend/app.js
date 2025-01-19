@@ -6,7 +6,11 @@ const { ObjectId } = require("mongodb");
 
 //init app & middleware
 const app = express()
+var cors = require('cors')
+
 app.use(bodyParser.json())
+app.use(cors()) // Use this after the variable declaration
+
 let db
 //db connection
 connectToDb((err)=>{
@@ -29,7 +33,7 @@ connectToDb((err)=>{
 
 
 // get competitions from MongoDB
-app.get("/competitions", (req, res)=>{
+app.get("/competition", (req, res)=>{
     let competitions = []
 
     db.collection('competition').find()

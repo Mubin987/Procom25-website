@@ -9,6 +9,8 @@ import Review from '@/components/Register/Review';
 import TeamInformation from '@/components/Register/Team-Information';
 import RegisterHeading from '@/components/ui/register-headings';
 import ConfirmDialog from '@/components/Register/ConfirmDataDialog';
+import axios from 'axios'
+
 import '../index.css';
 
 const Register = () => {
@@ -121,6 +123,25 @@ const Register = () => {
     };
   
     console.log(updatedFormData);
+
+    axios.post("http://localhost:3000/register", 
+      {
+        "_id":"6789aa37d52035f02b6f49d3",
+        "team": {
+            "team_name": teamName,
+            "isApproved": false,      // this value will always be false
+            "member": [
+                {
+                "isLeader": true, 
+                "name": name, 
+                "phone": whatsapp, 
+                "email":emailAddress, 
+                "cnic": cnicNo
+                }
+            ]
+        }
+      }).then((res)=> console.log(res.status))
+
     navigate('/');
   };
   
