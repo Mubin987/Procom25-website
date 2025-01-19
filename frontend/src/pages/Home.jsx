@@ -1,4 +1,5 @@
 import {useState, useEffect, React} from 'react'
+import axios from 'axios'
 import Hero from '../components/Home/Hero'
 import Feature from '../components/Home/Feature'
 import OurLegacy from '../components/Home/OurLegacy'
