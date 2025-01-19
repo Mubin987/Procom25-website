@@ -24,10 +24,25 @@ const DetailBox = ({ isIcon, IconPath, value, title, width }) => {
 
 
 const SingleCompetition = ({ module }) => {
+    let moduleHeading = "";
+    if (module.Department === "CS") {
+        moduleHeading = "Computer Science";
+    } else if (module.Department === "EE") {
+        moduleHeading = "Electrical Engineering";
+    }
+    else if (module.Department === "Business") {
+        moduleHeading = "Business Competition";
+    }
+    else if (module.Department === "AI") {
+        moduleHeading = "Artificial Intelligence";
+    }
+    else if (module.Department === "General") {
+        moduleHeading = "General Competition";
+    }
 
     return (
         <div className='w-full flex flex-col justify-center items-center gap-4 my-32'>
-            <Heading1 text={module.Department} className="tracking-wider" />
+            <Heading1 text={moduleHeading} className="tracking-wider" />
             <div className='bg-[linear-gradient(90deg,_#1F95ED_0%,_#2169D4_100%)] flex flex-col gap-8 w-4/5 mx-auto rounded-[32px] sm:rounded-3xl text-white p-6 [box-shadow:11px_15px_23px_0px_#00000040]'>
                 <div className='flex gap-2 justify-center sm:justify-evenly'>
                     <div className='w flex flex-col gap-2 items-center sm:items-start'>
@@ -41,12 +56,6 @@ const SingleCompetition = ({ module }) => {
                         <img src={module?.image} alt={module.title} height={400} width={400} className='w-[200px] object-cover rounded-r-3xl' />
                     </div>
                 </div>
-                {Object.keys(module.rulebook).map((key) => (
-                    <div className='flex flex-col gap-2 w-full' key={key}>
-                        <h2 className='font-lemonmilk bg-clip-text text-center text-transparent bg-[linear-gradient(90deg,_#FFFFFF_25.4%,_#caeaf9_90%)] text-[1.25rem] sm:text-[2rem] font-bold tracking-tight uppercase'>{key}</h2>
-                        <p className='text-lg text-center font-semibold'>{module.rulebook[key]}</p>
-                    </div>
-                ))}
                 <div className='flex flex-col items-center w-full gap-4'>
                     <h1 className='font-lemonmilk bg-clip-text text-transparent bg-[linear-gradient(90deg,_#FFFFFF_25.4%,_#caeaf9_90%)] text-4xl font-bold  uppercase mb-5'>Details</h1>
                     <div className="flex gap-4 flex-col md:flex-row justify-between w-10/12 sm:w-3/5">
@@ -79,6 +88,12 @@ const SingleCompetition = ({ module }) => {
                             <DetailBox isIcon={false} IconPath={"/SilverBadge.png"} value={module.secondPrize} title="Runner Up" width="full" />
                         </div>
                     </div>
+                    {module && module.rulebook && Object.keys(module.rulebook).map((key) => (
+                        <div className='flex flex-col gap-2 w-full' key={key}>
+                            <h2 className='font-lemonmilk bg-clip-text text-center text-transparent bg-[linear-gradient(90deg,_#FFFFFF_25.4%,_#caeaf9_90%)] text-[1.25rem] sm:text-[2rem] font-bold tracking-tight uppercase'>{key}</h2>
+                            <p className='text-lg text-center font-semibold'>{module.rulebook[key]}</p>
+                        </div>
+                    ))}
                 </div>
             </div>
         </div>
