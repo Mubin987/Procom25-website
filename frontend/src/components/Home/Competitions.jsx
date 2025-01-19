@@ -9,7 +9,7 @@ const Card = ({ heading, text, image, link }) => (
             </div>
             <h1 className='bg-clip-text text-center font-lemonmilk sm:text-start text-transparent bg-[linear-gradient(90deg,_#FFFFFF_25.4%,_#A7E2FF_90%)] text-4xl font-bold'>{heading}</h1>
             <p className='hidden sm:inline text-lg font-semibold'>{text}</p>
-            <Link className='[box-shadow:1px_2px_3px_0px_#00000040] font-montserrate bg-[linear-gradient(90deg,_#FFFFFF_14.9%,_#D0EFFF_65.4%,_#A7E2FF_100%)] justify-center rounded-full text-[#2169D4] font-bold px-6 py-1.5 w-fit mt-2 sm:mt-0'>
+            <Link to={link} className='[box-shadow:1px_2px_3px_0px_#00000040] font-montserrate bg-[linear-gradient(90deg,_#FFFFFF_14.9%,_#D0EFFF_65.4%,_#A7E2FF_100%)] justify-center rounded-full text-[#2169D4] font-bold px-6 py-1.5 w-fit mt-2 sm:mt-0'>
                 View Modules
             </Link>
         </div>
@@ -29,31 +29,31 @@ const Competitions = () => {
                         heading: "COMPUTER SCIENCE",
                         text: "Compete in the most challenging and innovative competitions in the field of computer science.",
                         image: "/CompetitionsImages/CS.png",
-                        link: "/computer-science"
+                        link: "/modules"
                     },
                     {
                         heading: "ELECTRICAL ENGINEERING",
                         text: "Compete in the most challenging and innovative competitions in the field of electrical engineering.",
                         image: "/CompetitionsImages/EE.png",
-                        link: "/electrical-engineering"
+                        link: "/modules"
                     },
                     {
                         heading: "ROBOTICS",
                         text: "Compete in the most challenging and innovative competitions in the field of Robotics.",
                         image: "/CompetitionsImages/ROBOTICS.png",
-                        link: "/management"
+                        link: "/modules"
                     },
                     {
                         heading: "ARTIFICIAL INTELLIGENCE",
                         text: "Compete in the most challenging and innovative competitions in the field of artificial intelligence.",
                         image: "/CompetitionsImages/AI.png",
-                        link: "/design"
+                        link: "/modules"
                     },
                     {
                         heading: "GENERAL FIELDS",
                         text: "Compete in the most challenging and innovative competitions in the field of general fields.",
                         image: "/CompetitionsImages/GF.png",
-                        link: "/design"
+                        link: "/modules"
                     }
                 ].map((competition, index) => (
                     <Card

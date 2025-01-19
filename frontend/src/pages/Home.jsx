@@ -26,7 +26,7 @@ const Home = () => {
       <Feature />
       <OurLegacy />
       <Competitions />
-      <Sponsors />
+      {/* <Sponsors /> */}
     </div>
   )
 }

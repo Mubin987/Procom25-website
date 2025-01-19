@@ -13,7 +13,7 @@ const Footer = () => {
             <div className='flex md:flex-row flex-col justify-between w-full'>
                 <div className='w-full md:w-2/5 px-8 p-4 flex flex-col gap-4'>
                     <p className='text-justify'>
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Adipisci fuga omnis itaque? Impedit quisquam vel, repellat voluptatum exercitationem aliquam, sapiente corporis laborum porro ratione perferendis atque maiores nulla iure neque veritatis cupiditate perspiciatis asperiores et veniam, dolorum sequi eos? Ducimus!
+                        PROCOM, since 1998, is one of the most prestigiuos and long-standing events at FAST Karachi, acting as bridge between students and professional world by organising annual grand job fair, series of panel dicussions, competitions and a startup showcase.
                     </p>
                 </div>
                 <div className='w-full md:w-3/5 px-8 p-4 flex sm:flex-row gap-6 sm:gap-0  flex-col justify-between md:justify-evenly'>
@@ -21,16 +21,19 @@ const Footer = () => {
                         <h3 className='font-extrabold text-md'>Categories</h3>
                         <ul className='mt-2 flex flex-col gap-1'>
                             <li>
-                                <Link to={""}>Computer Science</Link>
+                                <Link to={"/modules"}>Computer Science</Link>
                             </li>
                             <li>
-                                <Link to={""}>Electrical Engineering</Link>
+                                <Link to={"/modules"}>Electrical Engineering</Link>
                             </li>
                             <li>
-                                <Link to={""}>Robotics</Link>
+                                <Link to={"/modules"}>Business</Link>
                             </li>
                             <li>
-                                <Link to={""}>General Fields</Link>
+                                <Link to={"/modules"}>Artifical Intelligence</Link>
+                            </li>
+                            <li>
+                                <Link to={"/modules"}>General</Link>
                             </li>
                         </ul>
                     </div>
