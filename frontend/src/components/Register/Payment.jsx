@@ -1,27 +1,28 @@
 import React, { useState } from "react";
 import RegisterHeading from "../ui/register-headings";
 
-const Payment = ({ fileUrl, setFileUrl, fileError, setFileError }) => {
+const Payment = ({ fileUrl, setFileUrl, fileError, setFileError, price, setFile }) => {
   const [fileName, setFileName] = useState(null);
   
   const handleFileChange = (e) => {
-    const MAX_FILE_SIZE = 5 * 1024 * 1024;
-  
+    const MAX_FILE_SIZE = 3 * 1024 * 1024;
+
     if (e.target.files && e.target.files.length > 0) {
       const file = e.target.files[0];
-  
+
       if (!file.type.startsWith('image/')) {
         alert('Please upload an image file.');
         return;
       }
-  
+
       if (file.size > MAX_FILE_SIZE) {
         alert('File size exceeds the 5MB limit. Please upload a smaller file.');
         return;
       }
-  
-      setFileName(file.name);
+
+      setFile(file); // Pass the file to parent (Register.jsx)
       setFileUrl(URL.createObjectURL(file));
+      setFileName(file.name);
       setFileError(false);
     }
   };
@@ -87,6 +88,8 @@ const Payment = ({ fileUrl, setFileUrl, fileError, setFileError }) => {
           ACCOUNT TITLE: <span className="font-medium text-black opacity-70 not-italic">MUHAMMAD SHAHMIR RAZA</span>
           <br />
           ACCOUNT NUMBER: <span className="font-medium text-black opacity-70 not-italic">03188409943</span>
+          <br />
+          AMOUNT: <span className="font-medium text-black opacity-70 not-italic">{price}</span>
         </p>
       </div>
     </div>

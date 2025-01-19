@@ -1,14 +1,35 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, forwardRef } from "react";
 
-const Dropdown = ({ items, defaultValue, setValue, setMembers }) => {
+// Use forwardRef to forward the ref to the input element
+const Dropdown = forwardRef(({ 
+  minRef, 
+  department, 
+  items, 
+  defaultValue, 
+  setValue, 
+  setMembers, 
+  setPrice, 
+  setMinMember,
+  setCompetitionId,
+  setTest,
+}, ref) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState(defaultValue);
   const dropdownRef = useRef(null);
 
   const handleItemClick = (item) => {
-    setSelectedItem(item.name);
-    setValue(item.name);
-    setMembers(item.members)
+    // Setting the minRef value here
+    if (minRef && minRef.current) {
+      minRef.current.value = item.min_team_size;
+      console.log("MINREF", minRef.current.value)
+    }
+    setSelectedItem(item.title);
+    setValue(item.title);
+    setCompetitionId(item._id)
+    setMinMember(item.min_team_size);
+    setTest(item.min_team_size);
+    setMembers(item.max_team_size - 1);
+    setPrice(item.fee);
     setIsOpen(false);
   };
 
@@ -17,16 +38,18 @@ const Dropdown = ({ items, defaultValue, setValue, setMembers }) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
         setIsOpen(false);
       }
-    }
+    };
 
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
-    }
-  })
+    };
+  }, []);
+
+  const filteredItems = items.filter(item => item.Department === department);
 
   return (
-    <div ref={dropdownRef} className={`relative w-[85%] sm:w-full md:w-[95%] lg:w-[70%] ml-3 font-lemonmilk`}>
+    <div ref={dropdownRef} className="relative w-[85%] sm:w-full md:w-[95%] lg:w-[70%] ml-3 font-lemonmilk">
       <button
         onClick={() => setIsOpen((prev) => !prev)}
         className={`inline-flex justify-between w-full px-4 py-2 text-[12px] sm:text-xl bg-[linear-gradient(90deg,_#1F95ED_0%,_#2169D4_100%)] text-white font-bold ${
@@ -53,20 +76,21 @@ const Dropdown = ({ items, defaultValue, setValue, setMembers }) => {
           className="absolute w-full bg-[linear-gradient(90deg,_#1F95ED_0%,_#2169D4_100%)] text-white font-bold rounded-b-xl z-10 "
           role="menu"
         >
-            {items.map((item, index) => (
-              <button
-                key={index}
-                onClick={() => handleItemClick(item)}
-                className="block px-4 py-2 w-full text-[12px] sm:text-xl text-left"
-                role="menuitem"
-              >
-                {item.name}
-              </button>
-            ))}
+          {filteredItems.map((item, index) => (
+            <button
+              key={index}
+              onClick={() => handleItemClick(item)}
+              className="block px-4 py-2 w-full text-[12px] sm:text-xl text-left"
+              role="menuitem"
+            >
+              {item.title}
+            </button>
+          ))}
         </div>
       )}
     </div>
   );
-};
+});
 
+// Export the component
 export default Dropdown;

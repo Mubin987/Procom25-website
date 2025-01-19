@@ -3,7 +3,7 @@ const SponsorSection = ({ title, sponsors }) => (
         <div className="flex items-center justify-center gap-4 mb-8">
             <div className="w-full border-t-4 border border-[#434242]" />
             {/* <Heading1 text={ title} /> */}
-            <h2 className={`text-5xl italic whitespace-nowrap bg-[linear-gradient(90deg,_#434242_25.4%,_#2C2C2C_78.4%,_#161616_100%)] font-bold bg-clip-text text-transparent`}>
+            <h2 className={`text-5xl whitespace-nowrap bg-[linear-gradient(90deg,_#434242_25.4%,_#2C2C2C_78.4%,_#161616_100%)] font-bold bg-clip-text text-transparent`}>
                 {title}
             </h2>
             <div className="w-full border-t-4 border border-[#434242]" />
@@ -17,7 +17,7 @@ const SponsorSection = ({ title, sponsors }) => (
                     <img
                         src={sponsor.logo}
                         alt={`${sponsor.name} logo`}
-                        className="object-contain max-w-full max-h-full rounded-lg w-[400px] h-[300px] blur-sm"
+                        className="object-contain w-[300px] rounded-lg blur-lg"
                     />
                 </div>
             ))}

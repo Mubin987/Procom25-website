@@ -35,7 +35,7 @@ const ConfirmDialog = ({ handleSubmit, isOpen, onClose, props }) => {
                                 <label className="font-medium text-black opacity-70 not-italic">{props.cnicNo}</label>
                             </div>
                             <div className="flex gap-2">
-                                <label>Email Address:</label>
+                                <label>Email:</label>
                                 <label className="font-medium text-black opacity-70 not-italic">{props.emailAddress}</label>
                             </div>
                             <div className="flex gap-2">
@@ -70,10 +70,6 @@ const ConfirmDialog = ({ handleSubmit, isOpen, onClose, props }) => {
                         onClick={(e) => {
                             e.preventDefault()
                             handleSubmit()
-                            toast({
-                                variant: "success",
-                                title: "Successfully submitted",
-                            })
                         }
                         }>Confirm</button>
                 </DialogFooter>
