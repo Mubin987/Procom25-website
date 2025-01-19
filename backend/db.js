@@ -1,6 +1,6 @@
 const {MongoClient} = require('mongodb')
 
-const uri = "mongodb+srv://Mubin_Director:!mPqLmtT24.ECZb@procom25.omcmh.mongodb.net/?retryWrites=true&w=majority&appName=procom25";
+const uri = "mongodb+srv://Mubin_Director:!mPqLmtT24.ECZb@procom25.omcmh.mongodb.net/procom-25?retryWrites=true&w=majority&appName=procom25&tls=true";
 let dbConnection
 
 module.exports = {

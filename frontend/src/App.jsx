@@ -9,14 +9,15 @@ import { Toaster } from './components/ui/toaster';
 
 function App() {
   const comp = useRef(null);
-  // const [competitions, setCompetitions] = useState([])
+  const [competitions, setCompetitions] = useState([])
 
-  // useEffect(()=>{
-  //   axios.get("http://localhost:3000/competition")
-  //   .then((res)=> {
-  //     setCompetitions(res.data)
-  //   })
-  // }, [])
+  useEffect(()=>{
+    axios.get("http://localhost:3000/competition")
+    .then((res)=> {
+      setCompetitions(res.data)
+      console.log(competitions)
+    })
+  }, [])
 
 
 
