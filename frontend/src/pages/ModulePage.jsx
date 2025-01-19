@@ -1,19 +1,34 @@
 import { modulesData } from '../../public/Data/ModulesData';
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import Hero from '@/components/Register/Hero'
 import SingleCompetition from '@/components/Modules/SingleCompetition'
+import axios from 'axios';
 
 const ModulePage = () => {
+    const [competitionDetail, setCompetitionDetail] = useState({});
+    const [competitions, setCompetitions] = useState(modulesData);
     const { moduleId } = useParams();
-    const module = modulesData.find((module) => module.id === moduleId)
-    if (!module) {
-        return <div>Module not found</div>
-    }
+
+    useEffect(() => {
+        const fetchCompetition = async () => {
+            try {
+                const response = await axios.get('http://localhost:3000/competition');
+                const competition = response.data.find(comp => (comp.title.split(' ').join('-')) === (moduleId));
+                console.log(competition);
+                setCompetitionDetail(competition);
+            } catch (error) {
+                console.error('Error fetching competition:', error);
+            }
+        };
+
+        fetchCompetition();
+    }, [moduleId]);
+
     return (
         <>
-        {/* <Hero/> */}
-        <SingleCompetition module={module}/>
+            <Hero />
+            {competitionDetail ? <SingleCompetition module={competitionDetail} /> : <h1>Loading...</h1>}
         </>
     )
 }

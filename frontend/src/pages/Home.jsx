@@ -25,8 +25,8 @@ const Home = () => {
       <Hero pageType={"Home"} />
       <Feature />
       <OurLegacy />
-      <Competitions />
-      <Sponsors />
+      <Competitions competitions={competitions}/>
+      {/* <Sponsors /> */}
     </div>
   )
 }
