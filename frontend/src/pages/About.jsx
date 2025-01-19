@@ -4,12 +4,12 @@ import { Hero } from "@/components";
 export const About_us = () => {
 
   const ExcomList = [
-    { title: "vice president", name: "MUHAMMAD MUJTABA", imgSrc: "https://res.cloudinary.com/dpjy0sbxe/image/upload/v1737143264/Muhammad_Mujtaba.png" },
+    { title: "Vice president", name: "Muhammad Mujtaba", imgSrc: "https://res.cloudinary.com/dpjy0sbxe/image/upload/v1737143264/Muhammad_Mujtaba.png" },
     { title: "President", name: "Hasnain Raza", imgSrc:"https://res.cloudinary.com/dpjy0sbxe/image/upload/v1737135696/hasnain_raza.png" },
-    { title: "vice president", name: "Hussain Malik", imgSrc: "https://res.cloudinary.com/dpjy0sbxe/image/upload/v1737141256/hussain_malik.png" },
+    { title: "Vice president", name: "Hussain Malik", imgSrc: "https://res.cloudinary.com/dpjy0sbxe/image/upload/v1737141256/hussain_malik.png" },
     { title: "Director Marketing", name: "Sareem Farooqui", imgSrc: "https://res.cloudinary.com/dpjy0sbxe/image/upload/v1737143339/Sareem_Farooqui.png" },
     { title: "Director Computing", name: "Mubin Farid", imgSrc: "https://res.cloudinary.com/dpjy0sbxe/image/upload/v1737143320/Mubin_Farid.png" },
-    { title: "Secretary", name: "MUHAMMAD ABDULLAH", imgSrc: "https://res.cloudinary.com/dpjy0sbxe/image/upload/v1737141877/Muhammad_Abdullah.png" },
+    { title: "Secretary", name: "Muhammad Abdullah", imgSrc: "https://res.cloudinary.com/dpjy0sbxe/image/upload/v1737141877/Muhammad_Abdullah.png" },
     { title: "General Secretary", name: "Mehreen Saghar", imgSrc: "https://res.cloudinary.com/dpjy0sbxe/image/upload/v1737141890/Mehreen_Saghar.png" },
     { title: "Director Business", name: "Bakhtawar Azhar", imgSrc: "https://res.cloudinary.com/dpjy0sbxe/image/upload/v1737143278/Bakhtawar_Azhar.png" },
     { title: "Director Branding", name: "Hasan Iqbal", imgSrc: "https://res.cloudinary.com/dpjy0sbxe/image/upload/v1737143290/Hasan_Iqbal.png" },
