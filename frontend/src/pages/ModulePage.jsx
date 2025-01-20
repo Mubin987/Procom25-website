@@ -6,29 +6,26 @@ import SingleCompetition from '@/components/Modules/SingleCompetition'
 import axios from 'axios';
 
 const ModulePage = () => {
-    const [competitionDetail, setCompetitionDetail] = useState({});
-    const [competitions, setCompetitions] = useState(modulesData);
+    // const [competitionDetail, setCompetitionDetail] = useState(null);
+    const [competitions, setCompetitions] = useState(null);
     const { moduleId } = useParams();
 
+    const fetchCompetition = async () => {
+            console.log(`Module ID: ${moduleId}`)
+            axios.get(`http://localhost:3000/competitionByName/${moduleId}`)
+            .then((res) => {
+                setCompetitions(res.data)
+            })
+    };
     useEffect(() => {
-        const fetchCompetition = async () => {
-            try {
-                const response = await axios.get('http://localhost:3000/competition');
-                const competition = response.data.find(comp => (comp.title.split(' ').join('-')) === (moduleId));
-                setCompetitionDetail(competition);
-            } catch (error) {
-                console.error('Error fetching competition:', error);
-            }
-        };
-
-        fetchCompetition();
+        console.log("I am in useEffect of module page")
+        fetchCompetition()
     }, [moduleId]);
 
     return (
         <>
             <Hero />
-            {console.log(competitionDetail)}
-            {competitionDetail ? <SingleCompetition module={competitionDetail} /> : <h1>Loading...</h1>}
+            {competitions ? <SingleCompetition module={competitions} /> : <h1>Loading...</h1>}
         </>
     )
 }
