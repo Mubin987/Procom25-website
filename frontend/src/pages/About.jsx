@@ -65,7 +65,7 @@ export const About_us = () => {
         </div>
       </div>
       <div className="w-full flex justify-center items-center gap-8 flex-col mt-28">
-        <Heading1 text={"EXECUTIVE COMMITTEE"} />
+        <Heading1 text={"EXECUTIVE COMMITTEE"} className="text-custom"/>
         <div className="w-full flex justify-center items-center flex-wrap gap-10 md:mt-5">
           <Card title={ExcomList[0].title} img={ExcomList[0].imgSrc} name={ExcomList[0].name} className="shadow-lg" />
           <Card title={ExcomList[1].title} img={ExcomList[1].imgSrc} name={ExcomList[1].name} className="md:-mt-14 shadow-lg" />
@@ -78,7 +78,7 @@ export const About_us = () => {
         </div>
       </div>
       <div className="w-full flex justify-center items-center gap-8 flex-col mt-24">
-        <Heading1 text={"DEVELOPMENT TEAM"} />
+        <Heading1 text={"DEVELOPMENT TEAM"} className="text-custom"/>
         <div className="w-full flex justify-center items-center flex-wrap gap-10 md:mt-5">
           <Card type={"dev"} title={devTeam[2].role} img={devTeam[2].image_url} name={devTeam[2].person_name} className="shadow-lg" />
           <Card type={"dev"} title={devTeam[0].role} img={devTeam[0].image_url} name={devTeam[0].person_name} className="md:-mt-14 shadow-lg" />

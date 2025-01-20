@@ -7,7 +7,7 @@ const Card = ({ heading, text, image, link }) => (
             <div className='sm:hidden m-auto'>
                 <img src={image} alt={heading} height={400} width={400} className='w-[300px] object-cover rounded-r-3xl' />
             </div>
-            <h1 className='bg-clip-text text-center font-lemonmilk sm:text-start text-transparent bg-[linear-gradient(90deg,_#FFFFFF_25.4%,_#A7E2FF_90%)] text-4xl font-bold'>{heading}</h1>
+            <h1 className='bg-clip-text text-center font-lemonmilk m-[20px] sm:m-0 sm:text-start text-transparent bg-[linear-gradient(90deg,_#FFFFFF_25.4%,_#A7E2FF_90%)] text-4xl font-bold'>{heading}</h1>
             <p className='hidden sm:inline text-lg font-semibold'>{text}</p>
             <Link to={`${link}#competitions`} className='[box-shadow:1px_2px_3px_0px_#00000040] font-montserrate bg-[linear-gradient(90deg,_#FFFFFF_14.9%,_#D0EFFF_65.4%,_#A7E2FF_100%)] justify-center rounded-full text-[#2169D4] font-bold px-6 py-1.5 w-fit mt-2 sm:mt-0'>
                 View Modules
