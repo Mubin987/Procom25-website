@@ -77,13 +77,13 @@ const Footer = () => {
                         Procom'25
                     </span> | All rights reserved</p>
                 <div className='flex gap-4 text-2xl justify-center items-center'>
-                    <Link>
+                    <Link to="https://www.instagram.com/procom_fast/" target="_blank">
                         <FaInstagram />
                     </Link>
-                    <Link>
+                    <Link to="https://www.linkedin.com/company/procom-fast/" target="_blank">
                         <FaLinkedinIn />
                     </Link>
-                    <Link>
+                    <Link to="https://web.facebook.com/procom.fast" target="_blank">
                         <FaFacebookF />
                     </Link>
                 </div>
