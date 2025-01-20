@@ -51,9 +51,9 @@ const Competitions = () => {
         axios
             .get("http://localhost:3000/competition")
             .then((res) => {
-                const updatedCompetitions = { CS: [], EE: [], Business: [], AI: [], General: [] };
+                const updatedCompetitions = { CS: [], EE: [], business: [], AI: [], general: [] };
                 res.data.forEach((compet) => {
-                    updatedCompetitions[compet.Department].push(compet);
+                    updatedCompetitions[compet.department].push(compet);
                 });
                 setCompetitions(updatedCompetitions);
             })

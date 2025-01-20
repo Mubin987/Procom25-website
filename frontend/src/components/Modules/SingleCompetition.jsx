@@ -67,7 +67,7 @@ const SingleCompetition = ({ module }) => {
                             <div className="p-3 flex items-center justify-center w-14">
                                 <ArrowDownCircleIcon className="text-[#217ade]" size={40} />
                             </div>
-                            <Link to={"https://www.drive.google.com"} className="flex flex-col py-3 justify-center px-2 sm:px-6">
+                            <Link to={`${module.rulebook['book_url']}`} className="flex flex-col py-3 justify-center px-2 sm:px-6">
                                 <span className="text-[#217ade] text-sm sm:text-base font-bold -mb-1">Download Details</span>
                                 <span className="text-[#217ade] text-center text-sm sm:text-base -mt-1 font-bold">PDF</span>
                             </Link>
@@ -90,8 +90,7 @@ const SingleCompetition = ({ module }) => {
                     </div>
                     {module && module.rulebook && Object.keys(module.rulebook).map((key) => (
                         <div className='flex flex-col gap-2 w-full' key={key}>
-                            <h2 className='font-lemonmilk bg-clip-text text-center text-transparent bg-[linear-gradient(90deg,_#FFFFFF_25.4%,_#caeaf9_90%)] text-[1.25rem] sm:text-[2rem] font-bold tracking-tight uppercase'>{key}</h2>
-                            <p className='text-lg text-center font-semibold'>{module.rulebook[key]}</p>
+                            <h2 className='hidden font-lemonmilk bg-clip-text text-center text-transparent bg-[linear-gradient(90deg,_#FFFFFF_25.4%,_#caeaf9_90%)] text-[1.25rem] sm:text-[2rem] font-bold tracking-tight uppercase'>{key}</h2>
                         </div>
                     ))}
                 </div>
