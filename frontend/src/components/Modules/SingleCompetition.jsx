@@ -12,7 +12,7 @@ const DetailBox = ({ isIcon, IconPath, value, title, width }) => {
                         <img src={IconPath} alt={IconPath} height={35} width={35} className='object-cover rounded-r-3xl' />}
                 </div>
                 <div className="bg-white rounded-r-full flex justify-center py-3 px-6 flex-1">
-                    <span className="text-gray-800 text-[1.2rem] font-bold pr-[15%] leading-2">{value}</span>
+                    <span className="text-gray-800 text-[1.5rem] font-bold pr-[15%] leading-2">{value}</span>
                 </div>
             </div>
             <p className="text-white font-lemonmilk text-center text-sm mt-1 italic uppercase tracking-wider font-medium">
@@ -25,21 +25,21 @@ const DetailBox = ({ isIcon, IconPath, value, title, width }) => {
 
 const SingleCompetition = ({ module }) => {
     let moduleHeading = "";
-    if (module.Department === "CS") {
+    if (module.department === "CS") {
         moduleHeading = "Computer Science";
-    } else if (module.Department === "EE") {
+    } else if (module.department === "EE") {
         moduleHeading = "Electrical Engineering";
     }
-    else if (module.Department === "Business") {
+    else if (module.department === "Business") {
         moduleHeading = "Business Competition";
     }
-    else if (module.Department === "AI") {
+    else if (module.department === "AI") {
         moduleHeading = "Artificial Intelligence";
     }
-    else if (module.Department === "General") {
+    else if (module.department === "General") {
         moduleHeading = "General Competition";
     }
-
+    
     return (
         <div className='w-full flex flex-col justify-center items-center gap-4 my-32'>
             <Heading1 text={moduleHeading} className="tracking-wider" />
@@ -57,7 +57,7 @@ const SingleCompetition = ({ module }) => {
                     </div>
                 </div>
                 <div className='flex flex-col items-center w-full gap-4'>
-                    <h1 className='font-lemonmilk bg-clip-text text-transparent bg-[linear-gradient(90deg,_#FFFFFF_25.4%,_#caeaf9_90%)] text-4xl font-bold  uppercase mb-5'>Details</h1>
+                    <h1 className='font-lemonmilk bg-clip-text text-transparent bg-[linear-gradient(90deg,_#FFFFFF_25.4%,_#caeaf9_90%)] text-4xl font-bold mt-10 uppercase mb-5'>General Details</h1>
                     <div className="flex gap-4 flex-col md:flex-row justify-between w-10/12 sm:w-3/5">
                         <DetailBox isIcon={true} IconPath={() => (<LucideDollarSign />)} value={module.fee} title="Registration Fee" width="2/5" />
                         <DetailBox isIcon={true} IconPath={() => (<User2Icon />)} value={`${module.min_team_size} - ${module.max_team_size}`} title="Members Limit" width="2/5" />
@@ -67,7 +67,8 @@ const SingleCompetition = ({ module }) => {
                             <div className="p-3 flex items-center justify-center w-14">
                                 <ArrowDownCircleIcon className="text-[#217ade]" size={40} />
                             </div>
-                            <Link to={"https://www.drive.google.com"} className="flex flex-col py-3 justify-center px-2 sm:px-6">
+                            {console.log(module)}
+                            <Link to={`${module.rulebook.book_url}`} className="flex flex-col py-3 justify-center px-2 sm:px-6">
                                 <span className="text-[#217ade] text-sm sm:text-base font-bold -mb-1">Download Details</span>
                                 <span className="text-[#217ade] text-center text-sm sm:text-base -mt-1 font-bold">PDF</span>
                             </Link>
@@ -88,12 +89,22 @@ const SingleCompetition = ({ module }) => {
                             <DetailBox isIcon={false} IconPath={"/SilverBadge.png"} value={module.secondPrize} title="Runner Up" width="full" />
                         </div>
                     </div>
-                    {module && module.rulebook && Object.keys(module.rulebook).map((key) => (
+
+                    {/* {module && module.rulebook && Object.keys(module.rulebook).map((key) => (
                         <div className='flex flex-col gap-2 w-full' key={key}>
-                            <h2 className='font-lemonmilk bg-clip-text text-center text-transparent bg-[linear-gradient(90deg,_#FFFFFF_25.4%,_#caeaf9_90%)] text-[1.25rem] sm:text-[2rem] font-bold tracking-tight uppercase'>{key}</h2>
-                            <p className='text-lg text-center font-semibold'>{module.rulebook[key]}</p>
+                            <h2 className='hidden font-lemonmilk bg-clip-text text-center text-transparent bg-[linear-gradient(90deg,_#FFFFFF_25.4%,_#caeaf9_90%)] text-[1.25rem] sm:text-[2rem] font-bold tracking-tight uppercase'>{key}</h2>
                         </div>
-                    ))}
+                    ))} */}
+
+                    <h1 className='font-lemonmilk bg-clip-text text-transparent bg-[linear-gradient(90deg,_#FFFFFF_25.4%,_#caeaf9_90%)] text-4xl font-bold uppercase mt-10'>Rules and Regulations</h1>
+                    <div className='w-3/4 bg-[linear-gradient(90deg,_#FFFFFF_14.9%,_#D0EFFF_65.4%,_#A7E2FF_100%)] text-gray-800 rounded-3xl p-6'>
+                        <p className='text-lg font-semibold'>{module.rulebook.rules}</p>
+                    </div>
+
+                    <h1 className='font-lemonmilk bg-clip-text text-transparent bg-[linear-gradient(90deg,_#FFFFFF_25.4%,_#caeaf9_90%)] text-4xl font-bold uppercase mt-10'>Disqualification Criteria</h1>
+                    <div className='w-3/4 bg-[linear-gradient(90deg,_#FFFFFF_14.9%,_#D0EFFF_65.4%,_#A7E2FF_100%)] text-gray-800 rounded-3xl p-6'>
+                        <p className='text-lg font-semibold'>{module.rulebook.disqualify_criteria}</p>
+                    </div>
                 </div>
             </div>
         </div>

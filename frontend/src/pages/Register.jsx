@@ -322,7 +322,7 @@ const Register = () => {
       <div className="min-h-screen p-4 md:p-6 lg:p-8">
         <form className="mx-auto max-w-5xl relative mt-9">
           <RegisterHeading heading="start" textSize="text-[29px]" />
-          <div className="absolute left-10 top-[34px] bottom-[112px] sm:bottom-[20px] border-l-4 border-dashed border-themeBlue md:left-10" />
+          <div className="absolute left-10 top-[34px] bottom-[112px] sm:bottom-[65px] md:bottom-[43px] lg:bottom-[19px] border-l-4 border-dashed border-themeBlue md:left-10" />
           <div className="pl-4">
             <Department setDepartment={setDepartment} departError={departError} />
             <Competitions

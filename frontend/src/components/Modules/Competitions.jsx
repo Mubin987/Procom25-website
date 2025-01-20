@@ -45,21 +45,23 @@ const Card = ({ heading, text, image, comps }) => {
 }
 
 const Competitions = () => {
-    const [competitions, setCompetitions] = useState({ CS: [], EE: [], Business: [], AI: [], General: [] })
+    const [competitions, setCompetitions] = useState({ CS: [], EE: [], business: [], AI: [], general: [] })
 
     useEffect(() => {
         axios
             .get("http://localhost:3000/competition")
             .then((res) => {
-                const updatedCompetitions = { CS: [], EE: [], Business: [], AI: [], General: [] };
+                const updatedCompetitions = { CS: [], EE: [], business: [], AI: [], general: [] };
                 res.data.forEach((compet) => {
-                    updatedCompetitions[compet.Department].push(compet);
+                    updatedCompetitions[compet.department].push(compet);
                 });
+                console.log(updatedCompetitions);
                 setCompetitions(updatedCompetitions);
             })
             .catch((error) => console.error("Error fetching competitions:", error));
     }, []);
 
+    
 
     const comps = [
         {
@@ -82,20 +84,20 @@ const Competitions = () => {
         },
         {
             heading: "Business",
-            Department: "GF",
+            Department: "business",
             text: "Compete in the most challenging and innovative competitions in the field of general fields.",
             image: "/CompetitionsImages/GF.png",
         },
         {
             heading: "General Fields",
-            Department: "GF",
+            Department: "general",
             text: "Compete in the most challenging and innovative competitions in the field of general fields.",
             image: "/CompetitionsImages/GF.png",
         }
     ];
 
     return (
-        <div className='my-28 mt-32 flex flex-col gap-8'>
+        <div className='my-28 mt-32 flex flex-col gap-8' id='competitions'>
             {comps.map((comp, index) => (
                 <Card
                     key={index}

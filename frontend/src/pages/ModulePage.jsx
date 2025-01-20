@@ -27,6 +27,7 @@ const ModulePage = () => {
     return (
         <>
             <Hero />
+            {console.log(competitionDetail)}
             {competitionDetail ? <SingleCompetition module={competitionDetail} /> : <h1>Loading...</h1>}
         </>
     )
