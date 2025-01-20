@@ -220,7 +220,7 @@
     }
 
     .top-7 {
-      top: 1rem !important;
+      top: 2rem !important;
     }
 
     .team-top {
@@ -277,6 +277,12 @@
       width: 90%;
       height: auto !important;
       object-fit: cover;
+    }
+    .w-custom{
+      width: 90% !important;
+    }
+    .text-custom{
+      font-size: 1.65rem !important;
     }
   }
 
