@@ -40,7 +40,7 @@ export function CarouselPlugin() {
                         <div className="p-1">
                             <Card>
                                 <CardContent className="flex h-[300px] items-center justify-center p-6">
-                                    <img src={`${imgs[index]}`} alt={`Procom '24 (${index + 1})`} className="w-full h-full rounded-xl" />
+                                    <img src={`${imgs[index]}`} alt={`Procom '24 (image: ${index})`} className="w-full h-full rounded-xl" />
                                 </CardContent>
                             </Card>
                         </div>
