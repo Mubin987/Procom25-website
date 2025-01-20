@@ -31,6 +31,7 @@ const Register = () => {
   const [whatsappError, setWhatsappError] = useState('');
   const [referenceCode, setReferenceCode] = useState('');
   const [fileUrl, setFileUrl] = useState(null);
+  const [file, setFile] = useState(null) // zeeshan added this line
   const [fileError, setFileError] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [isErrorPresent, setIsErrorPresent] = useState(false);
