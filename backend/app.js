@@ -32,6 +32,14 @@ connectToDb((err)=>{
 
 
 // routes
+
+app.get("/", (req, res)=>{
+    
+    res.status(200).json({connection: "Server is running"})
+
+})
+
+
 app.get("/competition/:id", (req, res) => {
     const { id } = req.params; // Destructure id from the request params
     
