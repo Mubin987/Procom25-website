@@ -153,26 +153,16 @@ app.get("/competition/:id/registeredCount", (req, res)=>{
 // Define Mongoose Schema and Model
 // Define the member schema
 
+
 app.post("/register", upload.single('file'), (req, res) => {
     const { _id, team } = req.body;
-    const file = req.file; // The file object will be available in req.file
+    const file = req.file;
 
-    console.log("File uploaded:", file); // Log file details
-    console.log("Team Data:", team); // Log team data
+    console.log("File uploaded:", file);
+    console.log("Team Data:", team); 
 
     const parsedTeam = JSON.parse(team);
 
-    parsedTeam.file = {
-        fieldname: file.filename,
-        originalname: file.originalname,
-        encoding: file.encoding,
-        mimetype: file.encoding,
-        buffer: file.buffer,
-        size: file.size,
-    };
-
-    console.log(parsedTeam)
-    // Process the data and store it in the database
     db.collection('competitions').updateOne(
         { _id: new ObjectId(_id) },
         { $push: { registeredTeams: parsedTeam } }
@@ -183,6 +173,32 @@ app.post("/register", upload.single('file'), (req, res) => {
     .catch(() => {
         res.status(500).json({ error: "Could not register the team" });
     });
+});
+
+
+
+
+
+
+
+
+
+app.post("/update_rulebook/:id", (req, res) => {
+
+    const { id } = req.params;
+    const url = req.body.url; // The file object will be available in req.file
+
+    db.collection('competitions').updateOne(
+        { _id: new ObjectId(id) },
+        { $set: { "rulebook.book_url": url } }
+    )
+    .then(() => {
+        res.status(201).json({ message: 'rule book updated successfully'});
+    })
+    .catch(() => {
+        res.status(500).json({ error: "rule book was not update" });
+    });
+
 });
 
 
