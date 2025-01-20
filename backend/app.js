@@ -87,6 +87,23 @@ app.get("/competition", (req, res)=>{
 
 })
 
+app.get("/competitions", (req, res)=>{
+    let competitions = []
+
+    db.collection('competitions').find()
+    .forEach((competition) => {
+        // delete competition.registeredTeams
+        competitions.push(competition)
+    })
+    .then(()=>{
+        res.status(200).json(competitions)
+    })
+    .catch(()=>{
+        res.status(500).json({error: "could no fetch the competition"})
+    })
+
+})
+
 app.get("/competition/:id", (req, res)=>{
     
     if(ObjectId.isValid(req.params.id)){
