@@ -40,7 +40,7 @@ const Dropdown = ({ items, defaultValue, setValue }) => {
       <div ref={dropdownRef} className={`relative w-[85%] sm:w-full md:w-[95%] lg:w-[70%] ml-3 font-lemonmilk`}>
         <button
           onClick={() => setIsOpen((prev) => !prev)}
-          className={`inline-flex justify-between w-full px-4 py-2 text-[12px] sm:text-[18px] bg-[linear-gradient(90deg,_#1F95ED_0%,_#2169D4_100%)] text-white font-bold ${
+          className={`inline-flex justify-between w-full px-4 py-2 text-[12px] sm:text-[16px] bg-[linear-gradient(90deg,_#1F95ED_0%,_#2169D4_100%)] text-white font-bold ${
             isOpen ? "rounded-t-xl" : "rounded-xl"}`}
         >
           {selectedItem}
@@ -68,7 +68,7 @@ const Dropdown = ({ items, defaultValue, setValue }) => {
                 <button
                   key={index}
                   onClick={() => handleItemClick(item)}
-                  className="block px-4 py-2 w-full text-[12px] sm:text-xl text-left"
+                  className="block px-4 py-2 w-full text-[12px] sm:text-[16px] text-left"
                   role="menuitem"
                 >
                   {getDepartmentName(item.name)}{" Competitions"}
