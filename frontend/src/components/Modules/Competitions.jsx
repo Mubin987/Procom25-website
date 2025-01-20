@@ -53,7 +53,6 @@ const Competitions = () => {
             .then((res) => {
                 const updatedCompetitions = { CS: [], EE: [], business: [], AI: [], general: [] };
                 res.data.forEach((compet) => {
-                    console.log(compet);
                     updatedCompetitions[compet.department].push(compet);
                 });
                 console.log(updatedCompetitions);
