@@ -97,6 +97,24 @@ app.get("/competition/:id", (req, res)=>{
 }
 })
 
+app.get("/competition/:id/registeredCount", (req, res)=>{
+    
+    if(ObjectId.isValid(req.params.id)){
+        db.collection('competitions').findOne({_id: new ObjectId(req.params.id)}, { projection: { registeredTeams: 1 } })
+        .then((c)=>{
+            const registeredTeamCount = c.registeredTeams.length;
+            res.status(200).json(registeredTeamCount)
+        })
+        .catch(()=>{
+            res.status(500).json({error: "could no fetch the competition"})
+        })
+
+
+    }else{
+        res.status(500).json({error: "id is not valid"})
+
+}
+})
 
 // post team record in competition 
 
