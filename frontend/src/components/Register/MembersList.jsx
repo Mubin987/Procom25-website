@@ -5,13 +5,6 @@ import axios from 'axios';
 const MembersList = ({ members, setMembers, memberCount, id, test}) => {
   const [comp, setComp] = useState(null);
   const [minMembers, setMinMembers] = useState(1)
-  useEffect(() => {
-    axios.get(`http://localhost:3000/competition/${id}`)
-      .then((res) => {
-        setComp(res)
-        setMinMembers(res._id);
-      })
-  }, [])
   
   useEffect(() => {
     if (memberCount > members.length) {
@@ -44,15 +37,12 @@ const MembersList = ({ members, setMembers, memberCount, id, test}) => {
 
   // Calculate the number of optional members
   const optionalMembers = (memberCount + 1) - Number(test);
-  console.log("Otionlka", optionalMembers)
 
   let count = 1;
 
   return (
     <div>
       {members.map((member, index) => {
-        // Check if this member is optional
-        console.log(optionalMembers)
         count += index;
         let isOptional = false;
         if (index + 2 > Number(test)) {

@@ -14,7 +14,6 @@ const Home = () => {
     axios.get("http://localhost:3000/competition")
     .then((res)=> {
       setCompetitions(res.data)
-      console.log(res.data)
     })
   }, [])
 

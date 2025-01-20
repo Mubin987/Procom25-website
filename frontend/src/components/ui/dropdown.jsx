@@ -21,7 +21,6 @@ const Dropdown = forwardRef(({
     // Setting the minRef value here
     if (minRef && minRef.current) {
       minRef.current.value = item.min_team_size;
-      console.log("MINREF", minRef.current.value)
     }
     setSelectedItem(item.title);
     setValue(item.title);
@@ -46,7 +45,7 @@ const Dropdown = forwardRef(({
     };
   }, []);
 
-  const filteredItems = items.filter(item => item.Department === department);
+  const filteredItems = items.filter(item => item.department === department);
 
   return (
     <div ref={dropdownRef} className="relative w-[85%] sm:w-full md:w-[95%] lg:w-[70%] ml-3 font-lemonmilk">

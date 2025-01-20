@@ -94,10 +94,10 @@ const Register = () => {
     if (emailAddress === '') setEmailError(true);
     if (cnicNo.length !== 15) setCnicError(true);
     if (fileUrl === null) setFileError(true);
-  
+
     // Check for errors in each member
     members.forEach((member, index) => {
-      console.log("OPTIOMAL:", member.optional)
+      console.log(index, ": ", member.optional)
       if (member.name === '' && !member.optional) setMembers(prevMembers => {
         const updatedMembers = [...prevMembers];
         updatedMembers[index].nameError = true;
@@ -130,7 +130,7 @@ const Register = () => {
     setCnicError(false);
     setTeamNameError(false);
     setFileError(false);
-  
+
     // Reset member errors
     setMembers(prevMembers =>
       prevMembers.map(member => ({
@@ -141,10 +141,10 @@ const Register = () => {
         whatsappError: false,
       }))
     );
-  
+
     // Call catchError to check all fields
     catchError();
-  
+
     // If any error exists, set the error flag and return
     if (
       departError ||
@@ -160,7 +160,7 @@ const Register = () => {
       setIsErrorPresent(true);
       return;
     }
-  
+
     setIsOpen(true);
   };
 
@@ -168,13 +168,12 @@ const Register = () => {
     axios.get("http://localhost:3000/competition")
       .then((res) => {
         setFetchedCompetitions(res.data)
-        console.log(fetchedCompetitions)
       })
   }
 
   useEffect(() => {
     fetchCompetitions();
-  }, [])
+  }, [department])
 
   const checkErrors = (members) => {
     let hasError = false;
@@ -223,7 +222,6 @@ const Register = () => {
   };
 
   useEffect(() => {
-    console.log(minMemberCount)
   }, [minMemberCount])
 
   const handleSubmit = async () => {
@@ -234,7 +232,7 @@ const Register = () => {
       email: member.emailAddress,
       cnic: member.cnicNo.split('').filter((char) => char !== '-').join(''),
     }));
-  
+
     const totalMemberData = [
       {
         isLeader: true,
@@ -245,7 +243,7 @@ const Register = () => {
       },
       ...filteredMembers,
     ];
-  
+
     // Ensure the payment image is provided
     if (!file) {
       setFileError(true);
@@ -255,10 +253,10 @@ const Register = () => {
       });
       return;
     }
-  
+
     // Validate all inputs
     catchError();
-  
+
     // If any error exists, return
     if (
       departError ||
@@ -277,36 +275,61 @@ const Register = () => {
       setIsErrorPresent(true);
       return;
     }
-  
-    // Prepare form data for API submission
+    setIsErrorPresent(false)
+
+    const teamData = {
+      team_name: teamName,
+      isApproved: false, // Always false
+      member: totalMemberData,
+    };
+
+
     const formData = new FormData();
-    formData.append("teamName", teamName);
-    formData.append("competitionId", competitionId);
-    formData.append("file", file); // Append the image file
-    formData.append("members", JSON.stringify(totalMemberData));
-  
+    formData.append("_id", competitionId);
+    formData.append("team", JSON.stringify(teamData));
+    formData.append("file", file);
+
+    try {
+      const response = await fetch("http://localhost:3000/register", {
+        method: "POST",
+        body: formData, // Browser automatically sets the correct Content-Type
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      // Handle success
+      toast({
+        variant: "success",
+        title: "Registration successful!",
+      });
+      navigate("/");
+    } catch (error) {
+      console.error("Error:", error);
+      toast({
+        variant: "destructive",
+        title: "Registration failed. Please try again.",
+      });
+    }
+
+    return;
+
     try {
       const response = await axios.post("http://localhost:3000/register", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
       });
-  
-      // Handle success
-      toast({
-        variant: "success",
-        title: "Registration successful!",
-      });
-  
+
+
+
       // Redirect or perform any further actions
-      navigate("/success");
+
     } catch (error) {
       // Handle error
       console.error(error);
-      toast({
-        variant: "destructive",
-        title: "Registration failed. Please try again.",
-      });
+
     }
   };
 
@@ -320,15 +343,15 @@ const Register = () => {
           <div className="absolute left-10 top-[34px] bottom-[62px] sm:bottom-[20px] border-l-4 border-dashed border-themeBlue md:left-10" />
           <div className="pl-4">
             <Department setDepartment={setDepartment} departError={departError} />
-            <Competitions 
-              minRef={minRef} 
-              department={department} 
-              setCompetitions={setCompetitions} 
-              compError={compError} 
-              setMinMember={setMinMemberCount} 
-              setPrice={setPrice} 
-              setMembers={setMemberCount} 
-              fetchedCompetitions={fetchedCompetitions} 
+            <Competitions
+              minRef={minRef}
+              department={department}
+              setCompetitions={setCompetitions}
+              compError={compError}
+              setMinMember={setMinMemberCount}
+              setPrice={setPrice}
+              setMembers={setMemberCount}
+              fetchedCompetitions={fetchedCompetitions}
               setCompetitionId={setCompetitionId}
               setTest={setTest}
             />

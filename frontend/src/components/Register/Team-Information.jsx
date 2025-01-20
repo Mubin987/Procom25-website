@@ -3,7 +3,6 @@ import '../../index.css'
 import MembersList from "./MembersList";
 
 const TeamInformation = ({ props, members, setMembers, memberCount, minMembers, checkErrors, test }) => {
-    console.log("test",test)
     return (
         <div className="relative pl-10 mt-24 font-lemonmilk">
             <RegisterHeading heading={"team information"} textSize='text-2xl' />

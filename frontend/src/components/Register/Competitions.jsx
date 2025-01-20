@@ -19,18 +19,18 @@ const Competitions = ({
             <div className='absolute left-4 top-7 md:left-6 flex w-[90%] sm:[95%] md:w-[96%] lg:w-[80%] items-center'>
                 <div className="w-full border-t-4 border-dashed border-themeBlue " />
                 {fetchedCompetitions && 
-                <Dropdown 
-                    defaultValue="COMPETITIONS" 
-                    minRef={minRef}
-                    department={department}
-                    setValue={setCompetitions} 
-                    setMembers={setMembers}
-                    items={fetchedCompetitions} 
-                    setPrice={setPrice}
-                    setMinMember={setMinMember}
-                    setCompetitionId={setCompetitionId}
-                    setTest={setTest}
-                />}
+                    <Dropdown 
+                        defaultValue="COMPETITIONS" 
+                        minRef={minRef}
+                        department={department}
+                        setValue={setCompetitions} 
+                        setMembers={setMembers}
+                        items={fetchedCompetitions} 
+                        setPrice={setPrice}
+                        setMinMember={setMinMember}
+                        setCompetitionId={setCompetitionId}
+                        setTest={setTest}
+                    />}
                 { compError &&
                     <p className="absolute right-0 -bottom-[60%] text-[75%] sm:right-0 md:right-8 sm:-bottom-7 font-bold italic sm:text-base text-red-600">You must select a competition!</p>
                 }

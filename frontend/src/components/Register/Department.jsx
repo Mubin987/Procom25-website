@@ -11,6 +11,8 @@ const Dropdown = ({ items, defaultValue, setValue }) => {
         if (depart === "CS") return "Computer Science";
         if (depart === "AI") return "Artificial Intelligence";
         if (depart === "EE") return "Electrical Engineering";
+        if (depart === "Business") return "Business"
+        if (depart === "General") return "General"
         return depart;
     }
 
@@ -93,8 +95,8 @@ const Department = ({ setDepartment, departError }) => {
                         { name: 'CS', members: null },
                         { name: 'AI', members: null },
                         { name: 'EE', members: null },
-                        { name: 'Business', members: null },
-                        { name: 'General', members: null },
+                        { name: 'business', members: null },
+                        { name: 'general', members: null },
                     ]}     
                 />
                 { departError &&

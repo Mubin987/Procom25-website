@@ -15,7 +15,6 @@ const ModulePage = () => {
             try {
                 const response = await axios.get('http://localhost:3000/competition');
                 const competition = response.data.find(comp => (comp.title.split(' ').join('-')) === (moduleId));
-                console.log(competition);
                 setCompetitionDetail(competition);
             } catch (error) {
                 console.error('Error fetching competition:', error);

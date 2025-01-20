@@ -3,7 +3,7 @@ import { useEffect } from "react";
 const Members = ( props ) => {
     useEffect(() => {
         props.setOptional(props.isOptional)
-    }, [])
+    }, [props.isOptional])
     return (
         <div className=' md:max-w-full lg:max-w-[100%]'>
             <div className='responsive-margin flex flex-wrap w-[96%] md:w-full lg:w-[96%] sm:mb-6'>
