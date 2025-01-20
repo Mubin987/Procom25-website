@@ -13,12 +13,14 @@ import {
 export function CarouselPlugin() {
 
     const imgs = [
-        "/Carousel/procom24.1.png",
-        "/Carousel/procom24.1.png",
-        "/Carousel/procom24.1.png",
-        "/Carousel/procom24.1.png",
-        "/Carousel/procom24.1.png",
-        "/Carousel/procom24.1.png",
+        "https://res.cloudinary.com/drrz1wz3s/image/upload/v1737394692/1_ysokj4.png",
+        "https://res.cloudinary.com/drrz1wz3s/image/upload/v1737394692/3_pyk9bz.png",
+        "https://res.cloudinary.com/drrz1wz3s/image/upload/v1737394712/5_cgap9a.png",
+        "https://res.cloudinary.com/drrz1wz3s/image/upload/v1737394967/2_kmcc60.png",
+        "https://res.cloudinary.com/drrz1wz3s/image/upload/v1737394692/4_rfpid1.png",
+        "https://res.cloudinary.com/drrz1wz3s/image/upload/v1737413538/1_gusl7g.png",
+        "https://res.cloudinary.com/drrz1wz3s/image/upload/v1737413538/2_wxcvvp.png",
+        "https://res.cloudinary.com/drrz1wz3s/image/upload/v1737413538/3_m8ey8p.png"
     ];
 
     const plugin = React.useRef(
@@ -33,12 +35,12 @@ export function CarouselPlugin() {
             onMouseLeave={plugin.current.reset}
         >
             <CarouselContent>
-                {Array.from({ length: 7 }).map((_, index) => (
+                {Array.from({ length: imgs.length }).map((_, index) => (
                     <CarouselItem key={index}>
                         <div className="p-1">
                             <Card>
                                 <CardContent className="flex h-[300px] items-center justify-center p-6">
-                                    <img src={`/Carousel/procom24.${index + 1}.png`} alt={`Procom '24 (${index + 1})`} className="w-full h-full rounded-xl" />
+                                    <img src={`${imgs[index]}`} alt={`Procom '24 (${index + 1})`} className="w-full h-full rounded-xl" />
                                 </CardContent>
                             </Card>
                         </div>
