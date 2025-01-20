@@ -211,6 +211,7 @@ app.post("/register", upload.single('file'), (req, res) => {
 });
 
 
+
 app.get("/competition/:competitionId/team/:teamName/image", async (req, res) => {
     const { competitionId, teamName } = req.params;
 
@@ -245,3 +246,31 @@ app.get("/competition/:competitionId/team/:teamName/image", async (req, res) => 
 
 
 
+
+
+app.patch("/addrulebook/:id", (req, res) => {
+    const { id } = req.params;
+    const url = req.body.url; // The file object will be available in req.file
+
+    console.log("Rulebook uploaded:", url); // Log file details
+
+    console.log("Using collection:", db.collection('competitions'));
+
+    db.collection('competitions').updateOne(
+        { _id: new ObjectId(id) },
+        // { $push: { registeredTeams: parsedTeam } }
+        { 
+            $set: { 
+                "rulebook.book_url": url // Update the book_url field
+            } 
+        }
+    )
+    .then(() => {
+        res.status(201).json({ message: 'Rulebook uploaded successfully', url: url });
+    })
+    .catch((err) => {
+        console.error("Error uploading rulebook:", err);
+        res.status(500).json({ error: "Could not register the team", details: err.message });
+    });
+    
+});
