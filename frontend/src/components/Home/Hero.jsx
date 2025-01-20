@@ -17,7 +17,6 @@ const Hero = ({ pageType, AboutusText }) => {
     //         scroll.destroy();
     //     }
     // }, [])
-
     return (
         <div ref={scrollRef} className='scroll-container h-screen w-full flex flex-col justify-center items-center'>
             <ProcomSVG />
