@@ -65,9 +65,9 @@ app.get("/competition/:id", (req, res) => {
 app.get("/competition", (req, res)=>{
     let competitions = []
 
-    db.collection('competitions').find()
+    db.collection('competitions').find({}, { projection: { registeredTeams: 0 } })
     .forEach((competition) => {
-        delete competition.registeredTeams
+        // delete competition.registeredTeams
         competitions.push(competition)
     })
     .then(()=>{
