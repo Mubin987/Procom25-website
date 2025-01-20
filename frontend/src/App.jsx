@@ -1,7 +1,7 @@
 import './App.css'
 import './locomotive-scroll.css'
 import axios from 'axios';
-import { Outlet, ScrollRestoration } from "react-router-dom";
+import { Outlet, ScrollRestoration, useLocation } from "react-router-dom";
 import { Footer, Navbar } from './components';
 import { useState, useEffect, useLayoutEffect, useRef } from 'react';
 import gsap from 'gsap';
@@ -49,6 +49,21 @@ function App() {
     };
   }, []);
 
+  function ScrollToHash() {
+    const { hash } = useLocation();
+
+    useEffect(() => {
+      if (hash) {
+        const element = document.getElementById(hash.substring(1)); // Remove '#' from hash
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }
+    }, [hash]);
+
+    return null;
+  }
+
   return (
     <div className='relative' ref={comp}>
       <div
@@ -62,6 +77,7 @@ function App() {
       </div>
       <div id='welcome'>
         <Navbar />
+        <ScrollToHash />
         <ScrollRestoration />
         <Outlet />
         <Toaster />

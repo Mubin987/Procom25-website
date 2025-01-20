@@ -61,6 +61,7 @@ const Competitions = () => {
             .catch((error) => console.error("Error fetching competitions:", error));
     }, []);
 
+    
 
     const comps = [
         {
@@ -96,7 +97,7 @@ const Competitions = () => {
     ];
 
     return (
-        <div className='my-28 mt-32 flex flex-col gap-8'>
+        <div className='my-28 mt-32 flex flex-col gap-8' id='competitions'>
             {comps.map((comp, index) => (
                 <Card
                     key={index}

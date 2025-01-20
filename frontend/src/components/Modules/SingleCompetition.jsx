@@ -39,7 +39,7 @@ const SingleCompetition = ({ module }) => {
     else if (module.department === "General") {
         moduleHeading = "General Competition";
     }
-
+    
     return (
         <div className='w-full flex flex-col justify-center items-center gap-4 my-32'>
             <Heading1 text={moduleHeading} className="tracking-wider" />
@@ -67,7 +67,8 @@ const SingleCompetition = ({ module }) => {
                             <div className="p-3 flex items-center justify-center w-14">
                                 <ArrowDownCircleIcon className="text-[#217ade]" size={40} />
                             </div>
-                            <Link to={`${module.rulebook['book_url']}`} className="flex flex-col py-3 justify-center px-2 sm:px-6">
+                            {console.log(module)}
+                            <Link to={`${module.rulebook.book_url}`} className="flex flex-col py-3 justify-center px-2 sm:px-6">
                                 <span className="text-[#217ade] text-sm sm:text-base font-bold -mb-1">Download Details</span>
                                 <span className="text-[#217ade] text-center text-sm sm:text-base -mt-1 font-bold">PDF</span>
                             </Link>
