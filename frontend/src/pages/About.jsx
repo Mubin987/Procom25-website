@@ -47,8 +47,8 @@ export const About_us = () => {
       <div className="w-[80%] mx-auto flex gap-2 justify-center mt-36 flex-col">
         <Heading1 text={"ABOUT PROCOM '25"} />
         <div className="w-full flex justify-center items-center gap-8 flex-col md:flex-row">
-          <div className="md:w-1/2">
-            <p className="text-base text-justify">PROCOM (Programming Competition) is one of the most prestigious and long-standing events at FAST NUCES, Karachi
+          <div className="md:w-2/3">
+            <p className="text-lg text-justify">PROCOM (Programming Competition) is one of the most prestigious and long-standing events at FAST NUCES, Karachi
               that began in the year 1998, playing a pivotal role in shaping the university's reputation within the tech community
               of Pakistan. Over the past 25 years, PROCOM has become a platform that not only fosters innovation and competition but
               also connects academia with industry professionals. The event features a variety of technical competitions, including
@@ -59,8 +59,8 @@ export const About_us = () => {
               gain insights, and prepare for their future careers. With its reputation for drawing top talent and industry attention,
               PROCOM is a cornerstone of FAST NUCES Karachi's mission to develop and promote tech talent in the country.</p>
           </div>
-          <div className="md:w-1/2">
-            <img src="/about-procom24.jpg" alt="PROCOM '24" className="rounded-xl border-themeBlue border-4 shadow-lg" />
+          <div className="md:w-1/3">
+            <img src="https://res.cloudinary.com/drrz1wz3s/image/upload/v1737406035/uni_u6luqh.jpg" alt="PROCOM '24" className="mx-auto rounded-xl border-themeBlue border-4 shadow-lg h-[450px]" />
           </div>
         </div>
       </div>
