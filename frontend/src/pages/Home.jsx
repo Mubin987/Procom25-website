@@ -11,7 +11,7 @@ const Home = () => {
   const [competitions, setCompetitions] = useState([])
 
   useEffect(()=>{
-    axios.get("http://localhost:3000/competition")
+    axios.get("https://procom25-server.vercel.app/competition")
     .then((res)=> {
       setCompetitions(res.data)
     })

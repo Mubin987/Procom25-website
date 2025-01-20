@@ -165,7 +165,7 @@ const Register = () => {
   };
 
   const fetchCompetitions = async () => {
-    axios.get("http://localhost:3000/competition")
+    axios.get("https://procom25-server.vercel.app/competition")
       .then((res) => {
         setFetchedCompetitions(res.data)
       })
@@ -290,7 +290,7 @@ const Register = () => {
     formData.append("file", file);
 
     try {
-      const response = await fetch("http://localhost:3000/register", {
+      const response = await fetch("https://procom25-server.vercel.app/register", {
         method: "POST",
         body: formData, // Browser automatically sets the correct Content-Type
       });

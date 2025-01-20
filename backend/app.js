@@ -32,6 +32,14 @@ connectToDb((err)=>{
 
 
 // routes
+
+app.get("/", (req, res)=>{
+    
+    res.status(200).json({connection: "Server is running"})
+
+})
+
+
 app.get("/competition/:id", (req, res) => {
     const { id } = req.params; // Destructure id from the request params
     
@@ -79,6 +87,23 @@ app.get("/competition", (req, res)=>{
 
 })
 
+app.get("/competitions", (req, res)=>{
+    let competitions = []
+
+    db.collection('competitions').find()
+    .forEach((competition) => {
+        // delete competition.registeredTeams
+        competitions.push(competition)
+    })
+    .then(()=>{
+        res.status(200).json(competitions)
+    })
+    .catch(()=>{
+        res.status(500).json({error: "could no fetch the competition"})
+    })
+
+})
+
 app.get("/competition/:id", (req, res)=>{
     
     if(ObjectId.isValid(req.params.id)){
@@ -96,6 +121,29 @@ app.get("/competition/:id", (req, res)=>{
 
 }
 })
+
+app.get("/competitionByName/:name", (req, res)=>{
+    
+    const name = req.params.name.split('-').join(' ')
+        db.collection('competitions').findOne({title: name})
+        .then((c)=>{
+            res.status(200).json(c)
+        })
+        .catch(()=>{
+            res.status(500).json({error: "could no fetch the competition"})
+        })
+
+})
+
+
+app.get("/", (req, res)=>{
+    
+    res.status(200).json({connection: "Server is running"})
+
+})
+
+
+
 
 app.get("/competition/:id/registeredCount", (req, res)=>{
     
@@ -163,6 +211,7 @@ app.post("/register", upload.single('file'), (req, res) => {
 });
 
 
+
 app.get("/competition/:competitionId/team/:teamName/image", async (req, res) => {
     const { competitionId, teamName } = req.params;
 
@@ -198,3 +247,30 @@ app.get("/competition/:competitionId/team/:teamName/image", async (req, res) => 
 
 
 
+
+app.patch("/addrulebook/:id", (req, res) => {
+    const { id } = req.params;
+    const url = req.body.url; // The file object will be available in req.file
+
+    console.log("Rulebook uploaded:", url); // Log file details
+
+    console.log("Using collection:", db.collection('competitions'));
+
+    db.collection('competitions').updateOne(
+        { _id: new ObjectId(id) },
+        // { $push: { registeredTeams: parsedTeam } }
+        { 
+            $set: { 
+                "rulebook.book_url": url // Update the book_url field
+            } 
+        }
+    )
+    .then(() => {
+        res.status(201).json({ message: 'Rulebook uploaded successfully', url: url });
+    })
+    .catch((err) => {
+        console.error("Error uploading rulebook:", err);
+        res.status(500).json({ error: "Could not register the team", details: err.message });
+    });
+    
+});

@@ -49,13 +49,13 @@ const Competitions = () => {
 
     useEffect(() => {
         axios
-            .get("http://localhost:3000/competition")
+            .get("https://procom25-server.vercel.app/competition")
             .then((res) => {
                 const updatedCompetitions = { CS: [], EE: [], business: [], AI: [], general: [] };
                 res.data.forEach((compet) => {
                     updatedCompetitions[compet.department].push(compet);
                 });
-                console.log(updatedCompetitions);
+                // console.log(updatedCompetitions);
                 setCompetitions(updatedCompetitions);
             })
             .catch((error) => console.error("Error fetching competitions:", error));

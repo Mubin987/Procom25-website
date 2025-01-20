@@ -11,10 +11,6 @@ function App() {
   const comp = useRef(null);
 
 
-
-
-
-
   useLayoutEffect(() => {
     const body = document.body;
     body.style.overflow = 'hidden';
