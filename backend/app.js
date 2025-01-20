@@ -122,6 +122,29 @@ app.get("/competition/:id", (req, res)=>{
 }
 })
 
+app.get("/competitionByName/:name", (req, res)=>{
+    
+    const name = req.params.name.split('-').join(' ')
+        db.collection('competitions').findOne({title: name})
+        .then((c)=>{
+            res.status(200).json(c)
+        })
+        .catch(()=>{
+            res.status(500).json({error: "could no fetch the competition"})
+        })
+
+})
+
+
+app.get("/", (req, res)=>{
+    
+    res.status(200).json({connection: "Server is running"})
+
+})
+
+
+
+
 app.get("/competition/:id/registeredCount", (req, res)=>{
     
     db.collection('competitions').aggregate([
@@ -219,7 +242,6 @@ app.get("/competition/:competitionId/team/:teamName/image", async (req, res) => 
         res.status(500).json({ error: "Error fetching image" });
     }
 });
-
 
 
 

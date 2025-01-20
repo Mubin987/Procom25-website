@@ -55,7 +55,7 @@ const Competitions = () => {
                 res.data.forEach((compet) => {
                     updatedCompetitions[compet.department].push(compet);
                 });
-                console.log(updatedCompetitions);
+                // console.log(updatedCompetitions);
                 setCompetitions(updatedCompetitions);
             })
             .catch((error) => console.error("Error fetching competitions:", error));
