@@ -18,7 +18,6 @@ const ModulePage = () => {
             })
     };
     useEffect(() => {
-        console.log("I am in useEffect of module page")
         fetchCompetition()
     }, [moduleId]);
 
