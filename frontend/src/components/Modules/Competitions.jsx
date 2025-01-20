@@ -49,7 +49,7 @@ const Competitions = () => {
 
     useEffect(() => {
         axios
-            .get("http://localhost:3000/competition")
+            .get("https://procom25-server.vercel.app/competition")
             .then((res) => {
                 const updatedCompetitions = { CS: [], EE: [], business: [], AI: [], general: [] };
                 res.data.forEach((compet) => {

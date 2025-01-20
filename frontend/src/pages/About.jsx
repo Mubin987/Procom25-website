@@ -44,29 +44,49 @@ export const About_us = () => {
   return (
     <div style={{ minHeight: "100vh" }} className="mb-20">
       <Hero pageType={"Home"} />
+      <div className="w-[80%] mx-auto flex gap-2 justify-center mt-36 flex-col">
+        <Heading1 text={"ABOUT PROCOM '25"} />
+        <div className="w-full flex justify-center items-center gap-8 flex-col md:flex-row">
+          <div className="md:w-1/2">
+            <p className="text-base text-justify">PROCOM (Programming Competition) is one of the most prestigious and long-standing events at FAST NUCES, Karachi
+              that began in the year 1998, playing a pivotal role in shaping the university's reputation within the tech community
+              of Pakistan. Over the past 25 years, PROCOM has become a platform that not only fosters innovation and competition but
+              also connects academia with industry professionals. The event features a variety of technical competitions, including
+              speed programming, web development, Al challenges, robotics,  cybersecurity and business contests, which attract
+              talented students from all over Pakistan. PROCOM is recognized for its ability to challenge students' intelligence and
+              technical skills, while giving them real-world exposure. Additionally, it acts as a bridge between students and the professional
+              world by organizing panel discussions, a startup showcase and a grand job fair that help students build industry connections,
+              gain insights, and prepare for their future careers. With its reputation for drawing top talent and industry attention,
+              PROCOM is a cornerstone of FAST NUCES Karachi's mission to develop and promote tech talent in the country.</p>
+          </div>
+          <div className="md:w-1/2">
+            <img src="/about-procom24.jpg" alt="PROCOM '24" className="rounded-xl border-themeBlue border-4 shadow-lg" />
+          </div>
+        </div>
+      </div>
       <div className="w-full flex justify-center items-center gap-8 flex-col mt-28">
         <Heading1 text={"EXECUTIVE COMMITTEE"} />
         <div className="w-full flex justify-center items-center flex-wrap gap-10 md:mt-5">
-          <Card title={ExcomList[0].title} img={ExcomList[0].imgSrc} name={ExcomList[0].name} className="" />
-          <Card title={ExcomList[1].title} img={ExcomList[1].imgSrc} name={ExcomList[1].name} className="md:-mt-14" />
-          <Card title={ExcomList[2].title} img={ExcomList[2].imgSrc} name={ExcomList[2].name} className="" />
+          <Card title={ExcomList[0].title} img={ExcomList[0].imgSrc} name={ExcomList[0].name} className="shadow-lg" />
+          <Card title={ExcomList[1].title} img={ExcomList[1].imgSrc} name={ExcomList[1].name} className="md:-mt-14 shadow-lg" />
+          <Card title={ExcomList[2].title} img={ExcomList[2].imgSrc} name={ExcomList[2].name} className="shadow-lg" />
         </div>
         <div className="w-full flex justify-center items-center flex-wrap gap-10">
           {ExcomList.slice(3).map((item, index) => (
-            <Card key={index} title={item.title} img={item.imgSrc} name={item.name} />
+            <Card key={index} title={item.title} img={item.imgSrc} name={item.name} className="shadow-lg" />
           ))}
         </div>
       </div>
       <div className="w-full flex justify-center items-center gap-8 flex-col mt-24">
         <Heading1 text={"DEVELOPMENT TEAM"} />
         <div className="w-full flex justify-center items-center flex-wrap gap-10 md:mt-5">
-          <Card type={"dev"} title={devTeam[2].role} img={devTeam[2].image_url} name={devTeam[2].person_name} className="" />
-          <Card type={"dev"} title={devTeam[0].role} img={devTeam[0].image_url} name={devTeam[0].person_name} className="md:-mt-14" />
-          <Card type={"dev"} title={devTeam[1].role} img={devTeam[1].image_url} name={devTeam[1].person_name} className="" />
+          <Card type={"dev"} title={devTeam[2].role} img={devTeam[2].image_url} name={devTeam[2].person_name} className="shadow-lg" />
+          <Card type={"dev"} title={devTeam[0].role} img={devTeam[0].image_url} name={devTeam[0].person_name} className="md:-mt-14 shadow-lg" />
+          <Card type={"dev"} title={devTeam[1].role} img={devTeam[1].image_url} name={devTeam[1].person_name} className="shadow-lg" />
         </div>
         <div className="w-full flex justify-center items-center flex-wrap gap-10">
           {devTeam.slice(3).map((item, index) => (
-            <Card type={"dev"} title={item.role} img={item.image_url} name={item.person_name} />
+            <Card type={"dev"} title={item.role} img={item.image_url} name={item.person_name} className="shadow-lg" />
           ))}
         </div>
       </div>

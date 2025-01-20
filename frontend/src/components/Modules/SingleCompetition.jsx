@@ -68,7 +68,7 @@ const SingleCompetition = ({ module }) => {
                             <div className="p-3 flex items-center justify-center w-14">
                                 <ArrowDownCircleIcon className="text-[#217ade]" size={40} />
                             </div>
-                            {console.log(module)}
+                            {console.log(`module: ` + module)}
                             <Link to={`${module.rulebook.book_url}`} className="flex flex-col py-3 justify-center px-2 sm:px-6">
                                 <span className="text-[#217ade] text-sm sm:text-base font-bold -mb-1">Download Details</span>
                                 <span className="text-[#217ade] text-center text-sm sm:text-base -mt-1 font-bold">PDF</span>
@@ -96,16 +96,6 @@ const SingleCompetition = ({ module }) => {
                             <h2 className='hidden font-lemonmilk bg-clip-text text-center text-transparent bg-[linear-gradient(90deg,_#FFFFFF_25.4%,_#caeaf9_90%)] text-[1.25rem] sm:text-[2rem] font-bold tracking-tight uppercase'>{key}</h2>
                         </div>
                     ))} */}
-
-                    <h1 className='font-lemonmilk bg-clip-text text-transparent bg-[linear-gradient(90deg,_#FFFFFF_25.4%,_#caeaf9_90%)] text-4xl font-bold uppercase mt-10'>Rules and Regulations</h1>
-                    <div className='w-3/4 bg-[linear-gradient(90deg,_#FFFFFF_14.9%,_#D0EFFF_65.4%,_#A7E2FF_100%)] text-gray-800 rounded-3xl p-6'>
-                        <p className='text-lg font-semibold'>{module.rulebook.rules}</p>
-                    </div>
-
-                    <h1 className='font-lemonmilk bg-clip-text text-transparent bg-[linear-gradient(90deg,_#FFFFFF_25.4%,_#caeaf9_90%)] text-4xl font-bold uppercase mt-10'>Disqualification Criteria</h1>
-                    <div className='w-3/4 bg-[linear-gradient(90deg,_#FFFFFF_14.9%,_#D0EFFF_65.4%,_#A7E2FF_100%)] text-gray-800 rounded-3xl p-6'>
-                        <p className='text-lg font-semibold'>{module.rulebook.disqualify_criteria}</p>
-                    </div>
                 </div>
             </div>
         </div>

@@ -23,5 +23,10 @@
         "person_name": "Sahil Latif",
         "image_url": "https://res.cloudinary.com/drrz1wz3s/image/upload/v1737378873/2_m2mqek.png",
         "role": "Deputy"
+    },
+    {
+        "person_name": "Izaan",
+        "image_url": "https://res.cloudinary.com/drrz1wz3s/image/upload/v1737397150/4_hzmbil.png",
+        "role": "Member"
     }
 ]
