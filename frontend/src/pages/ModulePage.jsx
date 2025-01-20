@@ -13,7 +13,7 @@ const ModulePage = () => {
     useEffect(() => {
         const fetchCompetition = async () => {
             try {
-                const response = await axios.get('http://localhost:3000/competition');
+                const response = await axios.get('https://procom25-server.vercel.app/competition');
                 const competition = response.data.find(comp => (comp.title.split(' ').join('-')) === (moduleId));
                 setCompetitionDetail(competition);
             } catch (error) {

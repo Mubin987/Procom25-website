@@ -22,7 +22,7 @@ const Dropdown = forwardRef(({
   const dropdownRef = useRef(null);
 
   const fetchRegisteredTeamCount = async (item) => {
-    axios.get(`http://localhost:3000/competition/${item._id}/registeredCount`)
+    axios.get(`https://procom25-server.vercel.app/competition/${item._id}/registeredCount`)
       .then((res) => {
         if (res.data === item.max_teams) {
           toast({
