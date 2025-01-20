@@ -5,7 +5,7 @@ const Payment = ({ fileUrl, setFileUrl, fileError, setFileError, price, setFile 
   const [fileName, setFileName] = useState(null);
   
   const handleFileChange = (e) => {
-    const MAX_FILE_SIZE = 3 * 1024 * 1024;
+    const MAX_FILE_SIZE = 2 * 1024 * 1024;
 
     if (e.target.files && e.target.files.length > 0) {
       const file = e.target.files[0];

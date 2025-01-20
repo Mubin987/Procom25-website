@@ -1,4 +1,7 @@
+import { toast } from "@/hooks/use-toast";
+import axios from "axios";
 import React, { useEffect, useRef, useState, forwardRef } from "react";
+import { useNavigate } from "react-router-dom";
 
 // Use forwardRef to forward the ref to the input element
 const Dropdown = forwardRef(({ 
@@ -15,13 +18,24 @@ const Dropdown = forwardRef(({
 }, ref) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState(defaultValue);
+  const navigate = useNavigate();
   const dropdownRef = useRef(null);
 
+  const fetchRegisteredTeamCount = async (item) => {
+    axios.get(`http://localhost:3000/competition/${item._id}/registeredCount`)
+      .then((res) => {
+        if (res.data === item.max_teams) {
+          toast({
+            variant: "destructive",
+            title: "This competition is full. Choose another one",
+          });
+          navigate('/')
+        }
+      })
+  }
+
   const handleItemClick = (item) => {
-    // Setting the minRef value here
-    if (minRef && minRef.current) {
-      minRef.current.value = item.min_team_size;
-    }
+    fetchRegisteredTeamCount(item)
     setSelectedItem(item.title);
     setValue(item.title);
     setCompetitionId(item._id)
@@ -51,7 +65,7 @@ const Dropdown = forwardRef(({
     <div ref={dropdownRef} className="relative w-[85%] sm:w-full md:w-[95%] lg:w-[70%] ml-3 font-lemonmilk">
       <button
         onClick={() => setIsOpen((prev) => !prev)}
-        className={`inline-flex justify-between w-full px-4 py-2 text-[12px] sm:text-xl bg-[linear-gradient(90deg,_#1F95ED_0%,_#2169D4_100%)] text-white font-bold ${
+        className={`inline-flex justify-between w-full px-4 py-2 text-[12px] sm:text-[18px] bg-[linear-gradient(90deg,_#1F95ED_0%,_#2169D4_100%)] text-white font-bold ${
           isOpen ? "rounded-t-xl" : "rounded-xl"}`}
       >
         {selectedItem}
