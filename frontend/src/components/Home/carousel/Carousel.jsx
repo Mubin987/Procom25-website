@@ -23,12 +23,25 @@ export function CarouselPlugin() {
             onMouseLeave={plugin.current.reset}
         >
             <CarouselContent>
-                {Array.from({ length: 5 }).map((_, index) => (
+                {[
+                    
+                    "https://res.cloudinary.com/drrz1wz3s/image/upload/v1737394692/3_pyk9bz.png",
+                    "https://res.cloudinary.com/drrz1wz3s/image/upload/v1737394692/4_rfpid1.png",
+      "https://res.cloudinary.com/drrz1wz3s/image/upload/v1737394712/5_cgap9a.png",
+      "https://res.cloudinary.com/drrz1wz3s/image/upload/v1737394692/1_ysokj4.png",
+      "https://res.cloudinary.com/drrz1wz3s/image/upload/v1737394967/2_kmcc60.png"
+    ].map((src, index) => (
+                        
+                    
                     <CarouselItem key={index}>
                         <div className="p-1">
                             <Card>
                                 <CardContent className="flex h-[300px] items-center justify-center p-6">
-                                    <span className="text-4xl font-semibold">{index + 1}</span>
+                                <img
+                                    src={src}
+                                    alt={`Slide ${index + 1}`}
+                                    className="w-full h-[100%] rounded-md"
+                                />
                                 </CardContent>
                             </Card>
                         </div>
