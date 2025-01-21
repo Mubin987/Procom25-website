@@ -248,6 +248,7 @@ const Register = () => {
     // Ensure the payment image is provided
     if (!file) {
       setFileError(true);
+      setIsOpen(false)
       toast({
         variant: "destructive",
         title: "You must upload a payment receipt",
@@ -274,6 +275,11 @@ const Register = () => {
       )
     ) {
       setIsErrorPresent(true);
+      setIsOpen(false);
+      toast({
+        variant: "destructive",
+        title: "Registration failed. Please try again.",
+      });
       return;
     }
     setIsErrorPresent(false)
@@ -289,7 +295,7 @@ const Register = () => {
     formData.append("_id", competitionId);
     formData.append("team", JSON.stringify(teamData));
     formData.append("file", file);
-
+    
     try {
       const response = await fetch("https://procom25-server.vercel.app/register", {
         method: "POST",

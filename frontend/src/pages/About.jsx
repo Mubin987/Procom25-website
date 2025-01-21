@@ -65,24 +65,31 @@ export const About_us = () => {
         </div>
       </div>
       <div className="w-full flex justify-center items-center gap-8 flex-col mt-28">
-        <Heading1 text={"EXECUTIVE COMMITTEE"} className="text-custom"/>
+        <Heading1 text={"EXECUTIVE COMMITTEE"} className="text-custom" />
         <div className="w-full flex justify-center items-center flex-wrap gap-10 md:mt-5">
-          <Card title={ExcomList[0].title} img={ExcomList[0].imgSrc} name={ExcomList[0].name} className="shadow-lg" />
-          <Card title={ExcomList[1].title} img={ExcomList[1].imgSrc} name={ExcomList[1].name} className="md:-mt-14 shadow-lg" />
-          <Card title={ExcomList[2].title} img={ExcomList[2].imgSrc} name={ExcomList[2].name} className="shadow-lg" />
+          <Card title={ExcomList[0].title} img={ExcomList[0].imgSrc} name={ExcomList[0].name} className="shadow-lg order-2 md:order-1" />
+          <Card title={ExcomList[1].title} img={ExcomList[1].imgSrc} name={ExcomList[1].name} className="md:-mt-14 shadow-lg order-1 md:order-2" />
+          <Card title={ExcomList[2].title} img={ExcomList[2].imgSrc} name={ExcomList[2].name} className="shadow-lg order-3" />
         </div>
-        <div className="w-full flex justify-center items-center flex-wrap gap-10">
+        <div className="w-[55%] md:w-[72%] lg:w-full 2xl:w-[72%] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-x-2 gap-y-4">
           {ExcomList.slice(3).map((item, index) => (
-            <Card key={index} title={item.title} img={item.imgSrc} name={item.name} className="shadow-lg" />
+            <Card
+              key={index}
+              title={item.title}
+              img={item.imgSrc}
+              name={item.name}
+              className="shadow-lg"
+            />
           ))}
         </div>
+
       </div>
       <div className="w-full flex justify-center items-center gap-8 flex-col mt-24">
-        <Heading1 text={"DEVELOPMENT TEAM"} className="text-custom"/>
+        <Heading1 text={"DEVELOPMENT TEAM"} className="text-custom" />
         <div className="w-full flex justify-center items-center flex-wrap gap-10 md:mt-5">
-          <Card type={"dev"} title={devTeam[2].role} img={devTeam[2].image_url} name={devTeam[2].person_name} className="shadow-lg" />
-          <Card type={"dev"} title={devTeam[0].role} img={devTeam[0].image_url} name={devTeam[0].person_name} className="md:-mt-14 shadow-lg" />
-          <Card type={"dev"} title={devTeam[1].role} img={devTeam[1].image_url} name={devTeam[1].person_name} className="shadow-lg" />
+          <Card type={"dev"} title={devTeam[2].role} img={devTeam[2].image_url} name={devTeam[2].person_name} className="shadow-lg order-2 md:order-1" />
+          <Card type={"dev"} title={devTeam[0].role} img={devTeam[0].image_url} name={devTeam[0].person_name} className="md:-mt-14 shadow-lg order-1 md:order-2" />
+          <Card type={"dev"} title={devTeam[1].role} img={devTeam[1].image_url} name={devTeam[1].person_name} className="shadow-lg order-3" />
         </div>
         <div className="w-full flex justify-center items-center flex-wrap gap-10">
           {devTeam.slice(3).map((item, index) => (
