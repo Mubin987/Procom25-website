@@ -41,7 +41,7 @@ const SingleCompetition = ({ module }) => {
     else if (module.department === "General") {
         moduleHeading = "General Competition";
     }
-    
+
     return (
         <div className='w-full flex flex-col justify-center items-center gap-4 my-32'>
             <Heading1 text={moduleHeading} className="tracking-wider" />
@@ -90,8 +90,8 @@ const SingleCompetition = ({ module }) => {
                             <DetailBox isIcon={false} IconPath={"/SilverBadge.png"} value={module.secondPrize} title="Runner Up" width="full" />
                         </div>
                     </div>
-                    <Link to={'/register'} className='flex justify-center items-center m-auto w-11/12 h-[50px] text-xl text-black font-bold bg-[linear-gradient(90deg,_#FFFFFF_25.4%,_#caeaf9_90%)] rounded-[15px] [box-shadow:5px_6px_7px_3px_#00000040]'>
-                    Register Now
+                    <Link to={'/register'} className='[box-shadow:1px_2px_3px_0px_#00000040] font-montserrate bg-[linear-gradient(90deg,_#FFFFFF_14.9%,_#D0EFFF_65.4%,_#A7E2FF_100%)] justify-center rounded-full text-[#2169D4] font-bold px-6 py-1.5 mt-2 sm:mt-0 flex items-center m-auto w-11/12 h-[50px] text-xl'>
+                        Register Now
                     </Link>
                     {/* {module && module.rulebook && Object.keys(module.rulebook).map((key) => (
                         <div className='flex flex-col gap-2 w-full' key={key}>

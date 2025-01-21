@@ -3,10 +3,6 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 
 const Card = ({ heading, text, image, comps }) => {
-
-    // console.log()
-
-    const compImage = '/CompetitionsImages/CS.png'
     return (
         <div className='bg-[linear-gradient(90deg,_#1F95ED_0%,_#2169D4_100%)] flex flex-col gap-8 w-4/5 mx-auto rounded-[32px] sm:rounded-3xl text-white p-6 [box-shadow:11px_15px_23px_0px_#00000040]'>
             <div className='flex gap-2 justify-center sm:justify-between'>
@@ -27,14 +23,14 @@ const Card = ({ heading, text, image, comps }) => {
                     
                         to={`${comp.title.split(' ').join('-')}`}
                         key={index}
-                        className='w-full sm:w-[120px] aspect-square cursor-pointer px-4 bg-[linear-gradient(90deg,_#FFFFFF_14.9%,_#D0EFFF_65.4%,_#A7E2FF_100%)] flex flex-col gap-2 justify-center items-center [box-shadow:11px_15px_23px_0px_#00000040] rounded-3xl'
+                        className='sm:w-[150px] h-[100px] cursor-pointer px-4 bg-[linear-gradient(90deg,_#FFFFFF_14.9%,_#D0EFFF_65.4%,_#A7E2FF_100%)] flex flex-col justify-center items-center [box-shadow:11px_15px_23px_0px_#00000040] rounded-2xl'
                     >
                         <img
                             src={comp.badge}
                             alt={comp.title}
                             height={200}
                             width={200}
-                            className='w-2/3 sm:w-[60px] object-cover'
+                            className='w-2/3 sm:w-[50px] object-cover'
                         />
                         <h1 className='font-bold text-themeBlue text-center text-lg sm:text-sm'>
                             {comp.title}
