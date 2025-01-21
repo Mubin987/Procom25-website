@@ -11,7 +11,6 @@ const ModulePage = () => {
     const { moduleId } = useParams();
 
     const fetchCompetition = async () => {
-            console.log(`Module ID: ${moduleId}`)
             axios.get(`http://localhost:3000/competitionByName/${moduleId}`)
             .then((res) => {
                 setCompetitions(res.data)

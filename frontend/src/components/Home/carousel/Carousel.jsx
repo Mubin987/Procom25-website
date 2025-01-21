@@ -13,7 +13,6 @@ import {
 export function CarouselPlugin() {
 
     const imgs = [
-        "https://res.cloudinary.com/drrz1wz3s/image/upload/v1737394692/1_ysokj4.png",
         "https://res.cloudinary.com/drrz1wz3s/image/upload/v1737394692/3_pyk9bz.png",
         "https://res.cloudinary.com/drrz1wz3s/image/upload/v1737394712/5_cgap9a.png",
         "https://res.cloudinary.com/drrz1wz3s/image/upload/v1737394967/2_kmcc60.png",

@@ -23,7 +23,6 @@ const DetailBox = ({ isIcon, IconPath, value, title, width }) => {
 }
 
 const SingleCompetition = ({ module }) => {
-    console.log(module)
     let moduleHeading = "";
     if (module.department === "CS") {
         moduleHeading = "Computer Science";

@@ -86,7 +86,7 @@ export const About_us = () => {
         </div>
         <div className="w-full flex justify-center items-center flex-wrap gap-10">
           {devTeam.slice(3).map((item, index) => (
-            <Card type={"dev"} title={item.role} img={item.image_url} name={item.person_name} className="shadow-lg" />
+            <Card key={index} type={"dev"} title={item.role} img={item.image_url} name={item.person_name} className="shadow-lg" />
           ))}
         </div>
       </div>
