@@ -2,6 +2,7 @@ import Heading1 from '@/components/Commons/Heading1';
 import { ArrowDownCircleIcon, LucideDollarSign, User2Icon } from "lucide-react"
 import React from 'react'
 import { Link } from 'react-router-dom';
+import { Button } from '../ui/button';
 
 const DetailBox = ({ isIcon, IconPath, value, title, width }) => {
     return (
@@ -44,22 +45,22 @@ const SingleCompetition = ({ module }) => {
     return (
         <div className='w-full flex flex-col justify-center items-center gap-4 my-32'>
             <Heading1 text={moduleHeading} className="tracking-wider" />
-            <div className='bg-[linear-gradient(90deg,_#1F95ED_0%,_#2169D4_100%)] flex flex-col gap-8 w-4/5 w-custom mx-auto rounded-[32px] sm:rounded-3xl text-white p-6 [box-shadow:11px_15px_23px_0px_#00000040]'>
+            <div className='bg-[linear-gradient(90deg,_#1F95ED_0%,_#2169D4_100%)] flex flex-col gap-8 max-w-[1000px] w-4/5 w-custom mx-auto rounded-[32px] sm:rounded-3xl text-white p-10 [box-shadow:11px_8px_8px_3px_#00000040]'>
                 <div className='flex gap-2 justify-center sm:justify-evenly'>
                     <div className='w flex flex-col gap-2 items-center sm:items-start'>
-                        <div className='flex lg:hidden m-auto'>
-                            <img src={module.badge} alt={module.title} height={400} width={400} className='w-[300px] object-cover rounded-r-3xl' />
+                        <div className='flex md:hidden m-auto w-4/5 bg-[linear-gradient(90deg,_#FFFFFF_25.4%,_#caeaf9_90%)] rounded-[18px] [box-shadow:11px_15px_23px_0px_#00000040]'>
+                            <img src={module.badge} alt={module.title} className='w-full object-cover rounded-r-3xl' />
                         </div>
-                        <h1 className='font-lemonmilk bg-clip-text text-center sm:text-start text-transparent bg-[linear-gradient(90deg,_#FFFFFF_25.4%,_#caeaf9_90%)] text-4xl md:text-[3rem] font-bold tracking-tight uppercase'>{module.title}</h1>
+                        <h1 className='font-lemonmilk bg-clip-text text-center sm:text-start text-transparent bg-[linear-gradient(90deg,_#FFFFFF_25.4%,_#caeaf9_90%)] text-4xl md:text-[3rem] font-bold tracking-tight leading-[45px] uppercase'>{module.title}</h1>
                         <p className='text-lg font-semibold'>{module.subtitle}</p>
                     </div>
-                    <div className='sm:flex'>
-                        <img src={module.badge} alt={module.title} height={400} width={400} className='w-[200px] object-cover rounded-r-3xl' />
+                    <div className='hidden md:flex w-[500px] bg-[linear-gradient(90deg,_#FFFFFF_25.4%,_#caeaf9_90%)] rounded-[18px] [box-shadow:11px_8px_8px_3px_#00000040]'>
+                        <img src={module.badge} alt={module.title} className='w-full object-cover rounded-r-3xl' />
                     </div>
                 </div>
                 <div className='flex flex-col items-center w-full gap-4'>
-                    <h1 className='font-lemonmilk bg-clip-text text-transparent bg-[linear-gradient(90deg,_#FFFFFF_25.4%,_#caeaf9_90%)] text-4xl font-bold mt-10 uppercase mb-5'>General Details</h1>
-                    <div className="flex gap-4 flex-col md:flex-row justify-between w-10/12 sm:w-3/5">
+                    <h1 className='font-lemonmilk bg-clip-text text-transparent bg-[linear-gradient(90deg,_#FFFFFF_25.4%,_#caeaf9_90%)] text-5xl font-bold mt-10 uppercase mb-5 tracking-widest'>General Details</h1>
+                    <div className="flex gap-4 flex-col md:flex-row justify-between w-10/12 sm:w-4/5">
                         <DetailBox isIcon={true} IconPath={() => (<LucideDollarSign />)} value={module.fee} title="Registration Fee" width="2/5" />
                         <DetailBox isIcon={true} IconPath={() => (<User2Icon />)} value={`${module.min_team_size} - ${module.max_team_size}`} title="Members Limit" width="2/5" />
                     </div>
@@ -74,8 +75,8 @@ const SingleCompetition = ({ module }) => {
                             </a>
                         </div>
                     </div>
-                    <h1 className='bg-clip-text text-transparent bg-[linear-gradient(90deg,_#FFFFFF_25.4%,_#caeaf9_90%)] text-4xl font-bold font-lemonmilk uppercase mt-10 mb-2'>Prizes</h1>
-                    <div className="flex gap-4 flex-col md:flex-row justify-between w-10/12 sm:w-3/5">
+                    <h1 className='bg-clip-text text-transparent bg-[linear-gradient(90deg,_#FFFFFF_25.4%,_#caeaf9_90%)] text-5xl font-bold font-lemonmilk uppercase mt-10 mb-2 tracking-widest'>Prizes</h1>
+                    <div className="flex gap-4 flex-col md:flex-row justify-between w-10/12 sm:w-4/5">
                         <div className='flex flex-col w-full md:w-2/5 justify-end items-center'>
                             <div>
                                 <img src={"/WinnerTrophy.png"} alt={"Winner"} height={400} width={400} className='w-[200px] object-cover rounded-r-3xl' />
@@ -89,7 +90,9 @@ const SingleCompetition = ({ module }) => {
                             <DetailBox isIcon={false} IconPath={"/SilverBadge.png"} value={module.secondPrize} title="Runner Up" width="full" />
                         </div>
                     </div>
-
+                    <Link to={'/register'} className='flex justify-center items-center m-auto w-11/12 h-[50px] text-xl text-black font-bold bg-[linear-gradient(90deg,_#FFFFFF_25.4%,_#caeaf9_90%)] rounded-[15px] [box-shadow:5px_6px_7px_3px_#00000040]'>
+                    Register Now
+                    </Link>
                     {/* {module && module.rulebook && Object.keys(module.rulebook).map((key) => (
                         <div className='flex flex-col gap-2 w-full' key={key}>
                             <h2 className='hidden font-lemonmilk bg-clip-text text-center text-transparent bg-[linear-gradient(90deg,_#FFFFFF_25.4%,_#caeaf9_90%)] text-[1.25rem] sm:text-[2rem] font-bold tracking-tight uppercase'>{key}</h2>
