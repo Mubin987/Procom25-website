@@ -72,19 +72,19 @@ export const About_us = () => {
           <Card title={ExcomList[2].title} img={ExcomList[2].imgSrc} name={ExcomList[2].name} className="shadow-lg order-3" />
         </div>
         <div className="w-[55%] md:w-[72%] lg:w-full 2xl:w-[72%] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-x-2 gap-y-4 place-items-center">
-  {ExcomList.slice(3).map((item, index) => (
-    <Card
-      key={index}
-      title={item.title}
-      img={item.imgSrc}
-      name={item.name}
-      className={`shadow-lg ${
-        // If this is the last item and we're on lg breakpoint, move it to the second column
-        index === ExcomList.slice(3).length - 1 ? 'lg:col-start-2' : ''
-      }`}
-    />
-  ))}
-</div>
+          {ExcomList.slice(3).map((item, index) => (
+            <Card
+              key={index}
+              title={item.title}
+              img={item.imgSrc}
+              name={item.name}
+              className={`shadow-lg ${
+                // If this is the last item and we're on lg breakpoint, move it to the second column
+                index === ExcomList.slice(3).length - 1 ? 'lg:col-start-2 xl:col-start-auto' : ''
+                }`}
+            />
+          ))}
+        </div>
 
 
 
