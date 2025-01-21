@@ -100,7 +100,7 @@ const Department = ({ setDepartment, departError }) => {
                     ]}     
                 />
                 { departError &&
-                    <p className="absolute right-0 -bottom-[60%] text-[75%] sm:right-0 md:right-8 sm:-bottom-7 font-bold italic sm:text-base text-red-600">You must select a department!</p>
+                    <p className="absolute right-0 -bottom-[60%] text-[60%] sm:right-0 md:right-8 sm:-bottom-7 font-bold italic sm:text-base text-red-600">You must select a department!</p>
                 }
             </div>
             <div className="absolute top-[36%] sm:top-[36%] left-[-1%] flex h-7 w-7 items-center justify-center rounded-full bg-[linear-gradient(90deg,_#1F95ED_0%,_#2169D4_100%)] font-bold text-xl z-10">

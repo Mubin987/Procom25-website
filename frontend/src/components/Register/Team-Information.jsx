@@ -25,7 +25,7 @@ const TeamInformation = ({ props, members, setMembers, memberCount, minMembers, 
                     className='w-[74%] sm:w-[90%] md:w-[88%] lg:w-[70%] ml-3 py-3 pl-4 rounded-xl bg-[linear-gradient(90deg,_#FFFFFF_14.9%,_#DCF4FF_100%)] sm:py-2 sm:placeholder:text-xl placeholder:font-bold placeholder-transparent placeholder:bg-gradient-text placeholder:bg-clip-text placeholder:italic shadow-[0px_4px_4px_0px_#00000040]'
                 />
                 {props.teamNameError && (
-                    <p className="absolute right-0 -bottom-[60%] text-[75%] sm:right-0 md:right-8 sm:-bottom-7 font-bold italic sm:text-base text-red-600">Please enter your team name.</p>
+                    <p className="absolute right-0 -bottom-[60%] text-[60%] sm:right-0 md:right-8 sm:-bottom-7 font-bold italic sm:text-base text-red-600">Please enter your team name.</p>
                 )}
                 {
                     teamNameAvailableError && (
@@ -50,7 +50,6 @@ const TeamInformation = ({ props, members, setMembers, memberCount, minMembers, 
                         <input
                             type='text'
                             placeholder='NAME *'
-                            required
                             value={props.name}
                             onChange={e => {
                                 let name = e.target.value;
@@ -69,7 +68,6 @@ const TeamInformation = ({ props, members, setMembers, memberCount, minMembers, 
                         <input
                             type='text'
                             placeholder='CNIC NO. *'
-                            required
                             value={props.cnicNo}
                             onChange={e => {
                                 let cnic = e.target.value.replace(/[^0-9]/g, "").replace(/-/g, "");
@@ -98,7 +96,6 @@ const TeamInformation = ({ props, members, setMembers, memberCount, minMembers, 
                         <input
                             type='email'
                             placeholder='EMAIL ADDRESS *'
-                            required
                             value={props.emailAddress}
                             onChange={e => {
                                 const email = e.target.value;
@@ -118,7 +115,6 @@ const TeamInformation = ({ props, members, setMembers, memberCount, minMembers, 
                         <input
                             type='number'
                             placeholder='WHATSAPP *'
-                            required
                             value={props.whatsapp}
                             onChange={e => {
                                 let num = e.target.value;
@@ -135,7 +131,7 @@ const TeamInformation = ({ props, members, setMembers, memberCount, minMembers, 
                     </div>
                 </div>
                 <MembersList members={members} setMembers={setMembers} memberCount={memberCount} checkErrors={checkErrors} test={test}/>
-                <div className='responsive-margin w-full refer-btn'>
+                {/* <div className='responsive-margin w-full refer-btn'>
                     <input
                         type='text'
                         placeholder='REFERENCE CODE (IF ANY) *'
@@ -143,7 +139,7 @@ const TeamInformation = ({ props, members, setMembers, memberCount, minMembers, 
                         onChange={e => props.setReferenceCode(e.target.value)}
                         className='w-[95%] md:w-[99%] lg:w-[95%] ml-3 py-3 pl-4 rounded-xl bg-[linear-gradient(90deg,_#FFFFFF_14.9%,_#DCF4FF_100%)] sm:py-2 sm:placeholder:text-xl placeholder:font-bold placeholder-transparent placeholder:bg-gradient-text placeholder:bg-clip-text placeholder:italic shadow-[0px_4px_4px_0px_#00000040]'
                     />
-                </div>
+                </div> */}
             </div>
         </div>
     );
