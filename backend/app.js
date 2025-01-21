@@ -176,10 +176,7 @@ app.get("/competition/:id/registeredCount", (req, res)=>{
 app.post("/register", upload.single('file'), (req, res) => {
     const { _id, team } = req.body;
     const file = req.file;
-
-    console.log("File uploaded:", file);
-    console.log("Team Data:", team); 
-
+    
     const parsedTeam = JSON.parse(team);
 
     db.collection('competitions').updateOne(
