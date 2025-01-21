@@ -3,6 +3,9 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 
 const Card = ({ heading, text, image, comps }) => {
+
+    // console.log()
+
     const compImage = '/CompetitionsImages/CS.png'
     return (
         <div className='bg-[linear-gradient(90deg,_#1F95ED_0%,_#2169D4_100%)] flex flex-col gap-8 w-4/5 mx-auto rounded-[32px] sm:rounded-3xl text-white p-6 [box-shadow:11px_15px_23px_0px_#00000040]'>
@@ -27,7 +30,7 @@ const Card = ({ heading, text, image, comps }) => {
                         className='w-full sm:w-[120px] aspect-square cursor-pointer px-4 bg-[linear-gradient(90deg,_#FFFFFF_14.9%,_#D0EFFF_65.4%,_#A7E2FF_100%)] flex flex-col gap-2 justify-center items-center [box-shadow:11px_15px_23px_0px_#00000040] rounded-3xl'
                     >
                         <img
-                            src={compImage}
+                            src={comp.badge}
                             alt={comp.title}
                             height={200}
                             width={200}
