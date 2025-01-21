@@ -42,10 +42,10 @@ const ConfirmDialog = ({ handleSubmit, isOpen, onClose, props }) => {
                                 <label>Whatsapp:</label>
                                 <label className="font-medium text-black opacity-70 not-italic">{props.whatsapp}</label>
                             </div>
-                            <div className="flex gap-2">
+                            {/* <div className="flex gap-2">
                                 <label>Reference Code:</label>
                                 <label className="font-medium text-black opacity-70 not-italic">{props.referenceCode}</label>
-                            </div>
+                            </div> */}
                             <div className="flex gap-2">
                                 <label>Payment Receipt: </label>
                                 <a
