@@ -11,7 +11,7 @@ const ModulePage = () => {
     const { moduleId } = useParams();
 
     const fetchCompetition = async () => {
-            axios.get(`http://localhost:3000/competitionByName/${moduleId}`)
+            axios.get(`http://procom25-server.vercel.app/competitionByName/${moduleId}`)
             .then((res) => {
                 setCompetitions(res.data)
             })
