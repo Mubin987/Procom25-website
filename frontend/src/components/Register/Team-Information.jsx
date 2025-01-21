@@ -2,7 +2,8 @@ import RegisterHeading from "../ui/register-headings";
 import '../../index.css'
 import MembersList from "./MembersList";
 
-const TeamInformation = ({ props, members, setMembers, memberCount, minMembers, checkErrors, test }) => {
+const TeamInformation = ({ props, members, setMembers, memberCount, minMembers, checkErrors, test, teamNameAvailableError, setteamNameAvailableError}) => {
+
     return (
         <div className="relative pl-10 mt-24 font-lemonmilk">
             <RegisterHeading heading={"team information"} textSize='text-2xl' />
@@ -14,9 +15,10 @@ const TeamInformation = ({ props, members, setMembers, memberCount, minMembers, 
                     
                     value={props.teamName}
                     onChange={e => {
+                        setteamNameAvailableError(false)
                         let teamName = e.target.value;
                         teamName = teamName.replace(/[<>/'"`?\\]/g, "");
-                        props.setTeamName(teamName);
+                        props.setTeamName(teamName.trim());
                         if (teamName.length === 0) props.setTeamNameError(true);
                         else props.setTeamNameError(false);
                     }}
@@ -25,6 +27,11 @@ const TeamInformation = ({ props, members, setMembers, memberCount, minMembers, 
                 {props.teamNameError && (
                     <p className="absolute right-0 -bottom-[60%] text-[75%] sm:right-0 md:right-8 sm:-bottom-7 font-bold italic sm:text-base text-red-600">Please enter your team name.</p>
                 )}
+                {
+                    teamNameAvailableError && (
+                        <p className="absolute right-0 -bottom-[60%] text-[75%] sm:right-0 md:right-8 sm:-bottom-7 font-bold italic sm:text-base text-red-600">Team name already taken.</p>
+                    )
+                }
             </div>
             <div className="absolute top-[38px] left-[-1%] flex h-7 w-7 items-center justify-center rounded-full bg-[linear-gradient(90deg,_#1F95ED_0%,_#2169D4_100%)] font-bold text-white text-xl z-10">
             <span className="bg-[linear-gradient(90deg,_#FFFFFF_14.9%,_#D0EFFF_63.77%,_#A7E2FF_100%)] bg-clip-text text-transparent font-bold">3</span>

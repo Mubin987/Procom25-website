@@ -21,6 +21,7 @@ const Register = () => {
   const [compError, setCompError] = useState(false);
   const [teamName, setTeamName] = useState('');
   const [teamNameError, setTeamNameError] = useState('');
+  const [teamNameAvailableError, setteamNameAvailableError] = useState(false);
   const [name, setName] = useState('');
   const [nameError, setNameError] = useState('');
   const [cnicNo, setCnicNo] = useState('');
@@ -31,7 +32,7 @@ const Register = () => {
   const [whatsappError, setWhatsappError] = useState('');
   const [referenceCode, setReferenceCode] = useState('');
   const [fileUrl, setFileUrl] = useState(null);
-  const [file, setFile] = useState(null) // zeeshan added this line
+  const [file, setFile] = useState(null) 
   const [fileError, setFileError] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [isErrorPresent, setIsErrorPresent] = useState(false);
@@ -344,10 +345,12 @@ const Register = () => {
               setMembers={setMembers}
               minMemberCount={minMemberCount}
               checkErrors={checkErrors}
+              teamNameAvailableError={teamNameAvailableError}
+              setteamNameAvailableError={(e)=>setteamNameAvailableError(e)}
               test={test}
             />
             <Payment fileUrl={fileUrl} setFileUrl={setFileUrl} fileError={fileError} setFileError={setFileError} price={price} setFile={setFile} />
-            <Review confirmInfo={confirmInfo} isErrorPresent={isErrorPresent} />
+            <Review confirmInfo={confirmInfo} isErrorPresent={isErrorPresent} competitionId={competitionId} team_name={teamName} setteamNameAvailableError={(e)=>setteamNameAvailableError(e)}/>
           </div>
         </form>
         <ConfirmDialog

@@ -92,7 +92,6 @@ app.get("/competitions", (req, res)=>{
 
     db.collection('competitions').find()
     .forEach((competition) => {
-        // delete competition.registeredTeams
         competitions.push(competition)
     })
     .then(()=>{
@@ -173,11 +172,6 @@ app.get("/competition/:id/registeredCount", (req, res)=>{
         });
 })
 
-// post team record in competition 
-
-// Define Mongoose Schema and Model
-// Define the member schema
-
 
 app.post("/register", upload.single('file'), (req, res) => {
     const { _id, team } = req.body;
@@ -201,30 +195,26 @@ app.post("/register", upload.single('file'), (req, res) => {
 });
 
 
+app.post("/pre-register", (req, res) => {
 
+    const {_id, team_name} = req.body.data
 
-
-
-
-
-
-app.post("/update_rulebook/:id", (req, res) => {
-
-    const { id } = req.params;
-    const url = req.body.url; // The file object will be available in req.file
-
-    db.collection('competitions').updateOne(
-        { _id: new ObjectId(id) },
-        { $set: { "rulebook.book_url": url } }
-    )
-    .then(() => {
-        res.status(201).json({ message: 'rule book updated successfully'});
+    db.collection('competitions').findOne({_id: new ObjectId(_id), "registeredTeams.team_name": team_name})
+    .then((c) => {
+        if(!c){
+            res.status(200).json({ message: 'Team name is available', isAvailable: true});
+        }else{
+            res.status(200).json({ message: 'Team name is not available', isAvailable: false});
+        }
+        
     })
     .catch(() => {
-        res.status(500).json({ error: "rule book was not update" });
+        res.status(500).json({ available: "Could not register the team" });
     });
-
 });
+
+
+
 
 
 app.get("/competition/:competitionId/team/:teamName/image", async (req, res) => {
@@ -263,7 +253,7 @@ app.get("/competition/:competitionId/team/:teamName/image", async (req, res) => 
 
 
 
-app.patch("/addrulebook/:id", (req, res) => {
+app.patch("/update_rulebook_url/:id", (req, res) => {
     const { id } = req.params;
     const url = req.body.url; // The file object will be available in req.file
 
