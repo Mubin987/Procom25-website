@@ -23,6 +23,8 @@ const DetailBox = ({ isIcon, IconPath, value, title, width }) => {
 }
 
 const SingleCompetition = ({ module }) => {
+    console.log(module)
+
     let moduleHeading = "";
     if (module.department === "CS") {
         moduleHeading = "Computer Science";
@@ -45,14 +47,14 @@ const SingleCompetition = ({ module }) => {
             <div className='bg-[linear-gradient(90deg,_#1F95ED_0%,_#2169D4_100%)] flex flex-col gap-8 w-4/5 w-custom mx-auto rounded-[32px] sm:rounded-3xl text-white p-6 [box-shadow:11px_15px_23px_0px_#00000040]'>
                 <div className='flex gap-2 justify-center sm:justify-evenly'>
                     <div className='w flex flex-col gap-2 items-center sm:items-start'>
-                        <div className='flex sm:hidden m-auto'>
-                            <img src={module?.image} alt={module.title} height={400} width={400} className='w-[300px] object-cover rounded-r-3xl' />
+                        <div className='flex lg:hidden m-auto'>
+                            <img src={module.badge} alt={module.title} height={400} width={400} className='w-[300px] object-cover rounded-r-3xl' />
                         </div>
                         <h1 className='font-lemonmilk bg-clip-text text-center sm:text-start text-transparent bg-[linear-gradient(90deg,_#FFFFFF_25.4%,_#caeaf9_90%)] text-4xl md:text-[3rem] font-bold tracking-tight uppercase'>{module.title}</h1>
                         <p className='text-lg font-semibold'>{module.subtitle}</p>
                     </div>
-                    <div className='hidden sm:flex'>
-                        <img src={module?.image} alt={module.title} height={400} width={400} className='w-[200px] object-cover rounded-r-3xl' />
+                    <div className='sm:flex'>
+                        <img src={module.badge} alt={module.title} height={400} width={400} className='w-[200px] object-cover rounded-r-3xl' />
                     </div>
                 </div>
                 <div className='flex flex-col items-center w-full gap-4'>
