@@ -71,25 +71,25 @@ const Competitions = () => {
             image: "/CompetitionsImages/CS.png",
         },
         {
-            heading: "Electrical Engineering",
-            Department: "EE",
-            text: "Compete in the most challenging and innovative competitions in the field of electrical engineering.",
-            image: "/CompetitionsImages/EE.png",
-        },
-        {
             heading: "Artificial Intelligence",
             Department: "AI",
             text: "Compete in the most challenging and innovative competitions in the field of artifical intelligence.",
             image: "/CompetitionsImages/AI.png",
         },
         {
-            heading: "Business",
+            heading: "Electrical Engineering",
+            Department: "EE",
+            text: "Compete in the most challenging and innovative competitions in the field of electrical engineering.",
+            image: "/CompetitionsImages/EE.png",
+        },
+        {
+            heading: "Business Competitions",
             Department: "business",
             text: "Compete in the most challenging and innovative competitions in the field of general fields.",
             image: "/CompetitionsImages/GF.png",
         },
         {
-            heading: "General Fields",
+            heading: "General Competitions",
             Department: "general",
             text: "Compete in the most challenging and innovative competitions in the field of general fields.",
             image: "/CompetitionsImages/GF.png",

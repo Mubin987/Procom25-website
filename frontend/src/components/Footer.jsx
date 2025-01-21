@@ -61,8 +61,19 @@ const Footer = () => {
                         <h3 className='font-extrabold text-md'>Contact Us</h3>
                         <ul className='mt-2 flex flex-col gap-1'>
                             <li>
-                                +92 345 6789012
+                            Parshant, Team PR +92 332 2598600
                             </li>
+                            <li>
+                            Abdullah, Team PR +92 334 2945871
+                            </li>
+                            <li>
+                            Sareem, Director Marketing +92 315 2098191
+                            </li>
+                            <li>
+                            Mubin, Director Computing +92 335 2958201
+                            </li>
+                            <br />
+                            
                             <li>
                                 FAST National University, Karachi
                             </li>

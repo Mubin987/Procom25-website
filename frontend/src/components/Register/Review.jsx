@@ -6,7 +6,7 @@ const Review = ({ confirmInfo, isErrorPresent, competitionId, team_name, setteam
     const [stopper, setStopper] = useState(true)
 
     const check_TeamName_Availability = ()=>{
-    axios.post("http://localhost:3000/pre-register", {data: {_id: competitionId, team_name: team_name.trim()}})
+    axios.post("https://procom25-server.vercel.app/pre-register", {data: {_id: competitionId, team_name: team_name.trim()}})
     .then((res) => {
         setteamNameAvailableError(!res.data.isAvailable)
         setStopper(res.data.isAvailable)
