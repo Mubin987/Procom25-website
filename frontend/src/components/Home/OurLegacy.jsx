@@ -22,7 +22,7 @@ const OurLegacy = () => {
                 {[
                     { text: 'COMPETITIONS', number: '40+' },
                     { text: 'PARTNER COMPANIES', number: '45+' },
-                    { text: 'PARTICIPANTS', number: '3000+' },
+                    { text: 'PARTICIPANTS', number: '3K+' },
                 ].map((item, index) => (
                     <Card key={index} text={item.text} number={item.number} />
                 ))}
