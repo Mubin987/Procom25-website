@@ -21,8 +21,8 @@ const OurLegacy = () => {
             <div className='flex flex-wrap gap-4 w-full justify-center items-center my-4 font-lemonmilk'>
                 {[
                     { text: 'COMPETITIONS', number: '40+' },
-                    { text: 'SPONSORS', number: '45+' },
-                    { text: 'PARTICIPANTS', number: '3700' },
+                    { text: 'PARTNER COMPANIES', number: '45+' },
+                    { text: 'PARTICIPANTS', number: '3000+' },
                 ].map((item, index) => (
                     <Card key={index} text={item.text} number={item.number} />
                 ))}

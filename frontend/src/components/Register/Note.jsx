@@ -5,10 +5,7 @@ const Note = () => {
                 <p className="text-xs sm:text-sm font-medium">
                     Note:
                     <br />
-                    Free transport will be provided to all the participants. Participants wanting
-                    accommodation should email first at pr@nuceskhi.acm.org.
-                    <br />
-                    Accommodation will be paid.
+                    Free transport will be provided to all the participants.
                 </p>
             </div>
         </div>
