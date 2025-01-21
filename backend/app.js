@@ -199,7 +199,7 @@ app.post("/pre-register", (req, res) => {
 
     const {_id, team_name} = req.body.data
 
-    db.collection('competitions').findOne({_id: new ObjectId(_id), "registeredTeams.team_name": team_name})
+    db.collection('competitions').findOne({_id: new ObjectId(_id), "registeredTeams.team_name": team_name}, { projection: {_id: 1}})
     .then((c) => {
         if(!c){
             res.status(200).json({ message: 'Team name is available', isAvailable: true});
@@ -209,7 +209,7 @@ app.post("/pre-register", (req, res) => {
         
     })
     .catch(() => {
-        res.status(500).json({ available: "Could not register the team" });
+        res.status(500).json({ available: "Failed to fetch the team name from server" });
     });
 });
 
@@ -278,4 +278,21 @@ app.patch("/update_rulebook_url/:id", (req, res) => {
         res.status(500).json({ error: "Could not register the team", details: err.message });
     });
     
+});
+
+
+
+
+app.delete("/competitions/:id/teams", (req, res) => {
+
+    db.collection('competitions').updateOne(
+        { _id: new ObjectId(req.params.id) },
+        { $set: { registeredTeams: []} }
+    )
+    .then(() => {
+        res.status(201).json({ message: 'Teams deleted successfully'});
+    })
+    .catch(() => {
+        res.status(500).json({ error: "Could not delete the teams" });
+    });
 });
