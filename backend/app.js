@@ -135,15 +135,6 @@ app.get("/competitionByName/:name", (req, res)=>{
 })
 
 
-app.get("/", (req, res)=>{
-    
-    res.status(200).json({connection: "Server is running"})
-
-})
-
-
-
-
 app.get("/competition/:id/registeredCount", (req, res)=>{
     
     db.collection('competitions').aggregate([
