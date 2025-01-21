@@ -4,7 +4,7 @@ import Heading2 from '../Commons/Heading2';
 
 const Card = ({ text, number }) => (
     <div className='bg-white p-4 rounded-[2.3rem] [box-shadow:7px_3px_11px_0px_#00000026] flex flex-col items-center justify-center gap-2 min-w-[270px] sm:min-w-[305px] aspect-square'>
-        <h3 className='font-bold text-7xl sm:text-8xl bg-clip-text text-transparent bg-[linear-gradient(180deg,_#199DDF_0%,_#145BD5_100%)]'>
+        <h3 className='font-bold text-8xl bg-clip-text text-transparent bg-[linear-gradient(180deg,_#199DDF_0%,_#145BD5_100%)]'>
             {number}
         </h3>
         <h3 className='font-medium text-lg bg-clip-text text-transparent bg-[linear-gradient(180deg,_#199DDF_0%,_#145BD5_100%)]'>
