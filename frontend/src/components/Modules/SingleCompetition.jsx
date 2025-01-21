@@ -67,11 +67,10 @@ const SingleCompetition = ({ module }) => {
                             <div className="p-3 flex items-center justify-center w-14">
                                 <ArrowDownCircleIcon className="text-[#217ade]" size={40} />
                             </div>
-                            {console.log(`module: ` + module)}
-                            <Link to={`${module.rulebook.book_url}`} className="flex flex-col py-3 justify-center px-2 sm:px-6">
+                            <a href={`${module.rulebook.book_url}`} target="_blank" className="flex flex-col py-3 justify-center px-2 sm:px-6">
                                 <span className="text-[#217ade] text-sm sm:text-base font-bold -mb-1">Download Details</span>
                                 <span className="text-[#217ade] text-center text-sm sm:text-base -mt-1 font-bold">PDF</span>
-                            </Link>
+                            </a>
                         </div>
                     </div>
                     <h1 className='bg-clip-text text-transparent bg-[linear-gradient(90deg,_#FFFFFF_25.4%,_#caeaf9_90%)] text-4xl font-bold font-lemonmilk uppercase mt-10 mb-2'>Prizes</h1>

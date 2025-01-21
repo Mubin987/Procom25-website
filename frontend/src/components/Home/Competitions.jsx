@@ -27,31 +27,31 @@ const Competitions = () => {
                 {[
                     {
                         heading: "COMPUTER SCIENCE",
-                        text: "Compete in the most challenging and innovative competitions in the field of computer science.",
+                        text: "Compete in the most challenging and innovative competitions in the field of computer science. From coding sprints to algorithmic battles, showcase your programming prowess and problem-solving skills.",
                         image: "/CompetitionsImages/CS.png",
                         link: "/modules"
                     },
                     {
                         heading: "ELECTRICAL ENGINEERING",
-                        text: "Compete in the most challenging and innovative competitions in the field of electrical engineering.",
+                        text: "Explore competitions that test your expertise in circuit design, robotics, and system optimization. Engineer solutions that spark innovation and bring ideas to life.",
                         image: "/CompetitionsImages/EE.png",
                         link: "/modules"
                     },
                     {
-                        heading: "ROBOTICS",
-                        text: "Compete in the most challenging and innovative competitions in the field of Robotics.",
+                        heading: "Business",
+                        text: "Step into the competitive world of business and entrepreneurship. Solve case studies, pitch groundbreaking ideas, and prove your mettle as a visionary leader.",
                         image: "/CompetitionsImages/ROBOTICS.png",
                         link: "/modules"
                     },
                     {
                         heading: "ARTIFICIAL INTELLIGENCE",
-                        text: "Compete in the most challenging and innovative competitions in the field of artificial intelligence.",
+                        text: "Dive into the exciting world of artificial intelligence. Take on challenges involving machine learning, deep learning, and neural networks to prove you're at the forefront of this evolving technology.",
                         image: "/CompetitionsImages/AI.png",
                         link: "/modules"
                     },
                     {
                         heading: "GENERAL FIELDS",
-                        text: "Compete in the most challenging and innovative competitions in the field of general fields.",
+                        text: "Participate in a wide range of creative and intellectual challenges. These competitions are designed for everyone to explore, compete, and excel beyond their comfort zones",
                         image: "/CompetitionsImages/GF.png",
                         link: "/modules"
                     }
