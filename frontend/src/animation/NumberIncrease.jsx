@@ -4,7 +4,7 @@ const NumberIncrease = ({mynumber, extra}) => {
   const props = useSpring({
     from: { number: 0 },
     to: { number: Number(mynumber) },
-    config: { duration: 10000 },
+    config: { duration: 9000 },
   });
 
   return (
