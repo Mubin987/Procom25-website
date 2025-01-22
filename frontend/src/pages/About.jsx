@@ -2,10 +2,17 @@ import React from "react";
 import { Hero } from "@/components";
 import Heading1 from "@/components/Commons/Heading1";
 import devTeam from "../../public/Data/dev-team-data.json";
+import { motion } from "framer-motion";
+
+
 
 const Card = ({ title, img, name, className, type }) => {
   return (
-    <div className={`rounded-3xl w-[250px] h-[200px] aspect- flex ` + className}>
+    <motion.div className={`rounded-3xl w-[250px] h-[200px] aspect- flex ` + className}
+    whileHover={{
+      y: -10, // Moves the container upward on hover
+      transition: { duration: 0.3, ease: "easeOut" }, // Smooth and responsive
+    }}>
       <div className="rounded-l-3xl font-montserrate w-[20%] bg-[linear-gradient(180deg,_#1F95ED_0%,_#2169D4_100%)] flex justify-center items-center">
         <p className="uppercase writing-mode-vertical -rotate-90 text-center text-xl text-white leading-5">{title}</p>
       </div>
@@ -17,7 +24,7 @@ const Card = ({ title, img, name, className, type }) => {
           <p className={`${type !== 'dev' ? "hidden" : "block text-white font-montserrate"}`}>{name}</p>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
