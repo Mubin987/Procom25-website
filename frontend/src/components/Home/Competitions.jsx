@@ -61,7 +61,7 @@ const Competitions = () => {
                     {
                         heading: "GAMING",
                         text: "Enter the thrilling arena of gaming competitions. From intense esports battles to game design challenges, show off your skills, strategy, and creativity in the ultimate digital playground.",
-                        image: "/CompetitionsImages/GF.png",
+                        image: "https://res.cloudinary.com/drrz1wz3s/image/upload/v1737569514/gaming_controller_utofcm.png",
                         link: "/modules"
                     }
                 ].map((competition, index) => (
