@@ -3,10 +3,16 @@ import { Link } from 'react-router-dom';
 import Countdown from "./Countdown";
 import ProcomSVG from './ProcomSVG';
 import locomotiveScroll from 'locomotive-scroll';
+import { useInView } from "react-intersection-observer";
+import {motion} from 'framer-motion'
 
 const Hero = ({ pageType, AboutusText }) => {
     const scrollRef = useRef(null);
-
+    const { ref, inView } = useInView({
+        triggerOnce: false,
+        threshold: 0.5,
+      });
+    
     // useEffect(() => {
     //     const scroll = new locomotiveScroll({
     //         el: scrollRef.current,
@@ -20,8 +26,12 @@ const Hero = ({ pageType, AboutusText }) => {
     return (
         <div ref={scrollRef} className='scroll-container h-screen w-full flex flex-col justify-center items-center'>
             <ProcomSVG />
-            <div className='w-full p-10 px-22 flex sm:justify-end justify-center sm:items-end items-center h-3/4 mt-12 sm:mt-0'>
-                <div className='bg-[linear-gradient(270deg,#0D32C5_0%,#1768DB_37.9%,#1E8AE9_78.9%,#23A7F4_100%)] font-lemonmilk bg-clip-text text-transparent font-bold'>
+            <div ref={ref}className='w-full p-10 px-22 flex sm:justify-end justify-center sm:items-end items-center h-3/4 mt-12 sm:mt-0'>
+                <motion.div className='bg-[linear-gradient(270deg,#0D32C5_0%,#1768DB_37.9%,#1E8AE9_78.9%,#23A7F4_100%)] font-lemonmilk bg-clip-text text-transparent font-bold'
+                      initial={{ opacity: 0, y: 20 }} // Hidden state (faded and below position)
+                      animate={inView ? { opacity: 1, y: 0 }: { opacity: 0, y: 20 }} // Visible state (fully visible and in place)
+                      transition={{ duration: 1, ease: "easeOut" }} // Smooth transition
+                >
                     <h1 className="text-[5vw] sm:text-4xl md:text-[3vw] lg:text-4xl -mb-2 sm:mb-0">{pageType === "Sponsors" ? "SPONSORS OF" : "FAST-NUCES PRESENTS,"}</h1>
                     <h1 className="text-[14vw] sm:text-[6rem] md:text-[14vw] lg:text-[9rem] leading-[1]">PROCOM'25</h1>
                     <div className='w-full flex justify-end'>
@@ -34,7 +44,7 @@ const Hero = ({ pageType, AboutusText }) => {
                             </div>
                         </div>
                     </div>
-                </div>
+                </motion.div>
             </div>
             <div className='w-full h-1/4 flex flex-col gap-2 justify-end items-center p-5'>
                 <Countdown pageType={pageType} />

@@ -3,10 +3,45 @@ import { Hero } from "@/components";
 import Heading1 from "@/components/Commons/Heading1";
 import devTeam from "../../public/Data/dev-team-data.json";
 import { motion } from "framer-motion";
+import { useInView } from "framer-motion";
+import { useRef } from "react";
 
+const About_us_text = ()=>{
+  const ref = useRef(null); // Create a ref for the element
+  const {inView} = useInView(ref, {
+    triggerOnce: false,
+    threshold: 0.5,
+  });
+
+
+  return(
+    <div  className="w-full flex justify-center items-center gap-8 flex-col md:flex-row">
+    <motion.div ref={ref} className="md:w-2/3"
+                initial={{ opacity: 0, y: 20 }} // Hidden state (faded and below position)
+                animate={inView ? { opacity: 0, y: 0 }: { opacity: 1, y: 20 }} // Visible state (fully visible and in place)
+                transition={{ duration: 1, ease: "easeOut" }} // Smooth transition          
+    >
+      <p className="text-lg text-justify">PROCOM (Programming Competition) is one of the most prestigious and long-standing events at FAST NUCES, Karachi
+        that began in the year 1998, playing a pivotal role in shaping the university's reputation within the tech community
+        of Pakistan. Over the past 25 years, PROCOM has become a platform that not only fosters innovation and competition but
+        also connects academia with industry professionals. The event features a variety of technical competitions, including
+        speed programming, web development, Al challenges, robotics,  cybersecurity and business contests, which attract
+        talented students from all over Pakistan. PROCOM is recognized for its ability to challenge students' intelligence and
+        technical skills, while giving them real-world exposure. Additionally, it acts as a bridge between students and the professional
+        world by organizing panel discussions, a startup showcase and a grand job fair that help students build industry connections,
+        gain insights, and prepare for their future careers. With its reputation for drawing top talent and industry attention,
+        PROCOM is a cornerstone of FAST NUCES Karachi's mission to develop and promote tech talent in the country.</p>
+    </motion.div>
+    <div className="md:w-1/3">
+      <img src="https://res.cloudinary.com/drrz1wz3s/image/upload/v1737406035/uni_u6luqh.jpg" alt="PROCOM '24" className="mx-auto rounded-xl border-themeBlue border-4 shadow-lg h-[450px]" />
+    </div>
+  </div>
+  )
+}
 
 
 const Card = ({ title, img, name, className, type }) => {
+
   return (
     <motion.div className={`rounded-3xl w-[250px] h-[200px] aspect- flex ` + className}
     whileHover={{
@@ -53,23 +88,7 @@ export const About_us = () => {
       <Hero pageType={"Home"} />
       <div className="w-[80%] mx-auto flex gap-2 justify-center mt-36 flex-col">
         <Heading1 text={"ABOUT PROCOM '25"} />
-        <div className="w-full flex justify-center items-center gap-8 flex-col md:flex-row">
-          <div className="md:w-2/3">
-            <p className="text-lg text-justify">PROCOM (Programming Competition) is one of the most prestigious and long-standing events at FAST NUCES, Karachi
-              that began in the year 1998, playing a pivotal role in shaping the university's reputation within the tech community
-              of Pakistan. Over the past 25 years, PROCOM has become a platform that not only fosters innovation and competition but
-              also connects academia with industry professionals. The event features a variety of technical competitions, including
-              speed programming, web development, Al challenges, robotics,  cybersecurity and business contests, which attract
-              talented students from all over Pakistan. PROCOM is recognized for its ability to challenge students' intelligence and
-              technical skills, while giving them real-world exposure. Additionally, it acts as a bridge between students and the professional
-              world by organizing panel discussions, a startup showcase and a grand job fair that help students build industry connections,
-              gain insights, and prepare for their future careers. With its reputation for drawing top talent and industry attention,
-              PROCOM is a cornerstone of FAST NUCES Karachi's mission to develop and promote tech talent in the country.</p>
-          </div>
-          <div className="md:w-1/3">
-            <img src="https://res.cloudinary.com/drrz1wz3s/image/upload/v1737406035/uni_u6luqh.jpg" alt="PROCOM '24" className="mx-auto rounded-xl border-themeBlue border-4 shadow-lg h-[450px]" />
-          </div>
-        </div>
+        <About_us_text />
       </div>
       <div className="w-full flex justify-center items-center gap-8 flex-col mt-28">
         <Heading1 text={"EXECUTIVE COMMITTEE"} className="text-custom" />
