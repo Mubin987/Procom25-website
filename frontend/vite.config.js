@@ -10,6 +10,6 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     }
   },
-  base: "/", // Set this to "/" or your custom deployment path
+  //base: "/", // Set this to "/" or your custom deployment path
 })
 
