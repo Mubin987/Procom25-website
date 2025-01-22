@@ -167,7 +167,7 @@ app.get("/competition/:id/registeredCount", (req, res)=>{
 
 
 app.post("/register", upload.single('file'), async (req, res) => {
-    const bucketName = process.env.BUCKET;
+    //const bucketName = process.env.BUCKET;
     const { _id, team } = req.body;
     const file = req.file;
     let parsedTeam = JSON.parse(team);
@@ -175,7 +175,7 @@ app.post("/register", upload.single('file'), async (req, res) => {
    // parsedTeam.file = file
     try {
         const fileBuffer = Buffer.from(file.buffer, 'base64');
-        const response = await uploadToS3aws(bucketName, file.originalname, fileBuffer);
+        const response = await uploadToS3aws(process.env.BUCKET, file.originalname, fileBuffer);
         console.log('File uploaded successfully:', response);
         parsedTeam.payment_URL = response.Location
       } catch (error) {
