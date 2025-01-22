@@ -13,8 +13,6 @@ const sponsors = [
   { name: "Gold Sponsor 6", logo: "./src/assets/imperium.png", type: "GOLD" },
   { name: "Gold Sponsor 2", logo: "./src/assets/imperium.png", type: "GOLD" },
   { name: "Gold Sponsor 3", logo: "./src/assets/imperium.png", type: "GOLD" },
-  { name: "Gold Sponsor 4", logo: "./src/assets/imperium.png", type: "GOLD" },
-  { name: "Gold Sponsor 5", logo: "./src/assets/imperium.png", type: "GOLD" },
   // Silver Sponsors
   { name: "Silver Sponsor 1", logo: "./src/assets/folio3.png", type: "SILVER" },
   { name: "Silver Sponsor 2", logo: "./src/assets/folio3.png", type: "SILVER" },

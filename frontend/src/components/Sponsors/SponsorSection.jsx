@@ -8,11 +8,11 @@ const SponsorSection = ({ title, sponsors }) => (
             </h2>
             <div className="w-full border-t-4 border border-[#434242]" />
         </div>
-        <div className="grid grid-cols-5 gap-x-5 gap-y-5 justify-items-center max-w-full mx-auto p-5">
+        <div className="flex flex-wrap justify-center gap-5 items-center max-w-full mx-auto p-5">
             {sponsors.map((sponsor, index) => (
                 <div
                     key={index}
-                    className="rounded-lg p-4 w-full h-28 flex items-center justify-center shadow-md bg-white"
+                    className="rounded-lg p-4 max-w-full h-28 flex items-center justify-center shadow-md bg-white"
                 >
                     <img
                         src={sponsor.logo}
