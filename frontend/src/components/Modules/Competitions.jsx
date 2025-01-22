@@ -20,7 +20,7 @@ const Card = ({ heading, text, image, comps }) => {
             <div className='flex flex-wrap w-full px-5 gap-4 justify-center items-center'>
                 {(comps || []).map((comp, index) => (
                     <Link
-                    
+
                         to={`${comp.title.split(' ').join('-')}`}
                         key={index}
                         className='sm:w-[150px] h-[100px] cursor-pointer px-4 bg-[linear-gradient(90deg,_#FFFFFF_14.9%,_#D0EFFF_65.4%,_#A7E2FF_100%)] flex flex-col justify-center items-center [box-shadow:11px_15px_23px_0px_#00000040] rounded-2xl'
@@ -44,56 +44,63 @@ const Card = ({ heading, text, image, comps }) => {
 }
 
 const Competitions = () => {
-    const [competitions, setCompetitions] = useState({ CS: [], EE: [], business: [], AI: [], general: [] })
+    const [competitions, setCompetitions] = useState({ CS: [], EE: [], business: [], AI: [], general: [], Gaming: [] })
 
     useEffect(() => {
         axios
             .get("https://procom25-server.vercel.app/competition")
             .then((res) => {
-                const updatedCompetitions = { CS: [], EE: [], business: [], AI: [], general: [] };
+                const updatedCompetitions = { CS: [], EE: [], business: [], AI: [], general: [], Gaming: [] };
                 res.data.forEach((compet) => {
+                    console.log(compet);
                     updatedCompetitions[compet.department].push(compet);
                 });
-                // console.log(updatedCompetitions);
+                console.log(updatedCompetitions);
                 setCompetitions(updatedCompetitions);
             })
             .catch((error) => console.error("Error fetching competitions:", error));
     }, []);
 
-    
-
     const comps = [
         {
-            heading: "Computer Science",
-            Department: "CS",
-            text: "Compete in the most challenging and innovative competitions in the field of computer science.",
+            heading: "COMPUTER SCIENCE",
+            text: "Compete in the most challenging and innovative competitions in the field of computer science. From coding sprints to algorithmic battles, showcase your programming prowess and problem-solving skills.",
             image: "/CompetitionsImages/CS.png",
+            Department: "CS",
         },
         {
-            heading: "Artificial Intelligence",
-            Department: "AI",
-            text: "Compete in the most challenging and innovative competitions in the field of artifical intelligence.",
-            image: "/CompetitionsImages/AI.png",
-        },
-        {
-            heading: "Electrical Engineering",
-            Department: "EE",
-            text: "Compete in the most challenging and innovative competitions in the field of electrical engineering.",
+            heading: "ELECTRICAL ENGINEERING",
+            text: "Explore competitions that test your expertise in circuit design, robotics, and system optimization. Engineer solutions that spark innovation and bring ideas to life.",
             image: "/CompetitionsImages/EE.png",
+            Department: "EE",
         },
         {
-            heading: "Business Competitions",
+            heading: "Business",
+            text: "Step into the competitive world of business and entrepreneurship. Solve case studies, pitch groundbreaking ideas, and prove your mettle as a visionary leader.",
+            image: "/CompetitionsImages/ROBOTICS.png",
             Department: "business",
-            text: "Compete in the most challenging and innovative competitions in the field of general fields.",
-            image: "/CompetitionsImages/GF.png",
         },
         {
-            heading: "General Competitions",
-            Department: "general",
-            text: "Compete in the most challenging and innovative competitions in the field of general fields.",
+            heading: "ARTIFICIAL INTELLIGENCE",
+            text: "Dive into the exciting world of artificial intelligence. Take on challenges involving machine learning, deep learning, and neural networks to prove you're at the forefront of this evolving technology.",
+            image: "/CompetitionsImages/AI.png",
+            Department: "AI",
+        },
+        {
+            heading: "GENERAL FIELDS",
+            text: "Participate in a wide range of creative and intellectual challenges. These competitions are designed for everyone to explore, compete, and excel beyond their comfort zones",
             image: "/CompetitionsImages/GF.png",
+            Department: "general",
+        },
+        {
+            heading: "GAMING",
+            text: "Enter the thrilling arena of gaming competitions. From intense esports battles to game design challenges, show off your skills, strategy, and creativity in the ultimate digital playground.",
+            image: "/CompetitionsImages/GF.png",
+            link: "/modules",
+            Department: "Gaming",
         }
     ];
+
 
     return (
         <div className='my-28 mt-32 flex flex-col gap-8' id='competitions'>

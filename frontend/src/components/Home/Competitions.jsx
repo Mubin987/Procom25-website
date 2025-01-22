@@ -54,6 +54,12 @@ const Competitions = () => {
                         text: "Participate in a wide range of creative and intellectual challenges. These competitions are designed for everyone to explore, compete, and excel beyond their comfort zones",
                         image: "/CompetitionsImages/GF.png",
                         link: "/modules"
+                    },
+                    {
+                        heading: "GAMING",
+                        text: "Enter the thrilling arena of gaming competitions. From intense esports battles to game design challenges, show off your skills, strategy, and creativity in the ultimate digital playground.",
+                        image: "/CompetitionsImages/GF.png",
+                        link: "/modules"
                     }
                 ].map((competition, index) => (
                     <Card
