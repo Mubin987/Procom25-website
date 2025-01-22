@@ -3,6 +3,8 @@ const bodyParser = require('body-parser');
 const express = require("express");
 const {connectToDb, getDb} = require('./db');
 const { ObjectId } = require("mongodb");
+const { uploadToS3aws } = require('./s3bucket');
+require('dotenv').config();
 
 //init app & middleware
 const app = express()
@@ -87,7 +89,7 @@ app.get("/competition", (req, res)=>{
 
 })
 
-app.get("/competitions", (req, res)=>{
+app.get("/competitions18022025", (req, res)=>{
     let competitions = []
 
     db.collection('competitions').find()
@@ -164,12 +166,22 @@ app.get("/competition/:id/registeredCount", (req, res)=>{
 })
 
 
-app.post("/register", upload.single('file'), (req, res) => {
+app.post("/register", upload.single('file'), async (req, res) => {
+    const bucketName = process.env.BUCKET;
     const { _id, team } = req.body;
     const file = req.file;
     let parsedTeam = JSON.parse(team);
-    parsedTeam.file = file
 
+   // parsedTeam.file = file
+    try {
+        const fileBuffer = Buffer.from(file.buffer, 'base64');
+        const response = await uploadToS3aws(bucketName, file.originalname, fileBuffer);
+        console.log('File uploaded successfully:', response);
+        parsedTeam.payment_URL = response.Location
+      } catch (error) {
+        console.error('Error uploading file:', error);
+        res.status(500).json({ error: "Could not register the team" });
+      }
 
     db.collection('competitions').updateOne(
         { _id: new ObjectId(_id) },

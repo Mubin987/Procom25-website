@@ -1,11 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import ImageUplift from '@/animation/ImageUplift';
 
 const Card = ({ heading, text, image, link }) => (
     <div className='bg-[linear-gradient(90deg,_#1F95ED_0%,_#2169D4_100%)] flex gap-2 w-4/5 mx-auto justify-center sm:justify-between rounded-[32px] sm:rounded-3xl text-white p-6 [box-shadow:11px_15px_23px_0px_#00000040]'>
         <div className='w flex flex-col gap-2 items-center sm:items-start'>
             <div className='sm:hidden m-auto'>
-                <img src={image} alt={heading} height={400} width={400} className='w-[260px] sm:w-[300px] object-cover rounded-r-3xl' />
+                {/* <img src={image} alt={heading} height={400} width={400} className='w-[260px] sm:w-[300px] object-cover rounded-r-3xl' /> */}
+                <ImageUplift img={image} imgStyle={`w-[260px] sm:w-[300px] object-cover rounded-r-3xl`}  alt={heading} height={400} width={400}/>
             </div>
             <h1 className='bg-clip-text text-center font-lemonmilk m-[20px] sm:m-0 sm:text-start text-transparent bg-[linear-gradient(90deg,_#FFFFFF_25.4%,_#A7E2FF_90%)] text-4xl font-bold'>{heading}</h1>
             <p className='hidden sm:inline text-lg font-semibold'>{text}</p>
@@ -14,7 +16,8 @@ const Card = ({ heading, text, image, link }) => (
             </Link>
         </div>
         <div className='hidden sm:flex m-auto'>
-            <img src={image} alt={heading} height={400} width={400} className='w-[200px] object-cover rounded-r-3xl' />
+            {/* <img src={image} alt={heading} height={400} width={400} className='w-[200px] object-cover rounded-r-3xl' /> */}
+            <ImageUplift img={image} imgStyle={`w-[200px] object-cover rounded-r-3xl`}  alt={heading} height={400} width={400}/>
         </div>
     </div>
 );
@@ -58,7 +61,7 @@ const Competitions = () => {
                     {
                         heading: "GAMING",
                         text: "Enter the thrilling arena of gaming competitions. From intense esports battles to game design challenges, show off your skills, strategy, and creativity in the ultimate digital playground.",
-                        image: "/CompetitionsImages/GF.png",
+                        image: "https://res.cloudinary.com/drrz1wz3s/image/upload/v1737569514/gaming_controller_utofcm.png",
                         link: "/modules"
                     }
                 ].map((competition, index) => (
