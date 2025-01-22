@@ -2,12 +2,12 @@ import { motion } from "framer-motion";
 
 const ImageUplift = ({img, imgStyle, alt, height, width}) => {
   return (
-    <motion.div
-      whileHover={{
-        y: -10, // Moves the container upward on hover
-        transition: { duration: 0.3, ease: "easeOut" }, // Smooth and responsive
-      }}
-    >
+    // <motion.div
+    //   whileHover={{
+    //     y: -10, // Moves the container upward on hover
+    //     transition: { duration: 0.3, ease: "easeOut" }, // Smooth and responsive
+    //   }}
+    // >
       <motion.img
         src={img}
         alt={alt}
@@ -19,7 +19,7 @@ const ImageUplift = ({img, imgStyle, alt, height, width}) => {
           transition: { duration: 0.2, ease: "easeOut" },
         }}
       />
-    </motion.div>
+    // </motion.div>
   );
 };
 
