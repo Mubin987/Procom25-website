@@ -172,7 +172,6 @@ app.post("/register", upload.single('file'), async (req, res) => {
     const file = req.file;
     let parsedTeam = JSON.parse(team);
 
-   // parsedTeam.file = file
     try {
         const fileBuffer = Buffer.from(file.buffer, 'base64');
         const response = await uploadToS3aws(process.env.BUCKET, file.originalname, fileBuffer);
@@ -182,7 +181,8 @@ app.post("/register", upload.single('file'), async (req, res) => {
         console.error('Error uploading file:', error);
         res.status(500).json({ error: "Could not register the team" });
       }
-
+    
+    parsedTeam.register_time = new Date()
     db.collection('competitions').updateOne(
         { _id: new ObjectId(_id) },
         { $push: { registeredTeams: parsedTeam }}

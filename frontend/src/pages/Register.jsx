@@ -98,7 +98,6 @@ const Register = () => {
 
     // Check for errors in each member
     members.forEach((member, index) => {
-      console.log(index, ": ", member.optional)
       if (member.name === '' && !member.optional) setMembers(prevMembers => {
         const updatedMembers = [...prevMembers];
         updatedMembers[index].nameError = true;
