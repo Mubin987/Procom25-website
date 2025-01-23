@@ -288,6 +288,7 @@ const Register = () => {
       team_name: teamName,
       isApproved: false, // Always false
       member: totalMemberData,
+      Registration_time: new Date()
     };
 
 
@@ -295,7 +296,7 @@ const Register = () => {
     formData.append("_id", competitionId);
     formData.append("team", JSON.stringify(teamData));
     formData.append("file", file);
-    
+
     try {
       const response = await fetch("https://procom25-server.vercel.app/register", {
         method: "POST",

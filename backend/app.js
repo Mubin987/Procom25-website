@@ -182,7 +182,6 @@ app.post("/register", upload.single('file'), async (req, res) => {
         res.status(500).json({ error: "Could not register the team" });
       }
     
-    parsedTeam.register_time = new Date()
     db.collection('competitions').updateOne(
         { _id: new ObjectId(_id) },
         { $push: { registeredTeams: parsedTeam }}
