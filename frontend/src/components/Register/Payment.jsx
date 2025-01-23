@@ -91,7 +91,7 @@ const Payment = ({ fileUrl, setFileUrl, fileError, setFileError, price, setFile 
           <br />
           IBAN: <span className="font-medium text-black opacity-70 not-italic">PK62UNIL0109000321377551</span>
           <br />
-          {/* AMOUNT: <span className="font-medium text-black opacity-70 not-italic">{price === 0 ? '-': price}</span> */}
+          AMOUNT: <span className="font-medium text-black opacity-70 not-italic">{price === 0 ? '-': price}</span>
         </p>
       </div>
     </div>
