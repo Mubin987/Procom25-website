@@ -83,13 +83,15 @@ const Payment = ({ fileUrl, setFileUrl, fileError, setFileError, price, setFile 
         <p className="text-[13px] sm:text-sm italic">
           PLEASE PAY YOUR FEES IN THE FOLLOWING ACCOUNT!
           <br />
-          BANK NAME: <span className="font-medium text-black opacity-70 not-italic">NAYAPAY</span>
+          BANK NAME: <span className="font-medium text-black opacity-70 not-italic">United Bank Limited (UBL)</span>
           <br />
           ACCOUNT TITLE: <span className="font-medium text-black opacity-70 not-italic">MUHAMMAD SHAHMIR RAZA</span>
           <br />
-          ACCOUNT NUMBER: <span className="font-medium text-black opacity-70 not-italic">03188409943</span>
+          ACCOUNT NUMBER: <span className="font-medium text-black opacity-70 not-italic">0471321377551</span>
           <br />
-          AMOUNT: <span className="font-medium text-black opacity-70 not-italic">{price === 0 ? '-': price}</span>
+          IBAN: <span className="font-medium text-black opacity-70 not-italic">PK62UNIL0109000321377551</span>
+          <br />
+          {/* AMOUNT: <span className="font-medium text-black opacity-70 not-italic">{price === 0 ? '-': price}</span> */}
         </p>
       </div>
     </div>
