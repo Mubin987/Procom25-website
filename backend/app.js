@@ -50,16 +50,13 @@ app.get("/competition/:id", (req, res) => {
     }
 
     try {
-        // Convert the id to ObjectId for MongoDB query
         const objectId = new ObjectId(id);
-
-        // Query the MongoDB collection to find the competition by _id
-        db.collection('competitions').findOne({ _id: objectId })
+        db.collection('competitions').findOne({ _id: objectId }, { projection: { registeredTeams: 0 } })
             .then((competition) => {
                 if (!competition) {
                     return res.status(404).json({ error: "Competition not found" });
                 }
-                return res.status(200).json(competition); // Send the found competition as a response
+                return res.status(200).json(competition);
             })
             .catch(() => {
                 res.status(500).json({ error: "Could not fetch the competition" });
@@ -71,13 +68,37 @@ app.get("/competition/:id", (req, res) => {
 
 
 
+// app.get("/competition/:id", (req, res)=>{
+    
+//     if(ObjectId.isValid(req.params.id)){
+//         db.collection('competitions').findOne({_id: new ObjectId(req.params.id)})
+//         .then((c)=>{
+//             res.status(200).json({oneRecord: c})
+//         })
+//         .catch(()=>{
+//             res.status(500).json({error: "could no fetch the competition"})
+//         })
+
+
+//     }else{
+//         res.status(500).json({error: "id is not valid"})
+
+// }
+// })
+
+
+
+
+
+
+
+
 // get competitions from MongoDB
 app.get("/competition", (req, res)=>{
     let competitions = []
 
     db.collection('competitions').find({}, { projection: { registeredTeams: 0 } })
     .forEach((competition) => {
-        // delete competition.registeredTeams
         competitions.push(competition)
     })
     .then(()=>{
@@ -105,23 +126,28 @@ app.get("/competitions18022025", (req, res)=>{
 
 })
 
-app.get("/competition/:id", (req, res)=>{
-    
-    if(ObjectId.isValid(req.params.id)){
-        db.collection('competitions').findOne({_id: new ObjectId(req.params.id)})
-        .then((c)=>{
-            res.status(200).json({oneRecord: c})
-        })
-        .catch(()=>{
-            res.status(500).json({error: "could no fetch the competition"})
-        })
 
 
-    }else{
-        res.status(500).json({error: "id is not valid"})
+app.get("/single_module/:id", (req, res)=>{
 
-}
+    if(req.query.p === process.env.DB_PWD){
+    db.collection('competitions').findOne({_id: new ObjectId(req.params.id)})
+    .then((record)=>{
+        res.status(200).json(record)
+    })
+    .catch(()=>{
+        res.status(500).json({error: "could no fetch the competition"})
+    })
+    }
+    else{
+        res.status(511).json({error: "Access to the DB is restricted"})        
+    }
+
 })
+
+
+
+
 
 app.get("/competitionByName/:name", (req, res)=>{
     
