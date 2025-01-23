@@ -22,22 +22,15 @@ const Card = ({ heading, text, image, comps }) => {
                     <img src={image} alt={heading} height={400} width={400} className='w-[200px] object-cover rounded-r-3xl' />
                 </div>
             </div>
-            <div className='flex flex-wrap w-full sm:px-5 gap-4 justify-center items-center'>
+            <div className='flex flex-wrap w-full  gap-4 justify-center items-center'>
                 {(comps || []).map((comp, index) => (
                     <Link
 
                         to={`${comp.title.split(' ').join('-')}`}
                         key={index}
-                        // className='w-full sm:w-[150px] relative h-[150px] sm:h-[100px] cursor-pointer px-4 bg-[linear-gradient(90deg,_#FFFFFF_14.9%,_#D0EFFF_65.4%,_#A7E2FF_100%)] flex flex-col justify-center items-center [box-shadow:11px_15px_23px_0px_#00000040] rounded-2xl'
+                        className='hover:scale-110 duration-200  w-full sm:w-[150px] relative h-[150px] sm:h-[100px] cursor-pointer px-4 bg-[linear-gradient(90deg,_#FFFFFF_14.9%,_#D0EFFF_65.4%,_#A7E2FF_100%)] flex flex-col justify-center items-center [box-shadow:11px_15px_23px_0px_#00000040] rounded-2xl'
                     >
-                        <motion.div
-                        className='w-full sm:w-[150px] relative h-[150px] sm:h-[100px] cursor-pointer px-4 bg-[linear-gradient(90deg,_#FFFFFF_14.9%,_#D0EFFF_65.4%,_#A7E2FF_100%)] flex flex-col justify-center items-center [box-shadow:11px_15px_23px_0px_#00000040] rounded-2xl'                        
-                        whileHover={{
-                            scale: 1.2, // Slightly enlarges the image on hover
-                            transition: { duration: 0.2, ease: "easeOut" },
-                          }}
-                        >
-                        <motion.img
+                        <img
                             src={comp.badge}
                             alt={comp.title}
                             height={200}
@@ -51,7 +44,6 @@ const Card = ({ heading, text, image, comps }) => {
                         <h1 className='font-bold absolute bottom-2 text-themeBlue text-center text-lg sm:text-sm mx-2'>
                             {comp.title}
                         </h1>
-                        </motion.div>
                     </Link>
                 ))}
 
