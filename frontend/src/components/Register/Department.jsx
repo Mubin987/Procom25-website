@@ -13,6 +13,8 @@ const Dropdown = ({ items, defaultValue, setValue }) => {
         if (depart === "EE") return "Electrical Engineering";
         if (depart === "Business") return "Business"
         if (depart === "General") return "General"
+        if (depart === "Gaming") return "Gaming"
+
         return depart;
     }
 
@@ -97,6 +99,7 @@ const Department = ({ setDepartment, departError }) => {
                         { name: 'EE', members: null },
                         { name: 'business', members: null },
                         { name: 'general', members: null },
+                        { name: 'Gaming', members: null }
                     ]}     
                 />
                 { departError &&
