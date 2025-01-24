@@ -3,9 +3,10 @@ import Speaker from "./Speaker"
 const OurSpeakers = ()=> {
 
 const speakers = [
-    {Name: "Syed Zeeshan Ahmed", desc:"Co-Founder / CEO", img:"https://res.cloudinary.com/dpjy0sbxe/image/upload/v1737311673/Zeeshan_Ahmed.jpg" },
-    {Name: "Muhammad Hunain", desc: "Co-Founder / CTO", img:"https://res.cloudinary.com/drrz1wz3s/image/upload/v1737378874/3_o4jqsa.png"},
-    {Name: "Syed Zeeshan Ahmed", desc:"Co-Founder / CEO", img:"https://res.cloudinary.com/dpjy0sbxe/image/upload/v1737311673/Zeeshan_Ahmed.jpg" }
+    {Name: "Syed Zeeshan Ahmed", desc:"Co-Founder / CEO", img:"https://res.cloudinary.com/drrz1wz3s/image/upload/v1737753841/3_zh0u5e.jpg" },
+    {Name: "Muhammad Hunain", desc: "Co-Founder / CTO", img:"https://res.cloudinary.com/drrz1wz3s/image/upload/v1737753846/4_ddiug3.jpg"},
+    {Name: "Syed Zeeshan Ahmed", desc:"Co-Founder / CEO", img:"https://res.cloudinary.com/drrz1wz3s/image/upload/v1737753852/2_ilrp6l.jpg" },
+    {Name: "Syed Zeeshan Ahmed", desc:"Co-Founder / CEO", img:"https://res.cloudinary.com/drrz1wz3s/image/upload/v1737753864/1_pncdzd.jpg" }
 ]
 
 
