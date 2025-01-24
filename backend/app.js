@@ -322,3 +322,30 @@ app.delete("/competitions/:id/teams", (req, res) => {
         res.status(500).json({ error: "Could not delete the teams" });
     });
 });
+
+
+app.get("/sponsors", (req, res) => {
+
+    db.collection('Sponsors').find()
+    .toArray()
+    .then((s) => {
+        res.status(201).json(s);
+    })
+    .catch(() => {
+        res.status(500).json({ error: "Could not get the sponsors" });
+    });
+});
+
+
+app.get("/sponsors-optimized", (req, res) => {
+
+    db.collection('Sponsors').find({show:true})
+    .toArray()
+    .then((s) => {
+        res.status(201).json(s);
+    })
+    .catch(() => {
+        res.status(500).json({ error: "Could not get the sponsors"  });
+    });
+});
+
