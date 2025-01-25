@@ -10,7 +10,7 @@ const Hero = ({ pageType, AboutusText }) => {
     const scrollRef = useRef(null);
     const { ref, inView } = useInView({
         triggerOnce: false,
-        threshold: 0.5,
+        threshold: 1,
       });
     
     // useEffect(() => {

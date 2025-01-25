@@ -18,7 +18,7 @@ const TeamInformation = ({ props, members, setMembers, memberCount, minMembers, 
                         setteamNameAvailableError(false)
                         let teamName = e.target.value;
                         teamName = teamName.replace(/[<>/'"`?\\]/g, "");
-                        props.setTeamName(teamName.trim());
+                        props.setTeamName(teamName);
                         if (teamName.length === 0) props.setTeamNameError(true);
                         else props.setTeamNameError(false);
                     }}
