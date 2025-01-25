@@ -39,7 +39,7 @@ const Hero = ({ pageType, AboutusText }) => {
                             <p className="text-[3vw] text-themeDBlue text-end text-xs sm:text-sm tracking-widest mt-2 mb-1 sm:mt-4 sm:mb-2">{pageType === "Sponsors" ? "BECOME A SPONSOR" : "READY TO COMPETE?"}</p>
                             <div className='flex justify-end'>
                                 <Link to={pageType === "Sponsors" ? "/sponsors" : "/register"} className=''>
-                                    <button className='text-[3vw] sm:text-lg bg-[linear-gradient(90deg,_#218EF1_0%,_#1865DD_50%,_#0E3AC8_100%)] [box-shadow:6px_4px_11.7px_0px_#00000040] font-bold text-white px-6 py-1.5 rounded-full'>{pageType === "Sponsors" ? "Sponsor Now" : "Register Now"}</button>
+                                    <button className='text-[3vw] duration-200 sm:text-lg bg-[linear-gradient(90deg,_#218EF1_0%,_#1865DD_50%,_#0E3AC8_100%)] [box-shadow:6px_4px_11.7px_0px_#00000040] font-bold text-white px-6 py-1.5 rounded-full'>{pageType === "Sponsors" ? "Sponsor Now" : "Register Now"}</button>
                                 </Link>
                             </div>
                         </div>
