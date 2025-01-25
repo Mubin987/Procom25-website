@@ -15,7 +15,7 @@ const Home = () => {
   const blueheading = `PROCOM 25 `
   const black2heading = `Panel Discussion`
   const text = `Be a part of an inspiring and thought-provoking panel discussion where industry leaders, innovators, and visionaries come together to explore the future of [your focus area, e.g., technology, communication, or business]. This is your chance to share your insights, learn from diverse perspectives, and contribute to shaping the dialogue on critical topics that matter. Don’t miss the opportunity to network, collaborate, and leave your mark at Procom 25. Let your voice be heard—become a part of this transformative experience!`
-  const image = `https://res.cloudinary.com/drrz1wz3s/image/upload/v1737753852/2_ilrp6l.jpg`
+  const image = `https://res.cloudinary.com/drrz1wz3s/image/upload/h_300/v1737753852/2_ilrp6l.jpg`
 
 
 
