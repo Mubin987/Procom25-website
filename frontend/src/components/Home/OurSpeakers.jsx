@@ -8,10 +8,10 @@ const OurSpeakers = () => {
     const [speakers, setSpeakers] = useState([])
 
 
-    useEffect(() => {
-        axios.get("https://procom25-server.vercel.app/speakers")
-            .then((s) => setSpeakers(s.data))
-    }, [])
+    // useEffect(() => {
+    //     axios.get("https://procom25-server.vercel.app/speakers")
+    //         .then((s) => setSpeakers(s.data))
+    // }, [])
 
 
     return (
