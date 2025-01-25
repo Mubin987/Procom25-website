@@ -66,7 +66,7 @@ const SingleCompetition = ({ module }) => {
                 <div className='flex flex-col items-center w-full gap-4'>
                     <h1 className='font-lemonmilk bg-clip-text text-transparent bg-[linear-gradient(90deg,_#FFFFFF_25.4%,_#caeaf9_90%)] text-5xl font-bold mt-10 uppercase mb-5 tracking-widest'>General Details</h1>
                     <div className="flex gap-4 flex-col md:flex-row justify-between w-10/12 sm:w-4/5">
-                        <DetailBox isIcon={true} IconPath={() => (<LucideDollarSign />)} value={module.fee} title="Registration Fee" width="2/5" />
+                        <DetailBox isIcon={true} IconPath={() => (<LucideDollarSign />)} value={`${module.fee} PKR`} title="Registration Fee" width="2/5" />
                         <DetailBox isIcon={true} IconPath={() => (<User2Icon />)} value={`${module.min_team_size} - ${module.max_team_size}`} title="Members Limit" width="2/5" />
                     </div>
                     <div className="rounded-[9rem] flex items-center w-[14rem] sm:w-[18rem] h-14 [box-shadow:6px_7px_20px_2px_#00000040] bg-white">
@@ -91,7 +91,7 @@ const SingleCompetition = ({ module }) => {
                                 }}                                
                                 />
                             </div>
-                            <DetailBox isIcon={false} IconPath={"/GoldBadge.png"} value={module.firstPrize} title="Winner" width="full" />
+                            <DetailBox isIcon={false} IconPath={"/GoldBadge.png"} value={`${module.firstPrize} PKR`} title="Winner" width="full" />
                         </div>
                         <div className='flex flex-col w-full md:w-2/5 justify-end items-center'>
                             <div>
@@ -102,7 +102,7 @@ const SingleCompetition = ({ module }) => {
                                 }}                                
                                 />
                             </div>
-                            <DetailBox isIcon={false} IconPath={"/SilverBadge.png"} value={module.secondPrize} title="Runner Up" width="full" />
+                            <DetailBox isIcon={false} IconPath={"/SilverBadge.png"} value={`${module.secondPrize} PKR`} title="Runner Up" width="full" />
                         </div>
                     </div>
                     <Link to={'/register'} className='[box-shadow:1px_2px_3px_0px_#00000040] font-montserrate bg-[linear-gradient(90deg,_#FFFFFF_14.9%,_#D0EFFF_65.4%,_#A7E2FF_100%)] justify-center rounded-full text-[#2169D4] font-bold px-6 py-1.5 mt-2 sm:mt-0 flex items-center m-auto w-11/12 h-[50px] text-xl'>
