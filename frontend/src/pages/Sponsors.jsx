@@ -10,8 +10,8 @@ const Sponsors = () => {
   const [sponsors, setSponsors] = useState([])
 
   useEffect(()=>{
-    axios.get("https://procom25-server.vercel.app/sponsors-optimized")
-    .then( (s) => {
+    axios.get("http://localhost:3000/sponsors-optimized")
+    .then((s) => {
       setSponsors(s.data)
     })
   }, [])

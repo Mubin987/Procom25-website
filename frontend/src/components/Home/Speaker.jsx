@@ -1,17 +1,38 @@
-
-
-
+import { motion } from "framer-motion";
+import {FaLinkedin } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 const Speaker = ({name, desc, img})=> {
 
-    return(
-        <div className="mx-3 my-12 flex max-w-sm gap-x-4 rounded-xl bg-white shadow-lg outline outline-black/5 dark:bg-slate-800 dark:shadow-none dark:-outline-offset-1 dark:outline-white/10">
-            <img className=" max-w-1/2 shrink-0 sm:h-full md:h-full lg:h-full xl:h-full rounded-xl" src={img} alt={`${name} image`} />
-            <div className="overflow-hidden">
-                <div className="text-xl font-medium text-black dark:text-white">{name}</div>
-                <p className="text-gray-500 dark:text-gray-400">{desc}</p>
-                {/* <p class="mt-2 text-gray-500 dark:text-gray-400">Ultricies massa malesuada viverra cras lobortis. Tempor orci hac ligula dapibus mauris sit ut eu. Eget turpis urna maecenas cras. Nisl dictum.</p> */}
-            </div>
+return(
+    <motion.div className="flex flex-col items-center bg-white shadow-lg rounded-2xl p-6 w-64"
+    whileHover={{
+        scale: 1.1, // Slightly enlarges the image on hover
+        transition: { duration: 0.2, ease: "easeOut" },
+      }}
+    >
+    <img
+        className="w-24 h-24 rounded-full object-cover shadow-md"
+        src={img} 
+        alt="Profile picture"
+    />
+    <div className="mt-4 text-center">
+        <h2 className="text-xl font-semibold text-gray-800">{name}</h2>
+        <p className="text-gray-500">{desc}</p>
+        <div className="flex flex-row mt-4 justify-start">
+        <div className="flex mt-6 space-x-4 justify-center items-center">
+      <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-blue-500 transition-colors"><FaXTwitter size={24} /></a>
+      <a
+        href="https://linkedin.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-gray-500 hover:text-blue-500 transition-colors"
+      >
+        <FaLinkedin size={24} />
+      </a>
+    </div>
         </div>
+    </div>
+    </motion.div>
     )
 
 

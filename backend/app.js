@@ -323,7 +323,7 @@ app.delete("/competitions/:id/teams", (req, res) => {
     });
 });
 
-
+// ______________________________________SPONSORS API______________________________________
 app.get("/sponsors", (req, res) => {
 
     db.collection('Sponsors').find()
@@ -349,3 +349,18 @@ app.get("/sponsors-optimized", (req, res) => {
     });
 });
 
+
+
+// ______________________________________SPEAKERS API______________________________________
+
+app.get("/speakers", (req, res) => {
+
+    db.collection('Speakers').find()
+    .toArray()
+    .then((s) => {
+        res.status(201).json(s);
+    })
+    .catch(() => {
+        res.status(500).json({ error: "Could not get the sponsors"  });
+    });
+});
