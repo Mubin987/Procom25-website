@@ -57,7 +57,7 @@ const Competitions = () => {
 
     useEffect(() => {
         axios
-            .get("https://procom25-server.vercel.app/sponsors-optimized")
+            .get("https://procom25-server.vercel.app/competition")
             .then((res) => {
                 const updatedCompetitions = { CS: [], EE: [], business: [], AI: [], general: [], Gaming: [] };
                 res.data.forEach((compet) => {
