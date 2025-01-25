@@ -1,4 +1,4 @@
-import {useState, useEffect, React} from 'react'
+import { useState, useEffect, React } from 'react'
 import axios from 'axios'
 import Hero from '../components/Home/Hero'
 import Feature from '../components/Home/Feature'
@@ -8,7 +8,7 @@ import Sponsors from '../components/Home/Sponsors'
 import OurSpeakers from '@/components/Home/OurSpeakers'
 import PanelDiscussion from '@/components/Home/PanelDiscussion'
 const Home = () => {
-  
+
   const [competitions, setCompetitions] = useState([])
 
   const black1heading = `Become the Part of `
@@ -21,30 +21,30 @@ const Home = () => {
 
 
 
-  useEffect(()=>{
+  useEffect(() => {
     axios.get("https://procom25-server.vercel.app/competition")
-    .then((res)=> {
-      setCompetitions(res.data)
-    })
+      .then((res) => {
+        setCompetitions(res.data)
+      })
   }, [])
 
-  
+
 
   return (
     <div>
       <Hero pageType={"Home"} />
       <Feature />
       <OurLegacy />
-      <Competitions competitions={competitions}/>
-      <PanelDiscussion 
+      <Competitions competitions={competitions} />
+      {/* <PanelDiscussion 
         black1={black1heading} 
         blue={blueheading} 
         black2={black2heading} 
         text={text} 
         image={image} 
-      />
-      {/* <OurSpeakers /> */}
-      {/* <Sponsors /> */}
+      /> */}
+      <OurSpeakers />
+      <Sponsors />
     </div>
   )
 }

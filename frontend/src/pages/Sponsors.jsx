@@ -9,23 +9,23 @@ const Sponsors = () => {
 
   const [sponsors, setSponsors] = useState([])
 
-  useEffect(()=>{
-    axios.get("http://localhost:3000/sponsors-optimized")
-    .then((s) => {
-      setSponsors(s.data)
-    })
+  useEffect(() => {
+    axios.get("https://test.procom.com.pk/sponsors-optimized")
+      .then((s) => {
+        setSponsors(s.data)
+      })
   }, [])
 
 
   return (
     <div className="">
       <Hero pageType={"Sponsors"} />
-      <div  className="container mx-auto px-4 py-16 w-full my-20 font-lemonmilk">
-      {
-                sponsors.map( (s, index) => (
-                    <SponsorSection key={index} sponsors={s}/>
-                ))
-            }
+      <div className="container mx-auto px-4 py-16 w-full my-20 font-lemonmilk">
+        {
+          sponsors.map((s, index) => (
+            <SponsorSection key={index} sponsors={s} />
+          ))
+        }
       </div>
     </div>
   )
