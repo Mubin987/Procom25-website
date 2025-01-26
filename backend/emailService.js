@@ -26,7 +26,7 @@ const generateEmailTemplate = (recipientName) => {
               <div style="text-align: left; padding: 16px; margin-top: 12px; background-color: #132b5b; border-radius: 8px; max-width: 600px; margin: 20px auto;">
                   <div style="margin-bottom: 16px; font-size: 18px;">Greetings <span style="font-weight: 600; color: #4da6ff;">Team ${recipientName} Leader</span>,</div>
                   <div style="font-size: 16px; line-height: 1.5;">
-                      Thank you for registering for <span style="font-weight: 600; color: #4da6ff;">Procom 2025</span>. We're thrilled to have you on board for this exciting event. You will be notified as soon as payment is confirmed.
+                      Thank you for registering for <span style="font-weight: 600; color: #4da6ff;">Procom 2025</span>. We're thrilled to have you on board for this exciting event. You will be notified as soon as payment is verified.
                   </div>
                   <div style="margin-top: 12px; font-size: 16px;">
                       Please feel free to contact us at <a href="mailto:procom.net@nu.edu.pk" style="color: #4da6ff; text-decoration: none; font-weight: 500;">procom.net@nu.edu.pk</a> for any queries or assistance.
