@@ -8,21 +8,15 @@ import {motion} from 'framer-motion'
 
 const Hero = ({ pageType, AboutusText }) => {
     const scrollRef = useRef(null);
+    const SponsorFormLink = "https://docs.google.com/forms/d/e/1FAIpQLSe80deCHsUdU-Kac_uDUX67z4u6am0Y7ud8_8hlwED4J97a-A/viewform"
     const { ref, inView } = useInView({
         triggerOnce: false,
         threshold: 1,
       });
     
-    // useEffect(() => {
-    //     const scroll = new locomotiveScroll({
-    //         el: scrollRef.current,
-    //         smooth: true,
-    //     });
+   
+      
 
-    //     return () => {
-    //         scroll.destroy();
-    //     }
-    // }, [])
     return (
         <div ref={scrollRef} className='scroll-container h-screen w-full flex flex-col justify-center items-center'>
             <ProcomSVG />
@@ -38,9 +32,20 @@ const Hero = ({ pageType, AboutusText }) => {
                         <div className='flex flex-col justify-center items-center font-montserrate'>
                             <p className="text-[3vw] text-themeDBlue text-end text-xs sm:text-sm tracking-widest mt-2 mb-1 sm:mt-4 sm:mb-2">{pageType === "Sponsors" ? "BECOME A SPONSOR" : "READY TO COMPETE?"}</p>
                             <div className='flex justify-end'>
-                                <Link to={pageType === "Sponsors" ? "/sponsors" : "/register"} className=''>
+
+                                {
+                                pageType === "Sponsors" ? 
+                                <a href={SponsorFormLink} target='_blank'>
+                                    <button className='text-[3vw] duration-200 sm:text-lg bg-[linear-gradient(90deg,_#218EF1_0%,_#1865DD_50%,_#0E3AC8_100%)] [box-shadow:6px_4px_11.7px_0px_#00000040] font-bold text-white px-6 py-1.5 rounded-full'>{pageType === "Sponsors" ? "Sponsor Now" : "Register Now"}</button>
+
+                                </a>: 
+                                <Link to="/register">
                                     <button className='text-[3vw] duration-200 sm:text-lg bg-[linear-gradient(90deg,_#218EF1_0%,_#1865DD_50%,_#0E3AC8_100%)] [box-shadow:6px_4px_11.7px_0px_#00000040] font-bold text-white px-6 py-1.5 rounded-full'>{pageType === "Sponsors" ? "Sponsor Now" : "Register Now"}</button>
                                 </Link>
+                                }
+
+
+
                             </div>
                         </div>
                     </div>

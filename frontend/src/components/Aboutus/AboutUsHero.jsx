@@ -1,128 +1,50 @@
+import React, { useEffect, useRef } from 'react'
+import { Link } from 'react-router-dom';
+import Countdown from '../Home/Countdown';
+import ProcomSVG from '../Home/ProcomSVG';
+import locomotiveScroll from 'locomotive-scroll';
+import { useInView } from "react-intersection-observer";
 import {motion} from 'framer-motion'
+
 
 const  AboutUsHero = ()=>{
 
-return(
-<>
-        {/* About Section */}
-        <section
-          id="about"
-          style={{
-            display: "flex",
-            paddingTop: "80px", // Adjust padding to avoid overlap with navbar
-            paddingLeft: "0px",
-            paddingRight: "20px",
-            fontFamily: 'ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"',
-          }}
-        >
-          {/* Left Box with Image */}
-          <div
-            style={{
-              marginRight: "20px",
-              position: "relative",
-              bottom: "200px",
-              top: "-6px",
-              left: "-73px",
-              gap: "0px",
-              //opacity: "0.4",
-            }}
-          >
-            <img
-              src="../Group 10.png"
-              alt="Procom Logo"
-              style={{
-                width: "593.42px",
-                height: "1072.23px",
-                top: "-6px",
-                left: "-73px",
-                gap: "0px",
-                opacity: "80%",
-                objectFit: "contain",
-              }}
-            />
-          </div>
+    const scrollRef = useRef(null);
+    const { ref, inView } = useInView({
+        triggerOnce: false,
+        threshold: 0.5,
+      });
 
-          {/* About Text */}
-          <div style={{ flex: "1", textAlign: "left", marginTop: "16vh" }}>
-            <h1 style={{ color: "#0056b3", fontSize: "48px" }}>
-              <span
-                style={{
-                  position: "absolute",
-                  width: "497.26px",
-                  height: "51.8px",
-                  left: "577.71px",
-                  top: "245px",
-                  gap: "0px",
-                  opacity: "0px",
-                  fontFamily: "'LEMON MILK'",
-                  fontSize: "38px",
-                  fontWeight: 700,
-                  lineHeight: "51.32px",
-                  textAlign: "left",
-                  textUnderlinePosition: "from-font",
-                  textDecorationSkipInk: "none",
-                  background: "linear-gradient(270deg, #0D32C5 0%, #1768DB 37.9%, #1E8AE9 78.9%, #23A7F4 100%)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  backgroundClip: "text",
-                  textFillColor: "transparent",
-                }}
-              >
-                ABOUT
-              </span>
-              
-              <br /> 
-              
-              <span
-                style={{
-                  position: "absolute",
-                  width: "811px",
-                  height: "161.48px",
-                  left: "572.58px",
-                  top: "278.52px",
-                  gap: "0px",
-                  opacity: "0px",
-                  fontFamily: "'LEMON MILK'",
-                  fontSize: "118px",
-                  fontWeight: 700,
-                  lineHeight: "159.37px",
-                  textAlign: "left",
-                  textUnderlinePosition: "from-font",
-                  textDecorationSkipInk: "none",
-                  background: "linear-gradient(270deg, #0D32C5 0%, #1768DB 60.9%, #23A7F4 100%)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  backgroundClip: "text",
-                  textFillColor: "transparent",
-                }}
-              >
-                PROCOM'25
-              </span>
-            </h1>
-            <p
-              style={{
-                position: "absolute",
-                width: "1000px",
-                height: "531px",
-                left: "577.58px",
-                top: "440px",
-                gap: "0px",
-                opacity: "0px",
-                fontFamily: "Outfit",
-                fontSize: "25px",
-                fontWeight: 700,
-                lineHeight: "31.5px",
-                letterSpacing: "0.1em",
-                textAlign: "left",
-                textUnderlinePosition: "from-font",
-                textDecorationSkipInk: "none",               
-                
-              }}
+
+  return (
+    <div ref={scrollRef} className='scroll-container h-screen w-full flex flex-col justify-center items-center'>
+        <ProcomSVG />
+        <div ref={ref}className='w-full p-10 px-22 flex sm:justify-end justify-center sm:items-end items-center h-3/4 mt-12 sm:mt-0'>
+            <motion.div className='bg-[linear-gradient(270deg,#0D32C5_0%,#1768DB_37.9%,#1E8AE9_78.9%,#23A7F4_100%)] font-lemonmilk bg-clip-text text-transparent font-bold'
+                  initial={{ opacity: 0, y: 20 }} // Hidden state (faded and below position)
+                  animate={inView ? { opacity: 1, y: 0 }: { opacity: 0, y: 20 }} // Visible state (fully visible and in place)
+                  transition={{ duration: 1, ease: "easeOut" }} // Smooth transition
             >
-             PROCOM (Programming Competition) is one of the most prestigious and long-standing events at FAST NUCES Karachi that began in the year 1998, playing a pivotal role in shaping the university's reputation within the tech community of Pakistan. Over the past 25 years, PROCOM has become a platform that not only fosters innovation and competition but also connects academia with industry professionals. The event features a variety of technical competitions, including speed programming, web development, Al challenges, robotics,  cybersecurity and business contests, which attract talented students from all over Pakistan. PROCOM is recognized for its ability to challenge students' intelligence and technical skills, while giving them real-world exposure. Additionally, it acts as a bridge between students and the professional world by organizing panel discussions, a startup showcase and a grand job fair that help students build industry connections, gain insights, and prepare for their future careers. With its reputation for drawing top talent and industry attention, PROCOM is a cornerstone of FAST NUCES Karachi's mission to develop and promote tech talent in the country.
-            </p>
-          </div>
-        </section>
-</>
+                <h1 className="text-[5vw] sm:text-4xl md:text-[3vw] lg:text-4xl -mb-2 sm:mb-0">FAST-NUCES PRESENTS,</h1>
+                <h1 className="text-[14vw] sm:text-[6rem] md:text-[14vw] lg:text-[9rem] leading-[1]">PROCOM'25</h1>
+                <div className='w-full flex justify-end'>
+                    <div className='flex flex-col justify-center items-center font-montserrate'>
+                        <p className="text-[3vw] text-themeDBlue text-end text-xs sm:text-sm tracking-widest mt-2 mb-1 sm:mt-4 sm:mb-2">Together, we shape the future!</p>
+                        <div className='flex justify-end'>
+                            <a href={`https://docs.google.com/forms/d/e/1FAIpQLScsHqsfQw5xxEvIrvDjv-hsLWSMxAr-aAF_0oEDeQyM_EpNYQ/viewform`} target="_blank">
+                                <button className='text-[3vw] duration-200 sm:text-lg bg-[linear-gradient(90deg,_#218EF1_0%,_#1865DD_50%,_#0E3AC8_100%)] [box-shadow:6px_4px_11.7px_0px_#00000040] font-bold text-white px-6 py-1.5 rounded-full'>Become Ambassador</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </motion.div>
+        </div>
+        <div className='w-full h-1/4 flex flex-col gap-2 justify-end items-center p-5'>
+            <Countdown pageType={`Home`} />
+            <h1 className='tracking-[0.1em] text-xl font-outfit'>WE MAKE <span className='text-[#4E95EA] text-4xl'>IT</span> HAPPEN</h1>
+        </div>
+    </div>
 )    
 }
+
+export default AboutUsHero

@@ -31,6 +31,7 @@ const ReviewCard = ({
 const Sponsors = () => {
 
     const [single_sponsor, setSingle_sponsor] = useState([])
+    const SponsorLink ="https://docs.google.com/forms/d/e/1FAIpQLSe80deCHsUdU-Kac_uDUX67z4u6am0Y7ud8_8hlwED4J97a-A/viewform"
 
     useEffect(()=>{
         axios.get("https://procom25-server.vercel.app/Sponsor_logos")
@@ -56,9 +57,9 @@ const Sponsors = () => {
                     ))}
                 </Marquee>
             </div>
-            <Link to="/sponsors" className=''>
+            <a href={SponsorLink} target='_blank'>
                 <button className='text-lg font-montserrate bg-[linear-gradient(90deg,_#218EF1_0%,_#1865DD_50%,_#0E3AC8_100%)] [box-shadow:6px_4px_11.7px_0px_#00000040] font-bold text-white px-6 py-1 rounded-full'>Become a Sponsor</button>
-            </Link>
+            </a>
         </section>
     );
 };
