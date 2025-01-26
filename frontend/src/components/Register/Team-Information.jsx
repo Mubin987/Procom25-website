@@ -23,10 +23,12 @@ const TeamInformation = ({ props, members, setMembers, memberCount, minMembers, 
                         if (teamName.length === 0) props.setTeamNameError(true);
                         else props.setTeamNameError(false);
                     }}
-                    className='w-full sm:w-[90%] md:w-[88%] lg:w-[70%] my-3 ml-3 py-3 pl-4 rounded-xl bg-[linear-gradient(90deg,_#FFFFFF_14.9%,_#DCF4FF_100%)] sm:py-2 sm:placeholder:text-xl placeholder:font-bold placeholder-transparent placeholder:bg-gradient-text placeholder:bg-clip-text placeholder:italic shadow-[0px_4px_4px_0px_#00000040]'
+                    className={`w-full sm:w-[90%] md:w-[88%] lg:w-[70%] mt-3 ml-3 py-3 pl-4 rounded-xl bg-[linear-gradient(90deg,_#FFFFFF_14.9%,_#DCF4FF_100%)] sm:py-2 sm:placeholder:text-xl placeholder:font-bold placeholder-transparent placeholder:bg-gradient-text placeholder:bg-clip-text placeholder:italic shadow-[0px_4px_4px_0px_#00000040]
+                    ${props.teamNameError || teamNameAvailableError ? `mb-1` : `mb-3`}
+                    `}
                 />
                 {props.teamNameError && (
-                    <p className="absolute right-0 -bottom-[60%] text-[60%] sm:right-0 md:right-8 sm:-bottom-7 font-bold italic sm:text-base text-red-600">Please enter your team name.</p>
+                    <p className="sm:absolute right-0 -bottom-[60%] text-base sm:right-0 md:right-8 sm:-bottom-7 font-bold italic sm:text-base text-red-600">Please enter your team name.</p>
                 )}
                 {
                     teamNameAvailableError && (
