@@ -218,10 +218,10 @@ app.post("/register", upload.single('file'), async (req, res) => {
         { _id: new ObjectId(_id) },
         { $push: { registeredTeams: parsedTeam }}
     )
-    .then(() => {
+    .then(async () => {
         try {
-            sendEmail( leaderEmail, teamName);
-            console.log('Email sent successfully to .');
+            await sendEmail( leaderEmail, teamName);
+            console.log('Email sent successfully to '+ leaderEmail + ' from team ' + teamName);
           } catch (error) {
             console.error('Error in email function:', error);
           }
