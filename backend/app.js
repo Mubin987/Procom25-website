@@ -212,18 +212,19 @@ app.post("/register", upload.single('file'), async (req, res) => {
       const leaderEmail = parsedTeam.member.find(member => member.isLeader).email;
       const teamName = parsedTeam.team_name;
     
-      try {
-        await sendEmail( leaderEmail, teamName);
-        console.log('Email sent successfully to .');
-      } catch (error) {
-        console.error('Error in email function:', error);
-      }
+      
 
     db.collection('competitions').updateOne(
         { _id: new ObjectId(_id) },
         { $push: { registeredTeams: parsedTeam }}
     )
     .then(() => {
+        try {
+            sendEmail( leaderEmail, teamName);
+            console.log('Email sent successfully to .');
+          } catch (error) {
+            console.error('Error in email function:', error);
+          }
         res.status(201).json({ message: 'Team registered successfully', file: file });
     })
     .catch(() => {
