@@ -78,6 +78,12 @@ const Competitions = () => {
             Department: "CS",
         },
         {
+            heading: "ARTIFICIAL INTELLIGENCE",
+            text: "Dive into the exciting world of artificial intelligence. Take on challenges involving machine learning, deep learning, and neural networks to prove you're at the forefront of this evolving technology.",
+            image: "/CompetitionsImages/AI.png",
+            Department: "AI",
+        },
+        {
             heading: "ELECTRICAL ENGINEERING",
             text: "Explore competitions that test your expertise in circuit design, robotics, and system optimization. Engineer solutions that spark innovation and bring ideas to life.",
             image: "/CompetitionsImages/EE.png",
@@ -88,12 +94,6 @@ const Competitions = () => {
             text: "Step into the competitive world of business and entrepreneurship. Solve case studies, pitch groundbreaking ideas, and prove your mettle as a visionary leader.",
             image: "/CompetitionsImages/ROBOTICS.png",
             Department: "business",
-        },
-        {
-            heading: "ARTIFICIAL INTELLIGENCE",
-            text: "Dive into the exciting world of artificial intelligence. Take on challenges involving machine learning, deep learning, and neural networks to prove you're at the forefront of this evolving technology.",
-            image: "/CompetitionsImages/AI.png",
-            Department: "AI",
         },
         {
             heading: "GENERAL FIELDS",
