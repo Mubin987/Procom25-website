@@ -209,7 +209,7 @@ app.post("/register", upload.single('file'), async (req, res) => {
         res.status(500).json({ error: "Could not register the team" });
       }
 
-      const leaderEmail = parsedTeam.member.find(member => member.isLeader).email;;
+      const leaderEmail = parsedTeam.member.find(member => member.isLeader).email;
       const teamName = parsedTeam.team_name;
     
       try {
