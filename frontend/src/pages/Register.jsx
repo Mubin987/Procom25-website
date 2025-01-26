@@ -329,8 +329,8 @@ const Register = () => {
       <Hero page="Register" />
       <div className="min-h-screen p-4 md:p-6 lg:p-8">
         <form id="procom-25-registration-form" className="mx-auto max-w-5xl relative mt-9">
-          <RegisterHeading heading="start" textSize="text-[29px]" />
-          <div className="absolute left-10 top-[34px] bottom-28 sm:bottom-[3.5rem] md:bottom-8 xl:bottom-4 border-l-4 border-dashed border-themeBlue md:left-10" />
+          <RegisterHeading heading="start" textSize="text-[29px] " />
+          <div className="absolute left-10 top-[34px] bottom-[4.5rem] sm:bottom-[3.5rem] md:bottom-8 xl:bottom-4 border-l-4 border-dashed border-themeBlue md:left-10" />
           <div className="pl-4">
             <Department setDepartment={setDepartment} departError={departError} />
             <Competitions

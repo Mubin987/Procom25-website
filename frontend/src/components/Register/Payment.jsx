@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import RegisterHeading from "../ui/register-headings";
+import RegisterStep from "../ui/register-steps";
 
 const Payment = ({ fileUrl, setFileUrl, fileError, setFileError, price, setFile }) => {
   const [fileName, setFileName] = useState(null);
@@ -38,12 +39,9 @@ const Payment = ({ fileUrl, setFileUrl, fileError, setFileError, price, setFile 
               <span className="italic block text-center sm:text-base bg-[linear-gradient(90deg,_#1F95ED_0%,_#2169D4_100%)] bg-clip-text text-transparent font-bold">
                 UPLOAD PAYMENT RECEIPT
               </span>
-              <div className='my-3'><img src='/upload_symbol.png' className='w-[30px] sm:w-[40px] h-[30px] sm:h-[40px] rotate-180 transform rotate-180'  /></div>
+              <div className='my-3'><img src='/upload_symbol.png' className='w-[30px] sm:w-[40px] h-[30px] sm:h-[40px] transform rotate-180'  /></div>
               <span className="italic text-[7px] sm:text-[8px] bg-[linear-gradient(90deg,_#1F95ED_0%,_#2169D4_100%)] bg-clip-text text-transparent font-bold">
                 *DRAG AND DROP YOUR IMAGE OR CLICK THE BUTTON
-              </span>
-              <span className='italic text-[7px] sm:text-[8px] bg-[linear-gradient(90deg,_#1F95ED_0%,_#2169D4_100%)] bg-clip-text text-transparent font-bold'>
-                BELOW TO SELECT FILE. *
               </span>
               { fileError &&
                 <p className="mt-2 font-bold italic text-[10px] sm:text-[11px] md:text-[12px] text-red-600">You must provide a payment receipt</p>
@@ -75,9 +73,7 @@ const Payment = ({ fileUrl, setFileUrl, fileError, setFileError, price, setFile 
             </div>
           )}
         </div>
-      </div>
-      <div className="absolute top-[29px] left-[-1%] flex h-7 w-7 items-center justify-center rounded-full bg-[linear-gradient(90deg,_#1F95ED_0%,_#2169D4_100%)] font-bold text-white text-xl z-10">
-        <span className="bg-[linear-gradient(90deg,_#FFFFFF_14.9%,_#D0EFFF_63.77%,_#A7E2FF_100%)] bg-clip-text text-transparent font-bold">4</span>
+        <RegisterStep step={4} />
       </div>
       <div className="mt-4 bg-[linear-gradient(180deg,_#199DDF_0%,_#145BD5_100%)] w-[50%] sm:w-1/2 md:w-[55%] lg:w-full bg-clip-text text-transparent font-bold">
         <p className="text-[13px] sm:text-sm italic">
