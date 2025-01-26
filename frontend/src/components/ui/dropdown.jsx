@@ -67,10 +67,10 @@ const Dropdown = forwardRef(({
   const filteredItems = items.filter(item => item.department === department);
 
   return (
-    <div ref={dropdownRef} className="relative w-[85%] sm:w-full md:w-[95%] lg:w-[86%] ml-3 font-lemonmilk">
+    <div ref={dropdownRef} className="relative w-full sm:w-full md:w-[95%] lg:w-[86%] my-3 ml-3 font-lemonmilk">
       <button
         onClick={() => setIsOpen((prev) => !prev)}
-        className={`inline-flex justify-between w-full px-4 py-2 text-[12px] sm:text-[16px] bg-[linear-gradient(90deg,_#1F95ED_0%,_#2169D4_100%)] text-white font-bold ${
+        className={`inline-flex justify-between w-full px-4 py-2 mt-2 sm:mt-0 text-[14px] sm:text-[16px] bg-[linear-gradient(90deg,_#1F95ED_0%,_#2169D4_100%)] text-white font-bold ${
           isOpen ? "rounded-t-xl" : "rounded-xl"}`}
       >
         {selectedItem}
@@ -98,7 +98,7 @@ const Dropdown = forwardRef(({
             <button
               key={index}
               onClick={() => handleItemClick(item)}
-              className="block px-4 py-2 w-full text-[12px] sm:text-[16px] text-left"
+              className="block px-4 py-2 w-full text-[14px] sm:text-[16px] text-left"
               role="menuitem"
             >
               {item.title}

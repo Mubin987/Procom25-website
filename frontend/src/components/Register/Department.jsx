@@ -37,24 +37,13 @@ const Dropdown = ({ items, defaultValue, setValue, buttonRef }) => {
         document.removeEventListener("mousedown", handleClickOutside);
       }
     })
-
-    // useEffect(() => {
-    //   if (buttonRef.current) {
-    //     const buttonHeight = buttonRef.current.offsetHeight;
-    //     if (buttonHeight >= 60) {
-    //       buttonRef.current.style.top = '-4px';
-    //     } else {
-    //       buttonRef.current.style.top = '-6px';
-    //     }
-    //   }
-    // }, [selectedItem]);
   
     return (
-      <div ref={dropdownRef} className={`relative w-[85%] sm:w-full md:w-[95%] lg:w-[86%] ml-3 font-lemonmilk`}>
+      <div ref={dropdownRef} className={`relative w-full sm:w-full md:w-[95%] lg:w-[86%] my-3 ml-3 font-lemonmilk`}>
         <button
           ref={buttonRef}
           onClick={() => setIsOpen((prev) => !prev)}
-          className={`inline-flex justify-between w-full px-4 py-2 text-[12px] sm:text-[16px] lg:text-[17px] xl:text-[16px] bg-[linear-gradient(90deg,_#1F95ED_0%,_#2169D4_100%)] text-white font-bold ${
+          className={`inline-flex justify-between w-full px-4 py-2 mt-2 sm:mt-0 text-[14px] sm:text-[16px] lg:text-[17px] xl:text-[16px] bg-[linear-gradient(90deg,_#1F95ED_0%,_#2169D4_100%)] text-white font-bold ${
             isOpen ? "rounded-t-xl" : "rounded-xl"}`}
         >
           {selectedItem}
@@ -82,7 +71,7 @@ const Dropdown = ({ items, defaultValue, setValue, buttonRef }) => {
                 <button
                   key={index}
                   onClick={() => handleItemClick(item)}
-                  className="block px-4 py-2 w-full text-[12px] sm:text-[16px] text-left"
+                  className="block px-4 py-2 w-full text-[14px] sm:text-[16px] text-left"
                   role="menuitem"
                 >
                   {getDepartmentName(item.name)}{" Competitions"}
@@ -100,9 +89,9 @@ const Department = ({ setDepartment, departError }) => {
     
     return (
         <div className="relative mb-5 mt-20 font-lemonmilk">
-            <div className='relative ml-7 flex w-[90%] sm:[95%] md:w-[96%] lg:w-[80%] items-center'>
+            <div className='relative ml-7 flex flex-col sm:flex-row w-[90%] sm:[95%] md:w-[96%] lg:w-[80%] items-center'>
                 <RegisterHeading heading={"department"} textSize='text-2xl md:text-[2rem]' className={`absolute left-2 sm:left-3 
-                ${dropdownRef.current && dropdownRef.current.offsetHeight >= 60 ? `-top-3` : `-top-6`}
+                ${dropdownRef.current && dropdownRef.current.offsetHeight >= 60 ? `sm:-top-3` : `-top-10 sm:-top-6`}
                 `} />
                 <div className="w-full border-t-4 border-dashed border-themeBlue " />
                 <Dropdown 
@@ -124,7 +113,7 @@ const Department = ({ setDepartment, departError }) => {
                 <RegisterStep step={1} />
             </div>
             <div className="pl-10 bg-[linear-gradient(180deg,_#199DDF_0%,_#145BD5_100%)] bg-clip-text text-transparent font-bold">
-                <p className="text-[13px] sm:text-[0.9rem] max-w-[50%] italic font-lemonmilk">
+                <p className="text-[13px] sm:text-[0.9rem] max-w-full sm:max-w-[50%] italic font-lemonmilk">
                     SELECT THE DEPARTMENT OF COMPETITIONS YOU WISH TO PARTICIPATE IN, FOR MORE INFORMATION <Link to={'/modules'} className="underline">
                         CLICK HERE!
                     </Link>

@@ -31,8 +31,8 @@ const Payment = ({ fileUrl, setFileUrl, fileError, setFileError, price, setFile 
   return (
     <div className="relative pl-10 mt-16 font-lemonmilk">
       <RegisterHeading heading={"payment"} textSize='text-2xl' />
-      <div className='absolute left-4 top-7 md:left-6 flex w-[90%] sm:w-[90%] md:w-[93%] lg:w-[80%]'>
-        <div className="w-full border-t-4 border-dashed border-themeBlue mt-3 " />
+      <div className='absolute left-4 top-7 md:left-6 flex flex-col sm:flex-row w-[90%] sm:w-[90%] md:w-[93%] lg:w-[80%]'>
+        <div className="w-full border-t-4 border-dashed border-themeBlue mt-3 my-3 " />
         <div className="flex flex-col items-center rounded-lg bg-[linear-gradient(90deg,_#FFFFFF_14.9%,_#DCF4FF_100%)] sm:w-[80%] lg:w-[55%] p-6 pt-3 ml-3 cursor-pointer drop-shadow-lg">
           <div className='lg:w-60'>
             <label htmlFor="file-input" className=" flex flex-col items-center cursor-pointer ">
@@ -75,7 +75,7 @@ const Payment = ({ fileUrl, setFileUrl, fileError, setFileError, price, setFile 
         </div>
         <RegisterStep step={4} />
       </div>
-      <div className="mt-4 bg-[linear-gradient(180deg,_#199DDF_0%,_#145BD5_100%)] w-[50%] sm:w-1/2 md:w-[55%] lg:w-full bg-clip-text text-transparent font-bold">
+      <div className="mt-40 sm:mt-4 bg-[linear-gradient(180deg,_#199DDF_0%,_#145BD5_100%)] w-full sm:w-1/2 md:w-[55%] lg:w-full bg-clip-text text-transparent font-bold">
         <p className="text-[13px] sm:text-sm italic">
           PLEASE PAY YOUR FEES IN THE FOLLOWING ACCOUNT!
           <br />
