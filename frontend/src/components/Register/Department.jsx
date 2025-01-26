@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import RegisterHeading from "../ui/register-headings";
 import { useEffect, useRef, useState } from "react";
 
-const Dropdown = ({ items, defaultValue, setValue }) => {
+const Dropdown = ({ items, defaultValue, setValue, buttonRef }) => {
     const [isOpen, setIsOpen] = useState(false);
     const [selectedItem, setSelectedItem] = useState(defaultValue);
     const dropdownRef = useRef(null);
@@ -35,12 +35,23 @@ const Dropdown = ({ items, defaultValue, setValue }) => {
       }
     })
 
+    // useEffect(() => {
+    //   if (buttonRef.current) {
+    //     const buttonHeight = buttonRef.current.offsetHeight;
+    //     if (buttonHeight >= 60) {
+    //       buttonRef.current.style.top = '-4px';
+    //     } else {
+    //       buttonRef.current.style.top = '-6px';
+    //     }
+    //   }
+    // }, [selectedItem]);
   
     return (
-      <div ref={dropdownRef} className={`relative w-[85%] sm:w-full md:w-[95%] lg:w-[70%] ml-3 font-lemonmilk`}>
+      <div ref={dropdownRef} className={`relative w-[85%] sm:w-full md:w-[95%] lg:w-[86%] ml-3 font-lemonmilk`}>
         <button
+          ref={buttonRef}
           onClick={() => setIsOpen((prev) => !prev)}
-          className={`inline-flex justify-between w-full px-4 py-2 text-[12px] sm:text-[16px] bg-[linear-gradient(90deg,_#1F95ED_0%,_#2169D4_100%)] text-white font-bold ${
+          className={`inline-flex justify-between w-full px-4 py-2 text-[12px] sm:text-[16px] lg:text-[17px] xl:text-[16px] bg-[linear-gradient(90deg,_#1F95ED_0%,_#2169D4_100%)] text-white font-bold ${
             isOpen ? "rounded-t-xl" : "rounded-xl"}`}
         >
           {selectedItem}
@@ -82,15 +93,18 @@ const Dropdown = ({ items, defaultValue, setValue }) => {
   
 
 const Department = ({ setDepartment, departError }) => {
+  const dropdownRef = useRef(null);
     
     return (
-        <div className="relative pl-10 mb-5 mt-20 font-lemonmilk">
-            <RegisterHeading heading={"department"} textSize='text-2xl' />
-            <div className='absolute left-4 top-7 md:left-6 flex w-[90%] sm:[95%] md:w-[96%] lg:w-[80%] items-center'>
+        <div className="relative mb-5 mt-20 font-lemonmilk">
+            <div className='relative ml-7 flex w-[90%] sm:[95%] md:w-[96%] lg:w-[80%] items-center'>
+                <RegisterHeading heading={"department"} textSize='text-2xl md:text-[2rem]' className={`absolute left-2 sm:left-3 
+                ${dropdownRef.current && dropdownRef.current.offsetHeight >= 60 ? `-top-3` : `-top-6`}
+                `} />
                 <div className="w-full border-t-4 border-dashed border-themeBlue " />
                 <Dropdown 
                     defaultValue="DEPARTMENT" 
-                    setValue={setDepartment} 
+                    setValue={setDepartment}
                     items={[
                         { name: 'CS', members: null },
                         { name: 'AI', members: null },
@@ -98,20 +112,21 @@ const Department = ({ setDepartment, departError }) => {
                         { name: 'business', members: null },
                         { name: 'general', members: null },
                     ]}     
+                    buttonRef={dropdownRef}
                 />
                 { departError &&
                     <p className="absolute right-0 -bottom-[60%] text-[60%] sm:right-0 md:right-8 sm:-bottom-7 font-bold italic sm:text-base text-red-600">You must select a department!</p>
                 }
             </div>
-            <div className="absolute top-[36%] sm:top-[36%] left-[-1%] flex h-7 w-7 items-center justify-center rounded-full bg-[linear-gradient(90deg,_#1F95ED_0%,_#2169D4_100%)] font-bold text-xl z-10">
-                <span className="bg-[linear-gradient(90deg,_#FFFFFF_14.9%,_#D0EFFF_63.77%,_#A7E2FF_100%)] bg-clip-text text-transparent font-bold">1</span>
-            </div>
-            <div className="mt-5 sm:mt-7 bg-[linear-gradient(180deg,_#199DDF_0%,_#145BD5_100%)] bg-clip-text text-transparent font-bold">
-                <p className="text-[13px] sm:text-base max-w-[50%] italic font-lemonmilk">
+            <div className="pl-10 bg-[linear-gradient(180deg,_#199DDF_0%,_#145BD5_100%)] bg-clip-text text-transparent font-bold">
+                <p className="text-[13px] sm:text-[0.9rem] max-w-[50%] italic font-lemonmilk">
                     SELECT THE DEPARTMENT OF COMPETITIONS YOU WISH TO PARTICIPATE IN, FOR MORE INFORMATION <Link to={'/modules'} className="underline">
                         CLICK HERE!
                     </Link>
                 </p>
+            </div>
+            <div className="absolute top-[36%] sm:top-[36%] left-[-1%] flex h-7 w-7 items-center justify-center rounded-full bg-[linear-gradient(90deg,_#1F95ED_0%,_#2169D4_100%)] font-bold text-xl z-10">
+                <span className="bg-[linear-gradient(90deg,_#FFFFFF_14.9%,_#D0EFFF_63.77%,_#A7E2FF_100%)] bg-clip-text text-transparent font-bold">1</span>
             </div>
         </div>
     );

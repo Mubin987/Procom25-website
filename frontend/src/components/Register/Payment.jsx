@@ -38,7 +38,7 @@ const Payment = ({ fileUrl, setFileUrl, fileError, setFileError, price, setFile 
               <span className="italic block text-center sm:text-base bg-[linear-gradient(90deg,_#1F95ED_0%,_#2169D4_100%)] bg-clip-text text-transparent font-bold">
                 UPLOAD PAYMENT RECEIPT
               </span>
-              <div className='my-3'><img src='/upload_symbol.png' className='w-[30px] sm:w-[40px] h-[30px] sm:h-[40px]' /></div>
+              <div className='my-3'><img src='/upload_symbol.png' className='w-[30px] sm:w-[40px] h-[30px] sm:h-[40px] rotate-180' /></div>
               <span className="italic text-[7px] sm:text-[8px] bg-[linear-gradient(90deg,_#1F95ED_0%,_#2169D4_100%)] bg-clip-text text-transparent font-bold">
                 *DRAG AND DROP YOUR IMAGE OR CLICK THE BUTTON
               </span>

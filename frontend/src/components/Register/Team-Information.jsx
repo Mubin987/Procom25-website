@@ -5,9 +5,9 @@ import MembersList from "./MembersList";
 const TeamInformation = ({ props, members, setMembers, memberCount, minMembers, checkErrors, test, teamNameAvailableError, setteamNameAvailableError}) => {
 
     return (
-        <div className="relative pl-10 mt-24 font-lemonmilk">
-            <RegisterHeading heading={"team information"} textSize='text-2xl' />
-            <div className='absolute left-4 top-7 md:left-6 flex w-[90%] sm:w-[90%] md:w-[95%] lg:w-[80%] items-center'>
+        <div className="relative mt-24 font-lemonmilk">
+            <div className='relative ml-7 flex w-[90%] sm:[95%] md:w-[96%] lg:w-[80%] items-center'>
+                <RegisterHeading heading={"team information"} textSize='text-2xl md:text-[2rem]' className='absolute -top-7 left-2 sm:left-3' />
                 <div className="w-full border-t-4 border-dashed border-themeBlue " />
                 <input
                     type='text'
@@ -36,13 +36,13 @@ const TeamInformation = ({ props, members, setMembers, memberCount, minMembers, 
             <div className="absolute top-[38px] left-[-1%] flex h-7 w-7 items-center justify-center rounded-full bg-[linear-gradient(90deg,_#1F95ED_0%,_#2169D4_100%)] font-bold text-white text-xl z-10">
             <span className="bg-[linear-gradient(90deg,_#FFFFFF_14.9%,_#D0EFFF_63.77%,_#A7E2FF_100%)] bg-clip-text text-transparent font-bold">3</span>
             </div>
-            <div className="mt-5 sm:mt-7 bg-[linear-gradient(270deg,#0D32C5_0%,#1768DB_37.9%,#1E8AE9_93.9%,#23A7F4_100%)] bg-clip-text text-transparent font-bold">
-                <p className="text-[13px] sm:text-base max-w-[48%] italic">
+            <div className="pl-10 bg-[linear-gradient(180deg,_#199DDF_0%,_#145BD5_100%)] bg-clip-text text-transparent font-bold">
+                <p className="text-[13px] sm:text-[0.9rem] max-w-[48%] italic">
                     ENTER YOUR TEAM'S ACCURATE INFORMATION!
                 </p>
             </div>
-            <div className=' ml-5 md:max-w-full lg:max-w-[86%]'>
-                <p className="text-xl max-w-[50%] italic mt-5 mb-2 ml-2 bg-[linear-gradient(270deg,#0D32C5_0%,#1768DB_37.9%,#1E8AE9_93.9%,#23A7F4_100%)] bg-clip-text text-transparent font-bold">
+            <div className='pl-10 ml-5 md:max-w-full lg:max-w-[86%]'>
+                <p className="text-xl italic mt-5 mb-2 ml-2 bg-[linear-gradient(270deg,#0D32C5_0%,#1768DB_37.9%,#1E8AE9_93.9%,#23A7F4_100%)] bg-clip-text text-transparent font-bold">
                     TEAM LEADER'S INFO:
                 </p>
                 <div className='responsive-margin flex flex-wrap w-[96%] md:w-full lg:w-[96%] sm:mb-6'>
