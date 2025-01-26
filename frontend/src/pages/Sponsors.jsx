@@ -1,33 +1,32 @@
 import Hero from '@/components/Home/Hero';
-// import Hero from '@/components/Sponsors/Hero';
-import SponsorMain from '@/components/Sponsors/SponsorMain';
+import SponsorSection from '@/components/Sponsors/SponsorSection';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 import React from 'react'
 
-const sponsors = [
-  // Gold Sponsors
-  { name: "Gold Sponsor 1", logo: "./src/assets/imperium.png", type: "GOLD" },
-  { name: "Gold Sponsor 2", logo: "./src/assets/imperium.png", type: "GOLD" },
-  { name: "Gold Sponsor 3", logo: "./src/assets/imperium.png", type: "GOLD" },
-  { name: "Gold Sponsor 4", logo: "./src/assets/imperium.png", type: "GOLD" },
-  { name: "Gold Sponsor 5", logo: "./src/assets/imperium.png", type: "GOLD" },
-  { name: "Gold Sponsor 6", logo: "./src/assets/imperium.png", type: "GOLD" },
-  { name: "Gold Sponsor 2", logo: "./src/assets/imperium.png", type: "GOLD" },
-  { name: "Gold Sponsor 3", logo: "./src/assets/imperium.png", type: "GOLD" },
-  // Silver Sponsors
-  { name: "Silver Sponsor 1", logo: "./src/assets/folio3.png", type: "SILVER" },
-  { name: "Silver Sponsor 2", logo: "./src/assets/folio3.png", type: "SILVER" },
-  { name: "Silver Sponsor 3", logo: "./src/assets/folio3.png", type: "SILVER" },
-  // Partners
-  { name: "Partner 1", logo: "./src/assets/folio3.png", type: "PARTNER" },
-  { name: "Partner 2", logo: "./src/assets/folio3.png", type: "PARTNER" },
-  { name: "Partner 3", logo: "./src/assets/folio3.png", type: "PARTNER" },
-]
 
 const Sponsors = () => {
+
+  const [sponsors, setSponsors] = useState([])
+
+  useEffect(() => {
+    axios.get("https://procom25-server.vercel.app/sponsors-optimized")
+      .then((s) => {
+        setSponsors(s.data)
+      })
+  }, [])
+
+
   return (
     <div className="">
       <Hero pageType={"Sponsors"} />
-      <SponsorMain sponsors={sponsors} />
+      <div className="container mx-auto px-4 py-16 w-full my-20 font-lemonmilk">
+        {
+          sponsors.map((s, index) => (
+            <SponsorSection key={index} sponsors={s} />
+          ))
+        }
+      </div>
     </div>
   )
 }

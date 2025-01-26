@@ -20,14 +20,14 @@ const Navbar = () => {
     <nav className="bg-transparent py-5 px-4 flex w-full absolute top-0 z-50 nav font-outfit font-[600]">
       <div className="w-full flex justify-between sm:justify-end items-center">
         {/* Hamburger Menu */}
-        <div className='{`block ${isOpen ? "fixed" : "relative"} sm:hidden z-50`} nav-items'>
+        <div className={`block ${isOpen ? "fixed" : "relative"} sm:hidden z-50 nav-items`}>
           <button
             className="flex flex-col rounded justify-center items-center group"
             onClick={() => setIsOpen(!isOpen)}
           >
             <div
               className={`${genericHamburgerLine} ${isOpen
-                ? "rotate-45 translate-y-[12px]"
+                ? "rotate-45 translate-y-[9px]"
                 : ""
                 }`}
             />

@@ -98,7 +98,6 @@ const Register = () => {
 
     // Check for errors in each member
     members.forEach((member, index) => {
-      console.log(index, ": ", member.optional)
       if (member.name === '' && !member.optional) setMembers(prevMembers => {
         const updatedMembers = [...prevMembers];
         updatedMembers[index].nameError = true;
@@ -289,6 +288,7 @@ const Register = () => {
       team_name: teamName,
       isApproved: false, // Always false
       member: totalMemberData,
+      Registration_time: new Date()
     };
 
 
@@ -296,7 +296,7 @@ const Register = () => {
     formData.append("_id", competitionId);
     formData.append("team", JSON.stringify(teamData));
     formData.append("file", file);
-    
+
     try {
       const response = await fetch("https://procom25-server.vercel.app/register", {
         method: "POST",

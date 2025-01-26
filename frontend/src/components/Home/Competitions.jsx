@@ -1,9 +1,15 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import ImageUplift from '@/animation/ImageUplift';
+import { motion } from "framer-motion";
 
 const Card = ({ heading, text, image, link }) => (
-    <div className='bg-[linear-gradient(90deg,_#1F95ED_0%,_#2169D4_100%)] flex gap-2 w-4/5 mx-auto justify-center sm:justify-between rounded-[32px] sm:rounded-3xl text-white p-6 [box-shadow:11px_15px_23px_0px_#00000040]'>
+    <motion.div className='bg-[linear-gradient(90deg,_#1F95ED_0%,_#2169D4_100%)] flex gap-2 w-4/5 mx-auto justify-center sm:justify-between rounded-[32px] sm:rounded-3xl text-white p-6 [box-shadow:11px_15px_23px_0px_#00000040]'
+    whileHover={{
+        y: -10, // Moves the container upward on hover
+        transition: { duration: 0.3, ease: "easeOut" }, // Smooth and responsive
+      }}
+    >
         <div className='w flex flex-col gap-2 items-center sm:items-start'>
             <div className='sm:hidden m-auto'>
                 {/* <img src={image} alt={heading} height={400} width={400} className='w-[260px] sm:w-[300px] object-cover rounded-r-3xl' /> */}
@@ -19,7 +25,7 @@ const Card = ({ heading, text, image, link }) => (
             {/* <img src={image} alt={heading} height={400} width={400} className='w-[200px] object-cover rounded-r-3xl' /> */}
             <ImageUplift img={image} imgStyle={`w-[200px] object-cover rounded-r-3xl`}  alt={heading} height={400} width={400}/>
         </div>
-    </div>
+    </motion.div>
 );
 
 const Competitions = () => {
@@ -61,7 +67,7 @@ const Competitions = () => {
                     {
                         heading: "GAMING",
                         text: "Enter the thrilling arena of gaming competitions. From intense esports battles to game design challenges, show off your skills, strategy, and creativity in the ultimate digital playground.",
-                        image: "/CompetitionsImages/GF.png",
+                        image: "https://res.cloudinary.com/drrz1wz3s/image/upload/v1737569514/gaming_controller_utofcm.png",
                         link: "/modules"
                     }
                 ].map((competition, index) => (

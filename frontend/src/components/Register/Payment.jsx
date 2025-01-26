@@ -38,7 +38,7 @@ const Payment = ({ fileUrl, setFileUrl, fileError, setFileError, price, setFile 
               <span className="italic block text-center sm:text-base bg-[linear-gradient(90deg,_#1F95ED_0%,_#2169D4_100%)] bg-clip-text text-transparent font-bold">
                 UPLOAD PAYMENT RECEIPT
               </span>
-              <div className='my-3'><img src='/upload_symbol.png' className='w-[30px] sm:w-[40px] h-[30px] sm:h-[40px] rotate-180' /></div>
+              <div className='my-3'><img src='/upload_symbol.png' className='w-[30px] sm:w-[40px] h-[30px] sm:h-[40px] rotate-180 transform rotate-180'  /></div>
               <span className="italic text-[7px] sm:text-[8px] bg-[linear-gradient(90deg,_#1F95ED_0%,_#2169D4_100%)] bg-clip-text text-transparent font-bold">
                 *DRAG AND DROP YOUR IMAGE OR CLICK THE BUTTON
               </span>
@@ -83,11 +83,13 @@ const Payment = ({ fileUrl, setFileUrl, fileError, setFileError, price, setFile 
         <p className="text-[13px] sm:text-sm italic">
           PLEASE PAY YOUR FEES IN THE FOLLOWING ACCOUNT!
           <br />
-          BANK NAME: <span className="font-medium text-black opacity-70 not-italic">NAYAPAY</span>
+          BANK NAME: <span className="font-medium text-black opacity-70 not-italic">United Bank Limited (UBL)</span>
           <br />
           ACCOUNT TITLE: <span className="font-medium text-black opacity-70 not-italic">MUHAMMAD SHAHMIR RAZA</span>
           <br />
-          ACCOUNT NUMBER: <span className="font-medium text-black opacity-70 not-italic">03188409943</span>
+          ACCOUNT NUMBER: <span className="font-medium text-black opacity-70 not-italic">0471321377551</span>
+          <br />
+          IBAN: <span className="font-medium text-black opacity-70 not-italic">PK62UNIL0109000321377551</span>
           <br />
           AMOUNT: <span className="font-medium text-black opacity-70 not-italic">{price === 0 ? '-': price}</span>
         </p>

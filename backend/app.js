@@ -3,6 +3,8 @@ const bodyParser = require('body-parser');
 const express = require("express");
 const {connectToDb, getDb} = require('./db');
 const { ObjectId } = require("mongodb");
+const { uploadToS3aws } = require('./s3bucket');
+require('dotenv').config();
 
 //init app & middleware
 const app = express()
@@ -48,16 +50,13 @@ app.get("/competition/:id", (req, res) => {
     }
 
     try {
-        // Convert the id to ObjectId for MongoDB query
         const objectId = new ObjectId(id);
-
-        // Query the MongoDB collection to find the competition by _id
-        db.collection('competitions').findOne({ _id: objectId })
+        db.collection('competitions').findOne({ _id: objectId }, { projection: { registeredTeams: 0 } })
             .then((competition) => {
                 if (!competition) {
                     return res.status(404).json({ error: "Competition not found" });
                 }
-                return res.status(200).json(competition); // Send the found competition as a response
+                return res.status(200).json(competition);
             })
             .catch(() => {
                 res.status(500).json({ error: "Could not fetch the competition" });
@@ -69,13 +68,37 @@ app.get("/competition/:id", (req, res) => {
 
 
 
+// app.get("/competition/:id", (req, res)=>{
+    
+//     if(ObjectId.isValid(req.params.id)){
+//         db.collection('competitions').findOne({_id: new ObjectId(req.params.id)})
+//         .then((c)=>{
+//             res.status(200).json({oneRecord: c})
+//         })
+//         .catch(()=>{
+//             res.status(500).json({error: "could no fetch the competition"})
+//         })
+
+
+//     }else{
+//         res.status(500).json({error: "id is not valid"})
+
+// }
+// })
+
+
+
+
+
+
+
+
 // get competitions from MongoDB
 app.get("/competition", (req, res)=>{
     let competitions = []
 
     db.collection('competitions').find({}, { projection: { registeredTeams: 0 } })
     .forEach((competition) => {
-        // delete competition.registeredTeams
         competitions.push(competition)
     })
     .then(()=>{
@@ -87,7 +110,7 @@ app.get("/competition", (req, res)=>{
 
 })
 
-app.get("/competitions", (req, res)=>{
+app.get("/competitions18022025", (req, res)=>{
     let competitions = []
 
     db.collection('competitions').find()
@@ -103,23 +126,28 @@ app.get("/competitions", (req, res)=>{
 
 })
 
-app.get("/competition/:id", (req, res)=>{
-    
-    if(ObjectId.isValid(req.params.id)){
-        db.collection('competitions').findOne({_id: new ObjectId(req.params.id)})
-        .then((c)=>{
-            res.status(200).json({oneRecord: c})
-        })
-        .catch(()=>{
-            res.status(500).json({error: "could no fetch the competition"})
-        })
 
 
-    }else{
-        res.status(500).json({error: "id is not valid"})
+app.get("/single_module/:id", (req, res)=>{
 
-}
+    if(req.query.p === process.env.DB_PWD){
+    db.collection('competitions').findOne({_id: new ObjectId(req.params.id)})
+    .then((record)=>{
+        res.status(200).json(record)
+    })
+    .catch(()=>{
+        res.status(500).json({error: "could no fetch the competition"})
+    })
+    }
+    else{
+        res.status(511).json({error: "Access to the DB is restricted"})        
+    }
+
 })
+
+
+
+
 
 app.get("/competitionByName/:name", (req, res)=>{
     
@@ -164,13 +192,22 @@ app.get("/competition/:id/registeredCount", (req, res)=>{
 })
 
 
-app.post("/register", upload.single('file'), (req, res) => {
+app.post("/register", upload.single('file'), async (req, res) => {
+    //const bucketName = process.env.BUCKET;
     const { _id, team } = req.body;
     const file = req.file;
     let parsedTeam = JSON.parse(team);
-    parsedTeam.file = file
 
-
+    try {
+        const fileBuffer = Buffer.from(file.buffer, 'base64');
+        const response = await uploadToS3aws(process.env.BUCKET, file.originalname, fileBuffer);
+        console.log('File uploaded successfully:', response);
+        parsedTeam.payment_URL = response.Location
+      } catch (error) {
+        console.error('Error uploading file:', error);
+        res.status(500).json({ error: "Could not register the team" });
+      }
+    
     db.collection('competitions').updateOne(
         { _id: new ObjectId(_id) },
         { $push: { registeredTeams: parsedTeam }}
@@ -283,5 +320,47 @@ app.delete("/competitions/:id/teams", (req, res) => {
     })
     .catch(() => {
         res.status(500).json({ error: "Could not delete the teams" });
+    });
+});
+
+// ______________________________________SPONSORS API______________________________________
+app.get("/sponsors", (req, res) => {
+
+    db.collection('Sponsors').find()
+    .toArray()
+    .then((s) => {
+        res.status(201).json(s);
+    })
+    .catch(() => {
+        res.status(500).json({ error: "Could not get the sponsors" });
+    });
+});
+
+
+app.get("/sponsors-optimized", (req, res) => {
+
+    db.collection('Sponsors').find({show:true})
+    .toArray()
+    .then((s) => {
+        res.status(201).json(s);
+    })
+    .catch(() => {
+        res.status(500).json({ error: "Could not get the sponsors"  });
+    });
+});
+
+
+
+// ______________________________________SPEAKERS API______________________________________
+
+app.get("/speakers", (req, res) => {
+
+    db.collection('Speakers').find()
+    .toArray()
+    .then((s) => {
+        res.status(201).json(s);
+    })
+    .catch(() => {
+        res.status(500).json({ error: "Could not get the sponsors"  });
     });
 });

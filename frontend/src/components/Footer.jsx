@@ -18,7 +18,7 @@ const Footer = () => {
                 </div>
                 <div className='w-full md:w-3/5 px-8 p-4 flex sm:flex-row gap-6 sm:gap-0  flex-col justify-between md:justify-evenly'>
                     <div>
-                        <h3 className='font-extrabold text-md'>Categories</h3>
+                        <h3 className='font-extrabold text-base'>Categories</h3>
                         <ul className='mt-2 flex flex-col gap-1'>
                             <li>
                                 <Link to={"/modules"}>Computer Science</Link>
@@ -27,18 +27,21 @@ const Footer = () => {
                                 <Link to={"/modules"}>Electrical Engineering</Link>
                             </li>
                             <li>
-                                <Link to={"/modules"}>Business</Link>
+                                <Link to={"/modules"}>Artifical Intelligence</Link>
                             </li>
                             <li>
-                                <Link to={"/modules"}>Artifical Intelligence</Link>
+                                <Link to={"/modules"}>Business</Link>
                             </li>
                             <li>
                                 <Link to={"/modules"}>General</Link>
                             </li>
+                            <li>
+                                <Link to={"/modules"}>Gaming</Link>
+                            </li>
                         </ul>
                     </div>
                     <div>
-                        <h3 className='font-extrabold text-md'>Quick Links</h3>
+                        <h3 className='font-extrabold text-base'>Quick Links</h3>
                         <ul className='mt-2 flex flex-col gap-1'>
                             <li>
                                 <Link to={"/"}>Home</Link>
@@ -58,22 +61,22 @@ const Footer = () => {
                         </ul>
                     </div>
                     <div>
-                        <h3 className='font-extrabold text-md'>Contact Us</h3>
+                        <h3 className='font-extrabold text-base'>Contact Us</h3>
                         <ul className='mt-2 flex flex-col gap-1'>
                             <li>
-                            Parshant, Team PR +92 332 2598600
+                                Parshant, Participant Relations +92&nbsp;332&nbsp;2598600
                             </li>
                             <li>
-                            Abdullah, Team PR +92 334 2945871
+                                Abdullah, Participant Relations +92&nbsp;334&nbsp;2945871
                             </li>
                             <li>
-                            Sareem, Director Marketing +92 315 2098191
+                                Sareem, Director Marketing +92&nbsp;315&nbsp;2098191
                             </li>
                             <li>
-                            Mubin, Director Computing +92 335 2958201
+                                Mubin, Director Computing +92&nbsp;335&nbsp;2958201
                             </li>
                             <br />
-                            
+
                             <li>
                                 FAST National University, Karachi
                             </li>
