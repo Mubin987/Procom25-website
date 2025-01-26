@@ -4,6 +4,7 @@ const express = require("express");
 const {connectToDb, getDb} = require('./db');
 const { ObjectId } = require("mongodb");
 const { uploadToS3aws } = require('./s3bucket');
+const sendEmail = require('./emailService');
 require('dotenv').config();
 
 //init app & middleware
@@ -207,7 +208,17 @@ app.post("/register", upload.single('file'), async (req, res) => {
         console.error('Error uploading file:', error);
         res.status(500).json({ error: "Could not register the team" });
       }
+
+      const leaderEmail = parsedTeam.member.find(member => member.isLeader).email;;
+      const teamName = parsedTeam.team_name;
     
+      try {
+        await sendEmail( leaderEmail, teamName);
+        console.log('Email sent successfully to .');
+      } catch (error) {
+        console.error('Error in email function:', error);
+      }
+
     db.collection('competitions').updateOne(
         { _id: new ObjectId(_id) },
         { $push: { registeredTeams: parsedTeam }}
