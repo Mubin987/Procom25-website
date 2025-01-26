@@ -42,7 +42,7 @@ const generateEmailTemplate = (recipientName) => {
               </div>
               <div style="background-color: #4da6ff; height: 1px; margin: 0 20px;"></div>
               <div style="padding: 12px 0; color: #bed2d7; font-family: monospace; font-size: 14px;">
-                   PROCOM™ 2025 © All Rights Reserved.
+                   © 2025 PROCOM™. All Rights Reserved.
               </div>
           </footer>
       </body>
