@@ -376,3 +376,21 @@ app.get("/speakers", (req, res) => {
         res.status(500).json({ error: "Could not get the sponsors"  });
     });
 });
+
+
+
+// ______________________________________Single Sponser API______________________________________
+
+app.get("/Sponsor_logos", (req, res) => {
+    let sponsors = []
+    db.collection('Single_Sponsor').find()
+    .forEach((s) => sponsors.push(s))
+    .then(()=>{
+        res.status(200).json(sponsors)
+    } )
+    .catch(() => {
+        res.status(500).json({ error: "Could not get the sponsors" });
+    });
+});
+
+
