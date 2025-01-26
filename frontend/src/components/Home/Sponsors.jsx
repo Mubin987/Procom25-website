@@ -1,54 +1,13 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Heading1 from '../Commons/Heading1';
 import { cn } from "@/lib/utils";
 import Marquee from "@/components/ui/marquee";
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
-const logos = [
-    {
-        name: "Jack",
-        img: "https://res.cloudinary.com/drrz1wz3s/image/upload/v1737827015/10_b4mkj4.png",
-    },
-    {
-        name: "Jill",
-        img: "https://res.cloudinary.com/drrz1wz3s/image/upload/v1737827015/9_lvbeer.png",
-    },
-    {
-        name: "John",
-        img: "https://res.cloudinary.com/drrz1wz3s/image/upload/v1737827015/6_rjjnch.png",
-    },
-    {
-        name: "Jane",
-        img: "https://res.cloudinary.com/drrz1wz3s/image/upload/v1737827015/4_bzoqdf.png",
-    },
-    {
-        name: "Jenny",
-        img: "https://res.cloudinary.com/drrz1wz3s/image/upload/v1737827015/3_iq10fv.png",
-    },
-    {
-        name: "James",
-        img: "https://res.cloudinary.com/drrz1wz3s/image/upload/v1737827014/2_b4hfej.png",
-    },
-    {
-        name: "James",
-        img: "https://res.cloudinary.com/drrz1wz3s/image/upload/v1737827014/8_njt5q3.png",
-    },
-    {
-        name: "James",
-        img: "https://res.cloudinary.com/drrz1wz3s/image/upload/v1737827014/7_em3yak.png",
-    },
-    {
-        name: "James",
-        img: "https://res.cloudinary.com/drrz1wz3s/image/upload/v1737827014/1_p8o6tq.png",
-    },
-    {
-        name: "James",
-        img: "https://res.cloudinary.com/drrz1wz3s/image/upload/v1737827014/5_mpcba6.png",
-    },
-];
 
-const firstRow = logos.slice(0, logos.length / 2);
-const secondRow = logos.slice(logos.length / 2);
+// const firstRow = single_sponsor.slice(0, logos.length / 2);
+// const secondRow = single_sponsor.slice(logos.length / 2);
 
 
 const ReviewCard = ({
@@ -70,18 +29,30 @@ const ReviewCard = ({
 };
 
 const Sponsors = () => {
+
+    const [single_sponsor, setSingle_sponsor] = useState([])
+
+    useEffect(()=>{
+        axios.get("http://localhost:3000/Sponsor_logos")
+        .then((res)=>
+            setSingle_sponsor(res.data)
+        )
+    }, [])
+
+
+
     return (
         <section className='w-full flex flex-col items-center justify-center gap-6 my-5 p-4 overflow-hidden'>
             <h1 className='font-extrabold font-lemonmilk w-4/5 bg-clip-text text-transparent bg-[linear-gradient(90deg,_#434242_25.4%,_#2C2C2C_78.4%,_#161616_100%)] text-4xl sm:text-5xl py-2 text-center'>Who attends <span className='font-bold bg-clip-text text-transparent bg-[linear-gradient(180deg,_#199DDF_0%,_#145BD5_100%)] text-4xl sm:text-6xl'>PROCOM</span>?</h1>
             <div className=''>
                 <Marquee pauseOnHover className="[--duration:20s]">
-                    {firstRow.map((review) => (
-                        <ReviewCard key={review.username} {...review} />
+                    {single_sponsor.slice(0, single_sponsor.length / 2).map((sponser) => (
+                        <ReviewCard key={sponser.name} img={sponser.img_url} />
                     ))}
                 </Marquee>
                 <Marquee reverse pauseOnHover className="[--duration:20s]">
-                    {secondRow.map((review) => (
-                        <ReviewCard key={review.username} {...review} />
+                    {single_sponsor.slice(single_sponsor.length / 2).map((sponser) => (
+                        <ReviewCard key={sponser.name} img={sponser.img_url}  />
                     ))}
                 </Marquee>
             </div>
