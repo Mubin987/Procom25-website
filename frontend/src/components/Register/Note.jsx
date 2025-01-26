@@ -6,6 +6,9 @@ const Note = () => {
                     Note:
                     <br />
                     Free transport will be provided to all the participants.
+                    <br />
+                    Participants wanting accomodation should email first at procom.net@nu.edu.pk
+                    Accommodation will be paid.
                 </p>
             </div>
         </div>
