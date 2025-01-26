@@ -86,4 +86,4 @@ const sendEmail = async (recipientEmail, recipientName) => {
   }
 };
 
-module.exports = sendEmail;
+module.exports = {sendEmail};

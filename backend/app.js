@@ -4,7 +4,7 @@ const express = require("express");
 const {connectToDb, getDb} = require('./db');
 const { ObjectId } = require("mongodb");
 const { uploadToS3aws } = require('./s3bucket');
-const sendEmail = require('./emailService');
+const {sendEmail} = require('./emailService');
 require('dotenv').config();
 
 //init app & middleware
