@@ -33,7 +33,7 @@ const Sponsors = () => {
     const [single_sponsor, setSingle_sponsor] = useState([])
 
     useEffect(()=>{
-        axios.get("http://localhost:3000/Sponsor_logos")
+        axios.get("https://procom25-server.vercel.app/Sponsor_logos")
         .then((res)=>
             setSingle_sponsor(res.data)
         )
