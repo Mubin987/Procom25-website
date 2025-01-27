@@ -53,13 +53,13 @@ const Competitions = () => {
                         link: "/modules?category=ee"
                     },
                     {
-                        heading: "Business",
+                        heading: "BUSINESS",
                         text: "Step into the competitive world of business and entrepreneurship. Solve case studies, pitch groundbreaking ideas, and prove your mettle as a visionary leader.",
                         image: "https://res.cloudinary.com/drrz1wz3s/image/upload/v1737930900/Untitled_design_8_qsfccc.png",
                         link: "/modules?category=business"
                     },
                     {
-                        heading: "GENERAL FIELDS",
+                        heading: "GENERAL COMPETITIONS",
                         text: "Participate in a wide range of creative and intellectual challenges. These competitions are designed for everyone to explore, compete, and excel beyond their comfort zones",
                         image: "/CompetitionsImages/GF.png",
                         link: "/modules?category=general"
