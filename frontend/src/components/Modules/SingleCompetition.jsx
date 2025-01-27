@@ -42,6 +42,9 @@ const SingleCompetition = ({ module }) => {
     else if (module.department === "General") {
         moduleHeading = "General Competition";
     }
+    else if (module.department === "Gaming") {
+        moduleHeading = "Gaming Competition";
+    }
 
     return (
         <div className='w-full flex flex-col justify-center items-center gap-4 my-32'>
@@ -69,7 +72,7 @@ const SingleCompetition = ({ module }) => {
                         <DetailBox isIcon={true} IconPath={() => (<Wallet />)} value={`${module.fee} PKR`} title="Registration Fee" width="2/5" />
                         <DetailBox isIcon={true} IconPath={() => (<User2Icon />)} value={`${module.min_team_size} - ${module.max_team_size}`} title="Members Limit" width="2/5" />
                     </div>
-                    <div className="rounded-[9rem] flex items-center w-[14rem] sm:w-[18rem] h-14 [box-shadow:6px_7px_20px_2px_#00000040] bg-white">
+                    <div className={`${module.department === "Gaming" ? "hidden":""} rounded-[9rem] flex items-center w-[14rem] sm:w-[18rem] h-14 [box-shadow:6px_7px_20px_2px_#00000040] bg-white`}>
                         <div className="flex">
                             <div className="p-3 flex items-center justify-center w-14">
                                 <ArrowDownCircleIcon className="text-[#217ade]" size={40} />
@@ -80,7 +83,7 @@ const SingleCompetition = ({ module }) => {
                             </a>
                         </div>
                     </div>
-                    <h1 className='bg-clip-text text-transparent bg-[linear-gradient(90deg,_#FFFFFF_25.4%,_#caeaf9_90%)] text-5xl font-bold font-lemonmilk uppercase mt-10 mb-2 tracking-widest'>Prizes</h1>
+                    <h1 className={`bg-clip-text text-transparent bg-[linear-gradient(90deg,_#FFFFFF_25.4%,_#caeaf9_90%)] text-5xl font-bold font-lemonmilk uppercase mt-10 mb-2 tracking-widest`}>Prizes</h1>
                     <div className="flex gap-4 flex-col md:flex-row justify-between w-10/12 sm:w-4/5">
                         <div className='flex flex-col w-full md:w-2/5 justify-end items-center'>
                             <div>
