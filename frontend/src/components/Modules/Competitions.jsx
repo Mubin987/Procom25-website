@@ -100,7 +100,7 @@ const Competitions = () => {
         {
             heading: "ARTIFICIAL INTELLIGENCE",
             text: "Dive into the exciting world of artificial intelligence. Take on challenges involving machine learning, deep learning, and neural networks to prove you're at the forefront of this evolving technology.",
-            image: "/CompetitionsImages/ROBOTICS.png",
+            image: "/CompetitionsImages/AI.png",
             Department: "AI",
             category: useRef(null) 
         },
