@@ -50,12 +50,15 @@ const Navbar = () => {
             <NavLink
               key={link.name}
               to={link.path}
-              className={`${location.pathname === link.path || (link.path !== "/" && location.pathname.startsWith(link.path))
-                ? "font-semibold"
-                : ""
-                } text-lg text-themeBlue font-medium mx-4 md:mx-5 transition duration-200`}
+              className={`relative inline-block ${
+                location.pathname === link.path || (link.path !== "/" && location.pathname.startsWith(link.path))
+                  ? "font-semibold"
+                  : ""
+              } text-lg group text-themeBlue font-medium mx-4 md:mx-5 transition duration-200`}
             >
               {link.name}
+              {/* Line hover effect */}
+              <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-[#23a6f4] transition-all duration-300 ease-in-out group-hover:w-full"></span>
             </NavLink>
           ))}
         </div>

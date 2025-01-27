@@ -1,4 +1,5 @@
 import Heading1 from '@/components/Commons/Heading1';
+import ThemeBtn1 from '../Commons/ThemeBtn1';
 import { ArrowDownCircleIcon, LucideDollarSign,Wallet, Banknote,User2Icon } from "lucide-react"
 import React from 'react'
 import { Link } from 'react-router-dom';
@@ -77,7 +78,7 @@ const SingleCompetition = ({ module }) => {
                             <div className="p-3 flex items-center justify-center w-14">
                                 <ArrowDownCircleIcon className="text-[#217ade]" size={40} />
                             </div>
-                            <a href={`${module.rulebook.book_url}`} target="_blank" className="flex flex-col py-3 justify-center px-2 sm:px-6">
+                            <a href={`${module.rulebook.book_url}`} target="_blank" className="flex flex-col  transition-all duration-300 hover:scale-105 py-3 justify-center px-2 sm:px-6">
                                 <span className="text-[#217ade] text-sm sm:text-base font-bold -mb-1">Download Details</span>
                                 <span className="text-[#217ade] text-center text-sm sm:text-base -mt-1 font-bold">PDF</span>
                             </a>
@@ -108,9 +109,7 @@ const SingleCompetition = ({ module }) => {
                             <DetailBox isIcon={false} IconPath={"/SilverBadge.png"} value={`${module.secondPrize} PKR`} title="Runner Up" width="full" />
                         </div>
                     </div>
-                    <Link to={'/register'} className='[box-shadow:1px_2px_3px_0px_#00000040] font-montserrate bg-[linear-gradient(90deg,_#FFFFFF_14.9%,_#D0EFFF_65.4%,_#A7E2FF_100%)] justify-center rounded-full text-[#2169D4] font-bold px-6 py-1.5 mt-2 sm:mt-0 flex items-center m-auto w-11/12 h-[50px] text-xl'>
-                        Register Now
-                    </Link>
+                    <ThemeBtn1 linkpath={`/register`} text={`Register Now`} width={`11/12`} height={`50px`} />
                     {/* {module && module.rulebook && Object.keys(module.rulebook).map((key) => (
                         <div className='flex flex-col gap-2 w-full' key={key}>
                             <h2 className='hidden font-lemonmilk bg-clip-text text-center text-transparent bg-[linear-gradient(90deg,_#FFFFFF_25.4%,_#caeaf9_90%)] text-[1.25rem] sm:text-[2rem] font-bold tracking-tight uppercase'>{key}</h2>
