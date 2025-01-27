@@ -42,6 +42,11 @@ const Register = () => {
   const [competitionId, setCompetitionId] = useState("");
   const [test, setTest] = useState("")
   const [price, setPrice] = useState(0);
+  const [Semaphore, setsemaphore] = useState(false);
+  
+
+
+
   const minRef = useRef(null);
 
   const [members, setMembers] = useState(
@@ -226,6 +231,7 @@ const Register = () => {
   }, [minMemberCount])
 
   const handleSubmit = async () => {
+    setsemaphore(true)
     const filteredMembers = members.map((member) => ({
       isLeader: false,
       name: member.name,
@@ -249,6 +255,7 @@ const Register = () => {
     if (!file) {
       setFileError(true);
       setIsOpen(false)
+      setsemaphore(false);
       toast({
         variant: "destructive",
         title: "You must upload a payment receipt",
@@ -276,6 +283,8 @@ const Register = () => {
     ) {
       setIsErrorPresent(true);
       setIsOpen(false);
+      setsemaphore(false);
+
       toast({
         variant: "destructive",
         title: "Registration failed. Please try again.",
@@ -312,6 +321,7 @@ const Register = () => {
         variant: "success",
         title: "Registration successful!",
       });
+      setsemaphore(false)
       navigate("/");
     } catch (error) {
       console.error("Error:", error);
@@ -320,6 +330,8 @@ const Register = () => {
         title: "Registration failed. Please try again.",
       });
       setIsOpen(false)
+      setsemaphore(false)
+
     }
   };
 
@@ -365,6 +377,7 @@ const Register = () => {
           isOpen={isOpen}
           onClose={() => {
             setIsOpen(false);
+            setsemaphore(false)
           }}
           props={{
             department,
@@ -376,6 +389,9 @@ const Register = () => {
             whatsapp,
             referenceCode,
             fileUrl,
+            Semaphore,
+            setsemaphore
+
           }}
         />
         <Note />
