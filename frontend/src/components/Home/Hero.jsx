@@ -44,7 +44,6 @@ const Hero = ({ pageType, AboutusText }) => {
                                 </Link>
                                 }
 
-
                             </div>
                         </div>
                     </div>
