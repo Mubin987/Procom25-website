@@ -2,7 +2,7 @@ import { useAnimate } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
 // NOTE: Change this date to whatever date you want to countdown to :)
-const COUNTDOWN_FROM = "2025-2-18";
+const COUNTDOWN_FROM = "2025-02-18T00:00:00Z";
 
 const SECOND = 1000;
 const MINUTE = SECOND * 60;
@@ -78,7 +78,7 @@ const useTimer = (unit) => {
     const getNewTime = () => {
         const end = new Date(COUNTDOWN_FROM);
         const now = new Date();
-        const distance = Math.max(0, end - now);
+        const distance = Math.max(0, end.getTime() - now.getTime()); // Use getTime() for precise calculations
 
         if (unit === "Day") {
             return Math.floor(distance / DAY);
