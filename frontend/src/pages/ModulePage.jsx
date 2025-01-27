@@ -1,5 +1,5 @@
 import { modulesData } from '../../public/Data/ModulesData';
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect} from 'react'
 import { useParams } from 'react-router-dom'
 import Hero from '@/components/Register/Hero'
 import SingleCompetition from '@/components/Modules/SingleCompetition'
@@ -10,6 +10,7 @@ const ModulePage = () => {
     const [competitions, setCompetitions] = useState(null);
     const { moduleId } = useParams();
 
+
     const fetchCompetition = async () => {
             axios.get(`https://procom25-server.vercel.app/competitionByName/${moduleId}`)
             .then((res) => {
@@ -17,8 +18,10 @@ const ModulePage = () => {
             })
     };
     useEffect(() => {
-        fetchCompetition()
+        fetchCompetition();
     }, [moduleId]);
+
+
 
     return (
         <>

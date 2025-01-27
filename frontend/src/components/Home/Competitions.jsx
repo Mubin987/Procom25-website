@@ -17,7 +17,7 @@ const Card = ({ heading, text, image, link }) => (
             </div>
             <h1 className='bg-clip-text text-center font-lemonmilk m-[20px] sm:m-0 sm:text-start text-transparent bg-[linear-gradient(90deg,_#FFFFFF_25.4%,_#A7E2FF_90%)] text-4xl font-bold'>{heading}</h1>
             <p className='hidden sm:inline text-lg font-semibold'>{text}</p>
-            <Link to={`${link}#competitions`} className='[box-shadow:1px_2px_3px_0px_#00000040] font-montserrate bg-[linear-gradient(90deg,_#FFFFFF_14.9%,_#D0EFFF_65.4%,_#A7E2FF_100%)] justify-center rounded-full text-[#2169D4] font-bold px-6 py-1.5 w-fit mt-2 sm:mt-0'>
+            <Link to={link} className='[box-shadow:1px_2px_3px_0px_#00000040] font-montserrate bg-[linear-gradient(90deg,_#FFFFFF_14.9%,_#D0EFFF_65.4%,_#A7E2FF_100%)] justify-center rounded-full text-[#2169D4] font-bold px-6 py-1.5 w-fit mt-2 sm:mt-0'>
                 View Modules
             </Link>
         </div>
@@ -38,37 +38,37 @@ const Competitions = () => {
                         heading: "COMPUTER SCIENCE",
                         text: "Compete in the most challenging and innovative competitions in the field of computer science. From coding sprints to algorithmic battles, showcase your programming prowess and problem-solving skills.",
                         image: "/CompetitionsImages/CS.png",
-                        link: "/modules"
+                        link: "/modules?category=cs"
                     },
                     {
                         heading: "ARTIFICIAL INTELLIGENCE",
                         text: "Dive into the exciting world of artificial intelligence. Take on challenges involving machine learning, deep learning, and neural networks to prove you're at the forefront of this evolving technology.",
                         image: "/CompetitionsImages/AI.png",
-                        link: "/modules"
+                        link: "/modules?category=ai"
                     },
                     {
                         heading: "ELECTRICAL ENGINEERING",
                         text: "Explore competitions that test your expertise in circuit design, robotics, and system optimization. Engineer solutions that spark innovation and bring ideas to life.",
                         image: "/CompetitionsImages/EE.png",
-                        link: "/modules"
+                        link: "/modules?category=ee"
                     },
                     {
                         heading: "Business",
                         text: "Step into the competitive world of business and entrepreneurship. Solve case studies, pitch groundbreaking ideas, and prove your mettle as a visionary leader.",
-                        image: "/CompetitionsImages/ROBOTICS.png",
-                        link: "/modules"
+                        image: "https://res.cloudinary.com/drrz1wz3s/image/upload/v1737930900/Untitled_design_8_qsfccc.png",
+                        link: "/modules?category=business"
                     },
                     {
                         heading: "GENERAL FIELDS",
                         text: "Participate in a wide range of creative and intellectual challenges. These competitions are designed for everyone to explore, compete, and excel beyond their comfort zones",
                         image: "/CompetitionsImages/GF.png",
-                        link: "/modules"
+                        link: "/modules?category=general"
                     },
                     {
                         heading: "GAMING",
                         text: "Enter the thrilling arena of gaming competitions. From intense esports battles to game design challenges, show off your skills, strategy, and creativity in the ultimate digital playground.",
                         image: "https://res.cloudinary.com/drrz1wz3s/image/upload/v1737569514/gaming_controller_utofcm.png",
-                        link: "/modules"
+                        link: "/modules/?category=gaming"
                     }
                 ].map((competition, index) => (
                     <Card
