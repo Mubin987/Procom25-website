@@ -39,7 +39,7 @@ const SingleCompetition = ({ module }) => {
     else if (module.department === "AI") {
         moduleHeading = "Artificial Intelligence";
     }
-    else if (module.department === "General") {
+    else if (module.department === "general") {
         moduleHeading = "General Competition";
     }
     else if (module.department === "Gaming") {
