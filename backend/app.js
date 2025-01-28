@@ -322,7 +322,14 @@ app.patch("/update_rulebook_url/:id", (req, res) => {
 
 
 app.delete("/competitions/:id/teams", (req, res) => {
+    // let deletedRecord = null
+    db.collection('competitions').findOne({_id: new ObjectId(req.params.id)}, {projection:{_id:1, title:1, registeredTeams:1}})
+    .then((c) => 
+{    const deletedRecord = c
 
+    if(deletedRecord){
+    db.collection('Trash').insertOne(deletedRecord)
+    .then(()=>{
     db.collection('competitions').updateOne(
         { _id: new ObjectId(req.params.id) },
         { $set: { registeredTeams: []} }
@@ -333,7 +340,37 @@ app.delete("/competitions/:id/teams", (req, res) => {
     .catch(() => {
         res.status(500).json({ error: "Could not delete the teams" });
     });
+    })}
+    else{res.status(500).json({ error: "Failed to delete the teams" })}
+}
+)
 });
+
+
+app.get("/trash", (req, res) => {
+    
+    db.collection('Trash').find({})
+    .toArray()
+    .then((trash) => {
+        res.status(201).json(trash);
+    })
+    .catch(() => {
+        res.status(500).json({ error: "Could not get the sponsors" });
+    });
+})
+
+
+app.delete("/trash", (req, res) => {
+    
+    db.collection('Trash').deleteMany({})
+    .then((trash) => {
+        res.status(200).json(trash);
+    })
+    .catch(() => {
+        res.status(500).json({ error: "Could not get the sponsors" });
+    });
+})
+
 
 // ______________________________________SPONSORS API______________________________________
 app.get("/sponsors", (req, res) => {
