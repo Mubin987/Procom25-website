@@ -59,7 +59,7 @@ const Sponsors = () => {
                 </Marquee>
             </div>
             <a href={SponsorLink} target='_blank' className='group'>
-            <ThemeBtn2 text="About us" width="3vw" px="6" py="1.5"/>
+            <ThemeBtn2 text="Sponsor Now" width="3vw" px="6" py="1.5"/>
             </a>
         </section>
     );
