@@ -114,7 +114,7 @@ const Competitions = () => {
         {
             heading: "Business",
             text: "Step into the competitive world of business and entrepreneurship. Solve case studies, pitch groundbreaking ideas, and prove your mettle as a visionary leader.",
-            image: "https://res.cloudinary.com/drrz1wz3s/image/upload/v1737930900/Untitled_design_8_qsfccc.png",
+            image: "https://res.cloudinary.com/drrz1wz3s/image/upload/v1738095548/Untitled_design_yqso4v.png",
             Department: "business",
             category: useRef(null) 
         },

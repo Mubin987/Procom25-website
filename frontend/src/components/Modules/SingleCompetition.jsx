@@ -109,7 +109,7 @@ const SingleCompetition = ({ module }) => {
                             <DetailBox isIcon={false} IconPath={"/SilverBadge.png"} value={`${module.secondPrize} PKR`} title="Runner Up" width="full" />
                         </div>
                     </div>
-                    <ThemeBtn1 linkpath={`/register`} text={`Register Now`} width={`11/12`} height={`50px`} />
+                    <ThemeBtn1 linkpath={`/register`} text="Register Now" width="full" height="50px" extra="py-2 px-2" />
                     {/* {module && module.rulebook && Object.keys(module.rulebook).map((key) => (
                         <div className='flex flex-col gap-2 w-full' key={key}>
                             <h2 className='hidden font-lemonmilk bg-clip-text text-center text-transparent bg-[linear-gradient(90deg,_#FFFFFF_25.4%,_#caeaf9_90%)] text-[1.25rem] sm:text-[2rem] font-bold tracking-tight uppercase'>{key}</h2>
