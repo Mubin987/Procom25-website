@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom';
+import ThemeBtn2 from '../Commons/ThemeBtn2';
 import Countdown from '../Home/Countdown';
 import ProcomSVG from '../Home/ProcomSVG';
 import locomotiveScroll from 'locomotive-scroll';
@@ -31,8 +32,8 @@ const  AboutUsHero = ()=>{
                     <div className='flex flex-col justify-center items-center font-montserrate'>
                         <p className="text-[3vw] text-themeDBlue text-end text-xs sm:text-sm tracking-widest mt-2 mb-1 sm:mt-4 sm:mb-2">Together, we shape the future!</p>
                         <div className='flex justify-end'>
-                            <a href={`https://docs.google.com/forms/d/e/1FAIpQLScsHqsfQw5xxEvIrvDjv-hsLWSMxAr-aAF_0oEDeQyM_EpNYQ/viewform`} target="_blank">
-                                <button className='text-[3vw] duration-200 sm:text-lg bg-[linear-gradient(90deg,_#218EF1_0%,_#1865DD_50%,_#0E3AC8_100%)] [box-shadow:6px_4px_11.7px_0px_#00000040] font-bold text-white px-6 py-1.5 rounded-full'>Become Ambassador</button>
+                            <a href={`https://docs.google.com/forms/d/e/1FAIpQLScsHqsfQw5xxEvIrvDjv-hsLWSMxAr-aAF_0oEDeQyM_EpNYQ/viewform`} target="_blank" className='group'>
+                            <ThemeBtn2 text="Become Ambassador" width="3vw" px="6" py="1.5"/>
                             </a>
                         </div>
                     </div>

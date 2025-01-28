@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react'
+import ThemeBtn2 from '../Commons/ThemeBtn2';
 import { Link } from 'react-router-dom';
 import Countdown from "./Countdown";
 import ProcomSVG from './ProcomSVG';
@@ -35,12 +36,12 @@ const Hero = ({ pageType, AboutusText }) => {
 
                                 {
                                 pageType === "Sponsors" ? 
-                                <a href={SponsorFormLink} target='_blank'>
-                                    <button className='text-[3vw] duration-200 sm:text-lg bg-[linear-gradient(90deg,_#218EF1_0%,_#1865DD_50%,_#0E3AC8_100%)] [box-shadow:6px_4px_11.7px_0px_#00000040] font-bold text-white px-6 py-1.5 rounded-full'>{pageType === "Sponsors" ? "Sponsor Now" : "Register Now"}</button>
-
-                                </a>: 
-                                <Link to="/register">
-                                    <button className='text-[3vw] duration-200 sm:text-lg bg-[linear-gradient(90deg,_#218EF1_0%,_#1865DD_50%,_#0E3AC8_100%)] [box-shadow:6px_4px_11.7px_0px_#00000040] font-bold text-white px-6 py-1.5 rounded-full'>{pageType === "Sponsors" ? "Sponsor Now" : "Register Now"}</button>
+                                <a href={SponsorFormLink} target="_blank" className="group relative inline-block">
+                                    <ThemeBtn2 text={pageType === "Sponsors" ? "Sponsor Now" : "Register Now"} width="3vw" px="6" py="1.5"/>
+                                </a>
+                                : 
+                                <Link to="/register" className='group relative inline-block'>
+                                    <ThemeBtn2 text={pageType === "Sponsors" ? "Sponsor Now" : "Register Now"} width="3vw" px="6" py="1.5"/>
                                 </Link>
                                 }
 

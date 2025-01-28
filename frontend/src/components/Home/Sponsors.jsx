@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Heading1 from '../Commons/Heading1';
+import ThemeBtn2 from '../Commons/ThemeBtn2';
 import { cn } from "@/lib/utils";
 import Marquee from "@/components/ui/marquee";
 import { Link } from 'react-router-dom';
@@ -57,8 +58,8 @@ const Sponsors = () => {
                     ))}
                 </Marquee>
             </div>
-            <a href={SponsorLink} target='_blank'>
-                <button className='text-lg font-montserrate bg-[linear-gradient(90deg,_#218EF1_0%,_#1865DD_50%,_#0E3AC8_100%)] [box-shadow:6px_4px_11.7px_0px_#00000040] font-bold text-white px-6 py-1 rounded-full'>Become a Sponsor</button>
+            <a href={SponsorLink} target='_blank' className='group'>
+            <ThemeBtn2 text="About us" width="3vw" px="6" py="1.5"/>
             </a>
         </section>
     );
