@@ -212,9 +212,7 @@ app.post("/register", upload.single('file'), async (req, res) => {
       const leaderEmail = parsedTeam.member.find(member => member.isLeader).email;
       const teamName = parsedTeam.team_name;
     
-      
-
-    db.collection('competitions').updateOne(
+      db.collection('competitions').updateOne(
         { _id: new ObjectId(_id) },
         { $push: { registeredTeams: parsedTeam }}
     )
@@ -313,12 +311,13 @@ app.patch("/update_rulebook_url/:id", (req, res) => {
     })
     .catch((err) => {
         console.error("Error uploading rulebook:", err);
-        res.status(500).json({ error: "Could not register the team", details: err.message });
+        res.status(500).json({ error: "Could not update the rulebook", details: err.message });
     });
     
 });
 
 
+// ______________________________________Delete APIs______________________________________
 
 
 app.delete("/competitions/:id/teams", (req, res) => {
@@ -355,7 +354,7 @@ app.get("/trash", (req, res) => {
         res.status(201).json(trash);
     })
     .catch(() => {
-        res.status(500).json({ error: "Could not get the sponsors" });
+        res.status(500).json({ error: "Could not get the Trashed Items" });
     });
 })
 

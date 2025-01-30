@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import Hero from '@/components/Register/Hero';
 import Competitions from '@/components/Register/Competitions';
 import Department from '@/components/Register/Department';
@@ -43,7 +43,7 @@ const Register = () => {
   const [test, setTest] = useState("")
   const [price, setPrice] = useState(0);
   const [Semaphore, setsemaphore] = useState(false);
-  
+  const [searchParams, setSearchParams] = useSearchParams(); // BA = Brand Ambassader
 
 
 
@@ -292,9 +292,10 @@ const Register = () => {
       return;
     }
     setIsErrorPresent(false)
-
+    // const BA_value = searchParams.get('ba')
     const teamData = {
       team_name: teamName,
+      brand_Ambassador: searchParams.get('ba'),
       isApproved: false, // Always false
       member: totalMemberData,
       Registration_time: new Date()

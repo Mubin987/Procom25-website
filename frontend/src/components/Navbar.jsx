@@ -5,9 +5,9 @@ import '../index.css'
 const Navbar = () => {
   const navLinks = [
     { name: 'Home', path: '/' },
-    { name: 'About Us', path: '/about-us' },
-    { name: 'Register', path: '/register' },
     { name: 'Modules', path: '/modules' },
+    { name: 'Register', path: '/register' },
+    { name: 'About Us', path: '/about-us' },
     { name: 'Sponsors', path: '/sponsors' },
   ];
 
