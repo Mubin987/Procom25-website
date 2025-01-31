@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
+import uuid from 'react-uuid'
 import Hero from '@/components/Register/Hero';
 import Competitions from '@/components/Register/Competitions';
 import Department from '@/components/Register/Department';
@@ -292,11 +293,11 @@ const Register = () => {
       return;
     }
     setIsErrorPresent(false)
-    // const BA_value = searchParams.get('ba')
     const teamData = {
+      team_id: uuid(),
       team_name: teamName,
       brand_Ambassador: searchParams.get('ba'),
-      isApproved: false, // Always false
+      isApproved: "pending",
       member: totalMemberData,
       Registration_time: new Date()
     };
