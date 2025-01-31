@@ -246,11 +246,11 @@ const Register = () => {
         name: name,
         phone: whatsapp,
         email: emailAddress,
-        cnic: cnicNo,
+        cnic: cnicNo.split('').filter((char) => char !== '-').join(''),
       },
       ...filteredMembers,
     ];
-
+    
     // Ensure the payment image is provided
     if (!file) {
       setFileError(true);
