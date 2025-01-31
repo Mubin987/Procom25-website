@@ -296,6 +296,7 @@ const Register = () => {
     const teamData = {
       team_name: teamName,
       brand_Ambassador: searchParams.get('ba'),
+      //university name to be added
       isApproved: false, // Always false
       member: totalMemberData,
       Registration_time: new Date()
