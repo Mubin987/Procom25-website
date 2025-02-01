@@ -29,7 +29,7 @@ const generateEmailTemplate = (recipientName) => {
                       Thank you for registering for <span style="font-weight: 600; color: #4da6ff;">Procom 2025</span>. We're thrilled to have you on board for this exciting event. You will be notified as soon as payment is verified.
                   </div>
                   <div style="margin-top: 12px; font-size: 16px;">
-                      Please feel free to contact us at <a href="mailto:procom.net@nu.edu.pk" style="color: #4da6ff; text-decoration: none; font-weight: 500;">procom.net@nu.edu.pk</a> or at +92 370 2743866 for any queries.
+                      Please feel free to contact us at <a href="mailto:procom.net@nu.edu.pk" style="color: #4da6ff; text-decoration: none; font-weight: 500;">procom.net@nu.edu.pk</a> or at +92&nbsp;370&nbsp;2743866 for any queries.
                   </div>
               </div>
           </div>
