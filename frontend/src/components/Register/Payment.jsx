@@ -73,7 +73,7 @@ const Payment = ({ fileUrl, setFileUrl, fileError, setFileError, price, setFile 
             </div>
           )}
         </div>
-        <RegisterStep step={4} />
+        <RegisterStep step={5} />
       </div>
       <div className={`mt-40 sm:mt-4 bg-[linear-gradient(180deg,_#199DDF_0%,_#145BD5_100%)] w-full sm:w-1/2 md:w-[55%] lg:w-full bg-clip-text text-transparent font-bold
       ${fileError ? `mt-44` : `mt-40`}

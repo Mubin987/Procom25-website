@@ -13,7 +13,7 @@ const Footer = () => {
             <div className='flex md:flex-row flex-col justify-between w-full'>
                 <div className='w-full md:w-2/5 px-8 p-4 flex flex-col gap-4'>
                     <p className='text-justify'>
-                        PROCOM, since 1998, is one of the most prestigiuos and long-standing events at FAST Karachi, acting as bridge between students and professional world by organising annual grand job fair, series of panel dicussions, competitions and a startup showcase.
+                        PROCOM, since 1998, is one of the most prestigious and long-standing events at FAST Karachi, acting as bridge between students and professional world by organising annual grand job fair, series of panel dicussions, competitions and a startup showcase.
                     </p>
                 </div>
                 <div className='w-full md:w-3/5 px-8 p-4 flex sm:flex-row gap-6 sm:gap-0  flex-col justify-between md:justify-evenly'>

@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
+import uuid from 'react-uuid'
 import Hero from '@/components/Register/Hero';
 import Competitions from '@/components/Register/Competitions';
 import Department from '@/components/Register/Department';
@@ -13,6 +14,7 @@ import axios from 'axios'
 
 import '../index.css';
 import { toast } from '@/hooks/use-toast';
+import UniversityDropDown from '@/components/Register/University';
 
 const Register = () => {
   const [department, setDepartment] = useState('');
@@ -43,9 +45,9 @@ const Register = () => {
   const [test, setTest] = useState("")
   const [price, setPrice] = useState(0);
   const [Semaphore, setsemaphore] = useState(false);
-  
-
-
+  const [searchParams, setSearchParams] = useSearchParams(); // BA = Brand Ambassader
+  const [university, setUniversity] = useState("")
+  const [universityError, setUniversityError] = useState(false)
 
   const minRef = useRef(null);
 
@@ -93,6 +95,7 @@ const Register = () => {
   const catchError = () => {
     // Check for errors in general fields
     if (department.length === 0) setDepartError(true);
+    if (university.length === 0) setUniversityError(true);
     if (competitions.length === 0) setCompError(true);
     if (teamName.length === 0) setTeamNameError(true);
     if (name.length === 0) setNameError(true);
@@ -128,6 +131,7 @@ const Register = () => {
 
   const confirmInfo = () => {
     setDepartError(false);
+    setUniversityError(false);
     setCompError(false);
     setNameError(false);
     setWhatsappError(false);
@@ -153,6 +157,7 @@ const Register = () => {
     // If any error exists, set the error flag and return
     if (
       departError ||
+      universityError ||
       compError ||
       cnicError ||
       emailError ||
@@ -232,6 +237,66 @@ const Register = () => {
 
   const handleSubmit = async () => {
     setsemaphore(true)
+    
+    // Add checks for university, department, and competitions at the start
+    if (!university) {
+      setUniversityError(true);
+      setIsOpen(false);
+      setsemaphore(false);
+      toast({
+        variant: "destructive",
+        title: "Please select a university",
+      });
+      return;
+    }
+
+    if (!department) {
+      setDepartError(true);
+      setIsOpen(false);
+      setsemaphore(false);
+      toast({
+        variant: "destructive",
+        title: "Please select a department",
+      });
+      return;
+    }
+
+    if (!competitions) {
+      setCompError(true);
+      setIsOpen(false);
+      setsemaphore(false);
+      toast({
+        variant: "destructive",
+        title: "Please select a competition",
+      });
+      return;
+    }
+
+    // Check if team name is already taken
+    if (teamNameAvailableError) {
+      setIsOpen(false);
+      setsemaphore(false);
+      return;
+    }
+
+    // Validate email format
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(emailAddress)) {
+      setEmailError(true);
+      setIsOpen(false);
+      setsemaphore(false);
+      return;
+    }
+
+    // Validate whatsapp number format
+    const whatsappRegex = /^\d{11}$/;
+    if (!whatsappRegex.test(whatsapp)) {
+      setWhatsappError(true);
+      setIsOpen(false);
+      setsemaphore(false);
+      return;
+    }
+
     const filteredMembers = members.map((member) => ({
       isLeader: false,
       name: member.name,
@@ -246,11 +311,11 @@ const Register = () => {
         name: name,
         phone: whatsapp,
         email: emailAddress,
-        cnic: cnicNo,
+        cnic: cnicNo.split('').filter((char) => char !== '-').join(''),
       },
       ...filteredMembers,
     ];
-
+    
     // Ensure the payment image is provided
     if (!file) {
       setFileError(true);
@@ -270,6 +335,7 @@ const Register = () => {
     if (
       departError ||
       compError ||
+      universityError ||
       cnicError ||
       emailError ||
       teamNameError ||
@@ -292,14 +358,15 @@ const Register = () => {
       return;
     }
     setIsErrorPresent(false)
-
     const teamData = {
+      team_id: uuid(),
+      university: university,
       team_name: teamName,
-      isApproved: false, // Always false
+      brand_Ambassador: searchParams.get('ba'),
+      isApproved: "pending",
       member: totalMemberData,
       Registration_time: new Date()
     };
-
 
     const formData = new FormData();
     formData.append("_id", competitionId);
@@ -344,6 +411,7 @@ const Register = () => {
           <RegisterHeading heading="start" textSize="text-[29px] " />
           <div className="absolute left-10 top-[34px] bottom-[4.5rem] sm:bottom-[3.5rem] md:bottom-8 xl:bottom-4 border-l-4 border-dashed border-themeBlue md:left-10" />
           <div className="pl-4">
+            <UniversityDropDown setUniversity={setUniversity} universityError={universityError} />
             <Department setDepartment={setDepartment} departError={departError} />
             <Competitions
               minRef={minRef}
