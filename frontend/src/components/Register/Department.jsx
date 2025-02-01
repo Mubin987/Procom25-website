@@ -71,7 +71,7 @@ const Dropdown = ({ items, defaultValue, setValue, buttonRef }) => {
                 <button
                   key={index}
                   onClick={() => handleItemClick(item)}
-                  className="block px-4 py-2 w-full text-[14px] sm:text-[16px] text-left"
+                  className="block px-4 py-2 w-full text-[14px] sm:text-[16px] text-left hover:bg-white/10"
                   role="menuitem"
                 >
                   {getDepartmentName(item.name)}{" Competitions"}
@@ -110,7 +110,7 @@ const Department = ({ setDepartment, departError }) => {
                 { departError &&
                     <p className="absolute right-0 -bottom-[60%] text-[60%] sm:right-0 md:right-8 sm:-bottom-7 font-bold italic sm:text-base text-red-600">You must select a department!</p>
                 }
-                <RegisterStep step={1} />
+                <RegisterStep step={2} />
             </div>
             <div className="pl-10 bg-[linear-gradient(180deg,_#199DDF_0%,_#145BD5_100%)] bg-clip-text text-transparent font-bold">
                 <p className="text-[13px] sm:text-[0.9rem] max-w-full sm:max-w-[50%] italic font-lemonmilk">

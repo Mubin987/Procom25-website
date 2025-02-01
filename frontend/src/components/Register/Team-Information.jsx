@@ -10,32 +10,30 @@ const TeamInformation = ({ props, members, setMembers, memberCount, minMembers, 
             <div className='relative ml-7 flex flex-col sm:flex-row w-[90%] sm:[95%] md:w-[96%] lg:w-[80%] items-center'>
                 <RegisterHeading heading={"team information"} textSize='text-2xl md:text-[2rem]' className='absolute -top-9 left-2 sm:left-3' />
                 <div className="w-full border-t-4 border-dashed border-themeBlue " />
-                <input
-                    type='text'
-                    placeholder='TEAM NAME *'
-                    
-                    value={props.teamName}
-                    onChange={e => {
-                        setteamNameAvailableError(false)
-                        let teamName = e.target.value;
-                        teamName = teamName.replace(/[<>/'"`?\\]/g, "");
-                        props.setTeamName(teamName);
-                        if (teamName.length === 0) props.setTeamNameError(true);
-                        else props.setTeamNameError(false);
-                    }}
-                    className={`w-full sm:w-[90%] md:w-[88%] lg:w-[70%] mt-3 ml-3 py-3 pl-4 rounded-xl bg-[linear-gradient(90deg,_#FFFFFF_14.9%,_#DCF4FF_100%)] sm:py-2 sm:placeholder:text-xl placeholder:font-bold placeholder-transparent placeholder:bg-gradient-text placeholder:bg-clip-text placeholder:italic shadow-[0px_4px_4px_0px_#00000040]
-                    ${props.teamNameError || teamNameAvailableError ? `mb-1` : `mb-3`}
-                    `}
-                />
-                {props.teamNameError && (
-                    <p className="sm:absolute right-0 -bottom-[60%] text-base sm:right-0 md:right-8 sm:-bottom-7 font-bold italic sm:text-base text-red-600">Please enter your team name.</p>
-                )}
-                {
-                    teamNameAvailableError && (
-                        <p className="absolute right-0 -bottom-[60%] text-[75%] sm:right-0 md:right-8 sm:-bottom-7 font-bold italic sm:text-base text-red-600">Team name already taken.</p>
-                    )
-                }
-                <RegisterStep step={3} />
+                <div className="w-full sm:w-[90%] md:w-[88%] lg:w-[70%] relative">
+                    <input
+                        type='text'
+                        placeholder='TEAM NAME *'
+                        value={props.teamName}
+                        onChange={e => {
+                            setteamNameAvailableError(false)
+                            let teamName = e.target.value;
+                            teamName = teamName.replace(/[<>/'"`?\\]/g, "");
+                            props.setTeamName(teamName);
+                            if (teamName.length === 0) props.setTeamNameError(true);
+                            else props.setTeamNameError(false);
+                        }}
+                        className={`w-full mt-3 ml-3 py-3 pl-4 rounded-xl bg-[linear-gradient(90deg,_#FFFFFF_14.9%,_#DCF4FF_100%)] sm:py-2 sm:placeholder:text-xl placeholder:font-bold placeholder-transparent placeholder:bg-gradient-text placeholder:bg-clip-text placeholder:italic shadow-[0px_4px_4px_0px_#00000040]
+                        ${props.teamNameError || teamNameAvailableError ? `mb-1` : `mb-3`}
+                        `}
+                    />
+                    {(props.teamNameError || teamNameAvailableError) && (
+                        <p className="text-red-600 text-[13px] sm:text-sm font-bold italic absolute left-3">
+                            {props.teamNameError ? "Please enter your team name." : "Team name already taken."}
+                        </p>
+                    )}
+                </div>
+                <RegisterStep step={4} />
             </div>
             <div className="pl-10 bg-[linear-gradient(180deg,_#199DDF_0%,_#145BD5_100%)] bg-clip-text text-transparent font-bold">
                 <p className="text-[13px] sm:text-[0.9rem] max-w-full sm:max-w-[48%] italic">

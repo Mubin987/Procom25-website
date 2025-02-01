@@ -35,7 +35,7 @@ const Competitions = ({
                 { compError &&
                     <p className="absolute right-0 -bottom-[60%] text-[60%] sm:right-0 md:right-8 sm:-bottom-7 font-bold italic sm:text-base text-red-600">You must select a competition!</p>
                 }
-                <RegisterStep step={2} />
+                <RegisterStep step={3} />
             </div>
             <div className="pl-10 bg-[linear-gradient(180deg,_#199DDF_0%,_#145BD5_100%)] bg-clip-text text-transparent font-bold">
                 <p className="text-[13px] sm:text-[0.9rem] max-w-full sm:max-w-[47%] italic">
