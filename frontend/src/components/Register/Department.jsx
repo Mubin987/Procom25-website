@@ -7,6 +7,16 @@ const Dropdown = ({ items, defaultValue, setValue, buttonRef }) => {
     const [isOpen, setIsOpen] = useState(false);
     const [selectedItem, setSelectedItem] = useState(defaultValue);
     const dropdownRef = useRef(null);
+    const [isMobile, setIsMobile] = useState(window.innerWidth < 640);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth < 640);
+        };
+
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
     
     const getDepartmentName = (depart) => {
         if (depart === "CS") return "Computer Science";
@@ -15,12 +25,22 @@ const Dropdown = ({ items, defaultValue, setValue, buttonRef }) => {
         if (depart === "Business") return "Business"
         if (depart === "General") return "General"
         if (depart === "Gaming") return "Gaming"
-
         return depart;
     }
 
+    const truncateText = (text) => {
+        if (isMobile) return text;
+        
+        const maxLength = "Computer Science Competitions".length;
+        if (text.length > maxLength) {
+            return text.substring(0, maxLength - 3) + "...";
+        }
+        return text;
+    };
+
     const handleItemClick = (item) => {
-      setSelectedItem(`${getDepartmentName(item.name)}${" Competitions"}`);
+      const fullText = `${getDepartmentName(item.name)} Competitions`;
+      setSelectedItem(truncateText(fullText));
       setValue(item.name);
       setIsOpen(false);
     };
@@ -43,7 +63,7 @@ const Dropdown = ({ items, defaultValue, setValue, buttonRef }) => {
         <button
           ref={buttonRef}
           onClick={() => setIsOpen((prev) => !prev)}
-          className={`inline-flex justify-between w-full px-4 py-2 mt-2 sm:mt-0 text-[14px] sm:text-[16px] lg:text-[17px] xl:text-[16px] bg-[linear-gradient(90deg,_#1F95ED_0%,_#2169D4_100%)] text-white font-bold ${
+          className={`inline-flex justify-between whitespace-nowrap overflow-hidden text-ellipsis w-full px-4 py-2 mt-2 sm:mt-0 text-[14px] sm:text-[16px] lg:text-[17px] xl:text-[16px] bg-[linear-gradient(90deg,_#1F95ED_0%,_#2169D4_100%)] text-white font-bold ${
             isOpen ? "rounded-t-xl" : "rounded-xl"}`}
         >
           {selectedItem}
@@ -91,7 +111,7 @@ const Department = ({ setDepartment, departError }) => {
         <div className="relative mb-5 mt-20 font-lemonmilk">
             <div className='relative ml-7 flex flex-col sm:flex-row w-[90%] sm:[95%] md:w-[96%] lg:w-[80%] items-center'>
                 <RegisterHeading heading={"department"} textSize='text-2xl md:text-[2rem]' className={`absolute left-2 sm:left-3 
-                ${dropdownRef.current && dropdownRef.current.offsetHeight >= 60 ? `sm:-top-3` : `-top-10 sm:-top-6`}
+                ${dropdownRef.current && dropdownRef.current.offsetHeight >= 60 ? `sm:-top-3` : `-top-10 sm:-top-2`}
                 `} />
                 <div className="w-full border-t-4 border-dashed border-themeBlue " />
                 <Dropdown 

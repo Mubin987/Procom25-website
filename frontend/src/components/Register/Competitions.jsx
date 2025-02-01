@@ -17,7 +17,7 @@ const Competitions = ({
     return (
         <div className="relative mb-5 mt-28 font-lemonmilk">
             <div className='relative ml-7 flex flex-col sm:flex-row w-[90%] sm:[95%] md:w-[96%] lg:w-[80%] items-center'>
-                <RegisterHeading heading={"competitions"} textSize='text-2xl md:text-[2rem]' className='absolute -top-10 sm:-top-6 left-2 sm:left-3' />
+                <RegisterHeading heading={"competitions"} textSize='text-2xl md:text-[2rem]' className='absolute -top-10 sm:-top-2 left-2 sm:left-3' />
                 <div className="w-full border-t-4 border-dashed border-themeBlue " />
                 {fetchedCompetitions && 
                     <Dropdown 

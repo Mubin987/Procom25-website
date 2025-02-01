@@ -8,7 +8,7 @@ const TeamInformation = ({ props, members, setMembers, memberCount, minMembers, 
     return (
         <div className="relative mt-24 font-lemonmilk">
             <div className='relative ml-7 flex flex-col sm:flex-row w-[90%] sm:[95%] md:w-[96%] lg:w-[80%] items-center'>
-                <RegisterHeading heading={"team information"} textSize='text-2xl md:text-[2rem]' className='absolute -top-9 left-2 sm:left-3' />
+                <RegisterHeading heading={"team information"} textSize='text-2xl md:text-[2rem]' className='absolute -top-9 sm:-top-2 left-2 sm:left-3' />
                 <div className="w-full border-t-4 border-dashed border-themeBlue " />
                 <div className="w-full sm:w-[90%] md:w-[88%] lg:w-[70%] relative">
                     <input
