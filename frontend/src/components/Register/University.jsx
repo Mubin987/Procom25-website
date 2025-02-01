@@ -1,6 +1,6 @@
 import RegisterHeading from "../ui/register-headings";
 import RegisterStep from "../ui/register-steps";
-import uniList from './uniData.json';
+import uniList from "../../../public/Data/uniList.json";
 import React, { useEffect, useRef, useState } from "react";
 
 const Dropdown = ({
