@@ -448,6 +448,7 @@ const Register = () => {
             setsemaphore(false)
           }}
           props={{
+            university,
             department,
             competitions,
             teamName,
@@ -458,9 +459,11 @@ const Register = () => {
             referenceCode,
             fileUrl,
             Semaphore,
-            setsemaphore
+            setsemaphore,
+
 
           }}
+          members={members}
         />
         <Note />
       </div>
