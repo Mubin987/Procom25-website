@@ -98,7 +98,7 @@ const Dropdown = forwardRef(({
             <button
               key={index}
               onClick={() => handleItemClick(item)}
-              className="block px-4 py-2 w-full text-[14px] sm:text-[16px] text-left"
+              className="block px-4 py-2 w-full text-[14px] sm:text-[16px] text-left hover:bg-white/10"
               role="menuitem"
             >
               {item.title}

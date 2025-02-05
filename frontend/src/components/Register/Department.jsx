@@ -7,6 +7,16 @@ const Dropdown = ({ items, defaultValue, setValue, buttonRef }) => {
     const [isOpen, setIsOpen] = useState(false);
     const [selectedItem, setSelectedItem] = useState(defaultValue);
     const dropdownRef = useRef(null);
+    const [isMobile, setIsMobile] = useState(window.innerWidth < 640);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth < 640);
+        };
+
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
     
     const getDepartmentName = (depart) => {
         if (depart === "CS") return "Computer Science";
@@ -15,12 +25,22 @@ const Dropdown = ({ items, defaultValue, setValue, buttonRef }) => {
         if (depart === "Business") return "Business"
         if (depart === "General") return "General"
         if (depart === "Gaming") return "Gaming"
-
         return depart;
     }
 
+    const truncateText = (text) => {
+        if (isMobile) return text;
+        
+        const maxLength = "Computer Science Competitions".length;
+        if (text.length > maxLength) {
+            return text.substring(0, maxLength - 3) + "...";
+        }
+        return text;
+    };
+
     const handleItemClick = (item) => {
-      setSelectedItem(`${getDepartmentName(item.name)}${" Competitions"}`);
+      const fullText = `${getDepartmentName(item.name)} Competitions`;
+      setSelectedItem(truncateText(fullText));
       setValue(item.name);
       setIsOpen(false);
     };
@@ -43,7 +63,7 @@ const Dropdown = ({ items, defaultValue, setValue, buttonRef }) => {
         <button
           ref={buttonRef}
           onClick={() => setIsOpen((prev) => !prev)}
-          className={`inline-flex justify-between w-full px-4 py-2 mt-2 sm:mt-0 text-[14px] sm:text-[16px] lg:text-[17px] xl:text-[16px] bg-[linear-gradient(90deg,_#1F95ED_0%,_#2169D4_100%)] text-white font-bold ${
+          className={`inline-flex justify-between whitespace-nowrap overflow-hidden text-ellipsis w-full px-4 py-2 mt-2 sm:mt-0 text-[14px] sm:text-[16px] lg:text-[17px] xl:text-[16px] bg-[linear-gradient(90deg,_#1F95ED_0%,_#2169D4_100%)] text-white font-bold ${
             isOpen ? "rounded-t-xl" : "rounded-xl"}`}
         >
           {selectedItem}
@@ -71,7 +91,7 @@ const Dropdown = ({ items, defaultValue, setValue, buttonRef }) => {
                 <button
                   key={index}
                   onClick={() => handleItemClick(item)}
-                  className="block px-4 py-2 w-full text-[14px] sm:text-[16px] text-left"
+                  className="block px-4 py-2 w-full text-[14px] sm:text-[16px] text-left hover:bg-white/10"
                   role="menuitem"
                 >
                   {getDepartmentName(item.name)}{" Competitions"}
@@ -91,7 +111,7 @@ const Department = ({ setDepartment, departError }) => {
         <div className="relative mb-5 mt-20 font-lemonmilk">
             <div className='relative ml-7 flex flex-col sm:flex-row w-[90%] sm:[95%] md:w-[96%] lg:w-[80%] items-center'>
                 <RegisterHeading heading={"department"} textSize='text-2xl md:text-[2rem]' className={`absolute left-2 sm:left-3 
-                ${dropdownRef.current && dropdownRef.current.offsetHeight >= 60 ? `sm:-top-3` : `-top-10 sm:-top-6`}
+                ${dropdownRef.current && dropdownRef.current.offsetHeight >= 60 ? `sm:-top-3` : `-top-10 sm:-top-2`}
                 `} />
                 <div className="w-full border-t-4 border-dashed border-themeBlue " />
                 <Dropdown 
@@ -110,7 +130,7 @@ const Department = ({ setDepartment, departError }) => {
                 { departError &&
                     <p className="absolute right-0 -bottom-[60%] text-[60%] sm:right-0 md:right-8 sm:-bottom-7 font-bold italic sm:text-base text-red-600">You must select a department!</p>
                 }
-                <RegisterStep step={1} />
+                <RegisterStep step={2} />
             </div>
             <div className="pl-10 bg-[linear-gradient(180deg,_#199DDF_0%,_#145BD5_100%)] bg-clip-text text-transparent font-bold">
                 <p className="text-[13px] sm:text-[0.9rem] max-w-full sm:max-w-[50%] italic font-lemonmilk">
