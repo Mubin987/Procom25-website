@@ -27,7 +27,7 @@ const Hero = ({ pageType, AboutusText }) => {
                       animate={inView ? { opacity: 1, y: 0 }: { opacity: 0, y: 20 }} // Visible state (fully visible and in place)
                       transition={{ duration: 1, ease: "easeOut" }} // Smooth transition
                 >
-                    <h1 className="text-[5vw] sm:text-4xl md:text-[3vw] lg:text-4xl -mb-2 sm:mb-0">{pageType === "Sponsors" ? "SPONSORS OF" : "FAST-NUCES PRESENTS,"}</h1>
+                    <h1 className="text-[5vw] sm:text-4xl md:text-[3vw] lg:text-4xl -mb-2 sm:mb-0">{pageType === "Sponsors" ? "SPONSORS OF" : "Sheikhani Group PRESENTS,"}</h1>
                     <h1 className="text-[14vw] sm:text-[6rem] md:text-[14vw] lg:text-[9rem] leading-[1]">PROCOM'25</h1>
                     <div className='w-full flex justify-end'>
                         <div className='flex flex-col justify-center items-center font-montserrate'>

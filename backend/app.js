@@ -351,7 +351,7 @@ app.get("/trash", (req, res) => {
     db.collection('Trash').find({})
     .toArray()
     .then((trash) => {
-        res.status(201).json(trash);
+        res.status(200).json(trash);
     })
     .catch(() => {
         res.status(500).json({ error: "Could not get the Trashed Items" });
@@ -366,7 +366,7 @@ app.delete("/trash", (req, res) => {
         res.status(200).json(trash);
     })
     .catch(() => {
-        res.status(500).json({ error: "Could not get the sponsors" });
+        res.status(500).json({ error: "Could not clear the trash" });
     });
 })
 

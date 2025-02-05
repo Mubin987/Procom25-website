@@ -6,7 +6,7 @@ const Footer = () => {
     return (
         <footer className='text-sm py-6 bg-[#161616] w-full text-white flex flex-col justify-between mt-auto'>
             <div className='px-8 pt-4'>
-                <img src="/procom25logo.png" alt="PROCOM'25"
+                <img src="https://res.cloudinary.com/drrz1wz3s/image/upload/v1738792106/sheikhani_procom_logo_klfscu.png" alt="PROCOM'25"
                     className='w-full max-w-[200px]'
                 />
             </div>
