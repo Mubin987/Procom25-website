@@ -5,9 +5,9 @@ import { FaInstagram, FaLinkedinIn, FaFacebookF } from "react-icons/fa";
 const Footer = () => {
     return (
         <footer className='text-sm py-6 bg-[#161616] w-full text-white flex flex-col justify-between mt-auto'>
-            <div className='px-8 pt-4'>
-                <img src="https://res.cloudinary.com/drrz1wz3s/image/upload/v1738792106/sheikhani_procom_logo_klfscu.png" alt="PROCOM'25"
-                    className='w-full max-w-[200px]'
+            <div className='px-6 pt-4'>
+                <img src="https://res.cloudinary.com/drrz1wz3s/image/upload/v1738793870/Untitled_design_fx11eg.png" alt="PROCOM'25"
+                    className='w-full max-w-[500px]'
                 />
             </div>
             <div className='flex md:flex-row flex-col justify-between w-full'>
