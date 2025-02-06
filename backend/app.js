@@ -5,6 +5,7 @@ const {connectToDb, getDb} = require('./db');
 const { ObjectId } = require("mongodb");
 const { uploadToS3aws } = require('./s3bucket');
 const {sendEmail} = require('./emailService');
+const {sendEmailVerified} = require('./emailServiceVerified');
 require('dotenv').config();
 
 //init app & middleware
@@ -16,6 +17,7 @@ const upload = multer();
 
 app.use(bodyParser.json())
 app.use(cors()) // Use this after the variable declaration
+
 
 let db
 //db connection
@@ -435,7 +437,7 @@ app.get("/Sponsor_logos", (req, res) => {
 app.patch("/verification/:competitionId/team/:teamName", async (req, res) => {
     try {
         const { competitionId, teamName } = req.params;
-
+        const approvedById = new ObjectId("67a1d1182d3e4d4285cea620");
         const competition = await db.collection('competitions').findOne({ _id: new ObjectId(competitionId) });
 
         if (!competition) {
@@ -443,6 +445,7 @@ app.patch("/verification/:competitionId/team/:teamName", async (req, res) => {
         }
 
         const team = competition.registeredTeams.find(team => team.team_name === teamName);
+        const leaderEmail = team.member.find(member => member.isLeader).email;
 
         if (!team) {
             return res.status(404).json({ error: "Team not found" });
@@ -451,10 +454,20 @@ app.patch("/verification/:competitionId/team/:teamName", async (req, res) => {
         // Update the isApproved field of the matched team
         const result = await db.collection('competitions').updateOne(
             { _id: new ObjectId(competitionId), "registeredTeams.team_name": teamName },
-            { $set: { "registeredTeams.$.isApproved": true } }
+            { $set: { "registeredTeams.$.isApproved": "approved",
+                "registeredTeams.$.collectedBy": "online",
+                "registeredTeams.$.approvedBy": approvedById
+             } },
+            
         );
 
         if (result.modifiedCount > 0) {
+            try {
+                await sendEmailVerified( leaderEmail, teamName);
+                console.log('Verification email sent successfully to '+ leaderEmail + ' from team ' + teamName);
+              } catch (error) {
+                console.error('Error in verification email function:', error);
+              }
             return res.status(200).json({ message: `Team '${teamName}' verified successfully.` });
         } else {
             return res.status(400).json({ error: "Failed to verify team. No changes made." });
