@@ -46,7 +46,7 @@ app.get("/", (req, res)=>{
 
 
 app.get("/competition/:id", (req, res) => {
-    const { id } = req.params; // Destructure id from the request params
+    const { id } = req.params; //Destructure id from the request params
     
     if (!id) {
         return res.status(400).json({ error: "ID is required" });
