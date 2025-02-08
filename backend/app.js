@@ -113,7 +113,7 @@ app.get("/competition", (req, res)=>{
 
 })
 
-app.get("/competitions18022025", (req, res)=>{
+app.get(`/${process.env.API}`, (req, res)=>{
     let competitions = []
 
     db.collection('competitions').find()
