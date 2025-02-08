@@ -1,7 +1,8 @@
 const {MongoClient} = require('mongodb')
+require('dotenv').config();
 
-const uri = "mongodb+srv://Mubin_Director:!mPqLmtT24.ECZb@procom25.omcmh.mongodb.net/procom-25?retryWrites=true&w=majority&appName=procom25&tls=true";
-let dbConnection
+const uri = process.env.MONGODB_URI;
+let dbConnection;
 
 module.exports = {
     connectToDb: (cb)=> {
