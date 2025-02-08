@@ -114,7 +114,7 @@ const Competitions = () => {
         {
             heading: "Business",
             text: "Step into the competitive world of business and entrepreneurship. Solve case studies, pitch groundbreaking ideas, and prove your mettle as a visionary leader.",
-            image: "https://res.cloudinary.com/drrz1wz3s/image/upload/v1738095548/Untitled_design_yqso4v.png",
+            image: "/CompetitionsImages/BUSINESS.png",
             Department: "business",
             category: useRef(null) 
         },
@@ -128,7 +128,7 @@ const Competitions = () => {
         {
             heading: "GAMING",
             text: "Enter the thrilling arena of gaming competitions. From intense esports battles to game design challenges, show off your skills, strategy, and creativity in the ultimate digital playground.",
-            image: "https://res.cloudinary.com/drrz1wz3s/image/upload/v1737569514/gaming_controller_utofcm.png",
+            image: "/CompetitionsImages/GAMING.png",
             link: "/modules",
             Department: "Gaming",
             category: useRef(null) 

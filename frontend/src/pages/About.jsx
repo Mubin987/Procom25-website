@@ -34,7 +34,7 @@ const About_us_text = ()=>{
         PROCOM is a cornerstone of FAST NUCES Karachi's mission to develop and promote tech talent in the country.</p>
     </motion.div>
     <div className="md:w-1/3">
-      <img src="https://res.cloudinary.com/drrz1wz3s/image/upload/v1737406035/uni_u6luqh.jpg" alt="PROCOM '24" className="mx-auto rounded-xl border-themeBlue border-4 shadow-lg h-[450px]" />
+      <img src="uniImage/uni_u6luqh.jpg" alt="PROCOM '24" className="mx-auto rounded-xl border-themeBlue border-4 shadow-lg h-[450px]" />
     </div>
   </div>
   )

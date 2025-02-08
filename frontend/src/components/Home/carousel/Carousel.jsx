@@ -13,13 +13,13 @@ import {
 export function CarouselPlugin() {
 
     const imgs = [
-        "https://res.cloudinary.com/drrz1wz3s/image/upload/v1737394692/3_pyk9bz.png",
-        "https://res.cloudinary.com/drrz1wz3s/image/upload/v1737394967/2_kmcc60.png",
-        "https://res.cloudinary.com/drrz1wz3s/image/upload/v1737394692/4_rfpid1.png",
-        "https://res.cloudinary.com/drrz1wz3s/image/upload/v1737413538/1_gusl7g.png",
-        "https://res.cloudinary.com/drrz1wz3s/image/upload/v1737413538/2_wxcvvp.png",
-        "https://res.cloudinary.com/drrz1wz3s/image/upload/v1737394712/5_cgap9a.png",
-        "https://res.cloudinary.com/drrz1wz3s/image/upload/v1737413538/3_m8ey8p.png"
+        "slider2/3_pyk9bz.png",
+        "slider2/2_kmcc60.png",
+        "slider2/4_rfpid1.png",
+        "slider2/1_gusl7g.png",
+        "slider2/2_wxcvvp.png",
+        "slider2/5_cgap9a.png",
+        "slider2/3_m8ey8p.png"
     ];
 
     const plugin = React.useRef(
