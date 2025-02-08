@@ -21,7 +21,7 @@ const OurLegacy = () => {
             <Heading2 text="PROCOM'24 STATISTICS" />
             <div className='flex flex-wrap gap-4 w-full justify-center items-center my-4 font-lemonmilk'>
                 {[
-                    { text: 'COMPETITIONS', number: '40', extra: '+' },
+                    { text: 'COMPETITIONS', number: '30', extra: '+' },
                     { text: 'PARTNER COMPANIES', number: '45', extra: '+'  },
                     { text: 'PARTICIPANTS', number: '3', extra: 'K+' },
                 ].map((item, index) => (
