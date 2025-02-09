@@ -67,20 +67,20 @@ const Card = ({ title, img, name, className, type }) => {
 export const About_us = () => {
 
   const ExcomList = [
-    { title: "Vice president", name: "Muhammad Mujtaba", imgSrc: "https://res.cloudinary.com/dpjy0sbxe/image/upload/w_350/v1737143264/Muhammad_Mujtaba.png" },
-    { title: "President", name: "Hasnain Raza", imgSrc: "https://res.cloudinary.com/dpjy0sbxe/image/upload/w_350/v1737135696/hasnain_raza.png" },
-    { title: "Vice president", name: "Hussain Malik", imgSrc: "https://res.cloudinary.com/dpjy0sbxe/image/upload/w_350/v1737141256/hussain_malik.png" },
-    { title: "Director Marketing", name: "Sareem Farooqui", imgSrc: "https://res.cloudinary.com/dpjy0sbxe/image/upload/w_350/v1737143339/Sareem_Farooqui.png" },
+    { title: "Vice president", name: "Muhammad Mujtaba", imgSrc: "/ExCom/Muhammad_Mujtaba.png" },
+    { title: "President", name: "Hasnain Raza", imgSrc: "/ExCom/hasnain_raza.png" },
+    { title: "Vice president", name: "Hussain Malik", imgSrc: "/ExCom/hussain_malik.png" },
+    { title: "Director Marketing", name: "Sareem Farooqui", imgSrc: "/ExCom/Sareem_Farooqui.png" },
     { title: "Director Computing", name: "Mubin Farid", imgSrc: "https://res.cloudinary.com/dpjy0sbxe/image/upload/w_350/v1737143320/Mubin_Farid.png" },
-    { title: "Secretary", name: "Muhammad Abdullah", imgSrc: "https://res.cloudinary.com/dpjy0sbxe/image/upload/w_350/v1737141877/Muhammad_Abdullah.png" },
-    { title: "General Secretary", name: "Mehreen Saghar", imgSrc: "https://res.cloudinary.com/dpjy0sbxe/image/upload/w_350/v1737141890/Mehreen_Saghar.png" },
-    { title: "Director Business", name: "Bakhtawar Azhar", imgSrc: "https://res.cloudinary.com/dpjy0sbxe/image/upload/w_350/v1737143278/Bakhtawar_Azhar.png" },
-    { title: "Director Branding", name: "Hasan Iqbal", imgSrc: "https://res.cloudinary.com/dpjy0sbxe/image/upload/w_350/v1737143290/Hasan_Iqbal.png" },
-    { title: "Director GR", name: "Bisma Abid", imgSrc: "https://res.cloudinary.com/dpjy0sbxe/image/upload/w_350/v1737143296/Bisma_Abid.png" },
-    { title: "Director EE", name: "Hammad Rana", imgSrc: "https://res.cloudinary.com/dpjy0sbxe/image/upload/w_350/v1737143310/Hammad_Rana.png" },
-    { title: "Treasurer", name: "Shahmir Raza", imgSrc: "https://res.cloudinary.com/dpjy0sbxe/image/upload/w_350/v1737143351/shahmir%20Raza.png" },
-    { title: "Event Administrator", name: "Usman Nisar", imgSrc: "https://res.cloudinary.com/dpjy0sbxe/image/upload/w_350/v1737143361/Usman_Nisar.png" },
-    { title: "Corporate Affairs", name: "Usman Yameen", imgSrc: "https://res.cloudinary.com/drrz1wz3s/image/upload/w_350/v1737919844/usman_yameen_sftx8b.png" }
+    { title: "Secretary", name: "Muhammad Abdullah", imgSrc: "/ExCom/Muhammad_Abdullah.png" },
+    { title: "General Secretary", name: "Mehreen Saghar", imgSrc: "/ExCom/Mehreen_Saghar.png" },
+    { title: "Director Business", name: "Bakhtawar Azhar", imgSrc: "/ExCom/Bakhtawar_Azhar.png" },
+    { title: "Director Branding", name: "Hasan Iqbal", imgSrc: "/ExCom/Hasan_Iqbal.png" },
+    { title: "Director GR", name: "Bisma Abid", imgSrc: "/ExCom/Bisma_Abid.png" },
+    { title: "Director EE", name: "Hammad Rana", imgSrc: "/ExCom/Hammad_Rana.png" },
+    { title: "Treasurer", name: "Shahmir Raza", imgSrc: "/ExCom/shahmir%20Raza.png" },
+    { title: "Event Administrator", name: "Usman Nisar", imgSrc: "/ExCom/Usman_Nisar.png" },
+    { title: "Corporate Affairs", name: "Usman Yameen", imgSrc: "/ExCom/usman_yameen_sftx8b.png" }
   ]
 
 
