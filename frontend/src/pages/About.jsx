@@ -71,7 +71,7 @@ export const About_us = () => {
     { title: "President", name: "Hasnain Raza", imgSrc: "/ExCom/hasnain_raza.png" },
     { title: "Vice president", name: "Hussain Malik", imgSrc: "/ExCom/hussain_malik.png" },
     { title: "Director Marketing", name: "Sareem Farooqui", imgSrc: "/ExCom/Sareem_Farooqui.png" },
-    { title: "Director Computing", name: "Mubin Farid", imgSrc: "https://res.cloudinary.com/dpjy0sbxe/image/upload/w_350/v1737143320/Mubin_Farid.png" },
+    { title: "Director Computing", name: "Mubin Farid", imgSrc: "/ExCom/Mubin_Farid.png" },
     { title: "Secretary", name: "Muhammad Abdullah", imgSrc: "/ExCom/Muhammad_Abdullah.png" },
     { title: "General Secretary", name: "Mehreen Saghar", imgSrc: "/ExCom/Mehreen_Saghar.png" },
     { title: "Director Business", name: "Bakhtawar Azhar", imgSrc: "/ExCom/Bakhtawar_Azhar.png" },
