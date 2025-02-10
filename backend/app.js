@@ -71,31 +71,6 @@ app.get("/competition/:id", (req, res) => {
 
 
 
-// app.get("/competition/:id", (req, res)=>{
-    
-//     if(ObjectId.isValid(req.params.id)){
-//         db.collection('competitions').findOne({_id: new ObjectId(req.params.id)})
-//         .then((c)=>{
-//             res.status(200).json({oneRecord: c})
-//         })
-//         .catch(()=>{
-//             res.status(500).json({error: "could no fetch the competition"})
-//         })
-
-
-//     }else{
-//         res.status(500).json({error: "id is not valid"})
-
-// }
-// })
-
-
-
-
-
-
-
-
 // get competitions from MongoDB
 app.get("/competition", (req, res)=>{
     let competitions = []
@@ -128,8 +103,6 @@ app.get(`/${process.env.API}`, (req, res)=>{
     })
 
 })
-
-
 
 app.get("/single_module/:id", (req, res)=>{
 
@@ -477,3 +450,6 @@ app.patch("/verification/:competitionId/team/:teamName", async (req, res) => {
         return res.status(500).json({ error: "Internal server error", details: error.message });
     }
 });
+
+
+
