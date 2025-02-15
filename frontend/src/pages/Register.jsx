@@ -11,10 +11,12 @@ import TeamInformation from '@/components/Register/Team-Information';
 import RegisterHeading from '@/components/ui/register-headings';
 import ConfirmDialog from '@/components/Register/ConfirmDataDialog';
 import axios from 'axios'
+import ClosedCard from '@/components/Register/ClosedCard';
 
 import '../index.css';
 import { toast } from '@/hooks/use-toast';
 import UniversityDropDown from '@/components/Register/University';
+import { COUNTDOWN_FROM } from '@/components/Home/Countdown';
 
 const Register = () => {
   const [department, setDepartment] = useState('');
@@ -48,6 +50,8 @@ const Register = () => {
   const [searchParams, setSearchParams] = useSearchParams(); // BA = Brand Ambassader
   const [university, setUniversity] = useState("")
   const [universityError, setUniversityError] = useState(false)
+  const [registrationClosed, setRegistrationClosed] = useState(false)
+  const intervalRef = useRef(null);
 
   const minRef = useRef(null);
 
@@ -180,6 +184,18 @@ const Register = () => {
         setFetchedCompetitions(res.data)
       })
   }
+  useEffect(() => {
+      const handleCountdown = async () => {
+        const date = new Date()
+        const deadline = new Date(COUNTDOWN_FROM)
+        if (date > deadline) 
+          setRegistrationClosed(true)
+        else
+          setRegistrationClosed(false)
+      } 
+      intervalRef.current = setInterval(handleCountdown, 1000);
+      return () => clearInterval(intervalRef.current || undefined);
+  }, []);
 
   useEffect(() => {
     fetchCompetitions();
@@ -406,6 +422,9 @@ const Register = () => {
   return (
     <div className="flex flex-col gap-16">
       <Hero page="Register" />
+      { registrationClosed ? <div className="h-[50vh] flex justify-center items-center">
+        <ClosedCard />
+      </div> :
       <div className="min-h-screen p-4 md:p-6 lg:p-8">
         <form id="procom-25-registration-form" className="mx-auto max-w-5xl relative mt-9">
           <RegisterHeading heading="start" textSize="text-[29px] " />
@@ -466,7 +485,7 @@ const Register = () => {
           members={members}
         />
         <Note />
-      </div>
+      </div>}
     </div>
   );
 };
