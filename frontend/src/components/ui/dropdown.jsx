@@ -29,7 +29,7 @@ const Dropdown = forwardRef(({
             variant: "destructive",
             title: "This competition is full. Choose another one",
           });
-          navigate('/')
+          // navigate('/')
         }
       })
   }
@@ -63,7 +63,6 @@ const Dropdown = forwardRef(({
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
-
   const filteredItems = items.filter(item => item.department === department);
 
   return (

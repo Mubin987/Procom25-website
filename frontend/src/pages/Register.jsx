@@ -179,10 +179,11 @@ const Register = () => {
   };
 
   const fetchCompetitions = async () => {
-    axios.get("https://procom25-server.vercel.app/competition")
+    axios.get("https://procom25-server.vercel.app/competitions-for-registration")
       .then((res) => {
         setFetchedCompetitions(res.data)
       })
+
   }
   useEffect(() => {
       const handleCountdown = async () => {

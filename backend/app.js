@@ -372,6 +372,28 @@ app.get("/sponsors-optimized", (req, res) => {
     });
 });
 
+//--------------------------------------New api for returning only available competitions-------------------------
+
+app.get("/competitions-for-registration", (req, res) => {
+    let competitions = [];
+
+    db.collection('competitions').find({
+        $expr: { $lt: [{ $size: "$registeredTeams" }, "$max_teams"] }
+    }, { projection: { registeredTeams: 0 } })
+    .forEach((competition) => {
+        competitions.push(competition);
+    })
+    .then(() => {
+        res.status(200).json(competitions);
+    })
+    .catch(() => {
+        res.status(500).json({ error: "Could not fetch the competitions" });
+    });
+});
+
+
+
+
 
 
 // ______________________________________SPEAKERS API______________________________________
